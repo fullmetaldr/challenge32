@@ -20,6 +20,9 @@ from challenge32_sync.sync import deck_hash, render_body, synchronize
 class SyncTests(unittest.TestCase):
     def test_identity_and_slug_helpers(self) -> None:
         self.assertEqual(identity_name(["White", "Red", "Green"]), "naya")
+        self.assertEqual(identity_name(["White", "Red"]), "boros")
+        self.assertEqual(identity_name(["White", "Green"]), "selesnya")
+        self.assertEqual(identity_name(["Blue", "Green"]), "simic")
         self.assertEqual(identity_name([]), "colorless")
         self.assertEqual(slugify("Cloud, Midgar Mercenary"), "cloud-midgar-mercenary")
 

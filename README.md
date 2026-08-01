@@ -26,7 +26,7 @@ This table is generated from the tracked deck configurations. Run `challenge32-s
 | Orzhov | Not started | — | — | — |
 | Izzet | Not started | — | — | — |
 | Golgari | Not started | — | — | — |
-| Boros | Not started | — | — | — |
+| Boros | Tracked | [Praise the Sun](decks/boros/praise-the-sun/current.txt) ([source](https://archidekt.com/decks/24888846/praise_the_sun)) | Otharri, Suns' Glory | Unreviewed |
 | Simic | Not started | — | — | — |
 | Esper | Not started | — | — | — |
 | Grixis | Not started | — | — | — |

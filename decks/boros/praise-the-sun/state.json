@@ -1,0 +1,21 @@
+{
+  "card_count": 100,
+  "color_identity": "boros",
+  "current_hash": "sha256:ae4c3757f929c1c12a6daf94b77cfa3ceaba304354f3884ada32f2a35910f7b3",
+  "current_version": "20260801T155300Z--ae4c375",
+  "deck": "praise-the-sun",
+  "display_name": "Praise the Sun",
+  "retrieved_at": "2026-08-01T15:53:00.233536+00:00",
+  "source": "archidekt",
+  "source_metadata": {
+    "card_count": 100,
+    "color_identity": "boros",
+    "deck_id": 24888846,
+    "name": "Praise the Sun",
+    "owner": "DrDaddy83",
+    "private": false,
+    "unlisted": false,
+    "updated_at": "2026-08-01T15:34:24.349203Z"
+  },
+  "url": "https://archidekt.com/decks/24888846/praise_the_sun"
+}

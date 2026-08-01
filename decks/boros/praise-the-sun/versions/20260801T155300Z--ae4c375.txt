@@ -1,0 +1,134 @@
+# Challenge32 synchronized decklist
+# Deck: Praise the Sun
+# Source: archidekt
+# URL: https://archidekt.com/decks/24888846/praise_the_sun
+# Retrieved: 2026-08-01T15:53:00.233536+00:00
+# Version: 20260801T155300Z--ae4c375
+# Deck hash: sha256:ae4c3757f929c1c12a6daf94b77cfa3ceaba304354f3884ada32f2a35910f7b3
+# Cards: 100
+# Generated file; put analysis in notes/.
+// Commander
+1 Otharri, Suns' Glory (onc) 39 #commander
+
+// Creature
+1 Adept Watershaper (ecl) 3 #creature
+1 Raph & Leo, Sibling Rivals (tmt) 166 #creature
+
+// Enchantment
+1 Cool but Rude (tmt) 89 #enchantment
+
+// Land
+1 Battlefield Forge (fic) 375 #land
+1 City of Brass (tmc) 62 #land
+1 Clifftop Retreat (fic) 381 #land
+1 Clive's Hideaway (fin) 275 #land
+1 Command Tower (voc) 172 #land
+1 Exotic Orchard (fic) 390 #land
+1 Fire Nation Palace (tla) 268 #land
+1 Inventors' Fair (eos) 21 #land
+1 Kor Haven (ltc) 368 #land
+1 Mana Confluence (eos) 25 #land
+1 Minas Tirith (ltr) 341 #land
+1 Mines of Moria (ltr) 257 #land
+1 Monumental Henge (mh3) 354 #land
+6 Mountain (fic) 481 #land
+1 Plains (dsk) 272 #land
+1 Plains (eoe) 267 #land
+1 Plains (eoe) 268 #land
+1 Plains (fdn) 282 #land
+1 Plains (fin) 294 #land
+4 Plains (fin) 295 #land
+1 Plains (mh3) 310 #land
+1 Rugged Prairie (fic) 417 #land
+1 Sacred Foundry (eoe) 256 #land
+1 Spectator Seating (cmm) 664 #land
+1 Sunbillow Verge (pdft) 264p #land
+1 Sundown Pass (who) 310 #land
+1 Sunscorched Divide (fic) 433 #land
+
+// Blink
+1 Panharmonicon (pip) 237 #blink
+
+// Burn
+1 Agate Instigator (blc) 21 #burn
+1 Impact Tremors (wot) 44 #burn
+1 Molten Gatekeeper (mh3) 128 #burn
+1 Purphoros, God of the Forge (fca) 14 #burn
+1 Weftstalker Ardent (eoe) 169 #burn
+1 Witty Roastmaster (snc) 131 #burn
+
+// Copy
+1 Firebender Ascension (tla) 312 #copy
+1 Kirol, Attentive First-Year (ecl) 231 #copy
+1 Windcrag Siege (ptdm) 235p #copy
+
+// Counters
+1 Lae'zel, Vlaakith's Champion (clb) 476 #counters
+
+// Draw
+1 Caretaker's Talent (blb) 6 #draw
+1 Enduring Innocence (dsk) 6 #draw
+1 Haliya, Guided by Light (eoe) 19 #draw
+1 Mentor of the Meek (fdn) 578 #draw
+1 Rumor Gatherer (plst) SNC-29 #draw
+1 Tocasia's Welcome (pbro) 30p #draw
+1 Welcoming Vampire (lcc) 140 #draw
+
+// Evasion
+1 Delney, Streetwise Lookout (pmkm) 12p #evasion
+
+// Finisher
+1 Karlach, Fury of Avernus (clb) 507 #finisher
+
+// Lifegain
+1 Ajani's Welcome (m19) 6 #lifegain
+1 Aunt May (spm) 3 #lifegain
+1 Daxos, Blessed by the Sun (mul) 2 #lifegain
+1 Soul Warden (hop) 7 #lifegain
+
+// Protection
+1 Boromir, Warden of the Tower (ltr) 407 #protection
+1 Clever Concealment (fic) 236 #protection
+1 Flare of Fortitude (mh3) 26 #protection
+1 Grand Crescendo (tdc) 118 #protection
+1 Iroas, God of Victory (c16) 205 #protection
+1 Judgment of Alexander (fic) 455 #protection
+1 Reconnaissance (acr) 82 #protection
+1 Redirect Lightning (tla) 151 #protection
+1 Teferi's Protection (sta) 11 #protection
+
+// Ramp
+1 Alchemist's Talent (blc) 22 #ramp
+1 Arcane Signet (tle) 315 #ramp
+1 Boros Signet (tdc) 314 #ramp
+1 Descent into Avernus (clb) 169 #ramp
+1 Fellwar Stone (dmc) 182 #ramp
+1 Generous Plunderer (big) 11 #ramp
+1 Goldspan Dragon (soc) 245 #ramp
+1 Knuckles the Echidna (sld) 2082 #ramp
+1 Mind Stone (fic) 353 #ramp
+1 Monologue Tax (soc) 157 #ramp
+1 Professional Face-Breaker (fic) 296 #ramp
+1 Prosperous Partnership (ncc) 78 #ramp
+1 Rose Room Treasurer (blc) 201 #ramp
+1 Smothering Tithe (wot) 13 #ramp
+1 Sol Ring (slc) 19 #ramp
+1 Talisman of Conviction (fic) 363 #ramp
+
+// Removal
+1 Chaos Warp (fic) 291 #removal
+1 Darksteel Mutation (cmm) 623 #removal
+1 Grasp of Fate (wot) 3 #removal
+1 Path to Exile (sld) 2227 #removal
+1 Stroke of Midnight (tdc) 132 #removal
+
+// Stax
+1 Elesh Norn, Mother of Machines (one) 10 #stax
+
+// Tokens
+1 Anim Pakal, Thousandth Moon (lci) 223 #tokens
+1 Anointed Procession (akh) 2 #tokens
+1 Champions from Beyond (fic) 11 #tokens
+1 Mondrak, Glory Dominus (one) 23 #tokens
+1 Ocelot Pride (pmh3) 38p #tokens
+1 Voice of Victory (tdm) 331 #tokens
