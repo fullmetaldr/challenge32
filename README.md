@@ -120,3 +120,15 @@ deck_hash: sha256:...
 ```
 
 The synchronizer never rewrites analysis prose.
+
+## Dashboard
+
+Build the static dashboard locally from the tracked deck directories:
+
+```bash
+challenge32-sync dashboard
+python -m http.server 8000 --directory site
+```
+
+Then open `http://localhost:8000`. The dashboard is generated automatically for
+GitHub Pages whenever the repository's `main` branch changes.

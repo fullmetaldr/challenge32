@@ -5,7 +5,7 @@ from typing import Iterable
 
 import mtg_parser
 
-from .colors import IDENTITY_NAMES
+from .colors import IDENTITY_NAMES, display_identity
 from .config import discover_decks
 from .models import DeckConfig
 
@@ -15,15 +15,7 @@ TABLE_END_HEADING = "## Current synchronizer"
 
 
 def _display_identity(identity: str) -> str:
-    special_names = {
-        "five-color": "Five-color",
-        "yore-tiller": "Yore-Tiller",
-        "witch-maw": "Witch-Maw",
-        "ink-treader": "Ink-Treader",
-        "dune-brood": "Dune-Brood",
-        "glint-eye": "Glint-Eye",
-    }
-    return special_names.get(identity, identity.replace("-", " ").title())
+    return display_identity(identity)
 
 
 def _commander(config: DeckConfig) -> str:

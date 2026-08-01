@@ -51,6 +51,15 @@ IDENTITY_NAMES = {
     "WUBRG": "five-color",
 }
 
+DISPLAY_NAMES = {
+    "five-color": "Five-color",
+    "yore-tiller": "Yore-Tiller",
+    "witch-maw": "Witch-Maw",
+    "ink-treader": "Ink-Treader",
+    "dune-brood": "Dune-Brood",
+    "glint-eye": "Glint-Eye",
+}
+
 COLOR_ORDER = {color: index for index, color in enumerate("WUBRG")}
 
 
@@ -66,3 +75,7 @@ def color_codes(values: Iterable[str]) -> str:
 def identity_name(values: Iterable[str]) -> str | None:
     codes = color_codes(values)
     return IDENTITY_NAMES.get(codes)
+
+
+def display_identity(identity: str) -> str:
+    return DISPLAY_NAMES.get(identity, identity.replace("-", " ").title())

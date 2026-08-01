@@ -18,3 +18,5 @@ challenge32-sync = "challenge32_sync.cli:main"
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.package-data]
+challenge32_sync = ["templates/*"]

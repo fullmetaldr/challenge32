@@ -11,6 +11,7 @@ from mtg_parser.card import Card
 from challenge32_sync.archidekt import ArchidektClient
 from challenge32_sync.cli import slugify
 from challenge32_sync.colors import identity_name
+from challenge32_sync.dashboard import build_dashboard
 from challenge32_sync.models import DeckConfig
 from challenge32_sync.progress import update_progress_table
 from challenge32_sync.sync import deck_hash, render_body, synchronize
@@ -104,6 +105,39 @@ class SyncTests(unittest.TestCase):
             self.assertEqual(count, 1)
             self.assertIn("| Jeskai | Tracked | [Walk this plane!]", updated)
             self.assertIn("| Yore-Tiller | Not started |", updated)
+
+    def test_dashboard_builds_data_and_copies_deck_files(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            decks_root = root / "decks"
+            directory = decks_root / "jeskai" / "walk-this-plane"
+            directory.mkdir(parents=True)
+            (directory / "deck.toml").write_text(
+                '\n'.join(
+                    [
+                        'slug = "walk-this-plane"',
+                        'display_name = "Walk this plane!"',
+                        'source = "archidekt"',
+                        'url = "https://archidekt.com/decks/1/walk_this_plane"',
+                        'color_identity = "jeskai"',
+                        '',
+                    ]
+                ),
+                encoding="utf-8",
+            )
+            (directory / "current.txt").write_text(
+                "// Commander\n1 Commodore Guff #commander\n\n// Artifact\n1 Sol Ring #artifact\n",
+                encoding="utf-8",
+            )
+            output = root / "site"
+            count = build_dashboard(decks_root, output)
+            data = json.loads((output / "data.json").read_text(encoding="utf-8"))
+            jeskai = next(item for item in data["identities"] if item["key"] == "jeskai")
+            self.assertEqual(count, 1)
+            self.assertEqual(jeskai["decks"][0]["commander"], ["Commodore Guff"])
+            self.assertTrue((output / "index.html").exists())
+            self.assertTrue((output / "assets" / "app.js").exists())
+            self.assertTrue((output / "decks" / "jeskai" / "walk-this-plane" / "current.txt").exists())
 
 
 if __name__ == "__main__":

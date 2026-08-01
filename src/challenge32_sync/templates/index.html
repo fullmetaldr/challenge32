@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Challenge32 Dashboard</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="hero"><div class="wrap hero-inner">
+    <div><p class="eyebrow">Magic: The Gathering · Commander</p><h1>Challenge<span>32</span></h1><p class="subtitle">A living map of the decks covering every colour identity.</p></div>
+    <a href="https://github.com/fullmetaldr/challenge32">View repository ↗</a>
+  </div></header>
+  <main class="wrap">
+    <section class="summary">
+      <article class="metric featured"><small>Challenge coverage</small><strong id="coverage">—</strong><span id="coverage-detail">Loading…</span><i><b id="coverage-bar"></b></i></article>
+      <article class="metric"><small>Tracked decks</small><strong id="deck-count">—</strong><span>Across all identities</span></article>
+      <article class="metric"><small>Analysis queue</small><strong id="analysis-count">—</strong><span>Decks needing review</span></article>
+    </section>
+    <section class="panel"><div class="heading"><div><p class="eyebrow">The challenge map</p><h2>Colour identities</h2></div><span class="legend">● Tracked &nbsp; ○ Not started</span></div><div id="identity-grid" class="grid"></div></section>
+    <section id="deck-panel" class="panel deck-panel" hidden><div class="heading"><div><p class="eyebrow">Selected deck</p><h2 id="deck-heading"></h2></div><button id="close-deck">Close</button></div><div id="deck-details"></div></section>
+  </main>
+  <footer class="wrap"><span id="generated-at">Generated from the deck directories.</span><a href="https://github.com/fullmetaldr/challenge32">Challenge32 on GitHub ↗</a></footer>
+  <script type="module" src="assets/app.js"></script>
+</body>
+</html>

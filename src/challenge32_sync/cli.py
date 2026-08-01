@@ -9,6 +9,7 @@ from pathlib import Path
 
 from .archidekt import ArchidektError, ArchidektClient, fetch_cards
 from .config import discover_decks, select_deck
+from .dashboard import build_dashboard
 from .models import DeckConfig
 from .progress import update_progress_table
 from .sync import synchronize
@@ -33,6 +34,10 @@ def build_parser() -> argparse.ArgumentParser:
     progress_parser = subparsers.add_parser("progress", help="Refresh the README progress table")
     progress_parser.add_argument("--root", type=Path, default=Path("decks"), help="Deck root (default: decks)")
     progress_parser.add_argument("--readme", type=Path, default=Path("README.md"), help="README path (default: README.md)")
+
+    dashboard_parser = subparsers.add_parser("dashboard", help="Build the static dashboard")
+    dashboard_parser.add_argument("--root", type=Path, default=Path("decks"), help="Deck root (default: decks)")
+    dashboard_parser.add_argument("--output", type=Path, default=Path("site"), help="Output directory (default: site)")
     return parser
 
 
@@ -111,6 +116,15 @@ def main(argv: list[str] | None = None) -> int:
         try:
             count = update_progress_table(args.readme, args.root)
             print(f"Updated {args.readme} from {count} tracked deck configuration(s)")
+            return 0
+        except (FileNotFoundError, OSError, ValueError) as exc:
+            print(f"error: {exc}")
+            return 1
+
+    if args.command == "dashboard":
+        try:
+            count = build_dashboard(args.root, args.output)
+            print(f"Built dashboard for {count} tracked deck configuration(s) in {args.output}")
             return 0
         except (FileNotFoundError, OSError, ValueError) as exc:
             print(f"error: {exc}")
