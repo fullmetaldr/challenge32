@@ -19,9 +19,9 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install .
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
       - run: challenge32-sync dashboard --output site
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: site
 
@@ -32,5 +32,5 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/deploy-pages@v4
+      - uses: actions/deploy-pages@v5
         id: deployment
