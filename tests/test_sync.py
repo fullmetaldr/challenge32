@@ -12,6 +12,7 @@ from challenge32_sync.archidekt import ArchidektClient
 from challenge32_sync.cli import slugify
 from challenge32_sync.colors import identity_name
 from challenge32_sync.models import DeckConfig
+from challenge32_sync.progress import update_progress_table
 from challenge32_sync.sync import deck_hash, render_body, synchronize
 
 
@@ -70,6 +71,39 @@ class SyncTests(unittest.TestCase):
             state = json.loads((directory / "state.json").read_text(encoding="utf-8"))
             self.assertEqual(state["current_version"], first["version"])
             self.assertTrue((directory / "notes" / "status.md").exists())
+
+    def test_progress_refresh_reads_existing_decks(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            decks_root = root / "decks"
+            directory = decks_root / "jeskai" / "walk-this-plane"
+            directory.mkdir(parents=True)
+            (directory / "deck.toml").write_text(
+                '\n'.join(
+                    [
+                        'slug = "walk-this-plane"',
+                        'display_name = "Walk this plane!"',
+                        'source = "archidekt"',
+                        'url = "https://archidekt.com/decks/1/walk_this_plane"',
+                        'color_identity = "jeskai"',
+                        '',
+                    ]
+                ),
+                encoding="utf-8",
+            )
+            (directory / "current.txt").write_text(
+                "// Commander\n1 Commodore Guff #commander\n", encoding="utf-8"
+            )
+            readme = root / "README.md"
+            readme.write_text(
+                "# Challenge32\n\n## Challenge progress\n\nold table\n\n## Current synchronizer\n",
+                encoding="utf-8",
+            )
+            count = update_progress_table(readme, decks_root)
+            updated = readme.read_text(encoding="utf-8")
+            self.assertEqual(count, 1)
+            self.assertIn("| Jeskai | Tracked | [Walk this plane!]", updated)
+            self.assertIn("| Yore-Tiller | Not started |", updated)
 
 
 if __name__ == "__main__":

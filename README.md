@@ -8,7 +8,7 @@ retrieved decklists, immutable snapshots, and analysis history.
 
 ## Challenge progress
 
-This table is intentionally maintained manually for now.
+This table is generated from the tracked deck configurations. Run `challenge32-sync progress` to refresh it manually; `challenge32-sync add` refreshes it automatically after adding a deck.
 
 | Colour identity | Status | Deck | Commander | Analysis |
 |---|---|---|---|---|
@@ -35,7 +35,7 @@ This table is intentionally maintained manually for now.
 | Bant | Not started | — | — | — |
 | Abzan | Not started | — | — | — |
 | Temur | Not started | — | — | — |
-| Jeskai | Not started | — | — | — |
+| Jeskai | Tracked | [Walk this plane!](decks/jeskai/walk-this-plane/current.txt) ([source](https://archidekt.com/decks/24884017/walk_this_plane)) | Commodore Guff | Unreviewed |
 | Sultai | Not started | — | — | — |
 | Mardu | Not started | — | — | — |
 | Yore-Tiller | Not started | — | — | — |

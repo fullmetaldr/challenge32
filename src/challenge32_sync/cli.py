@@ -10,6 +10,7 @@ from pathlib import Path
 from .archidekt import ArchidektError, ArchidektClient, fetch_cards
 from .config import discover_decks, select_deck
 from .models import DeckConfig
+from .progress import update_progress_table
 from .sync import synchronize
 
 
@@ -28,6 +29,10 @@ def build_parser() -> argparse.ArgumentParser:
     add_parser.add_argument("url", help="Public Archidekt deck URL")
     add_parser.add_argument("--root", type=Path, default=Path("decks"), help="Deck root (default: decks)")
     add_parser.add_argument("--dry-run", action="store_true", help="Fetch and show the destination without writing files")
+
+    progress_parser = subparsers.add_parser("progress", help="Refresh the README progress table")
+    progress_parser.add_argument("--root", type=Path, default=Path("decks"), help="Deck root (default: decks)")
+    progress_parser.add_argument("--readme", type=Path, default=Path("README.md"), help="README path (default: README.md)")
     return parser
 
 
@@ -87,6 +92,8 @@ def add_deck(args: argparse.Namespace) -> int:
         return 0
 
     write_deck_config(config)
+    if args.root.resolve().is_relative_to(Path.cwd().resolve()):
+        update_progress_table(Path("README.md"), args.root)
     print(f"Created version: {result['version']}")
     return 0
 
@@ -97,6 +104,15 @@ def main(argv: list[str] | None = None) -> int:
         try:
             return add_deck(args)
         except (ArchidektError, FileNotFoundError, OSError, ValueError) as exc:
+            print(f"error: {exc}")
+            return 1
+
+    if args.command == "progress":
+        try:
+            count = update_progress_table(args.readme, args.root)
+            print(f"Updated {args.readme} from {count} tracked deck configuration(s)")
+            return 0
+        except (FileNotFoundError, OSError, ValueError) as exc:
             print(f"error: {exc}")
             return 1
 
