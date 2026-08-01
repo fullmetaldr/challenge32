@@ -9,11 +9,18 @@ from pathlib import Path
 from mtg_parser.card import Card
 
 from challenge32_sync.archidekt import ArchidektClient
+from challenge32_sync.cli import slugify
+from challenge32_sync.colors import identity_name
 from challenge32_sync.models import DeckConfig
 from challenge32_sync.sync import deck_hash, render_body, synchronize
 
 
 class SyncTests(unittest.TestCase):
+    def test_identity_and_slug_helpers(self) -> None:
+        self.assertEqual(identity_name(["White", "Red", "Green"]), "naya")
+        self.assertEqual(identity_name([]), "colorless")
+        self.assertEqual(slugify("Cloud, Midgar Mercenary"), "cloud-midgar-mercenary")
+
     def test_archidekt_payload_transform(self) -> None:
         payload = ArchidektClient._as_mtg_parser_payload(
             {
@@ -67,4 +74,3 @@ class SyncTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

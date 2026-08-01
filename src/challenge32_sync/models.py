@@ -28,6 +28,7 @@ class DeckMetadata:
     unlisted: bool | None
     updated_at: str | None
     card_count: int
+    color_identity: str | None = None
 
 
 def config_from_toml(directory: Path, raw: dict[str, Any]) -> DeckConfig:
@@ -50,4 +51,3 @@ def config_from_toml(directory: Path, raw: dict[str, Any]) -> DeckConfig:
         url=str(raw["url"]),
         color_identity=str(raw["color_identity"]),
     )
-

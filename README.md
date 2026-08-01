@@ -48,6 +48,21 @@ Synchronize all configured decks:
 challenge32-sync sync --all
 ```
 
+Add a new public Archidekt deck directly from its URL. The command fetches the
+deck before writing anything, infers the deck name and Commander colour
+identity, creates the correct directory and `deck.toml`, and performs the
+initial synchronization:
+
+```bash
+challenge32-sync add https://archidekt.com/decks/<deck-id>/<deck-name>
+```
+
+Preview the inferred destination without writing files:
+
+```bash
+challenge32-sync add https://archidekt.com/decks/<deck-id>/<deck-name> --dry-run
+```
+
 Preview a synchronization without writing files:
 
 ```bash
@@ -66,4 +81,3 @@ deck_hash: sha256:...
 ```
 
 The synchronizer never rewrites analysis prose.
-

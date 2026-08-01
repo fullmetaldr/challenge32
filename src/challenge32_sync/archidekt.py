@@ -11,6 +11,7 @@ import httpx
 import mtg_parser
 
 from .models import DeckMetadata
+from .colors import identity_name
 
 
 class ArchidektError(RuntimeError):
@@ -98,8 +99,21 @@ class ArchidektClient:
             unlisted=deck.get("unlisted"),
             updated_at=str(deck.get("updatedAt")) if deck.get("updatedAt") else None,
             card_count=sum(int(card.get("qty", 0)) for card in deck["cardMap"].values()),
+            color_identity=self._deck_color_identity(deck),
         )
         return JsonResponse(self._as_mtg_parser_payload(deck))
+
+    @staticmethod
+    def _deck_color_identity(deck: dict[str, Any]) -> str | None:
+        commander_cards = [
+            card
+            for card in deck.get("cardMap", {}).values()
+            if any(str(category).lower() == "commander" for category in card.get("categories", []))
+        ]
+        values = []
+        for card in commander_cards:
+            values.extend(card.get("colorIdentity") or [])
+        return identity_name(values)
 
     @staticmethod
     def _as_mtg_parser_payload(deck: dict[str, Any]) -> dict[str, Any]:
@@ -137,4 +151,3 @@ def fetch_cards(url: str, client: ArchidektClient) -> tuple[list[Any], DeckMetad
     if not cards:
         raise ArchidektError(f"mtg_parser returned no cards for {url}")
     return cards, client.last_metadata
-

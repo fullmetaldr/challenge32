@@ -1,0 +1,125 @@
+# Challenge32 synchronized decklist
+# Deck: Walk this plane!
+# Source: archidekt
+# URL: https://archidekt.com/decks/24884017/walk_this_plane
+# Retrieved: 2026-08-01T09:13:02.873595+00:00
+# Version: 20260801T091302Z--2131d94
+# Deck hash: sha256:2131d94c60d98f465317fb7ba414dd4b144198e4571d6a94b4e523f6bed6fc9e
+# Cards: 100
+# Generated file; put analysis in notes/.
+// Commander
+1 Commodore Guff (cmm) 706 #commander
+
+// Land
+1 Arid Mesa (spg) 109 #land
+1 Cascade Bluffs (cmm) 990 #land
+1 City of Brass (tmc) 62 #land
+1 Command Tower (cmm) 420 #land
+1 Exotic Orchard (cmm) 993 #land
+1 Flooded Strand (mh3) 464 #land
+1 Forge of Heroes (cmm) 995 #land
+1 Gemstone Mine (dmr) 455 #land
+1 Hallowed Fountain (clu) 277 #land
+1 Interplanar Beacon (cmm) 1004 #land
+2 Island (cmm) 788 #land
+2 Island (cmm) 790 #land
+1 Karn's Bastion (cmm) 1007 #land
+2 Mountain (cmm) 794 #land
+2 Mountain (cmm) 795 #land
+1 Mystic Gate (cmm) 1013 #land
+3 Plains (cmm) 785 #land
+2 Plains (cmm) 787 #land
+1 Prairie Stream (cmm) 1020 #land
+1 Raugrin Triome (prm) 80943 #land
+1 Reliquary Tower (cmm) 425 #land
+1 Rugged Prairie (cmm) 1022 #land
+1 Sacred Foundry (gtc) 245 #land
+1 Scalding Tarn (spg) 112 #land
+1 Sea of Clouds (plst) BBD-84 #land
+1 Skycloud Expanse (cmm) 1035 #land
+1 Spectator Seating (cmm) 664 #land
+1 Steam Vents (pecl) 267p #land
+1 Training Center (cmm) 665 #land
+1 Turbulent Springs (soc) 105 #land
+1 Turbulent Steppe (soc) 106 #land
+
+// Blink
+1 Oath of Teferi (cmm) 934 #blink
+
+// Burn
+1 Chandra, Awakened Inferno (cmm) 875 #burn
+1 Chandra, Fire of Kaladesh // Chandra, Roaring Flame (plst) ORI-135 #burn
+
+// Copy
+1 Leori, Sparktouched Hunter (cmm) 709 #copy
+1 Rings of Brighthearth (cmr) 335 #copy
+1 Rowan's Talent (moc) 85 #copy
+1 Spark Double (war) 68 #copy
+
+// Counters
+1 Elspeth Resplendent (snc) 282 #counters
+1 Lae'zel, Vlaakith's Champion (clb) 476 #counters
+
+// Draw
+1 Chandra's Regulator (m20) 131 #draw
+1 Chandra, Fire Artisan (war) 119 #draw
+1 Dovin, Grand Arbiter (voc) 153 #draw
+1 Jace Beleren (cmm) 850 #draw
+1 Jace, Unraveler of Secrets (inr) 70 #draw
+1 Mila, Crafty Companion // Lukka, Wayward Bonder (plst) STX-153 #draw
+1 Narset Transcendent (dtk) 225 #draw
+1 Narset, Parter of Veils (cmm) 853 #draw
+1 Oath of Jace (cmm) 854 #draw
+1 Teyo, Geometric Tactician (cmm) 725 #draw
+1 Urza Assembles the Titans (dmu) 37 #draw
+
+// Proliferate
+1 Deepglow Skate (cmm) 844 #proliferate
+1 Flux Channeler (plst) WAR-52 #proliferate
+1 Grateful Apparition (cmm) 824 #proliferate
+1 Ichormoon Gauntlet (one) 56 #proliferate
+1 Teferi's Talent (moc) 74 #proliferate
+1 Tekuthal, Inquiry Dominus (eoc) 78 #proliferate
+1 The Chain Veil (cmm) 943 #proliferate
+1 Thrummingbird (cmm) 858 #proliferate
+
+// Protection
+1 Archangel of Tithes (potj) 2p #protection
+1 Baird, Steward of Argive (plst) DOM-4 #protection
+1 Kazuul, Tyrant of the Cliffs (scd) 148 #protection
+1 Norn's Annex (cmm) 829 #protection
+1 Onakke Oathkeeper (cmm) 722 #protection
+1 Pramikon, Sky Rampart (c19) 47 #protection
+1 Ripples of Potential (eoc) 77 #protection
+1 Semester's End (stx) 27 #protection
+
+// Ramp
+1 Arcane Signet (cmm) 367 #ramp
+1 Chandra, Bold Pyromancer (dom) 275 #ramp
+1 Chandra, Legacy of Fire (cmm) 735 #ramp
+1 Chandra, Torch of Defiance (cmm) 876 #ramp
+1 Fellwar Stone (cmm) 382 #ramp
+1 Honor-Worn Shaku (cmm) 954 #ramp
+1 Narset of the Ancient Way (cmm) 930 #ramp
+1 Sol Ring (cmm) 410 #ramp
+1 Talisman of Conviction (cmm) 978 #ramp
+1 Talisman of Creativity (cmm) 979 #ramp
+1 Talisman of Progress (cmm) 980 #ramp
+
+// Removal
+1 All Will Be One (pza) 8 #removal
+1 Blasphemous Act (cmm) 872 #removal
+1 Path to Exile (cmm) 49 #removal
+1 Promise of Loyalty (cmm) 833 #removal
+1 The Battle of Bywater (ltr) 2 #removal
+1 The Wanderer (war) 37 #removal
+1 Urza's Ruinous Blast (cmm) 842 #removal
+1 Wrath of God (dmr) 416 #removal
+
+// Tokens
+1 Archangel Elspeth (mom) 320 #tokens
+1 Elspeth Tirel (onc) 64 #tokens
+1 Elspeth's Talent (moc) 80 #tokens
+1 Elspeth, Knight-Errant (sld) 1001 #tokens
+1 Elspeth, Storm Slayer (tdm) 401 #tokens
+1 Elspeth, Sun's Champion (cmm) 820 #tokens
