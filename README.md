@@ -6,6 +6,45 @@ each of Magic: The Gathering's 32 colour identities.
 The deckbuilding source of truth is the deck-hosting service. Git records the
 retrieved decklists, immutable snapshots, and analysis history.
 
+## Challenge progress
+
+This table is intentionally maintained manually for now.
+
+| Colour identity | Status | Deck | Commander | Analysis |
+|---|---|---|---|---|
+| Colorless | Not started | — | — | — |
+| White | Not started | — | — | — |
+| Blue | Not started | — | — | — |
+| Black | Not started | — | — | — |
+| Red | Not started | — | — | — |
+| Green | Not started | — | — | — |
+| Azorius | Not started | — | — | — |
+| Dimir | Not started | — | — | — |
+| Rakdos | Not started | — | — | — |
+| Gruul | Not started | — | — | — |
+| Selesnya | Not started | — | — | — |
+| Orzhov | Not started | — | — | — |
+| Izzet | Not started | — | — | — |
+| Golgari | Not started | — | — | — |
+| Boros | Not started | — | — | — |
+| Simic | Not started | — | — | — |
+| Esper | Not started | — | — | — |
+| Grixis | Not started | — | — | — |
+| Jund | Not started | — | — | — |
+| Naya | Tracked | [Omnislash](decks/naya/omnislash/current.txt) ([source](https://archidekt.com/decks/15661283/omnislash)) | Cloud, Ex-SOLDIER | Unreviewed |
+| Bant | Not started | — | — | — |
+| Abzan | Not started | — | — | — |
+| Temur | Not started | — | — | — |
+| Jeskai | Not started | — | — | — |
+| Sultai | Not started | — | — | — |
+| Mardu | Not started | — | — | — |
+| Yore-Tiller | Not started | — | — | — |
+| Witch-Maw | Not started | — | — | — |
+| Ink-Treader | Not started | — | — | — |
+| Dune-Brood | Not started | — | — | — |
+| Glint-Eye | Not started | — | — | — |
+| Five-color | Tracked | [The Avatar Cycle](decks/five-color/the-avatar-cycle/current.txt) ([source](https://archidekt.com/decks/24884384/the_avatar_cycle)) | Avatar Aang // Aang, Master of Elements | Unreviewed |
+
 ## Current synchronizer
 
 The first provider is Archidekt. Public deck pages are fetched at a low rate;

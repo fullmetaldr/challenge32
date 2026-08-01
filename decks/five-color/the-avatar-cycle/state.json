@@ -1,0 +1,21 @@
+{
+  "card_count": 100,
+  "color_identity": "five-color",
+  "current_hash": "sha256:a9aa586a28599c1aa7e865e57df1b4ecc30f3ef48e62f3ac42c6e2b2e99655ea",
+  "current_version": "20260801T093840Z--a9aa586",
+  "deck": "the-avatar-cycle",
+  "display_name": "The Avatar Cycle",
+  "retrieved_at": "2026-08-01T09:38:40.597129+00:00",
+  "source": "archidekt",
+  "source_metadata": {
+    "card_count": 100,
+    "color_identity": "five-color",
+    "deck_id": 24884384,
+    "name": "The Avatar Cycle",
+    "owner": "DrDaddy83",
+    "private": false,
+    "unlisted": false,
+    "updated_at": "2026-08-01T09:38:03.997616Z"
+  },
+  "url": "https://archidekt.com/decks/24884384/the_avatar_cycle"
+}

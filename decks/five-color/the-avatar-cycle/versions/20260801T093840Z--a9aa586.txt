@@ -1,0 +1,133 @@
+# Challenge32 synchronized decklist
+# Deck: The Avatar Cycle
+# Source: archidekt
+# URL: https://archidekt.com/decks/24884384/the_avatar_cycle
+# Retrieved: 2026-08-01T09:38:40.597129+00:00
+# Version: 20260801T093840Z--a9aa586
+# Deck hash: sha256:a9aa586a28599c1aa7e865e57df1b4ecc30f3ef48e62f3ac42c6e2b2e99655ea
+# Cards: 100
+# Generated file; put analysis in notes/.
+// Commander
+1 Avatar Aang // Aang, Master of Elements (tla) 308 #commander
+
+// Land
+1 Abandoned Air Temple (tla) 263 #land
+1 Agna Qel'a (tla) 264 #land
+1 Airship Engine Room (tla) 265 #land
+1 Boiling Rock Prison (tla) 267 #land
+1 Crystal Quarry (eos) 10 #land
+1 Fire Nation Palace (tla) 268 #land
+1 Foggy Bottom Swamp (tla) 269 #land
+2 Forest (tla) 291 #land
+2 Island (tla) 288 #land
+1 Jasmine Dragon Tea Shop (tla) 270 #land
+1 Kyoshi Village (tla) 271 #land
+1 Meditation Pools (tla) 272 #land
+1 Misty Palms Oasis (tla) 273 #land
+2 Mountain (tla) 290 #land
+1 North Pole Gates (tla) 274 #land
+1 Omashu City (tla) 275 #land
+2 Plains (tla) 287 #land
+1 Rumble Arena (tla) 277 #land
+1 Secret Tunnel (tla) 278 #land
+1 Serpent's Pass (tla) 279 #land
+1 Starting Town (fin) 289 #land
+1 Sun-Blessed Peak (tla) 280 #land
+2 Swamp (tla) 289 #land
+1 The World Tree (khm) 275 #land
+1 Thriving Bluff (tle) 260 #land
+1 Thriving Grove (tle) 261 #land
+1 Thriving Isle (tle) 263 #land
+1 Thriving Moor (tle) 264 #land
+1 White Lotus Hideout (tla) 281 #land
+
+// Anthem
+1 Sokka's Charge (tle) 66 #anthem
+1 Suki, Kyoshi Captain (tle) 85 #anthem
+1 Toph, Greatest Earthbender (tle) 70 #anthem
+
+// Blink
+1 Aang, the Last Airbender (tla) 4 #blink
+1 Airbender Ascension (tla) 6 #blink
+1 Appa, Loyal Sky Bison (tla) 9 #blink
+
+// Copy
+1 Isochron Scepter (slc) 9 #copy
+1 Katara, the Fearless (tla) 305 #copy
+
+// Counters
+1 Earthen Ally (tla) 177 #counters
+1 Fire Lord Zuko (tla) 221 #counters
+1 Haru, Hidden Talent (tla) 182 #counters
+1 Toph, the First Metalbender (tla) 353 #counters
+
+// Drain
+1 Kalastria Healer (bfz) 114 #drain
+
+// Draw
+1 Aang, at the Crossroads // Aang, Destined Savior (tla) 304 #draw
+1 Accumulate Wisdom (tla) 44 #draw
+1 Energybending (tla) 2 #draw
+1 Katara, Bending Prodigy (tla) 59 #draw
+1 Katara, Waterbending Master (tle) 93 #draw
+1 Mystic Remora (tle) 16 #draw
+1 Seismic Sense (tla) 195 #draw
+1 Spirit Water Revival (tla) 73 #draw
+1 The Legend of Kuruk // Avatar Kuruk (tla) 355 #draw
+1 The Legend of Kyoshi // Avatar Kyoshi (tla) 186 #draw
+1 The Legend of Roku // Avatar Roku (tla) 145 #draw
+1 Waterbender Ascension (tla) 79 #draw
+1 Whirlwind Technique (tle) 100 #draw
+
+// Finisher
+1 Bumi, Unleashed (tla) 211 #finisher
+
+// Protection
+1 Appa, Steadfast Guardian (tla) 10 #protection
+1 Earthshape (tle) 67 #protection
+1 Enter the Avatar State (tla) 18 #protection
+1 Flawless Maneuver (tle) 306 #protection
+1 Hakoda, Selfless Commander (tla) 23 #protection
+1 Moonmist (isd) 195 #protection
+1 Redirect Lightning (tla) 151 #protection
+1 The Walls of Ba Sing Se (tla) 329 #protection
+1 Waterbender's Restoration (tle) 99 #protection
+
+// Ramp
+1 Arcane Signet (tle) 315 #ramp
+1 Badgermole Cub (tla) 167 #ramp
+1 Beastcaller Savant (bfz) 170 #ramp
+1 Bender's Waterskin (tla) 255 #ramp
+1 Cryptolith Rite (inr) 189 #ramp
+1 Elemental Teachings (tla) 178 #ramp
+1 Great Divide Guide (tla) 345 #ramp
+1 Harabaz Druid (wwk) 105 #ramp
+1 Hermitic Herbalist (tla) 226 #ramp
+1 Sol Ring (tle) 316 #ramp
+1 The Earth King (tla) 172 #ramp
+1 The Lion-Turtle (tla) 328 #ramp
+1 Yue, the Moon Spirit (tla) 83 #ramp
+
+// Recursion
+1 Iroh, Grand Lotus (tla) 349 #recursion
+1 Toph, Hardheaded Teacher (tla) 246 #recursion
+
+// Removal
+1 Aang, Swift Savior // Aang and La, Ocean's Fury (tla) 204 #removal
+1 Avatar's Wrath (tla) 12 #removal
+1 Combustion Technique (tla) 301 #removal
+1 Day of Black Sun (tla) 94 #removal
+1 Overwhelming Victory (tle) 123 #removal
+1 The Legend of Yangchen // Avatar Yangchen (tla) 27 #removal
+1 Ty Lee, Chi Blocker (tla) 76 #removal
+
+// Tokens
+1 Aang and Katara (tle) 69 #tokens
+1 Aang, Airbending Master (tle) 74 #tokens
+1 Katara, Water Tribe's Hope (tla) 351 #tokens
+1 Sokka, Tenacious Tactician (tla) 352 #tokens
+1 Suki, Courageous Rescuer (tla) 37 #tokens
+1 United Front (tla) 39 #tokens
+
+// Untap
+1 Dramatic Reversal (tle) 158 #untap
