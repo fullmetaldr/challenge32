@@ -37,7 +37,7 @@ This table is generated from the tracked deck configurations. Run `challenge32-s
 | Temur | Not started | — | — | — |
 | Jeskai | Tracked | [Walk this plane!](decks/jeskai/walk-this-plane/current.txt) ([source](https://archidekt.com/decks/24884017/walk_this_plane)) | Commodore Guff | Unreviewed |
 | Sultai | Not started | — | — | — |
-| Mardu | Not started | — | — | — |
+| Mardu | Tracked | [Lightning Strikes Twice](decks/mardu/lightning-strikes-twice/current.txt) ([source](https://archidekt.com/decks/24889970/lightning_strikes_twice)) | Isshin, Two Heavens as One | Unreviewed |
 | Yore-Tiller | Not started | — | — | — |
 | Witch-Maw | Not started | — | — | — |
 | Ink-Treader | Not started | — | — | — |

@@ -1,0 +1,133 @@
+# Challenge32 synchronized decklist
+# Deck: Lightning Strikes Twice
+# Source: archidekt
+# URL: https://archidekt.com/decks/24889970/lightning_strikes_twice
+# Retrieved: 2026-08-01T15:43:21.524480+00:00
+# Version: 20260801T154321Z--8cbe43f
+# Deck hash: sha256:8cbe43facdd3230bb532d46246e3aafbcba4a959b87271e1864ca154f799ce44
+# Cards: 100
+# Generated file; put analysis in notes/.
+// Commander
+1 Isshin, Two Heavens as One (fca) 54 #commander
+
+// Creature
+1 Kinscaer Sentry (ecl) 300 #creature
+1 Raph & Leo, Sibling Rivals (tmt) 249 #creature
+1 Shredder, Shadow Master (tmc) 20 #creature
+
+// Artifact
+1 Cosmic Cube (msh) 245 #artifact
+
+// Enchantment
+1 Endless Foot Assault (tmc) 8 #enchantment
+
+// Land
+1 Arid Mesa (mh2) 244 #land
+1 Blood Crypt (rtr) 238 #land
+1 Bloodstained Mire (ktk) 230 #land
+1 Clifftop Retreat (pip) 258 #land
+1 Command Tower (pip) 259 #land
+1 Diamond City (pip) 147 #land
+1 Dragonskull Summit (pip) 261 #land
+1 Eclipsed Steppe (soc) 53 #land
+1 Fabled Passage (soc) 130 #land
+1 Flooded Strand (mh3) 220 #land
+1 Godless Shrine (peoe) 254p #land
+1 Isolated Chapel (pip) 269 #land
+1 Lotus Field (soc) 385 #land
+1 Marsh Flats (mm3) 239 #land
+2 Mountain (pip) 323 #land
+2 Mountain (pip) 324 #land
+2 Plains (pip) 317 #land
+2 Plains (pip) 318 #land
+1 Polluted Delta (mh3) 224 #land
+1 Sacred Foundry (eoe) 256 #land
+1 Savai Triome (iko) 312 #land
+1 Shadowblood Ridge (pip) 288 #land
+1 Smoldering Marsh (pip) 292 #land
+2 Swamp (pip) 321 #land
+1 Swamp (pip) 322 #land
+1 Tainted Field (pip) 298 #land
+1 Tainted Peak (pip) 300 #land
+1 Turbulent Moor (soc) 56 #land
+1 Turbulent Steppe (soc) 58 #land
+1 Verdant Catacombs (mm3) 249 #land
+1 Windswept Heath (mh3) 235 #land
+1 Wooded Foothills (mh3) 236 #land
+
+// Burn
+1 Arabella, Abandoned Doll (dsk) 208 #burn
+1 Hellrider (dka) 93 #burn
+1 Raid Bombardment (wot) 47 #burn
+1 Squall, Gunblade Duelist (fic) 453 #burn
+
+// Drain
+1 Brutal Hordechief (c16) 108 #drain
+1 Calculating Lich (clb) 742 #drain
+
+// Draw
+1 Aurelia, the Law Above (mkm) 317 #draw
+1 Battle Angels of Tyr (clb) 370 #draw
+1 Chivalric Alliance (moc) 11 #draw
+1 Commissar Severina Raine (40k) 112 #draw
+1 Firemane Commando (soc) 145 #draw
+1 Morbid Opportunist (pip) 186 #draw
+1 Ox Drover (woc) 6 #draw
+1 Paladin Elizabeth Taggerdy (pip) 114 #draw
+1 Pip-Boy 3000 (pip) 140 #draw
+1 Tectonic Giant (scd) 161 #draw
+1 Tocasia's Welcome (soc) 181 #draw
+1 Tomik, Wielder of Law (soc) 333 #draw
+
+// Protection
+1 Akroma's Will (lcc) 125 #protection
+1 Flawless Maneuver (cmm) 692 #protection
+1 General's Enforcer (pip) 217 #protection
+1 Iroas, God of Victory (plst) C16-205 #protection
+
+// Pump
+1 The Spear of Leonidas (acr) 38 #pump
+
+// Ramp
+1 Arcane Signet (pip) 224 #ramp
+1 Bitterthorn, Nissa's Animus (moc) 132 #ramp
+1 Captain Lannery Storm (fca) 38 #ramp
+1 Goldlust Triad (tdc) 34 #ramp
+1 Kellogg, Dangerous Mind (pip) 106 #ramp
+1 Sol Ring (pip) 239 #ramp
+1 Solemn Simulacrum (soc) 355 #ramp
+1 Sword of the Animist (ltc) 355 #ramp
+1 Talisman of Conviction (pip) 243 #ramp
+1 Talisman of Hierarchy (pip) 247 #ramp
+1 Talisman of Indulgence (pip) 248 #ramp
+1 The Regalia (fin) 267 #ramp
+
+// Recursion
+1 Carmen, Cruel Skymarcher (lcc) 26 #recursion
+1 Redemption Choir (lcc) 74 #recursion
+1 Squall, SeeD Mercenary (fin) 402 #recursion
+1 Sun Titan (tdc) 133 #recursion
+
+// Removal
+1 Anguished Unmaking (pip) 209 #removal
+1 Hour of Reckoning (pip) 161 #removal
+1 Settle the Wreckage (xln) 34 #removal
+1 Wear // Tear (pip) 222 #removal
+
+// Tokens
+1 Andúril, Flame of the West (ltr) 236 #tokens
+1 Anim Pakal, Thousandth Moon (lci) 223 #tokens
+1 Blade of Selves (sld) 1864 #tokens
+1 Caesar, Legion's Emperor (pip) 1 #tokens
+1 Duke Ulder Ravengard (clb) 272 #tokens
+1 Hammers of Moradin (clb) 25 #tokens
+1 Infantry Shield (tdc) 35 #tokens
+1 Krenko, Tin Street Kingpin (pwar) 137p #tokens
+1 Mardu Siegebreaker (tdm) 206 #tokens
+1 Myrel, Shield of Argive (pbro) 18p #tokens
+1 Redoubled Stormsinger (soc) 251 #tokens
+1 The Master, Multiplied (who) 545 #tokens
+1 Zurgo, Thunder's Decree (tdm) 237 #tokens
+
+// Tutor
+1 Cloud, Midgar Mercenary (fin) 427 #tutor

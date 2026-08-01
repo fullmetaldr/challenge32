@@ -1,0 +1,21 @@
+{
+  "card_count": 100,
+  "color_identity": "mardu",
+  "current_hash": "sha256:8cbe43facdd3230bb532d46246e3aafbcba4a959b87271e1864ca154f799ce44",
+  "current_version": "20260801T154321Z--8cbe43f",
+  "deck": "lightning-strikes-twice",
+  "display_name": "Lightning Strikes Twice",
+  "retrieved_at": "2026-08-01T15:43:21.524480+00:00",
+  "source": "archidekt",
+  "source_metadata": {
+    "card_count": 100,
+    "color_identity": "mardu",
+    "deck_id": 24889970,
+    "name": "Lightning Strikes Twice",
+    "owner": "DrDaddy83",
+    "private": false,
+    "unlisted": false,
+    "updated_at": "2026-08-01T15:42:53.546560Z"
+  },
+  "url": "https://archidekt.com/decks/24889970/lightning_strikes_twice"
+}
