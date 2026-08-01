@@ -1,0 +1,137 @@
+# Challenge32 synchronized decklist
+# Deck: Omnislash
+# Source: archidekt
+# URL: https://archidekt.com/decks/15661283/omnislash
+# Retrieved: 2026-08-01T08:39:10.767302+00:00
+# Version: 20260801T083910Z--fda4cc7
+# Deck hash: sha256:fda4cc70ced5930149bc415c9769892424b52935c50bd0154dacbaa0d727d851
+# Cards: 100
+# Generated file; put analysis in notes/.
+// Commander
+1 Cloud, Ex-SOLDIER (fic) 202 #commander
+
+// Artifact
+1 Mjölnir, Hammer of Thor (msh) 146 #artifact
+
+// Land
+1 Abstergo Entertainment (acr) 79 #land
+1 Arid Mesa (mm3) 229 #land
+1 Battlefield Forge (fic) 375 #land
+1 Bountiful Promenade (plst) BBD-81 #land
+1 Brushland (fic) 377 #land
+1 City of Brass (mb2) 240 #land
+1 Clifftop Retreat (lcc) 324 #land
+1 Command Tower (fic) 485 #land
+1 Exotic Orchard (fic) 390 #land
+1 Forest (fin) 576 #land
+1 Inventors' Fair (eos) 21 #land
+1 Jetmir's Garden (snc) 351 #land
+1 Karplusan Forest (eoc) 164 #land
+1 Krosan Verge (znc) 134 #land
+1 Mana Confluence (jou) 163 #land
+1 Meteor Crater (eos) 26 #land
+1 Mistveil Plains (plst) UMA-247 #land
+1 Mossfire Valley (fic) 407 #land
+1 Mountain (fin) 575 #land
+1 Overgrown Farmland (who) 292 #land
+2 Plains (fin) 572 #land
+1 Rockfall Vale (mid) 266 #land
+1 Rootbound Crag (who) 300 #land
+1 Sacred Foundry (eoe) 256 #land
+1 Spire Garden (tmc) 75 #land
+1 Spire of Industry (fic) 426 #land
+1 Stomping Ground (peoe) 258p #land
+1 Sundown Pass (vow) 266 #land
+1 Sungrass Prairie (fic) 428 #land
+1 Sunscorched Divide (fic) 433 #land
+1 Temple Garden (ecl) 268 #land
+1 Urza's Saga (slc) 21 #land
+1 Windswept Heath (ktk) 248 #land
+1 Wooded Foothills (mh3) 236 #land
+
+// Burn
+1 Amarant Coral (fic) 457 #burn
+1 Eivor, Battle-Ready (acr) 274 #burn
+1 Grenzo's Ruffians (cn2) 55 #burn
+1 Kediss, Emberclaw Familiar (cmr) 188 #burn
+1 Mjölnir, Storm Hammer (acr) 258 #burn
+
+// Copy
+1 Helm of the Host (dom) 217 #copy
+
+// Draw
+1 Akiri, Fearless Voyager (znr) 220 #draw
+1 Buster Sword (fin) 351 #draw
+1 Esper Sentinel (h2r) 2 #draw
+1 Kutzil, Malamet Exemplar (lci) 232 #draw
+1 Puresteel Paladin (fic) 250 #draw
+1 Sram, Senior Edificer (soc) 176 #draw
+1 The Aetherspark (pdft) 231p #draw
+
+// Evasion
+1 Trailblazer's Boots (fic) 370 #evasion
+
+// Finisher
+1 Aggravated Assault (sld) 1983 #finisher
+1 Aurelia, the Warleader (gtc) 143 #finisher
+
+// Lifegain
+1 Shadowspear (thb) 236 #lifegain
+
+// Protection
+1 Akroma's Will (lcc) 125 #protection
+1 Angel's Grace (ptsr) 4p #protection
+1 Champion's Helm (fic) 337 #protection
+1 Chance for Glory (grn) 159 #protection
+1 Clever Concealment (fic) 236 #protection
+1 Conqueror's Flail (fic) 340 #protection
+1 Darksteel Plate (fic) 342 #protection
+1 Grand Abolisher (big) 2 #protection
+1 Hammer of Nazahn (sld) 2098 #protection
+1 Redirect Lightning (tla) 151 #protection
+1 Return the Favor (soa) 47 #protection
+1 Silver Shroud Costume (sld) 915 #protection
+1 Swiftfoot Boots (fic) 361 #protection
+1 Teferi's Protection (sta) 11 #protection
+1 Ultimate Magic: Holy (fic) 32 #protection
+
+// Pump
+1 Blackblade Reforged (dmc) 178 #pump
+1 Embercleave (peld) 120p #pump
+1 Super State (sld) 2081 #pump
+
+// Ramp
+1 Arcane Signet (fic) 333 #ramp
+1 Chrome Mox (mrd) 152 #ramp
+1 Delighted Halfling (ltr) 158 #ramp
+1 Dowsing Dagger // Lost Vale (xln) 235 #ramp
+1 Farseek (msc) 173 #ramp
+1 Fervent Champion (eld) 124 #ramp
+1 Jeska's Will (sld) 1744 #ramp
+1 Knuckles the Echidna (sld) 2082 #ramp
+1 Selvala, Heart of the Wilds (m3c) 246 #ramp
+1 Sigarda's Aid (pemn) 41p #ramp
+1 Sol Ring (fic) 357 #ramp
+1 Sword of Feast and Famine (acr) 124 #ramp
+1 Sword of the Animist (fic) 362 #ramp
+1 The Reaver Cleaver (m3c) 217 #ramp
+1 Three Visits (msc) 181 #ramp
+
+// Removal
+1 Chandra's Ignition (lcc) 220 #removal
+1 Grasp of Fate (wot) 3 #removal
+1 Path to Exile (mb2) 15 #removal
+1 Stroke of Midnight (fca) 26 #removal
+1 Swords to Plowshares (eoc) 45 #removal
+1 Umezawa's Jitte (sld) 1865 #removal
+
+// Tokens
+1 Myrel, Shield of Argive (slc) 13 #tokens
+1 Stangg, Echo Warrior (dmc) 42 #tokens
+
+// Tutor
+1 Captain Sisay (sld) 1913 #tutor
+1 Cloud, Midgar Mercenary (fin) 564 #tutor
+1 Kellan, the Fae-Blooded // Birthright Boon (pwoe) 230s #tutor
+1 Stoneforge Mystic (2xm) 31 #tutor
+1 Sunforger (c16) 275 #tutor

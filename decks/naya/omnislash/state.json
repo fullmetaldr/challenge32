@@ -1,0 +1,20 @@
+{
+  "card_count": 100,
+  "color_identity": "naya",
+  "current_hash": "sha256:fda4cc70ced5930149bc415c9769892424b52935c50bd0154dacbaa0d727d851",
+  "current_version": "20260801T083910Z--fda4cc7",
+  "deck": "omnislash",
+  "display_name": "Omnislash",
+  "retrieved_at": "2026-08-01T08:39:10.767302+00:00",
+  "source": "archidekt",
+  "source_metadata": {
+    "card_count": 100,
+    "deck_id": 15661283,
+    "name": "Omnislash",
+    "owner": "DrDaddy83",
+    "private": false,
+    "unlisted": false,
+    "updated_at": "2026-08-01T08:32:14.233953Z"
+  },
+  "url": "https://archidekt.com/decks/15661283/omnislash"
+}

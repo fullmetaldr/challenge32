@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "challenge32-sync"
+version = "0.1.0"
+description = "Versioned deck synchronizer for the Challenge32 Magic: The Gathering project"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "httpx>=0.27,<1",
+    "mtg-parser>=0.0.1a55,<0.1",
+]
+
+[project.scripts]
+challenge32-sync = "challenge32_sync.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
