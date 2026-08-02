@@ -1,0 +1,21 @@
+{
+  "card_count": 100,
+  "color_identity": "izzet",
+  "current_hash": "sha256:6d58c1d03bcb902fa49e5eb6365e3b9cb97d21376b7310927f059d904231cb54",
+  "current_version": "20260802T172137Z--6d58c1d",
+  "deck": "sling-it-like-it-s-hot",
+  "display_name": "Sling it Like it's Hot",
+  "retrieved_at": "2026-08-02T17:21:37.779569+00:00",
+  "source": "archidekt",
+  "source_metadata": {
+    "card_count": 100,
+    "color_identity": "izzet",
+    "deck_id": 24921939,
+    "name": "Sling it Like it's Hot",
+    "owner": "DrDaddy83",
+    "private": false,
+    "unlisted": false,
+    "updated_at": "2026-08-02T17:21:10.482190Z"
+  },
+  "url": "https://archidekt.com/decks/24921939/sling_it_like_its_hot"
+}

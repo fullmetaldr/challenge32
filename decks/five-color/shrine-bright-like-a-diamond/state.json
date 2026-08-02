@@ -1,0 +1,21 @@
+{
+  "card_count": 100,
+  "color_identity": "five-color",
+  "current_hash": "sha256:1accc8164bbabd3294057514dbff2079cbd7638df01c3d986b0bdee6fce3bfcd",
+  "current_version": "20260802T172433Z--1accc81",
+  "deck": "shrine-bright-like-a-diamond",
+  "display_name": "Shrine Bright Like a Diamond",
+  "retrieved_at": "2026-08-02T17:24:33.898747+00:00",
+  "source": "archidekt",
+  "source_metadata": {
+    "card_count": 100,
+    "color_identity": "five-color",
+    "deck_id": 24922005,
+    "name": "Shrine Bright Like a Diamond",
+    "owner": "DrDaddy83",
+    "private": false,
+    "unlisted": false,
+    "updated_at": "2026-08-02T17:24:05.749893Z"
+  },
+  "url": "https://archidekt.com/decks/24922005/shrine_bright_like_a_diamond"
+}

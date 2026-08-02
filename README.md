@@ -24,7 +24,7 @@ This table is generated from the tracked deck configurations. Run `challenge32-s
 | Gruul | Not started | — | — | — |
 | Selesnya | Not started | — | — | — |
 | Orzhov | Not started | — | — | — |
-| Izzet | Not started | — | — | — |
+| Izzet | Tracked | [Sling it Like it's Hot](decks/izzet/sling-it-like-it-s-hot/current.txt) ([source](https://archidekt.com/decks/24921939/sling_it_like_its_hot)) | Ghyrson Starn, Kelermorph | Unreviewed |
 | Golgari | Not started | — | — | — |
 | Boros | Tracked | [Praise the Sun](decks/boros/praise-the-sun/current.txt) ([source](https://archidekt.com/decks/24888846/praise_the_sun)) | Otharri, Suns' Glory | Unreviewed |
 | Simic | Not started | — | — | — |
@@ -40,10 +40,10 @@ This table is generated from the tracked deck configurations. Run `challenge32-s
 | Mardu | Tracked | [Lightning Strikes Twice](decks/mardu/lightning-strikes-twice/current.txt) ([source](https://archidekt.com/decks/24889970/lightning_strikes_twice)) | Isshin, Two Heavens as One | Unreviewed |
 | Yore-Tiller | Not started | — | — | — |
 | Witch-Maw | Not started | — | — | — |
-| Ink-Treader | Not started | — | — | — |
+| Ink-Treader | Tracked | [All the Aragorns](decks/ink-treader/all-the-aragorns/current.txt) ([source](https://archidekt.com/decks/24890308/all_the_aragorns)) | Aragorn, the Uniter | Unreviewed |
 | Dune-Brood | Not started | — | — | — |
 | Glint-Eye | Not started | — | — | — |
-| Five-color | Tracked | [The Avatar Cycle](decks/five-color/the-avatar-cycle/current.txt) ([source](https://archidekt.com/decks/24884384/the_avatar_cycle)) | Avatar Aang // Aang, Master of Elements | Unreviewed |
+| Five-color | Tracked | [Shrine Bright Like a Diamond](decks/five-color/shrine-bright-like-a-diamond/current.txt) ([source](https://archidekt.com/decks/24922005/shrine_bright_like_a_diamond))<br>[The Avatar Cycle](decks/five-color/the-avatar-cycle/current.txt) ([source](https://archidekt.com/decks/24884384/the_avatar_cycle)) | Go-Shintai of Life's Origin<br>Avatar Aang // Aang, Master of Elements | Unreviewed<br>Unreviewed |
 
 ## Current synchronizer
 

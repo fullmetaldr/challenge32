@@ -1,0 +1,138 @@
+# Challenge32 synchronized decklist
+# Deck: Shrine Bright Like a Diamond
+# Source: archidekt
+# URL: https://archidekt.com/decks/24922005/shrine_bright_like_a_diamond
+# Retrieved: 2026-08-02T17:24:33.898747+00:00
+# Version: 20260802T172433Z--1accc81
+# Deck hash: sha256:1accc8164bbabd3294057514dbff2079cbd7638df01c3d986b0bdee6fce3bfcd
+# Cards: 100
+# Generated file; put analysis in notes/.
+// Commander
+1 Go-Shintai of Life's Origin (sld) 1825 #commander
+
+// Land
+1 Ash Barrens (fic) 374 #land
+1 Blood Crypt (ecl) 349 #land
+1 Canopy Vista (tdc) 343 #land
+1 City of Brass (md1) 15 #land
+1 Command Tower (fic) 382 #land
+1 Darkwater Catacombs (fic) 384 #land
+1 Deathcap Glade (inr) 275 #land
+1 Desolate Mire (fic) 386 #land
+1 Evolving Wilds (ecl) 264 #land
+1 Exotic Orchard (ecc) 148 #land
+1 Forest (ecl) 278 #land
+1 Forest (ecl) 283 #land
+1 Gemstone Caverns (eos) 16 #land
+1 Gemstone Mine (dmr) 455 #land
+1 Godless Shrine (eoe) 254 #land
+1 Hallowed Fountain (ecl) 265 #land
+2 Island (ecl) 270 #land
+1 Isolated Chapel (tdc) 373 #land
+1 Ketria Triome (iko) 250 #land
+2 Mountain (ecl) 272 #land
+1 Overgrown Tomb (ecl) 266 #land
+1 Path of Ancestry (fic) 411 #land
+1 Plains (ecl) 274 #land
+1 Plains (ecl) 279 #land
+1 Plaza of Heroes (eos) 78 #land
+1 Rootbound Crag (fic) 416 #land
+1 Shadowblood Ridge (fic) 421 #land
+1 Skycloud Expanse (fic) 423 #land
+1 Sodden Verdure (ecc) 24 #land
+1 Starting Town (fin) 289 #land
+1 Sungrass Prairie (tdc) 397 #land
+1 Sunscorched Divide (fic) 433 #land
+1 Swamp (ecl) 276 #land
+1 Swamp (ecl) 281 #land
+1 Temple Garden (ecl) 351 #land
+1 The World Tree (khm) 275 #land
+
+// Anthem
+1 Boon of the Spirit Realm (cmm) 753 #anthem
+
+// Blink
+1 Phelia, Exuberant Shepherd (mh3) 40 #blink
+1 Y'shtola Rhul (fin) 86 #blink
+
+// Burn
+1 Impact Tremors (fdn) 717 #burn
+
+// Copy
+1 Gandalf the White (ltr) 442 #copy
+1 Mirror Room // Fractured Realm (dsk) 67 #copy
+1 Starfield Vocalist (eoe) 78 #copy
+1 Weaver of Harmony (neo) 213 #copy
+1 Yenna, Redtooth Regent (woe) 219 #copy
+
+// Counters
+1 Go-Shintai of Boundless Vigor (neo) 187 #counters
+1 Southern Air Temple (tla) 36 #counters
+
+// Draw
+1 Eidolon of Blossoms (woc) 124 #draw
+1 Enchantress's Presence (woc) 125 #draw
+1 Entity Tracker (dsk) 53 #draw
+1 Honden of Seeing Winds (ema) 54 #draw
+1 Paradox Haze (spg) 123 #draw
+1 Sanctum of Calm Waters (m21) 68 #draw
+1 Setessan Champion (woc) 132 #draw
+1 Sythis, Harvest's Hand (cmm) 938 #draw
+1 The Spirit Oasis (tla) 72 #draw
+
+// Lifegain
+1 Honden of Cleansing Fire (ema) 13 #lifegain
+
+// Pingers
+1 Northern Air Temple (tla) 111 #pingers
+1 Sanctum of Stone Fangs (m21) 120 #pingers
+
+// Protection
+1 Clever Concealment (fic) 236 #protection
+1 Dawn's Truce (blb) 9 #protection
+1 Gallifrey Falls // No More (who) 131 #protection
+1 Sterling Grove (mh2) 293 #protection
+1 Teferi's Protection (tle) 7 #protection
+
+// Ramp
+1 Arcane Signet (tle) 315 #ramp
+1 Bender's Waterskin (tla) 255 #ramp
+1 Bloom Tender (2x2) 138 #ramp
+1 Chromatic Lantern (ecc) 138 #ramp
+1 Cryptolith Rite (inr) 189 #ramp
+1 Dryad of the Ilysian Grove (cmm) 891 #ramp
+1 Faeburrow Elder (tdc) 289 #ramp
+1 Herald of the Pantheon (cmm) 898 #ramp
+1 Jukai Naturalist (woc) 140 #ramp
+1 Kyoshi Island Plaza (tla) 184 #ramp
+1 Prismatic Omen (wot) 60 #ramp
+1 Relic of Legends (fic) 354 #ramp
+1 Sanctum of Fruitful Harvest (m21) 203 #ramp
+1 Sanctum Weaver (woc) 131 #ramp
+1 Sol Ring (sld) 1833 #ramp
+1 Starfield Mystic (dsc) 105 #ramp
+1 Thought Vessel (fic) 368 #ramp
+
+// Recursion
+1 Yuna, Hope of Spira (fin) 571 #recursion
+
+// Removal
+1 Beast Within (mar) 33 #removal
+1 Desynchronization (acr) 16 #removal
+1 Doomwake Giant (dsc) 138 #removal
+1 Go-Shintai of Ancient Wars (neo) 144 #removal
+1 Go-Shintai of Hidden Cruelty (neo) 97 #removal
+1 Grasp of Fate (cmm) 823 #removal
+1 Honden of Infinite Rage (ema) 134 #removal
+1 Sanctum of Shattered Heights (m21) 157 #removal
+
+// Tokens
+1 Archon of Sun's Grace (woc) 61 #tokens
+1 Crescent Island Temple (tla) 129 #tokens
+1 Go-Shintai of Shared Purpose (neo) 14 #tokens
+1 Hei Bai, Forest Guardian (tle) 139 #tokens
+1 Honden of Life's Web (ema) 172 #tokens
+
+// Tutor
+1 Enlightened Tutor (tle) 305 #tutor
+1 Sanctum of All (m21) 225 #tutor

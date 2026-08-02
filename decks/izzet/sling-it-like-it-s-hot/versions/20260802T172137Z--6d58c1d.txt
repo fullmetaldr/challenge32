@@ -1,0 +1,128 @@
+# Challenge32 synchronized decklist
+# Deck: Sling it Like it's Hot
+# Source: archidekt
+# URL: https://archidekt.com/decks/24921939/sling_it_like_its_hot
+# Retrieved: 2026-08-02T17:21:37.779569+00:00
+# Version: 20260802T172137Z--6d58c1d
+# Deck hash: sha256:6d58c1d03bcb902fa49e5eb6365e3b9cb97d21376b7310927f059d904231cb54
+# Cards: 100
+# Generated file; put analysis in notes/.
+// Commander
+1 Ghyrson Starn, Kelermorph (40k) 124 #commander
+
+// Creature
+1 Prismari, the Inspiration (sos) 212 #creature
+1 Thunderdrum Soloist (sos) 134 #creature
+1 Village Pillagers (ecc) 14 #creature
+
+// Artifact
+1 Resonating Lute (sos) 221 #artifact
+1 Tablet of Discovery (sos) 132 #artifact
+
+// Instant
+1 Flashback (sos) 333 #instant
+1 Mana Sculpt (sos) 57 #instant
+1 Traumatic Critique (sos) 239 #instant
+
+// Sorcery
+1 Mathemagics (sos) 58 #sorcery
+
+// Land
+1 Ancient Tomb (ltc) 357 #land
+1 Cascade Bluffs (eoc) 153 #land
+1 City of Brass (mb2) 240 #land
+1 Command Tower (pmei) 2026-1 #land
+1 Exotic Orchard (blc) 131 #land
+1 Fabled Passage (soc) 130 #land
+1 Ferrous Lake (tdc) 361 #land
+1 Frostboil Snarl (drc) 158 #land
+1 Hall of Oracles (stx) 267 #land
+7 Island (sos) 268 #land
+1 Mana Confluence (jou) 163 #land
+7 Mountain (sos) 270 #land
+1 Mystic Sanctuary (mkc) 277 #land
+1 Plaza of Heroes (eos) 78 #land
+1 Reliquary Tower (cmr) 710 #land
+1 Riverpyre Verge (pdft) 260p #land
+1 Scalding Tarn (spg) 112 #land
+1 Scorched Geyser (soc) 54 #land
+1 Shivan Gorge (dmc) 232 #land
+1 Shivan Reef (eoc) 179 #land
+1 Steam Vents (ecl) 267 #land
+1 Study Hall (soc) 407 #land
+1 Sulfur Falls (eoc) 184 #land
+1 Training Center (cmm) 665 #land
+1 Turbulent Springs (soc) 57 #land
+
+// Burn
+1 Coruscation Mage (blb) 131 #burn
+1 Electrostatic Field (plst) GRN-97 #burn
+1 Erebor Flamesmith (ltr) 122 #burn
+1 Fiery Inscription (ltr) 126 #burn
+1 Firespitter Whelp (fdn) 197 #burn
+1 Guttersnipe (m19) 145 #burn
+1 Kessig Flamebreather (vow) 164 #burn
+1 Longshot, Rebel Bowman (tle) 120 #burn
+1 Vivi's Persistence (fic) 458 #burn
+
+// Copy
+1 Display of Power (ltr) 119 #copy
+1 Galvanic Iteration (inr) 236 #copy
+1 Harmonic Prodigy (soc) 123 #copy
+1 Veyran, Voice of Duality (tdc) 310 #copy
+
+// Counters
+1 Flusterstorm (soa) 18 #counters
+
+// Draw
+1 Alphinaud Leveilleur (fic) 33 #draw
+1 Archmage Emeritus (tdc) 145 #draw
+1 Ashling, Flame Dancer (mh3) 115 #draw
+1 Brainstorm (sld) 2491 #draw
+1 Consult the Star Charts (peoe) 51p #draw
+1 Curiosity (wot) 17 #draw
+1 Expressive Iteration (spg) 43 #draw
+1 Niv-Mizzet, Parun (otc) 235 #draw
+1 Niv-Mizzet, Visionary (pfdn) 123p #draw
+1 Preordain (soa) 21 #draw
+
+// Protection
+1 Deflecting Swat (c20) 50 #protection
+1 Return the Favor (soa) 47 #protection
+
+// Ramp
+1 Arcane Signet (soc) 127 #ramp
+1 Baral, Chief of Compliance (aer) 28 #ramp
+1 Bender's Waterskin (tla) 255 #ramp
+1 Electro, Assaulting Battery (spm) 76 #ramp
+1 Fellwar Stone (ecc) 141 #ramp
+1 Sol Ring (soc) 128 #ramp
+1 Storm-Kiln Artist (tdc) 235 #ramp
+1 Talisman of Creativity (soc) 429 #ramp
+1 Urabrask // The Great Work (mom) 299 #ramp
+1 Vivi Ornitier (fin) 321 #ramp
+
+// Recursion
+1 Exalted Flamer of Tzeentch (40k) 119 #recursion
+1 Gale, Waterdeep Prodigy (sld) 2488 #recursion
+1 Underworld Breach (mb2) 200 #recursion
+
+// Removal
+1 Archmage's Charm (sld) 2490 #removal
+1 Chaos Warp (tdc) 208 #removal
+1 Counterspell (sld) 2497 #removal
+1 Cyclonic Rift (soa) 14 #removal
+1 Electrolyze (sta) 60 #removal
+1 End the Festivities (sld) 2503 #removal
+1 Grapeshot (sta) 39 #removal
+1 Invert Polarity (mh3) 190 #removal
+1 Mana Drain (otp) 11 #removal
+1 Sigil of Sleep (uds) 46 #removal
+1 Swan Song (eoc) 46 #removal
+1 Tectonic Hazard (lci) 169 #removal
+
+// Tokens
+1 Hermes, Overseer of Elpis (fic) 36 #tokens
+
+// Tutor
+1 Sarkhan, Dragonsoul (sld) 1245 #tutor

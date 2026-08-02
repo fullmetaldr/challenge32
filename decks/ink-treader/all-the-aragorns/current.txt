@@ -1,0 +1,128 @@
+# Challenge32 synchronized decklist
+# Deck: All the Aragorns
+# Source: archidekt
+# URL: https://archidekt.com/decks/24890308/all_the_aragorns
+# Retrieved: 2026-08-02T17:19:02.696226+00:00
+# Version: 20260802T171902Z--28db22f
+# Deck hash: sha256:28db22f6aef160578045629ad5b08cbe0ef819bdd33edf229f6a29c5dba1693c
+# Cards: 100
+# Generated file; put analysis in notes/.
+// Commander
+1 Aragorn, the Uniter (ltr) 192 #commander
+
+// Creature
+1 Irma, Part-Time Mutant (tmc) 12 #creature
+
+// Land
+1 Adarkar Wastes (eoc) 147 #land
+1 Ash Barrens (tdc) 339 #land
+1 Battlefield Forge (ltc) 296 #land
+1 Branchloft Pathway // Boulderloft Pathway (znr) 258 #land
+1 Breeding Pool (eoe) 278 #land
+1 Brushland (bro) 298 #land
+1 Castle Ardenvale (ncc) 391 #land
+1 City of Brass (2x2) 403 #land
+1 Command Tower (ltc) 301 #land
+1 Deserted Beach (who) 270 #land
+1 Evendo, Waking Haven (eoe) 253 #land
+1 Evolving Wilds (fic) 389 #land
+1 Exotic Orchard (ltc) 307 #land
+2 Forest (eoe) 266 #land
+1 Gemstone Mine (dmr) 455 #land
+1 Hallowed Fountain (ecl) 265 #land
+1 Hengegate Pathway // Mistgate Pathway (khm) 260 #land
+1 Horizon Canopy (ltc) 396 #land
+2 Island (eoe) 263 #land
+1 Ketria Triome (iko) 250 #land
+1 Krosan Verge (mkc) 271 #land
+1 Mana Confluence (eos) 25 #land
+2 Mountain (eoe) 265 #land
+1 Path of Ancestry (ecc) 158 #land
+1 Pit of Offerings (lci) 278 #land
+2 Plains (ltr) 272 #land
+1 Sacred Foundry (eoe) 256 #land
+1 Secluded Courtyard (fdn) 267 #land
+1 Three Tree City (blb) 260 #land
+1 Unclaimed Territory (ecc) 175 #land
+1 Wooded Foothills (mh3) 236 #land
+
+// Anthem
+1 Beregond of the Guard (ltc) 9 #anthem
+1 Flowering of the White Tree (ltr) 15 #anthem
+1 Jetmir, Nexus of Revels (snc) 193 #anthem
+1 Kyler, Sigardian Emissary (mic) 4 #anthem
+1 Shared Animosity (ltc) 226 #anthem
+
+// Copy
+1 Auton Soldier (who) 36 #copy
+1 Chameleon, Master of Disguise (spm) 27 #copy
+1 Double Major (stx) 179 #copy
+1 Gogo, Mysterious Mime (fic) 56 #copy
+1 Helm of the Host (blc) 276 #copy
+1 Impostor Syndrome (spm) 34 #copy
+1 Irenicus's Vile Duplication (plst) CLB-78 #copy
+1 Quantum Misalignment (who) 52 #copy
+1 Roaming Throne (lci) 258 #copy
+1 Sakashima of a Thousand Faces (cmr) 89 #copy
+1 Spark Double (pwar) 68p #copy
+1 The Clone Saga (spm) 219 #copy
+
+// Draw
+1 Curiosity (wot) 17 #draw
+1 Esper Sentinel (mh2) 328 #draw
+1 Goldbug, Humanity's Ally // Goldbug, Scrappy Scout (bot) 11 #draw
+1 Haliya, Guided by Light (eoe) 289 #draw
+1 Kindred Discovery (wot) 22 #draw
+1 Matoya, Archon Elder (fin) 62 #draw
+1 Minas Tirith Garrison (ltr) 825 #draw
+1 Planetarium of Wan Shi Tong (tla) 259 #draw
+1 Skullclamp (pip) 238 #draw
+1 Yes Man, Personal Securitron (pip) 29 #draw
+
+// Protection
+1 Flawless Maneuver (tle) 306 #protection
+1 Gallifrey Falls // No More (who) 131 #protection
+1 Guardian of Faith (afr) 18 #protection
+1 Heroic Intervention (cmm) 295 #protection
+1 King Darien XLVIII (pdmu) 204s #protection
+1 Sigarda, Heron's Grace (mic) 155 #protection
+1 Swiftfoot Boots (tle) 317 #protection
+
+// Ramp
+1 Arcane Signet (ltc) 273 #ramp
+1 Bloom Tender (ecl) 166 #ramp
+1 Chromatic Lantern (ecc) 138 #ramp
+1 Cryptolith Rite (inr) 408 #ramp
+1 Delighted Halfling (ltr) 158 #ramp
+1 Heronblade Elite (mic) 64 #ramp
+1 Inga and Esika (mom) 229 #ramp
+1 Katilda, Dawnhart Prime (mid) 309 #ramp
+1 Kinnan, Bonder Prodigy (fca) 55 #ramp
+1 Sol Ring (ltc) 284 #ramp
+
+// Removal
+1 Annie Joins Up (otj) 191 #removal
+1 Aura Shards (cmd) 182 #removal
+1 Grasp of Fate (wot) 3 #removal
+1 Path to Exile (acr) 81 #removal
+1 Stroke of Midnight (fca) 26 #removal
+1 Winds of Abandon (mh1) 37 #removal
+
+// Sac Outlet
+1 Goblin Bombardment (wot) 43 #sac-outlet
+
+// Tokens
+1 Adeline, Resplendent Cathar (fca) 1 #tokens
+1 Adrix and Nev, Twincasters (mkc) 198 #tokens
+1 Call the Coppercoats (onc) 60 #tokens
+1 Cosmogrand Zenith (eoe) 304 #tokens
+1 Horn of Gondor (ltr) 240 #tokens
+1 March of the Multitudes (ncc) 346 #tokens
+1 Myrel, Shield of Argive (bro) 18 #tokens
+1 Riders of the Mark (ltr) 832 #tokens
+1 Voice of Victory (tdm) 33 #tokens
+1 Éowyn, Shieldmaiden (ltc) 1 #tokens
+
+// Tutor
+1 Captain Sisay (sld) 51 #tutor
+1 Ranger-Captain of Eos (fca) 2 #tutor
