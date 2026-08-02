@@ -16,7 +16,7 @@ This table is generated from the tracked deck configurations. Run `challenge32-s
 | White | Not started | — | — | — |
 | Blue | Not started | — | — | — |
 | Black | Not started | — | — | — |
-| Red | Not started | — | — | — |
+| Red | Tracked | [I Smell Blood](decks/red/i-smell-blood/current.txt) ([source](https://archidekt.com/decks/24922183/i_smell_blood)) | Jaws, Relentless Predator | Unreviewed |
 | Green | Not started | — | — | — |
 | Azorius | Not started | — | — | — |
 | Dimir | Not started | — | — | — |
@@ -32,7 +32,7 @@ This table is generated from the tracked deck configurations. Run `challenge32-s
 | Grixis | Not started | — | — | — |
 | Jund | Not started | — | — | — |
 | Naya | Tracked | [Omnislash](decks/naya/omnislash/current.txt) ([source](https://archidekt.com/decks/15661283/omnislash)) | Cloud, Ex-SOLDIER | Unreviewed |
-| Bant | Not started | — | — | — |
+| Bant | Tracked | [Kweh Kweh!](decks/bant/kweh-kweh/current.txt) ([source](https://archidekt.com/decks/24922076/kweh_kweh)) | Choco, Seeker of Paradise | Unreviewed |
 | Abzan | Not started | — | — | — |
 | Temur | Not started | — | — | — |
 | Jeskai | Tracked | [Walk this plane!](decks/jeskai/walk-this-plane/current.txt) ([source](https://archidekt.com/decks/24884017/walk_this_plane)) | Commodore Guff | Unreviewed |

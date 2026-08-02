@@ -1,0 +1,124 @@
+# Challenge32 synchronized decklist
+# Deck: Kweh Kweh!
+# Source: archidekt
+# URL: https://archidekt.com/decks/24922076/kweh_kweh
+# Retrieved: 2026-08-02T17:27:49.759622+00:00
+# Version: 20260802T172749Z--c56e530
+# Deck hash: sha256:c56e53010ad0331a54442140551a95c375d1cff1987a91b69ae4c3ddaf323645
+# Cards: 100
+# Generated file; put analysis in notes/.
+// Commander
+1 Choco, Seeker of Paradise (fin) 569 #commander
+
+// Enchantment
+1 High Score (tmc) 29 #enchantment
+1 Sapling Nursery (ecl) 328 #enchantment
+
+// Sorcery
+1 Planar Engineering (sos) 158 #sorcery
+
+// Land
+1 Azorius Chancery (2x2) 400 #land
+1 Ba Sing Se (tla) 266 #land
+1 Breeding Pool (gtc) 240 #land
+1 Canopy Vista (tdc) 343 #land
+1 Chocobo Camp (fic) 462 #land
+1 Dreamroot Cascade (tdc) 358 #land
+1 Flooded Strand (mh3) 464 #land
+6 Forest (fic) 482 #land
+1 Hallowed Fountain (clu) 277 #land
+6 Island (fic) 479 #land
+1 Jungle Basin (cmr) 484 #land
+1 Krosan Verge (moc) 412 #land
+1 Misty Rainforest (spg) 111 #land
+1 Myriad Landscape (pip) 274 #land
+1 Overgrown Farmland (who) 292 #land
+5 Plains (fic) 478 #land
+1 Rivendell (ltr) 344 #land
+1 Selesnya Sanctuary (2x2) 411 #land
+1 Simic Growth Chamber (2x2) 412 #land
+1 Starting Town (fin) 289 #land
+1 Temple Garden (rvr) 300 #land
+1 Treva's Ruins (dmr) 260 #land
+1 Urban Retreat (spm) 187 #land
+1 Windswept Heath (mh3) 360 #land
+
+// Copy
+1 Roaming Throne (lci) 344 #copy
+1 Starfield Vocalist (eoe) 78 #copy
+1 Virtue of Knowledge // Vantress Visions (woe) 279 #copy
+
+// Counters
+1 Avatar Kyoshi, Earthbender (tle) 201 #counters
+1 Cathars' Crusade (inr) 17 #counters
+1 Cracked Earth Technique (tle) 135 #counters
+1 Flusterstorm (soa) 18 #counters
+1 Ouroboroid (eoe) 201 #counters
+1 Sazh Katzroy (fin) 199 #counters
+1 Solid Ground (tle) 142 #counters
+1 Tale of Katara and Toph (tle) 143 #counters
+1 The Boulder, Ready to Rumble (tla) 168 #counters
+
+// Draw
+1 Aesi, Tyrant of Gyre Strait (dsc) 210 #draw
+1 Falco Spara, Pactweaver (snc) 307 #draw
+1 Kastral, the Windcrested (pblb) 221p #draw
+1 Tatyova, Benthic Druid (cmm) 687 #draw
+1 The Goose Mother (soc) 312 #draw
+1 Wan Shi Tong, Librarian (tla) 78 #draw
+
+// Landfall
+1 Chocobo Racetrack (fin) 179 #landfall
+1 Emeria Angel (tdc) 114 #landfall
+1 Mightform Harmonizer (eoe) 297 #landfall
+1 Mossborn Hydra (fdn) 107 #landfall
+1 Sazh's Chocobo (fin) 200 #landfall
+1 Springheart Nantuko (mh3) 341 #landfall
+1 Tifa Lockhart (fin) 206 #landfall
+1 Toph, Earthbending Master (tle) 209 #landfall
+1 Traveling Chocobo (fin) 568 #landfall
+
+// Lifegain
+1 Shabraz, the Skyshark (c20) 14 #lifegain
+
+// Proliferate
+1 Thrummingbird (eoc) 80 #proliferate
+
+// Protection
+1 Flawless Maneuver (cmm) 692 #protection
+1 Galadriel's Dismissal (ltc) 500 #protection
+1 Heroic Intervention (who) 233 #protection
+1 Judgment of Alexander (fic) 455 #protection
+
+// Ramp
+1 Azusa, Lost but Seeking (fca) 15 #ramp
+1 Birds of Paradise (fic) 483 #ramp
+1 Crop Rotation (soa) 51 #ramp
+1 Dryad of the Ilysian Grove (cmm) 891 #ramp
+1 Entish Restoration (ltr) 163 #ramp
+1 Farseek (sld) 2222 #ramp
+1 Growth Spiral (sld) 7054 #ramp
+1 Icetill Explorer (eoe) 192 #ramp
+1 Mutable Explorer (ecl) 327 #ramp
+1 Nature's Lore (fic) 311 #ramp
+1 Overlord of the Hauntwoods (dsk) 194 #ramp
+1 Perilous Forays (rvr) 457 #ramp
+1 Rampant Growth (fic) 313 #ramp
+1 Rites of Flourishing (tle) 45 #ramp
+1 Sol Ring (tle) 316 #ramp
+1 Tectonic Split (tle) 208 #ramp
+1 The Earth King (tla) 344 #ramp
+1 Yedora, Grave Gardener (mul) 30 #ramp
+1 Yuna, Grand Summoner (pw25) 16 #ramp
+
+// Recursion
+1 Ancient Greenwarden (otc) 186 #recursion
+
+// Removal
+1 Bartz and Boko (fin) 175 #removal
+1 Chomping Changeling (ecl) 172 #removal
+1 Mists of Lórien (ltc) 501 #removal
+1 Wave Goodbye (tmc) 46 #removal
+
+// Tokens
+1 Felidar Retreat (fdn) 574 #tokens

@@ -1,0 +1,21 @@
+{
+  "card_count": 100,
+  "color_identity": "red",
+  "current_hash": "sha256:ea5fc755af9b7d1a6c489cbaeb46e32e7a7e75010900185f424de0b4472fbdd8",
+  "current_version": "20260802T173324Z--ea5fc75",
+  "deck": "i-smell-blood",
+  "display_name": "I Smell Blood",
+  "retrieved_at": "2026-08-02T17:33:24.765699+00:00",
+  "source": "archidekt",
+  "source_metadata": {
+    "card_count": 100,
+    "color_identity": "red",
+    "deck_id": 24922183,
+    "name": "I Smell Blood",
+    "owner": "DrDaddy83",
+    "private": false,
+    "unlisted": false,
+    "updated_at": "2026-08-02T17:32:54.553693Z"
+  },
+  "url": "https://archidekt.com/decks/24922183/i_smell_blood"
+}

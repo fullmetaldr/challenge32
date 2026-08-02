@@ -1,0 +1,111 @@
+# Challenge32 synchronized decklist
+# Deck: I Smell Blood
+# Source: archidekt
+# URL: https://archidekt.com/decks/24922183/i_smell_blood
+# Retrieved: 2026-08-02T17:33:24.765699+00:00
+# Version: 20260802T173324Z--ea5fc75
+# Deck hash: sha256:ea5fc755af9b7d1a6c489cbaeb46e32e7a7e75010900185f424de0b4472fbdd8
+# Cards: 100
+# Generated file; put analysis in notes/.
+// Commander
+1 Jaws, Relentless Predator (sld) 2175 #commander
+
+// Creature
+1 Tempestra, Dame of Games (tmc) 27 #creature
+
+// Land
+1 Adventurer's Inn (fin) 271 #land
+1 Capital City (fin) 274 #land
+1 Inventors' Fair (kld) 247 #land
+1 Looming Spires (bfz) 238 #land
+26 Mountain (eoe) 265 #land
+1 Rogue's Passage (fdn) 264 #land
+1 Rumble Arena (tla) 277 #land
+1 Secluded Starforge (eoe) 257 #land
+1 The Gold Saucer (fin) 279 #land
+1 Treasure Vault (drc) 180 #land
+
+// Burn
+1 Ingenious Artillerist (clb) 182 #burn
+1 Reckless Fireweaver (drc) 106 #burn
+1 Sardian Avenger (brc) 43 #burn
+1 Weftstalker Ardent (eoe) 169 #burn
+
+// Draw
+1 Big Score (fic) 290 #draw
+1 Collector's Vault (woe) 244 #draw
+1 Faithless Looting (tdc) 213 #draw
+1 Romantic Rendezvous (spm) 86 #draw
+1 Rose, Cutthroat Raider (pip) 66 #draw
+1 Tamiyo's Journal (soi) 265 #draw
+1 The One Ring (ltr) 246 #draw
+
+// Lifegain
+1 Scrapheap (ulg) 132 #lifegain
+
+// Protection
+1 Lightning Greaves (sld) 2099 #protection
+1 Mycosynth Lattice (bbd) 241 #protection
+1 Redirect Lightning (tla) 151 #protection
+1 Swiftfoot Boots (tdc) 328 #protection
+1 Sword of Wealth and Power (big) 56 #protection
+
+// Pump
+1 Embercleave (eld) 120 #pump
+1 Lizard Blades (neo) 468 #pump
+1 The Spear of Leonidas (acr) 38 #pump
+
+// Ramp
+1 Ancient Copper Dragon (fca) 12 #ramp
+1 Atsushi, the Blazing Sky (soc) 236 #ramp
+1 Captain Lannery Storm (otc) 158 #ramp
+1 Cavern-Hoard Dragon (ltc) 31 #ramp
+1 Descent into Avernus (sld) 2176 #ramp
+1 Gimli of the Glittering Caves (ltc) 32 #ramp
+1 Goldspan Dragon (m3c) 212 #ramp
+1 Krark-Clan Ironworks (slc) 11 #ramp
+1 Magda, Brazen Outlaw (khm) 142 #ramp
+1 Mind Stone (dsc) 248 #ramp
+1 Professional Face-Breaker (snc) 116 #ramp
+1 Prosperous Bandit (blc) 25 #ramp
+1 Pyretic Ritual (m11) 153 #ramp
+1 Radiant Lotus (pdft) 240p #ramp
+1 Ring of the Lucii (fin) 269 #ramp
+1 Ruby Medallion (mh3) 295 #ramp
+1 Seething Song (sld) 7051 #ramp
+1 Sol Ring (m3c) 305 #ramp
+1 Solemn Simulacrum (soc) 355 #ramp
+1 Tempting Contract (c21) 78 #ramp
+1 The Reaver Cleaver (sld) 2095 #ramp
+1 The Regalia (fin) 267 #ramp
+1 There and Back Again (ltr) 151 #ramp
+1 Vault Robber (khm) 158 #ramp
+1 Worn Powerstone (mh3) 298 #ramp
+1 Xorn (sld) 2495 #ramp
+
+// Removal
+1 Blasphemous Act (soc) 238 #removal
+1 Brotherhood's End (soa) 39 #removal
+1 Hell to Pay (otj) 126 #removal
+1 Hellkite Tyrant (rvr) 111 #removal
+1 Indomitable Creativity (otp) 25 #removal
+1 Meltdown (mh3) 282 #removal
+1 Reckless Endeavor (sld) 2177 #removal
+1 Shatterstorm (5ed) 266 #removal
+1 Spiteful Banditry (ltr) 439 #removal
+1 The Last Agni Kai (tla) 144 #removal
+1 Untimely Malfunction (dsk) 161 #removal
+1 Vandalblast (fic) 298 #removal
+
+// Sac Outlet
+1 Atog (5ed) 209 #sac-outlet
+
+// Theft
+1 Vaan, Street Thief (fin) 168 #theft
+
+// Tokens
+1 Academy Manufactor (mh2) 219 #tokens
+1 Blade of Selves (tdc) 313 #tokens
+
+// Tutor
+1 Transmutation Font (pw24) 11 #tutor
