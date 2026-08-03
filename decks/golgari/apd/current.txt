@@ -1,0 +1,125 @@
+# Challenge32 synchronized decklist
+# Deck: APD
+# Source: archidekt
+# URL: https://archidekt.com/decks/24922346/apd
+# Retrieved: 2026-08-03T11:57:11.219697+00:00
+# Version: 20260803T115711Z--db2863f
+# Deck hash: sha256:db2863fa9defaf93e8c25877f697834742ffde8146f016ee4d9ab3657361cf3a
+# Cards: 100
+# Generated file; put analysis in notes/.
+// Commander
+1 Chatterfang, Squirrel General (blc) 82 #commander
+
+// Creature
+1 The Unbeatable Squirrel Girl (msh) 193 #creature
+
+// Artifact
+1 Cauldron of Essence (sos) 179 #artifact
+
+// Enchantment
+1 Grave Venerations (ecc) 9 #enchantment
+1 Ninja Pizza (tmc) 32 #enchantment
+1 Springleaf Parade (ecc) 19 #enchantment
+
+// Sorcery
+1 Immoral Bargain (soc) 47 #sorcery
+
+// Land
+1 Barad-dûr (ltr) 253 #land
+1 Blooming Marsh (otj) 266 #land
+1 Command Tower (blc) 130 #land
+1 Deathcap Glade (sos) 253 #land
+1 Evendo, Waking Haven (peoe) 253p #land
+1 Exotic Orchard (blc) 131 #land
+4 Forest (blb) 377 #land
+1 Grim Backwoods (dsc) 281 #land
+1 High Market (fic) 402 #land
+1 Ifnir Deadlands (ecc) 153 #land
+1 Llanowar Wastes (eoc) 165 #land
+1 Midgar, City of Mako // Reactor Raid (fin) 313 #land
+1 Oran-Rief, the Vastwood (blc) 320 #land
+1 Overgrown Tomb (ecl) 266 #land
+1 Path of Ancestry (ecc) 158 #land
+1 Phyrexian Tower (mh3) 303 #land
+7 Swamp (blb) 373 #land
+1 Swarmyard (eos) 42 #land
+1 Tainted Wood (dsc) 305 #land
+1 The Shire (ltr) 260 #land
+1 Turbulent Fen (soc) 55 #land
+1 Twilight Mire (eoc) 189 #land
+1 Undergrowth Stadium (tmc) 80 #land
+1 Verdant Catacombs (spg) 118 #land
+1 Vernal Fen (ecc) 63 #land
+1 Viridescent Bog (eoc) 190 #land
+1 Wastewood Verge (pdft) 268p #land
+1 Woodland Cemetery (tdc) 412 #land
+
+// Drain
+1 Agent of the Iron Throne (clb) 107 #drain
+1 Bastion of Remembrance (j25) 403 #drain
+1 Blood Artist (jmp) 206 #drain
+1 Funeral Room // Awakening Hall (pdsk) 100p #drain
+1 Marionette Apprentice (mh3) 100 #drain
+1 Mirkwood Bats (ltr) 421 #drain
+1 Nadier's Nightblade (blc) 184 #drain
+1 Poison-Tip Archer (blc) 256 #drain
+1 Sephiroth, Fabled SOLDIER // Sephiroth, One-Winged Angel (fin) 115 #drain
+1 Zulaport Cutthroat (blc) 190 #drain
+
+// Draw
+1 Braids, Arisen Nightmare (pdmu) 84p #draw
+1 Liliana, Dreadhorde General (fdn) 176 #draw
+1 Moldervine Reclamation (m20) 214 #draw
+1 Morbid Opportunist (j25) 464 #draw
+1 Peregrin Took (ltr) 181 #draw
+1 Reprocess (sld) 2107 #draw
+1 Skullclamp (blc) 283 #draw
+1 Species Specialist (c20) 47 #draw
+1 Yawgmoth, Thran Physician (fca) 11 #draw
+
+// Ramp
+1 Arcane Signet (blc) 127 #ramp
+1 Ashnod's Altar (6ed) 274 #ramp
+1 Awaken the Woods (bro) 170 #ramp
+1 Bootleggers' Stash (drc) 110 #ramp
+1 Circle of Dreams Druid (afr) 176 #ramp
+1 Gilded Goose (soc) 269 #ramp
+1 Golgari Signet (ddj) 66 #ramp
+1 Growing Rites of Itlimoc // Itlimoc, Cradle of the Sun (xln) 191 #ramp
+1 Jaheira, Friend of the Forest (clb) 237 #ramp
+1 Phyrexian Altar (slc) 16 #ramp
+1 Pitiless Plunderer (lcc) 208 #ramp
+1 Ruthless Knave (xln) 119 #ramp
+1 Sol Ring (blc) 129 #ramp
+1 Talisman of Resilience (dsc) 255 #ramp
+1 The Cabbage Merchant (tle) 134 #ramp
+1 Wight of the Reliquary (mh3) 207 #ramp
+
+// Recursion
+1 Victimize (c15) 139 #recursion
+
+// Removal
+1 Culling Ritual (soa) 62 #removal
+1 Dictate of Erebos (sld) 2204 #removal
+1 Pest Infestation (eoc) 103 #removal
+1 Swarmyard Massacre (blc) 20 #removal
+1 The Meathook Massacre (inr) 122 #removal
+
+// Sac Outlet
+1 Joo Dee, One of Many (tla) 105 #sac-outlet
+1 Warren Soultrader (mh3) 332 #sac-outlet
+1 Witch's Oven (eld) 237 #sac-outlet
+
+// Tokens
+1 Academy Manufactor (blc) 264 #tokens
+1 Camellia, the Seedmiser (blb) 207 #tokens
+1 Deep Forest Hermit (blc) 213 #tokens
+1 Doubling Season (fdn) 216 #tokens
+1 Experimental Confectioner (woe) 314 #tokens
+1 Fresh Meat (c14) 197 #tokens
+1 Nuka-Cola Vending Machine (sld) 2462 #tokens
+1 Ogre Slumlord (blc) 186 #tokens
+1 Parallel Lives (mar) 36 #tokens
+1 Pippin, Warden of Isengard (ltc) 65 #tokens
+1 Plague of Vermin (pza) 7 #tokens
+1 Scurry of Squirrels (blc) 33 #tokens
