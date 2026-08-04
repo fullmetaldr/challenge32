@@ -8,13 +8,13 @@ from pathlib import Path
 
 from mtg_parser.card import Card
 
-from challenge32_sync.archidekt import ArchidektClient
-from challenge32_sync.cli import slugify
-from challenge32_sync.colors import identity_name
-from challenge32_sync.dashboard import build_dashboard
-from challenge32_sync.models import DeckConfig
-from challenge32_sync.progress import update_progress_table
-from challenge32_sync.sync import deck_hash, render_body, synchronize
+from challenge32.archidekt import ArchidektClient
+from challenge32.cli import slugify
+from challenge32.colors import identity_name
+from challenge32.dashboard import build_dashboard
+from challenge32.models import DeckConfig
+from challenge32.progress import update_progress_table
+from challenge32.sync import deck_hash, render_body, synchronize
 
 
 class SyncTests(unittest.TestCase):

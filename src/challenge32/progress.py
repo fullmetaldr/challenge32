@@ -80,8 +80,8 @@ def update_progress_table(readme_path: Path, decks_root: Path) -> int:
     section = (
         f"{TABLE_HEADING}\n\n"
         "This table is generated from the tracked deck configurations. Run "
-        "`challenge32-sync progress` to refresh it manually; "
-        "`challenge32-sync add` refreshes it automatically after adding a deck.\n\n"
+        "`challenge32 progress` to refresh it manually; "
+        "`challenge32 add` refreshes it automatically after adding a deck.\n\n"
         f"{table}\n\n"
     )
     updated = readme[:start] + section + readme[end:]

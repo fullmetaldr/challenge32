@@ -47,7 +47,7 @@ class ArchidektClient:
             timeout=timeout,
             follow_redirects=True,
             headers={
-                "User-Agent": "challenge32-sync/0.1 (personal deck archive)",
+                "User-Agent": "challenge32/0.1 (personal deck archive)",
                 "Accept": "text/html,application/json",
             },
         )

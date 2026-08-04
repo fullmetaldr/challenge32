@@ -20,7 +20,7 @@ jobs:
           python-version: "3.12"
       - run: pip install .
       - uses: actions/configure-pages@v6
-      - run: challenge32-sync dashboard --output site
+      - run: challenge32 dashboard --output site
       - uses: actions/upload-pages-artifact@v5
         with:
           path: site

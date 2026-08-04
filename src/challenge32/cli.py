@@ -16,7 +16,7 @@ from .sync import synchronize
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(prog="challenge32-sync")
+    parser = argparse.ArgumentParser(prog="challenge32")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     sync_parser = subparsers.add_parser("sync", help="Synchronize decklists from their configured sources")

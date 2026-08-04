@@ -8,7 +8,7 @@ retrieved decklists, immutable snapshots, and analysis history.
 
 ## Challenge progress
 
-This table is generated from the tracked deck configurations. Run `challenge32-sync progress` to refresh it manually; `challenge32-sync add` refreshes it automatically after adding a deck.
+This table is generated from the tracked deck configurations. Run `challenge32 progress` to refresh it manually; `challenge32 add` refreshes it automatically after adding a deck.
 
 | Colour identity | Status | Deck | Commander | Analysis |
 |---|---|---|---|---|
@@ -78,13 +78,13 @@ decks/
 Synchronize one deck:
 
 ```bash
-challenge32-sync sync --deck decks/naya/omnislash
+challenge32 sync --deck decks/naya/omnislash
 ```
 
 Synchronize all configured decks:
 
 ```bash
-challenge32-sync sync --all
+challenge32 sync --all
 ```
 
 Add a new public Archidekt deck directly from its URL. The command fetches the
@@ -93,19 +93,19 @@ identity, creates the correct directory and `deck.toml`, and performs the
 initial synchronization:
 
 ```bash
-challenge32-sync add https://archidekt.com/decks/<deck-id>/<deck-name>
+challenge32 add https://archidekt.com/decks/<deck-id>/<deck-name>
 ```
 
 Preview the inferred destination without writing files:
 
 ```bash
-challenge32-sync add https://archidekt.com/decks/<deck-id>/<deck-name> --dry-run
+challenge32 add https://archidekt.com/decks/<deck-id>/<deck-name> --dry-run
 ```
 
 Preview a synchronization without writing files:
 
 ```bash
-challenge32-sync sync --deck decks/naya/omnislash --dry-run
+challenge32 sync --deck decks/naya/omnislash --dry-run
 ```
 
 A new immutable version is created only when the normalized card list changes.
@@ -126,7 +126,7 @@ The synchronizer never rewrites analysis prose.
 Build the static dashboard locally from the tracked deck directories:
 
 ```bash
-challenge32-sync dashboard
+challenge32 dashboard
 python -m http.server 8000 --directory site
 ```
 
