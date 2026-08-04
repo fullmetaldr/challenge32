@@ -1,11 +1,11 @@
 {
   "card_count": 100,
   "color_identity": "golgari",
-  "current_hash": "sha256:db2863fa9defaf93e8c25877f697834742ffde8146f016ee4d9ab3657361cf3a",
-  "current_version": "20260803T115711Z--db2863f",
+  "current_hash": "sha256:a96b226d023f015bd98c7ddfce695891da405948ed1d477e3c08d059eb65b161",
+  "current_version": "20260804T225410Z--a96b226",
   "deck": "apd",
   "display_name": "APD",
-  "retrieved_at": "2026-08-03T11:57:11.219697+00:00",
+  "retrieved_at": "2026-08-04T22:54:10.697622+00:00",
   "source": "archidekt",
   "source_metadata": {
     "card_count": 100,
@@ -15,7 +15,7 @@
     "owner": "DrDaddy83",
     "private": false,
     "unlisted": false,
-    "updated_at": "2026-08-03T11:56:09.526752Z"
+    "updated_at": "2026-08-04T22:53:38.568628Z"
   },
   "url": "https://archidekt.com/decks/24922346/apd"
 }
