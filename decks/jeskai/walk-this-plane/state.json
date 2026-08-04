@@ -1,11 +1,11 @@
 {
   "card_count": 100,
   "color_identity": "jeskai",
-  "current_hash": "sha256:2131d94c60d98f465317fb7ba414dd4b144198e4571d6a94b4e523f6bed6fc9e",
-  "current_version": "20260801T091302Z--2131d94",
+  "current_hash": "sha256:ffcff48bdc45187ebdba28e9874b8b7a5c2109f5442851ee3a63f1c53ec12bb2",
+  "current_version": "20260804T222432Z--ffcff48",
   "deck": "walk-this-plane",
   "display_name": "Walk this plane!",
-  "retrieved_at": "2026-08-01T09:13:02.873595+00:00",
+  "retrieved_at": "2026-08-04T22:24:32.292277+00:00",
   "source": "archidekt",
   "source_metadata": {
     "card_count": 100,
@@ -15,7 +15,7 @@
     "owner": "DrDaddy83",
     "private": false,
     "unlisted": false,
-    "updated_at": "2026-08-01T09:11:13.389409Z"
+    "updated_at": "2026-08-04T22:21:47.338188Z"
   },
   "url": "https://archidekt.com/decks/24884017/walk_this_plane"
 }
