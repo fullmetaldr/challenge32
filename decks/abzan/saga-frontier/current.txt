@@ -1,0 +1,130 @@
+# Challenge32 synchronized decklist
+# Deck: Saga Frontier
+# Source: archidekt
+# URL: https://archidekt.com/decks/25034017/saga_frontier
+# Retrieved: 2026-08-05T18:38:20.913324+00:00
+# Version: 20260805T183820Z--0459a32
+# Deck hash: sha256:0459a3260e9a7415822be69b78ddf1fdb85601a10b08fa9fee50098de25d47dd
+# Cards: 100
+# Generated file; put analysis in notes/.
+// Commander
+1 Narci, Fable Singer (cmm) 710 #commander
+
+// Creature
+1 Eiganjo Dynastorian // Replenish (soc) 13 #creature
+
+// Enchantment
+1 The Cloning of Shredder (tmt) 60 #enchantment
+
+// Land
+1 Bleachbone Verge (dft) 250 #land
+1 Bountiful Promenade (msc) 226 #land
+1 City of Brass (tmc) 62 #land
+1 Command Tower (msc) 233 #land
+1 Exotic Orchard (msc) 241 #land
+1 Fabled Passage (msc) 242 #land
+3 Forest (eoe) 266 #land
+1 Gemstone Caverns (tsr) 280 #land
+1 Godless Shrine (trk) 285 #land
+1 Hall of Heliod's Generosity (dsc) 283 #land
+1 Hushwood Verge (dsk) 261 #land
+1 Indatha Triome (iko) 248 #land
+1 Isolated Chapel (soc) 382 #land
+1 Karn's Bastion (eoc) 163 #land
+1 Mana Confluence (jou) 163 #land
+1 Marsh Flats (mh2) 248 #land
+1 Nesting Grounds (ecc) 155 #land
+1 Overgrown Tomb (trk) 289 #land
+3 Plains (eoe) 262 #land
+1 Shattered Sanctum (sos) 260 #land
+3 Swamp (eoe) 264 #land
+1 Temple Garden (trk) 301 #land
+1 Turbulent Fen (soc) 55 #land
+1 Turbulent Moor (soc) 56 #land
+1 Undergrowth Stadium (tmc) 80 #land
+1 Vault of Champions (cmm) 436 #land
+1 Verdant Catacombs (mh2) 260 #land
+1 Wastewood Verge (dft) 268 #land
+1 Windswept Heath (mh3) 235 #land
+
+// Copy
+1 Calix, Guided by Fate (mat) 126 #copy
+1 Ondu Spiritdancer (dsc) 101 #copy
+
+// Counters
+1 Barbara Wright (who) 14 #counters
+
+// Draw
+1 Femeref Enchantress (vis) 129 #draw
+1 Setessan Champion (woc) 132 #draw
+1 Summon: Anima (fin) 364 #draw
+1 Sylvan Library (spg) 155 #draw
+1 Yawgmoth, Thran Physician (fca) 11 #draw
+
+// Proliferate
+1 Agent Frank Horrigan (pip) 617 #proliferate
+1 Contagion Clasp (ecc) 140 #proliferate
+1 Evolution Sage (ecc) 105 #proliferate
+1 Norn's Choirmaster (onc) 8 #proliferate
+1 Staff of Compleation (tdc) 326 #proliferate
+1 Vraska, Betrayal's Sting (ecc) 88 #proliferate
+
+// Protection
+1 Avacyn, Angel of Hope (inr) 482 #protection
+1 Bastion Protector (ltc) 162 #protection
+1 Heroic Intervention (who) 824 #protection
+1 Privileged Position (2x2) 263 #protection
+1 Restoration Magic (fin) 30 #protection
+1 Sigarda, Font of Blessings (mat) 47 #protection
+1 Sterling Grove (mh2) 293 #protection
+1 Timely Ward (dsc) 107 #protection
+
+// Ramp
+1 Arcane Signet (msc) 191 #ramp
+1 Azusa's Many Journeys // Likeness of the Seeker (neo) 172 #ramp
+1 Demon of Fate's Design (dsc) 137 #ramp
+1 Fellwar Stone (soc) 347 #ramp
+1 Helm of Awakening (dmr) 224 #ramp
+1 Jukai Naturalist (woc) 140 #ramp
+1 Mirari's Wake (cmm) 928 #ramp
+1 Sanctum Weaver (woc) 131 #ramp
+1 Sol Ring (msc) 211 #ramp
+1 Starfield Mystic (soc) 177 #ramp
+1 Summon: Fenrir (fin) 372 #ramp
+1 Summon: Titan (fin) 373 #ramp
+1 Talisman of Hierarchy (fic) 365 #ramp
+1 Talisman of Resilience (soc) 432 #ramp
+1 Talisman of Unity (mkc) 244 #ramp
+1 The Weatherseed Treaty (dmu) 188 #ramp
+1 Thran Dynamo (cmm) 658 #ramp
+1 Three Visits (msc) 181 #ramp
+
+// Recursion
+1 Anikthea, Hand of Erebos (cmm) 705 #recursion
+1 Replenish (uds) 15 #recursion
+1 Satsuki, the Living Lore (neo) 235 #recursion
+1 Yuna, Hope of Spira (fin) 250 #recursion
+
+// Removal
+1 Battle at the Helvault (cmm) 719 #removal
+1 Firja's Retribution (clb) 846 #removal
+1 Phyrexian Scriptures (moc) 266 #removal
+1 Summon: Primal Odin (fin) 121 #removal
+1 Summon: Yojimbo (fic) 196 #removal
+1 The Curse of Fenric (who) 118 #removal
+1 The Night of the Doctor (who) 24 #removal
+1 Trial of a Time Lord (who) 29 #removal
+1 Vindicate (fic) 330 #removal
+
+// Tokens
+1 City of Death (who) 99 #tokens
+1 Historian's Boon (dmc) 21 #tokens
+1 Revival of the Ancestors (tdm) 218 #tokens
+1 Summon: Good King Mog XII (fic) 194 #tokens
+1 Summon: Knights of Round (fin) 359 #tokens
+1 The War Games (who) 30 #tokens
+
+// Tutor
+1 Captain Sisay (sld) 51 #tutor
+1 The Cruelty of Gix (dmu) 87 #tutor
+1 War of the Last Alliance (ltr) 36 #tutor

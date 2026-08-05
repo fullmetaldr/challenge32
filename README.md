@@ -33,7 +33,7 @@ This table is generated from the tracked deck configurations. Run `challenge32 p
 | Jund | Not started | — | — | — |
 | Naya | Tracked | [Omnislash](decks/naya/omnislash/current.txt) ([source](https://archidekt.com/decks/15661283/omnislash)) | Cloud, Ex-SOLDIER | Unreviewed |
 | Bant | Tracked | [Kweh Kweh!](decks/bant/kweh-kweh/current.txt) ([source](https://archidekt.com/decks/24922076/kweh_kweh)) | Choco, Seeker of Paradise | Unreviewed |
-| Abzan | Not started | — | — | — |
+| Abzan | Tracked | [Saga Frontier](decks/abzan/saga-frontier/current.txt) ([source](https://archidekt.com/decks/25034017/saga_frontier)) | Narci, Fable Singer | Unreviewed |
 | Temur | Not started | — | — | — |
 | Jeskai | Tracked | [Walk this plane!](decks/jeskai/walk-this-plane/current.txt) ([source](https://archidekt.com/decks/24884017/walk_this_plane)) | Commodore Guff | Unreviewed |
 | Sultai | Not started | — | — | — |
