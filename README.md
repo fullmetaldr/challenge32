@@ -23,7 +23,7 @@ This table is generated from the tracked deck configurations. Run `challenge32 p
 | Rakdos | Not started | — | — | — |
 | Gruul | Not started | — | — | — |
 | Selesnya | Not started | — | — | — |
-| Orzhov | Not started | — | — | — |
+| Orzhov | Tracked | [The Circle of Life](decks/orzhov/the-circle-of-life/current.txt) ([source](https://archidekt.com/decks/25209011/the_circle_of_life)) | Kambal, Profiteering Mayor | Unreviewed |
 | Izzet | Tracked | [Sling it Like it's Hot](decks/izzet/sling-it-like-it-s-hot/current.txt) ([source](https://archidekt.com/decks/24921939/sling_it_like_its_hot)) | Ghyrson Starn, Kelermorph | Unreviewed |
 | Golgari | Tracked | [APD](decks/golgari/apd/current.txt) ([source](https://archidekt.com/decks/24922346/apd)) | Chatterfang, Squirrel General | Unreviewed |
 | Boros | Tracked | [Praise the Sun](decks/boros/praise-the-sun/current.txt) ([source](https://archidekt.com/decks/24888846/praise_the_sun)) | Otharri, Suns' Glory | Unreviewed |

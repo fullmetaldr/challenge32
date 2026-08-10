@@ -1,0 +1,21 @@
+{
+  "card_count": 100,
+  "color_identity": "orzhov",
+  "current_hash": "sha256:0fe624650138c7d1e44eed7cc464de9cb37c6b2b97977a319aa46db61d2ed0f6",
+  "current_version": "20260810T211511Z--0fe6246",
+  "deck": "the-circle-of-life",
+  "display_name": "The Circle of Life",
+  "retrieved_at": "2026-08-10T21:15:11.383164+00:00",
+  "source": "archidekt",
+  "source_metadata": {
+    "card_count": 100,
+    "color_identity": "orzhov",
+    "deck_id": 25209011,
+    "name": "The Circle of Life",
+    "owner": "DrDaddy83",
+    "private": false,
+    "unlisted": false,
+    "updated_at": "2026-08-10T21:09:59.002900Z"
+  },
+  "url": "https://archidekt.com/decks/25209011/the_circle_of_life"
+}
