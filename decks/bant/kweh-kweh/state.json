@@ -1,21 +1,21 @@
 {
-  "card_count": 100,
+  "card_count": 98,
   "color_identity": "bant",
-  "current_hash": "sha256:c56e53010ad0331a54442140551a95c375d1cff1987a91b69ae4c3ddaf323645",
-  "current_version": "20260802T172749Z--c56e530",
+  "current_hash": "sha256:357e7a9c705f2d3b57ee0d8c76a183c0fc093838f97dbc191f47a4b61f7fbdfd",
+  "current_version": "20260820T221936Z--357e7a9",
   "deck": "kweh-kweh",
   "display_name": "Kweh Kweh!",
-  "retrieved_at": "2026-08-02T17:27:49.759622+00:00",
+  "retrieved_at": "2026-08-20T22:19:36.693788+00:00",
   "source": "archidekt",
   "source_metadata": {
-    "card_count": 100,
+    "card_count": 98,
     "color_identity": "bant",
     "deck_id": 24922076,
     "name": "Kweh Kweh!",
     "owner": "DrDaddy83",
     "private": false,
     "unlisted": false,
-    "updated_at": "2026-08-02T17:26:50.592506Z"
+    "updated_at": "2026-08-20T22:11:37.421639Z"
   },
   "url": "https://archidekt.com/decks/24922076/kweh_kweh"
 }
