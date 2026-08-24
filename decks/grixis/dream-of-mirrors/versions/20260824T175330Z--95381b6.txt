@@ -1,0 +1,133 @@
+# Challenge32 synchronized decklist
+# Deck: Dream of Mirrors
+# Source: archidekt
+# URL: https://archidekt.com/decks/25702223/dream_of_mirrors
+# Retrieved: 2026-08-24T17:53:30.165528+00:00
+# Version: 20260824T175330Z--95381b6
+# Deck hash: sha256:95381b666d3d86098884e1194f9ff795c25fb510567e0f1cef0d95f141e66bcf
+# Cards: 100
+# Generated file; put analysis in notes/.
+// Commander
+1 Nekusar, the Mindrazer (sld) 2184 #commander
+
+// Creature
+1 Krang, the All-Powerful (tmc) 13 #creature
+
+// Land
+1 Blood Crypt (pecl) 262p #land
+1 Bloodstained Mire (mh3) 216 #land
+1 Command Beacon (fca) 64 #land
+1 Command Tower (fic) 484 #land
+1 Dragonskull Summit (fic) 387 #land
+1 Drowned Catacomb (m13) 223 #land
+1 Exotic Orchard (ncc) 400 #land
+1 Island (eoe) 263 #land
+2 Island (eoe) 270 #land
+1 Luxury Suite (bbd) 82 #land
+1 Morphic Pool (clb) 357 #land
+1 Mountain (eoe) 265 #land
+1 Mountain (fin) 303 #land
+1 Mountain (fin) 305 #land
+1 Plaza of Heroes (eos) 78 #land
+1 Polluted Delta (mh3) 356 #land
+1 Reliquary Tower (plg20) 1 #land
+1 Rivendell (ltr) 259 #land
+1 Riverpyre Verge (pdft) 260p #land
+1 Scalding Tarn (spg) 112 #land
+1 Scorched Geyser (soc) 102 #land
+1 Shadowblood Ridge (fic) 421 #land
+1 Steam Vents (ecl) 267 #land
+1 Stormcarved Coast (inr) 285 #land
+1 Sulfur Falls (ltc) 333 #land
+1 Sulfurous Springs (fic) 427 #land
+5 Swamp (eoe) 264 #land
+1 The Grey Havens (ltr) 443 #land
+1 Training Center (cmm) 665 #land
+1 Turbulent Springs (soc) 105 #land
+1 Underground River (dsc) 321 #land
+1 Watery Grave (eoe) 286 #land
+
+// Burn
+1 Psychosis Crawler (pw22) 6 #burn
+1 Razorkin Needlehead (dsk) 153 #burn
+1 Underworld Dreams (thb) 121 #burn
+
+// Counters
+1 Flusterstorm (mh3) 496 #counters
+
+// Discard
+1 Dark Deal (tle) 161 #discard
+
+// Drain
+1 Fate Unraveler (dsc) 141 #drain
+
+// Draw
+1 Dictate of Kruphix (fdn) 587 #draw
+1 Emberwilde Captain (cmr) 175 #draw
+1 Fevered Visions (tle) 49 #draw
+1 Font of Mythos (sld) 2075 #draw
+1 Forced Fruition (wot) 18 #draw
+1 Howling Mine (sld) 7046 #draw
+1 Jace's Archivist (c13) 48 #draw
+1 Magus of the Wheel (a25) 142 #draw
+1 Master of the Feast (jou) 75 #draw
+1 Prosperity (tle) 17 #draw
+1 Reforge the Soul (inr) 167 #draw
+1 Scrawling Crawler (pfdn) 132s #draw
+1 Seizan, Perverter of Truth (mul) 15 #draw
+1 Stormfist Crusader (eld) 383 #draw
+1 Teferi's Puzzle Box (9ed) 312 #draw
+1 The Unagi of Kyoshi Island (tla) 77 #draw
+1 Valgavoth, Harrower of Souls (dsc) 6 #draw
+1 Whirlpool Warrior (apc) 36 #draw
+1 Whispering Madness (c16) 229 #draw
+1 Windfall (sld) 2182 #draw
+1 Winds of Change (mar) 30 #draw
+
+// Lifegain
+1 Bloodthirsty Conqueror (fdn) 426 #lifegain
+1 Exquisite Blood (lcc) 195 #lifegain
+1 Sheoldred, the Apocalypse (dmu) 107 #lifegain
+
+// Pingers
+1 Kederekt Parasite (con) 48 #pingers
+
+// Protection
+1 Bolt Bend (tle) 163 #protection
+1 Propaganda (acr) 85 #protection
+1 Redirect Lightning (tla) 343 #protection
+1 The Walls of Ba Sing Se (tla) 329 #protection
+
+// Ramp
+1 Arcane Signet (m3c) 283 #ramp
+1 Bender's Waterskin (tla) 255 #ramp
+1 Coveted Jewel (fic) 341 #ramp
+1 Dimir Signet (scd) 263 #ramp
+1 Izzet Signet (tdc) 320 #ramp
+1 Rakdos Signet (ncc) 378 #ramp
+1 Relic of Sauron (ltc) 79 #ramp
+1 Sol Ring (tle) 316 #ramp
+1 Talisman of Dominance (e01) 90 #ramp
+1 Talisman of Indulgence (fic) 366 #ramp
+1 Thought Vessel (blc) 289 #ramp
+1 Thran Dynamo (cmm) 415 #ramp
+
+// Recursion
+1 Whip of Erebos (sld) 2218 #recursion
+
+// Removal
+1 Arcane Denial (sld) 2489 #removal
+1 Bedevil (fic) 319 #removal
+1 Counterspell (fca) 4 #removal
+1 Cyclonic Rift (sld) 1869 #removal
+1 Fierce Guardianship (tle) 307 #removal
+1 Flatline (who) 43 #removal
+1 Hellish Rebuke (afc) 26 #removal
+1 Narset's Reversal (slc) 41 #removal
+1 Ob Nixilis, the Hate-Twisted (war) 100 #removal
+1 Orcish Bowmasters (ltr) 103 #removal
+1 Sudden Spoiling (tsr) 144 #removal
+1 Swan Song (ltc) 197 #removal
+
+// Tokens
+1 Chasm Skulker (fic) 262 #tokens

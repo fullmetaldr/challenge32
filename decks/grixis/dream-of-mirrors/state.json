@@ -1,0 +1,21 @@
+{
+  "card_count": 100,
+  "color_identity": "grixis",
+  "current_hash": "sha256:95381b666d3d86098884e1194f9ff795c25fb510567e0f1cef0d95f141e66bcf",
+  "current_version": "20260824T175330Z--95381b6",
+  "deck": "dream-of-mirrors",
+  "display_name": "Dream of Mirrors",
+  "retrieved_at": "2026-08-24T17:53:30.165528+00:00",
+  "source": "archidekt",
+  "source_metadata": {
+    "card_count": 100,
+    "color_identity": "grixis",
+    "deck_id": 25702223,
+    "name": "Dream of Mirrors",
+    "owner": "DrDaddy83",
+    "private": false,
+    "unlisted": false,
+    "updated_at": "2026-08-24T17:50:34.120707Z"
+  },
+  "url": "https://archidekt.com/decks/25702223/dream_of_mirrors"
+}
