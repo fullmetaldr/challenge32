@@ -1,21 +1,21 @@
 {
-  "card_count": 100,
+  "card_count": 98,
   "color_identity": "ink-treader",
-  "current_hash": "sha256:28db22f6aef160578045629ad5b08cbe0ef819bdd33edf229f6a29c5dba1693c",
-  "current_version": "20260802T171902Z--28db22f",
+  "current_hash": "sha256:9fd8f8daa54b9abc913f30bf5972b866cb5dcc503bd079e94099c5d2f8a87572",
+  "current_version": "20260827T092624Z--9fd8f8d",
   "deck": "all-the-aragorns",
   "display_name": "All the Aragorns",
-  "retrieved_at": "2026-08-02T17:19:02.696226+00:00",
+  "retrieved_at": "2026-08-27T09:26:24.066577+00:00",
   "source": "archidekt",
   "source_metadata": {
-    "card_count": 100,
+    "card_count": 98,
     "color_identity": "ink-treader",
     "deck_id": 24890308,
     "name": "All the Aragorns",
     "owner": "DrDaddy83",
     "private": false,
     "unlisted": false,
-    "updated_at": "2026-08-02T17:18:26.535936Z"
+    "updated_at": "2026-08-24T22:00:55.768066Z"
   },
   "url": "https://archidekt.com/decks/24890308/all_the_aragorns"
 }
