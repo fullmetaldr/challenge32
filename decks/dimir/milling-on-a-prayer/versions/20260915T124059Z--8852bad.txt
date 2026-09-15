@@ -1,0 +1,122 @@
+# Challenge32 synchronized decklist
+# Deck: Milling on a Prayer
+# Source: archidekt
+# URL: https://archidekt.com/decks/26427794/milling_on_a_prayer
+# Retrieved: 2026-09-15T12:40:59.225825+00:00
+# Version: 20260915T124059Z--8852bad
+# Deck hash: sha256:8852bad9a7561255517ab80d74cecbe1068067c2c009cefc04ec331634115225
+# Cards: 101
+# Generated file; put analysis in notes/.
+// Commander
+1 Haunted One (sld) 2200 #commander
+1 Zellix, Sanity Flayer (clb) 652 #commander
+
+// Instant
+1 Mana Sculpt (sos) 57 #instant
+
+// Sorcery
+1 Decorum Dissertation (sos) 78 #sorcery
+
+// Land
+1 Agna Qel'a (tla) 264 #land
+1 Cavern of Souls (lci) 269 #land
+1 City of Brass (tmc) 62 #land
+1 Clearwater Pathway // Murkwater Pathway (znr) 260 #land
+1 Command Tower (msc) 233 #land
+1 Darkslick Shores (otc) 281 #land
+1 Darkwater Catacombs (tdc) 355 #land
+1 Drowned Catacomb (m10) 224 #land
+1 Exotic Orchard (fic) 390 #land
+1 Gloomlake Verge (dsk) 260 #land
+9 Island (eoe) 263 #land
+1 Jidoor, Aristocratic Capital // Overture (fin) 284 #land
+1 Minamo, School at Water's Edge (plst) CHK-279 #land
+1 Morphic Pool (clb) 357 #land
+1 Path of Ancestry (fic) 411 #land
+1 Polluted Delta (mh3) 356 #land
+1 Scavenger Grounds (fic) 419 #land
+1 Shizo, Death's Storehouse (dmc) 233 #land
+1 Sunken Hollow (tmc) 76 #land
+6 Swamp (fic) 480 #land
+1 The Grey Havens (ltr) 443 #land
+1 Three Tree City (blb) 339 #land
+1 Underground River (dsc) 321 #land
+1 Watery Grave (eoe) 261 #land
+
+// Copy
+1 Roaming Throne (lci) 344 #copy
+
+// Drain
+1 Bloodchief Ascension (cmm) 139 #drain
+1 Syr Konrad, the Grim (fca) 10 #drain
+
+// Draw
+1 Drown in Dreams (m3c) 181 #draw
+1 Gollum, Scheming Guide (ltr) 292 #draw
+1 Grazilaxx, Illithid Scholar (afr) 60 #draw
+1 Harmonized Crescendo (ecl) 408 #draw
+1 Insight Engine (eoc) 6 #draw
+1 Pull from Tomorrow (fic) 269 #draw
+1 Silent Hallcreeper (pdsk) 72p #draw
+1 Visions of Beyond (tle) 21 #draw
+
+// Lifegain
+1 Profane Memento (m15) 226 #lifegain
+
+// Mill
+1 Altar of the Brood (slc) 1 #mill
+1 Brain Freeze (slc) 2 #mill
+1 Bruvac the Grandiloquent (sld) 2181 #mill
+1 Captain N'ghathrod (sld) 2183 #mill
+1 Consuming Aberration (tdc) 283 #mill
+1 Court of Cunning (cmr) 63 #mill
+1 Dreamborn Muse (cm2) 41 #mill
+1 Fraying Sanity (wot) 19 #mill
+1 Guiltfeeder (clb) 756 #mill
+1 Maddening Cacophony (znr) 67 #mill
+1 Memory Erosion (cm2) 45 #mill
+1 Mesmeric Orb (2xm) 272 #mill
+1 Mindcrank (sld) 2186 #mill
+1 Nemesis of Reason (clb) 850 #mill
+1 Psychic Corrosion (m19) 68 #mill
+1 Riddlekeeper (cmd) 59 #mill
+1 Riverchurn Monument (dft) 381 #mill
+1 Ruin Crab (znr) 75 #mill
+1 Sewer Nemesis (cmd) 98 #mill
+1 Terisian Mindbreaker (bro) 83 #mill
+1 The Ancient One (plci) 222p #mill
+1 The Mindskinner (dsk) 66 #mill
+1 The Water Crystal (fin) 85 #mill
+1 Undead Alchemist (mic) 105 #mill
+
+// Protection
+1 Feign Death (afr) 103 #protection
+1 Lazotep Plating (war) 59 #protection
+1 March of Swirling Mist (pneo) 61s #protection
+1 Swiftfoot Boots (msc) 216 #protection
+1 Undying Malice (fdn) 528 #protection
+
+// Ramp
+1 Arcane Signet (fic) 335 #ramp
+1 Fellwar Stone (soc) 347 #ramp
+1 Mind Stone (dmr) 232 #ramp
+1 North Pole Patrol (tla) 65 #ramp
+1 Sapphire Medallion (mh3) 349 #ramp
+1 Sol Ring (fic) 359 #ramp
+1 Talisman of Dominance (scd) 280 #ramp
+1 The Eternity Elevator (peoe) 241p #ramp
+1 Throne of Eldraine (woc) 28 #ramp
+1 Urza's Incubator (dmr) 453 #ramp
+1 Worn Powerstone (scd) 288 #ramp
+
+// Removal
+1 An Offer You Can't Refuse (fdn) 160 #removal
+1 Fierce Guardianship (cmm) 94 #removal
+1 Singularity Rupture (eoe) 398 #removal
+1 Sludge Monster (mid) 340 #removal
+1 Toxrill, the Corrosive (vow) 132 #removal
+
+// Untap
+1 Intruder Alarm (tle) 15 #untap
+1 Ioreth of the Healing House (ltr) 56 #untap
+1 Unstoppable Plan (pdft) 72p #untap
