@@ -1,11 +1,11 @@
 {
   "card_count": 100,
   "color_identity": "jeskai",
-  "current_hash": "sha256:a47d2d2dff2076149f85430239eb97533c471c5e292c89e0a73fb69f94bca77d",
-  "current_version": "20260915T105150Z--a47d2d2",
+  "current_hash": "sha256:69ca9b1f2926965e44a56ee0023cd1a3cb46b5fda2d1143892e8213c46903f26",
+  "current_version": "20260915T215047Z--69ca9b1",
   "deck": "the-will-of-the-gods",
   "display_name": "The Will of the Gods",
-  "retrieved_at": "2026-09-15T10:51:50.480942+00:00",
+  "retrieved_at": "2026-09-15T21:50:47.009334+00:00",
   "source": "archidekt",
   "source_metadata": {
     "card_count": 100,
@@ -15,7 +15,7 @@
     "owner": "DrDaddy83",
     "private": false,
     "unlisted": false,
-    "updated_at": "2026-08-25T22:35:50.659062Z"
+    "updated_at": "2026-09-15T20:05:18.941908Z"
   },
   "url": "https://archidekt.com/decks/24888658/the_will_of_the_gods"
 }

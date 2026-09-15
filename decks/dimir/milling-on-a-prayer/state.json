@@ -1,21 +1,21 @@
 {
-  "card_count": 101,
+  "card_count": 100,
   "color_identity": "dimir",
-  "current_hash": "sha256:8852bad9a7561255517ab80d74cecbe1068067c2c009cefc04ec331634115225",
-  "current_version": "20260915T124059Z--8852bad",
+  "current_hash": "sha256:ce47e5de8f57be8008e7f263ea4bb08bb10ee9a5a58c55aece11cc74aa8f8967",
+  "current_version": "20260915T215043Z--ce47e5d",
   "deck": "milling-on-a-prayer",
   "display_name": "Milling on a Prayer",
-  "retrieved_at": "2026-09-15T12:40:59.225825+00:00",
+  "retrieved_at": "2026-09-15T21:50:43.146246+00:00",
   "source": "archidekt",
   "source_metadata": {
-    "card_count": 101,
+    "card_count": 100,
     "color_identity": "dimir",
     "deck_id": 26427794,
     "name": "Milling on a Prayer",
     "owner": "DrDaddy83",
     "private": false,
     "unlisted": false,
-    "updated_at": "2026-09-15T11:23:27.746301Z"
+    "updated_at": "2026-09-15T21:49:05.487628Z"
   },
   "url": "https://archidekt.com/decks/26427794/milling_on_a_prayer"
 }
