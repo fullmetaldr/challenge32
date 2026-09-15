@@ -1,0 +1,129 @@
+# Challenge32 synchronized decklist
+# Deck: The Will of the Gods
+# Source: archidekt
+# URL: https://archidekt.com/decks/24888658/the_will_of_the_gods
+# Retrieved: 2026-09-15T10:51:50.480942+00:00
+# Version: 20260915T105150Z--a47d2d2
+# Deck hash: sha256:a47d2d2dff2076149f85430239eb97533c471c5e292c89e0a73fb69f94bca77d
+# Cards: 100
+# Generated file; put analysis in notes/.
+// Commander
+1 Atreus, Impulsive Son (sld) 2212 #commander
+1 Kratos, Stoic Father (sld) 2213 #commander
+
+// Creature
+1 Adept Watershaper (ecl) 3 #creature
+1 Hawkeye, Young Avenger (msh) 131 #creature
+1 Krang, the All-Powerful (tmc) 13 #creature
+1 Loki, God of Mischief (msh) 65 #creature
+1 Lorehold, the Historian (sos) 201 #creature
+1 Thor, Asgard's Avenger (msc) 756 #creature
+
+// Artifact
+1 Hawkeye's Bow (msh) 132 #artifact
+
+// Enchantment
+1 Cool but Rude (tmt) 89 #enchantment
+
+// Land
+1 Adarkar Wastes (eoc) 147 #land
+1 Ancient Tomb (eos) 1 #land
+1 Arid Mesa (mm3) 229 #land
+1 Battlefield Forge (eoc) 58 #land
+1 Cascade Bluffs (eoc) 153 #land
+1 Clifftop Retreat (eoc) 155 #land
+1 Command Tower (eoc) 59 #land
+1 Deserted Beach (who) 270 #land
+1 Exotic Orchard (ecc) 148 #land
+1 Glacial Fortress (eoc) 160 #land
+1 Hallowed Fountain (ecl) 265 #land
+3 Island (eoe) 269 #land
+1 Karn's Bastion (eoc) 163 #land
+1 Mana Confluence (jou) 163 #land
+1 Minamo, School at Water's Edge (ltc) 369 #land
+3 Mountain (eoe) 273 #land
+1 Plains (eoe) 267 #land
+2 Plains (eoe) 268 #land
+1 Reliquary Tower (cmr) 710 #land
+1 Rivendell (ltr) 259 #land
+1 Rugged Prairie (eoc) 174 #land
+1 Sacred Foundry (eoe) 256 #land
+1 Sea of Clouds (bbd) 84 #land
+1 Shivan Reef (eoc) 179 #land
+1 Skycloud Expanse (eoc) 181 #land
+1 Spectator Seating (cmm) 427 #land
+1 Steam Vents (ecl) 267 #land
+1 Stormcarved Coast (sos) 304 #land
+1 Sulfur Falls (eoc) 184 #land
+1 Sundown Pass (sos) 305 #land
+1 Sunscorched Divide (soc) 410 #land
+1 Training Center (cmr) 358 #land
+1 Turbulent Steppe (soc) 58 #land
+
+// Burn
+1 Fated Firepower (tla) 132 #burn
+1 Fiery Emancipation (wot) 42 #burn
+1 Magmakin Artillerist (dft) 137 #burn
+1 Ojer Axonil, Deepest Might // Temple of Power (lci) 317 #burn
+1 Psychosis Crawler (blc) 282 #burn
+1 Solphim, Mayhem Dominus (pone) 150p #burn
+1 Torbran, Thane of Red Fell (eld) 147 #burn
+
+// Discard
+1 Brallin, Skyshark Rider (c20) 4 #discard
+1 Glint-Horn Buccaneer (m20) 141 #discard
+
+// Draw
+1 Big Score (soa) 38 #draw
+1 Consecrated Sphinx (pf26) 4 #draw
+1 Dictate of Kruphix (fdn) 587 #draw
+1 Esper Sentinel (h2r) 2 #draw
+1 Monument to Endurance (dft) 394 #draw
+1 Niv-Mizzet, the Firemind (c20) 225 #draw
+1 Queen Kayla bin-Kroog (bro) 379 #draw
+1 Reforge the Soul (inr) 167 #draw
+1 Smuggler's Share (mkc) 84 #draw
+1 Teferi's Ageless Insight (sld) 2214 #draw
+1 Teferi, Hero of Dominaria (dom) 207 #draw
+1 Teferi, Temporal Pilgrim (bro) 293 #draw
+1 The Council of Four (clb) 271 #draw
+1 The Unagi of Kyoshi Island (tla) 77 #draw
+1 Trouble in Pairs (pza) 3 #draw
+
+// Protection
+1 Brilliant Wings (fic) 454 #protection
+1 Flare of Fortitude (mh3) 26 #protection
+1 Gallifrey Falls // No More (who) 131 #protection
+1 Iroas, God of Victory (sld) 2215 #protection
+1 Unbreakable Formation (sld) 7052 #protection
+
+// Ramp
+1 Arcane Signet (fic) 332 #ramp
+1 Bender's Waterskin (tla) 255 #ramp
+1 Boros Signet (blc) 128 #ramp
+1 Chromatic Lantern (ecc) 138 #ramp
+1 Fellwar Stone (tdc) 318 #ramp
+1 Sol Ring (sld) 912 #ramp
+1 Talisman of Conviction (fic) 363 #ramp
+1 Talisman of Creativity (soc) 357 #ramp
+1 Talisman of Progress (fic) 367 #ramp
+1 Thran Dynamo (blc) 290 #ramp
+
+// Removal
+1 Chaos Warp (eoc) 49 #removal
+1 Council's Judgment (otc) 79 #removal
+1 Fierce Guardianship (tle) 307 #removal
+1 Generous Gift (cmm) 624 #removal
+1 Irencrag Pyromancer (eld) 128 #removal
+1 Loran of the Third Path (blc) 143 #removal
+1 Wear // Tear (dgm) 135 #removal
+
+// Tokens
+1 Chasm Skulker (fic) 262 #tokens
+1 Minn, Wily Illusionist (afc) 16 #tokens
+1 Nadir Kraken (ncc) 228 #tokens
+1 The Locust God (moc) 335 #tokens
+1 The Watcher in the Water (ltr) 354 #tokens
+
+// Tutor
+1 Parallel Thoughts (scg) 44 #tutor
