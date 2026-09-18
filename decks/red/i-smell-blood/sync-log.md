@@ -20,3 +20,8 @@
 - Source: https://archidekt.com/decks/24922183/i_smell_blood
 - Hash: `sha256:cdf54729fa5955775a2219575bf65aff43e79496daf09d15e7493a518b6749d0`
 - Cards: 100
+## 20260918T100926Z--73347ed
+
+- Source: https://archidekt.com/decks/24922183/i_smell_blood
+- Hash: `sha256:73347ed09871ffe475add3058caf030963b01917ce722eacb3d872d4a7a7ace2`
+- Cards: 100
