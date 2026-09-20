@@ -2,16 +2,15 @@
 # Deck: Kweh Kweh!
 # Source: archidekt
 # URL: https://archidekt.com/decks/24922076/kweh_kweh
-# Retrieved: 2026-09-10T16:55:11.227064+00:00
-# Version: 20260910T165511Z--fdf99f9
-# Deck hash: sha256:fdf99f9261bff1f87473796d29bfd5e39c82756083fed1384f70b4b116b6dbd3
-# Cards: 100
+# Retrieved: 2026-08-27T14:57:11.448248+00:00
+# Version: 20260827T145711Z--3b7c7d0
+# Deck hash: sha256:3b7c7d07d9b1153bfbf3f24e6bff876c9c7819a8c835b74199a19af00f1f4fa5
+# Cards: 97
 # Generated file; put analysis in notes/.
 // Commander
 1 Choco, Seeker of Paradise (fin) 569 #commander
 
 // Creature
-1 Falcon and Redwing (msc) 14 #creature
 1 Most Decrepit Old Bird // Speak Secrets (hob) 49 #creature
 
 // Sorcery
@@ -66,6 +65,7 @@
 1 Wan Shi Tong, Librarian (tla) 78 #draw
 
 // Landfall
+1 Chocobo Racetrack (fin) 179 #landfall
 1 Emeria Angel (tdc) 114 #landfall
 1 Mightform Harmonizer (eoe) 297 #landfall
 1 Sazh's Chocobo (fin) 200 #landfall
@@ -89,11 +89,11 @@
 1 Azusa, Lost but Seeking (fca) 15 #ramp
 1 Birds of Paradise (fic) 483 #ramp
 1 Crop Rotation (soa) 51 #ramp
+1 Dryad of the Ilysian Grove (cmm) 891 #ramp
 1 Entish Restoration (ltr) 163 #ramp
 1 Farseek (sld) 2222 #ramp
 1 Gilded Goose (soc) 269 #ramp
 1 Growth Spiral (sld) 7054 #ramp
-1 Horizon Explorer (eoc) 15 #ramp
 1 Icetill Explorer (eoe) 192 #ramp
 1 Mutable Explorer (ecl) 327 #ramp
 1 Nature's Lore (fic) 311 #ramp
@@ -102,14 +102,11 @@
 1 Rampant Growth (fic) 313 #ramp
 1 Sol Ring (tle) 316 #ramp
 1 Tectonic Split (tle) 208 #ramp
-1 Wrenn and Realmbreaker (mom) 217 #ramp
+1 The Earth King (tla) 344 #ramp
 1 Yedora, Grave Gardener (mul) 30 #ramp
 
 // Recursion
 1 Ancient Greenwarden (otc) 186 #recursion
-1 Conduit of Worlds (msc) 171 #recursion
-1 Emeria Shepherd (plst) BFZ-22 #recursion
-1 Six (mh3) 169 #recursion
 
 // Removal
 1 Bartz and Boko (fin) 175 #removal
@@ -120,5 +117,5 @@
 1 Swan Song (ltc) 197 #removal
 
 // Tokens
+1 Felidar Retreat (fdn) 574 #tokens
 1 Gwaihir, Greatest of the Eagles (ltc) 15 #tokens
-1 Hermes, Overseer of Elpis (fic) 36 #tokens

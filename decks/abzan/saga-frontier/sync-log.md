@@ -20,3 +20,8 @@
 - Source: https://archidekt.com/decks/25034017/saga_frontier
 - Hash: `sha256:bc8c5a84077fd29cdd54c3c3ad86bf33a6aeac6bedeeff81d229a59d7f7f9ffd`
 - Cards: 100
+## 20260920T212938Z--3b2dd14
+
+- Source: https://archidekt.com/decks/25034017/saga_frontier
+- Hash: `sha256:3b2dd14e67f28cd0b81f70f6b81e297cbc59052f573350e78051a0fdc1cc4e38`
+- Cards: 100
