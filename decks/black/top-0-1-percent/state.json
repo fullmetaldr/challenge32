@@ -1,0 +1,21 @@
+{
+  "card_count": 100,
+  "color_identity": "black",
+  "current_hash": "sha256:293a68d6f4fb85a58c4364576d4c7f7001a8f1dee86398411f14ea69fef2a192",
+  "current_version": "20260922T215411Z--293a68d",
+  "deck": "top-0-1-percent",
+  "display_name": "Top 0.1 percent",
+  "retrieved_at": "2026-09-22T21:54:11.860925+00:00",
+  "source": "archidekt",
+  "source_metadata": {
+    "card_count": 100,
+    "color_identity": "black",
+    "deck_id": 26679986,
+    "name": "Top 0.1 percent",
+    "owner": "DrDaddy83",
+    "private": false,
+    "unlisted": false,
+    "updated_at": "2026-09-22T21:46:12.448049Z"
+  },
+  "url": "https://archidekt.com/decks/26679986/top_01_percent"
+}

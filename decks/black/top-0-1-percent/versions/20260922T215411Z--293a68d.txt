@@ -1,0 +1,113 @@
+# Challenge32 synchronized decklist
+# Deck: Top 0.1 percent
+# Source: archidekt
+# URL: https://archidekt.com/decks/26679986/top_01_percent
+# Retrieved: 2026-09-22T21:54:11.860925+00:00
+# Version: 20260922T215411Z--293a68d
+# Deck hash: sha256:293a68d6f4fb85a58c4364576d4c7f7001a8f1dee86398411f14ea69fef2a192
+# Cards: 100
+# Generated file; put analysis in notes/.
+// Commander
+1 Ayara, First of Locthwain (mul) 13 #commander
+
+// Creature
+1 Arnyn, Deathbloom Botanist (sos) 74 #creature
+1 Emeritus of Woe // Demonic Tutor (sos) 80 #creature
+1 Grave Researcher // Reanimate (sos) 85 #creature
+1 Kingpin, Wilson Fisk (msc) 661 #creature
+
+// Enchantment
+1 Changing Loyalty (soc) 23 #enchantment
+1 Grave Venerations (ecc) 29 #enchantment
+
+// Sorcery
+1 Decorum Dissertation (sos) 292 #sorcery
+
+// Land
+1 Arcane Lighthouse (soc) 361 #land
+1 Bojuka Bog (soc) 363 #land
+1 Cabal Coffers (mh2) 301 #land
+1 High Market (soc) 380 #land
+1 Mortuary Mire (pip) 272 #land
+1 Muraganda Raceway (dft) 426 #land
+1 Path of Ancestry (frc) 77 #land
+26 Swamp (trk) 321 #land
+1 Urborg, Tomb of Yawgmoth (tsr) 287 #land
+1 War Room (soc) 422 #land
+
+// Burn
+1 The Destined Black Mage (fic) 447 #burn
+
+// Copy
+1 The Masamune (fin) 353 #copy
+
+// Counters
+1 Blowfly Infestation (ecc) 46 #counters
+1 Corrosive Mentor (shm) 61 #counters
+1 Super Shredder (tmt) 83 #counters
+
+// Drain
+1 Al Bhed Salvagers (fin) 88 #drain
+1 Blood Artist (inr) 326 #drain
+1 Bloodletter of Aclazotz (lci) 92 #drain
+1 Enduring Tenacity (dsk) 95 #drain
+1 Falkenrath Noble (j25) 441 #drain
+1 Gray Merchant of Asphodel (slc) 7 #drain
+1 Mirkwood Bats (ltr) 421 #drain
+1 Sephiroth, Fabled SOLDIER // Sephiroth, One-Winged Angel (fin) 115 #drain
+1 Vengeful Bloodwitch (fdn) 76 #drain
+1 Vraan, Executioner Thane (one) 114 #drain
+1 Zulaport Cutthroat (soc) 233 #drain
+
+// Draw
+1 Dark Confidant (fin) 94 #draw
+1 Graveborn Muse (lgn) 73 #draw
+1 Grim Haruspex (spg) 152 #draw
+1 Massacre Girl, Known Killer (ecc) 79 #draw
+1 Morbid Opportunist (fic) 278 #draw
+1 Phyrexian Arena (fdc) 123 #draw
+1 Shadowheart, Dark Justiciar (sld) 2483 #draw
+1 Starving Revenant (lci) 123 #draw
+1 Vampiric Rites (wot) 37 #draw
+
+// Ramp
+1 Arcane Signet (frc) 20 #ramp
+1 Black Market (sld) 2485 #ramp
+1 K'rrik, Son of Yawgmoth (mh3) 274 #ramp
+1 Master of Dark Rites (lcc) 83 #ramp
+1 Nirkana Revenant (voc) 134 #ramp
+1 Ruthless Knave (j25) 483 #ramp
+1 Sol Ring (frc) 21 #ramp
+1 Thran Dynamo (msc) 290 #ramp
+
+// Recursion
+1 Ardyn, the Usurper (fin) 315 #recursion
+1 Bloodghast (soc) 210 #recursion
+1 Chaos Shrine's Black Crystal (fic) 445 #recursion
+1 Gravecrawler (tdc) 93 #recursion
+1 Hell's Caretaker (plst) A25-92 #recursion
+1 Necroskitter (ecc) 48 #recursion
+1 Reanimate (fic) 282 #recursion
+1 Stitch Together (fic) 286 #recursion
+1 Victimize (sld) 2486 #recursion
+1 Whip of Erebos (sld) 2218 #recursion
+
+// Removal
+1 Grave Pact (wot) 29 #removal
+1 Killing Wave (inr) 121 #removal
+1 Massacre Wurm (fdn) 714 #removal
+1 Mutilate (mb2) 45 #removal
+1 Soul Shatter (scd) 108 #removal
+1 The Meathook Massacre (inr) 387 #removal
+
+// Sac Outlet
+1 Warren Soultrader (mh3) 332 #sac-outlet
+
+// Tokens
+1 Bitterbloom Bearer (ecl) 310 #tokens
+1 Bitterblossom (2x2) 69 #tokens
+1 Dreadhorde Invasion (frc) 48 #tokens
+1 Drivnod, Carnage Dominus (one) 90 #tokens
+1 Grave Titan (ecc) 74 #tokens
+1 Nest of Scarabs (akh) 101 #tokens
+1 Ophiomancer (soc) 118 #tokens
