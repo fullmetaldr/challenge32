@@ -1,21 +1,21 @@
 {
-  "card_count": 100,
+  "card_count": 102,
   "color_identity": "abzan",
-  "current_hash": "sha256:3b2dd14e67f28cd0b81f70f6b81e297cbc59052f573350e78051a0fdc1cc4e38",
-  "current_version": "20260920T212938Z--3b2dd14",
+  "current_hash": "sha256:6e5a142fa634d6e282756b6ad7de0309d4b6849b9d75ae7dc73d35c06e034778",
+  "current_version": "20260923T221051Z--6e5a142",
   "deck": "saga-frontier",
   "display_name": "Saga Frontier",
-  "retrieved_at": "2026-09-20T21:29:38.649077+00:00",
+  "retrieved_at": "2026-09-23T22:10:51.146438+00:00",
   "source": "archidekt",
   "source_metadata": {
-    "card_count": 100,
+    "card_count": 102,
     "color_identity": "abzan",
     "deck_id": 25034017,
     "name": "Saga Frontier",
     "owner": "DrDaddy83",
     "private": false,
     "unlisted": false,
-    "updated_at": "2026-09-20T21:23:42.267095Z"
+    "updated_at": "2026-09-23T12:40:38.269826Z"
   },
   "url": "https://archidekt.com/decks/25034017/saga_frontier"
 }
