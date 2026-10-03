@@ -1,0 +1,129 @@
+# Challenge32 synchronized decklist
+# Deck: Angels Don't Scry
+# Source: archidekt
+# URL: https://archidekt.com/decks/27053327/angels_dont_scry
+# Retrieved: 2026-10-03T18:49:51.165620+00:00
+# Version: 20261003T184951Z--d458437
+# Deck hash: sha256:d458437bdfa1d6f316af0297cd6d934f7831ac6d9e89b3214194c34c6b405dc6
+# Cards: 100
+# Generated file; put analysis in notes/.
+// Commander
+1 Trelasarra, Moon Dancer (afr) 236 #commander
+
+// Land
+1 Baldur's Gate (clb) 345 #land
+1 Basilisk Gate (m3c) 320 #land
+1 Bonders' Enclave (m3c) 323 #land
+1 Bountiful Promenade (bbd) 81 #land
+1 Brushland (blc) 295 #land
+1 Citadel Gate (clb) 349 #land
+1 Clive's Hideaway (fin) 275 #land
+1 Command Tower (m3c) 331 #land
+1 Exotic Orchard (ecc) 148 #land
+1 Forest (woe) 276 #land
+1 Gateway Plaza (rna) 247 #land
+1 Gond Gate (clb) 353 #land
+1 Heap Gate (clb) 354 #land
+1 Hushwood Verge (dsk) 332 #land
+1 Inventors' Fair (eos) 21 #land
+1 Karn's Bastion (sld) 1751 #land
+1 Manor Gate (clb) 356 #land
+1 Maze's End (sld) 1834 #land
+1 Overgrown Farmland (tdc) 381 #land
+2 Plains (woe) 267 #land
+1 Plains (woe) 268 #land
+1 Planar Nexus (m3c) 132 #land
+1 Plaza of Harmony (rna) 254 #land
+1 Radiant Fountain (c21) 310 #land
+1 Razorverge Thicket (blc) 325 #land
+1 Reflecting Pool (clb) 358 #land
+1 Selesnya Guildgate (fdn) 694 #land
+1 Seraph Sanctuary (ddq) 33 #land
+1 Sungrass Prairie (tdc) 397 #land
+1 Temple Garden (ecl) 351 #land
+1 Thespian's Stage (eos) 134 #land
+1 Thran Portal (dmu) 259 #land
+1 Windswept Heath (mh3) 360 #land
+1 Wooded Bastion (2xm) 332 #land
+
+// Counters
+1 Aerith Gainsborough (fin) 4 #counters
+1 Black Panther, Wakandan King (sld) 1747 #counters
+1 Cathars' Crusade (inr) 337 #counters
+1 Lathiel, the Bounteous Dawn (mul) 50 #counters
+1 Minwu, White Mage (fin) 26 #counters
+1 Ouroboroid (eoe) 201 #counters
+
+// Draw
+1 Alhammarret's Archive (slc) 27 #draw
+1 Exemplar of Light (fdn) 11 #draw
+1 Firemane Commando (moc) 73 #draw
+1 Haliya, Guided by Light (eoe) 19 #draw
+1 Inspiring Call (tle) 168 #draw
+1 Mangara, the Diplomat (fca) 25 #draw
+1 Planetarium of Wan Shi Tong (tla) 259 #draw
+1 Sylvan Library (cc1) 5 #draw
+1 The Great Henge (tle) 41 #draw
+1 Well of Lost Dreams (c21) 275 #draw
+
+// Finisher
+1 Sigarda's Vanguard (mic) 8 #finisher
+
+// Lifegain
+1 Aetherflux Reservoir (kld) 192 #lifegain
+1 Archangel of Thune (2xm) 5 #lifegain
+1 Aunt May (spm) 3 #lifegain
+1 Auriok Champion (ima) 9 #lifegain
+1 Authority of the Consuls (fic) 232 #lifegain
+1 Cleric Class (plst) AFR-6 #lifegain
+1 Daxos, Blessed by the Sun (mul) 2 #lifegain
+1 Envoy of the Ancestors (mh3) 23 #lifegain
+1 Essence Warden (ltc) 242 #lifegain
+1 Heliod, Sun-Crowned (cmm) 29 #lifegain
+1 Hinterland Sanctifier (fdn) 730 #lifegain
+1 Lunarch Veteran // Luminous Phantom (inr) 32 #lifegain
+1 Lyra Dawnbringer (dmr) 413 #lifegain
+1 Rhox Faithmender (tdc) 128 #lifegain
+1 Righteous Valkyrie (khm) 24 #lifegain
+1 Soul Warden (mm3) 24 #lifegain
+1 Soul's Attendant (roe) 44 #lifegain
+1 Voice of the Blessed (inr) 50 #lifegain
+
+// Protection
+1 Archangel of Tithes (otj) 2 #protection
+1 Caduceus, Staff of Hermes (acr) 2 #protection
+1 Clever Concealment (onc) 5 #protection
+1 Shalai, Voice of Plenty (tdc) 130 #protection
+1 Sigarda, Font of Blessings (mat) 97 #protection
+1 Unbreakable Formation (ltc) 179 #protection
+
+// Ramp
+1 Arcane Signet (m3c) 283 #ramp
+1 Bender's Waterskin (tla) 255 #ramp
+1 Fellwar Stone (ecc) 141 #ramp
+1 Giada, Font of Hope (fdn) 298 #ramp
+1 Herald of War (mic) 86 #ramp
+1 Herald's Horn (ltc) 280 #ramp
+1 Kami of Whispered Hopes (mom) 196 #ramp
+1 Navigation Orb (clb) 329 #ramp
+1 Open the Gates (rna) 133 #ramp
+1 Prosperous Innkeeper (afr) 200 #ramp
+1 Sol Ring (sld) 1833 #ramp
+1 Starnheim Aspirant (khm) 380 #ramp
+1 Sylvan Scrying (bfz) 192 #ramp
+1 Thran Dynamo (cmm) 658 #ramp
+
+// Recursion
+1 Aerith, Last Ancient (fic) 471 #recursion
+
+// Removal
+1 Darksteel Mutation (cmm) 21 #removal
+1 Generous Gift (cmm) 624 #removal
+1 Haywire Mite (dsc) 247 #removal
+1 Heliod's Intervention (otc) 81 #removal
+1 Kenrith's Transformation (woc) 128 #removal
+1 Stroke of Midnight (fca) 26 #removal
+1 Swords to Plowshares (tdc) 134 #removal
+
+// Tokens
+1 Resplendent Angel (lci) 32 #tokens

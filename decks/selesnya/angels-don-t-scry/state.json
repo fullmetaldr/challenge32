@@ -1,0 +1,21 @@
+{
+  "card_count": 100,
+  "color_identity": "selesnya",
+  "current_hash": "sha256:d458437bdfa1d6f316af0297cd6d934f7831ac6d9e89b3214194c34c6b405dc6",
+  "current_version": "20261003T184951Z--d458437",
+  "deck": "angels-don-t-scry",
+  "display_name": "Angels Don't Scry",
+  "retrieved_at": "2026-10-03T18:49:51.165620+00:00",
+  "source": "archidekt",
+  "source_metadata": {
+    "card_count": 100,
+    "color_identity": "selesnya",
+    "deck_id": 27053327,
+    "name": "Angels Don't Scry",
+    "owner": "DrDaddy83",
+    "private": false,
+    "unlisted": false,
+    "updated_at": "2026-10-03T18:47:11.178479Z"
+  },
+  "url": "https://archidekt.com/decks/27053327/angels_dont_scry"
+}
