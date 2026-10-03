@@ -1,0 +1,127 @@
+# Challenge32 synchronized decklist
+# Deck: It's Morphing time!
+# Source: archidekt
+# URL: https://archidekt.com/decks/27008458/its_morphing_time
+# Retrieved: 2026-10-03T10:42:37.732090+00:00
+# Version: 20261003T104237Z--c0cb5e3
+# Deck hash: sha256:c0cb5e39fe40dfb02b604f73658767d7b54bb0065c02161033261f1fceb1df4d
+# Cards: 100
+# Generated file; put analysis in notes/.
+// Commander
+1 Jace, Multiverse Architect (frc) 1 #commander
+
+// Creature
+1 Avacyn, Angel of Horror (frc) 7 #creature
+1 Dack Fayden, Helping Hand (frc) 4 #creature
+1 Darksteel Angel (frc) 13 #creature
+1 Ginger, Queen of Sweets (frc) 14 #creature
+1 Jhoira, Weatherlight Corsair (frc) 8 #creature
+1 Memnarch, the Warden (frc) 15 #creature
+1 Nissa, Leyline Tamer (frc) 2 #creature
+1 Niv-Mizzet, Ghost Counsel (frc) 10 #creature
+1 Ob Nixilis, the Ascended (frc) 5 #creature
+1 Omnath, Locus of the Void (frc) 3 #creature
+1 Tamiyo, Upriser Crowned (frc) 11 #creature
+1 The Ur-Sphinx (frc) 12 #creature
+1 Venser, Fervent Forger (frc) 9 #creature
+
+// Enchantment
+1 Plan for All Outcomes (fra) 35 #enchantment
+
+// Instant
+1 Fatehold Charm (fra) 432 #instant
+1 Teferi's Reproach (frc) 6 #instant
+
+// Land
+1 Battlefield Forge (frc) 65 #land
+1 Caves of Koilos (frc) 66 #land
+1 Clifftop Retreat (frc) 67 #land
+1 Command Tower (frc) 22 #land
+1 Contaminated Landscape (frc) 68 #land
+1 Drowned Catacomb (frc) 69 #land
+1 Exotic Orchard (frc) 70 #land
+1 Fabled Passage (frc) 71 #land
+1 Fetid Heath (frc) 72 #land
+1 Glacial Fortress (frc) 73 #land
+3 Island (fra) 283 #land
+1 Isolated Chapel (frc) 74 #land
+1 Kher Keep (frc) 75 #land
+2 Mountain (fra) 288 #land
+1 Mystic Gate (frc) 76 #land
+1 Path of Ancestry (frc) 77 #land
+1 Perilous Landscape (frc) 78 #land
+4 Plains (fra) 281 #land
+1 Prairie Stream (frc) 79 #land
+1 Radiant Summit (frc) 80 #land
+1 Reflecting Pool (frc) 23 #land
+1 Restless Anchorage (lci) 280 #land
+1 Restless Spire (frc) 82 #land
+1 Shivan Reef (frc) 83 #land
+1 Sulfur Falls (frc) 84 #land
+1 Sulfurous Springs (frc) 85 #land
+1 Sunken Ruins (frc) 86 #land
+2 Swamp (fra) 286 #land
+1 Turbulent Crater (frc) 16 #land
+1 Turbulent Shore (frc) 17 #land
+1 Turbulent Wetlands (frc) 18 #land
+1 Underground River (frc) 87 #land
+
+// Blink
+1 Synthetic Destiny (frc) 45 #blink
+
+// Burn
+1 Archfiend of Despair (frc) 46 #burn
+
+// Copy
+1 Windcrag Siege (frc) 52 #copy
+
+// Draw
+1 Archon of Cruelty (frc) 47 #draw
+1 Brainstorm (frc) 39 #draw
+1 Brainsurge (frc) 40 #draw
+1 Fact or Fiction (frc) 41 #draw
+1 Occult Epiphany (frc) 43 #draw
+1 Staff of the Storyteller (frc) 34 #draw
+1 Whirlwind of Thought (frc) 51 #draw
+
+// Protection
+1 Akroma, Angel of Fury (frc) 19 #protection
+1 Flawless Maneuver (frc) 25 #protection
+1 Grand Crescendo (frc) 26 #protection
+1 Serra's Emissary (frc) 32 #protection
+
+// Ramp
+1 Arcane Signet (frc) 20 #ramp
+1 Azorius Signet (frc) 53 #ramp
+1 Chromatic Lantern (frc) 54 #ramp
+1 Currency Converter (frc) 55 #ramp
+1 Cursed Mirror (frc) 49 #ramp
+1 Dimir Signet (frc) 56 #ramp
+1 Fellwar Stone (frc) 57 #ramp
+1 Izzet Signet (frc) 58 #ramp
+1 Rakdos Signet (frc) 60 #ramp
+1 Sol Ring (frc) 21 #ramp
+1 Talisman of Creativity (frc) 61 #ramp
+1 Talisman of Dominance (frc) 62 #ramp
+1 Talisman of Indulgence (frc) 63 #ramp
+1 Talisman of Progress (frc) 64 #ramp
+
+// Removal
+1 Despark (frc) 50 #removal
+1 Martial Coup (frc) 28 #removal
+1 Path to Exile (frc) 30 #removal
+1 Proteus Staff (frc) 59 #removal
+1 Stroke of Midnight (frc) 35 #removal
+1 Sunfall (frc) 36 #removal
+1 Swords to Plowshares (frc) 37 #removal
+1 White Sun's Twilight (frc) 38 #removal
+
+// Tokens
+1 Dreadhorde Invasion (frc) 48 #tokens
+1 Elspeth, Sun's Champion (frc) 24 #tokens
+1 Lingering Souls (frc) 27 #tokens
+1 Mass Polymorph (frc) 42 #tokens
+1 Overlord of the Mistmoors (frc) 29 #tokens
+1 Secure the Wastes (frc) 31 #tokens
+1 Shark Typhoon (frc) 44 #tokens
+1 Skrelv's Hive (frc) 33 #tokens
