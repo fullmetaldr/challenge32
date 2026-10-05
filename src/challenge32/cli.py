@@ -8,6 +8,7 @@ import unicodedata
 from pathlib import Path
 
 from .archidekt import ArchidektError, ArchidektClient, fetch_cards
+from .collection import CollectionError, CollectionPaths, collection_status, initialize_collection
 from .config import discover_decks, select_deck
 from .dashboard import build_dashboard
 from .models import DeckConfig
@@ -38,6 +39,15 @@ def build_parser() -> argparse.ArgumentParser:
     dashboard_parser = subparsers.add_parser("dashboard", help="Build the static dashboard")
     dashboard_parser.add_argument("--root", type=Path, default=Path("decks"), help="Deck root (default: decks)")
     dashboard_parser.add_argument("--output", type=Path, default=Path("site"), help="Output directory (default: site)")
+
+    collection_parser = subparsers.add_parser(
+        "collection", help="Manage the known physical card collection"
+    )
+    collection_parser.add_argument("--init", action="store_true", help="Safely initialize collection source files from decklists")
+    collection_parser.add_argument("--status", action="store_true", help="Show the current derived collection status")
+    collection_parser.add_argument("--decks", type=Path, default=Path("decks"), help="Deck root (default: decks)")
+    collection_parser.add_argument("--root", type=Path, default=Path("collection"), help="Collection source root (default: collection)")
+    collection_parser.add_argument("--database", type=Path, default=Path(".data/collection.sqlite"), help="Derived SQLite path (default: .data/collection.sqlite)")
     return parser
 
 
@@ -103,6 +113,27 @@ def add_deck(args: argparse.Namespace) -> int:
     return 0
 
 
+def collection_command(args: argparse.Namespace) -> int:
+    if args.init == args.status:
+        raise CollectionError("choose exactly one of --init or --status")
+    paths = CollectionPaths(root=args.root, decks=args.decks, database=args.database)
+    if args.init:
+        result = initialize_collection(paths, confirm=input)
+        print(
+            f"Initialized collection: {result['decks']} deck(s), "
+            f"{result['card_versions']} card version(s), {result['cards']} card(s)"
+        )
+        return 0
+    result = collection_status(paths)
+    print(f"Decks: {result['decks']}")
+    print(f"Known card versions: {result['known_card_versions']}")
+    print(f"Known owned cards: {result['known_cards']}")
+    print(f"Deck-allocated cards: {result['deck_allocated']}")
+    print(f"Known non-deck placements: {result['non_deck_placed']}")
+    print(f"Allocation conflicts: {result['conflicts']}")
+    return 1 if result["conflicts"] else 0
+
+
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     if args.command == "add":
@@ -127,6 +158,13 @@ def main(argv: list[str] | None = None) -> int:
             print(f"Built dashboard for {count} tracked deck configuration(s) in {args.output}")
             return 0
         except (FileNotFoundError, OSError, ValueError) as exc:
+            print(f"error: {exc}")
+            return 1
+
+    if args.command == "collection":
+        try:
+            return collection_command(args)
+        except (CollectionError, EOFError, FileNotFoundError, OSError, ValueError) as exc:
             print(f"error: {exc}")
             return 1
 

@@ -132,3 +132,30 @@ python -m http.server 8000 --directory site
 
 Then open `http://localhost:8000`. The dashboard is generated automatically for
 GitHub Pages whenever the repository's `main` branch changes.
+
+## Collection management
+
+The collection model records only cards that have been explicitly encountered
+or entered. It does not assume that an absent card is unowned. Deck allocation
+is derived from the tracked decklists; non-deck locations will be represented
+by source-controlled files under `collection/locations/`.
+
+The first initialization is deliberately guarded and will create the schema,
+empty location lists, initial holdings, and a derived SQLite database from the
+current decklists:
+
+```bash
+challenge32 collection --init
+```
+
+Initialization requires two confirmations and refuses to overwrite an existing
+collection. The derived database is stored in `.data/collection.sqlite` and is
+ignored by Git. Once initialized, inspect the current model with:
+
+```bash
+challenge32 collection --status
+```
+
+Collection identities include the card name, a `printing` value such as
+`cmm:396`, and `foil` (`yes`, `no`, or `unknown`). Categories such as `proxy`
+are descriptive metadata and do not bypass quantity or allocation accounting.
