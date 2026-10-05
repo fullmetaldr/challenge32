@@ -20,3 +20,8 @@
 - Source: https://archidekt.com/decks/26427794/milling_on_a_prayer
 - Hash: `sha256:e062cb31acb3d54b2d2de0239ed090ae8a9496b6d9405e50b594420ef276c4ef`
 - Cards: 101
+## 20261003T110147Z--c10dd31
+
+- Source: https://archidekt.com/decks/26427794/milling_on_a_prayer
+- Hash: `sha256:c10dd315fcdcab49215f3cc56bb9152edb1027b1a28616f40f92a1f5bffe8b8a`
+- Cards: 105

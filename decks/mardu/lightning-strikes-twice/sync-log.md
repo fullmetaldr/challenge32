@@ -15,3 +15,8 @@
 - Source: https://archidekt.com/decks/24889970/lightning_strikes_twice
 - Hash: `sha256:0f5715cdbed4fddd1058adc615f77a527de5b21bd7d4167aac317b014222b087`
 - Cards: 100
+## 20260815T092109Z--9fe3318
+
+- Source: https://archidekt.com/decks/24889970/lightning_strikes_twice
+- Hash: `sha256:9fe33183c2c2bdf4196de1f022736df759be7e5f080c47fc9ef8cc5a17b0f59f`
+- Cards: 100

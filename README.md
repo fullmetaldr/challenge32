@@ -15,30 +15,30 @@ This table is generated from the tracked deck configurations. Run `challenge32 p
 | Colorless | Not started | — | — | — |
 | White | Not started | — | — | — |
 | Blue | Not started | — | — | — |
-| Black | Not started | — | — | — |
+| Black | Tracked | [Top 0.1 percent](decks/black/top-0-1-percent/current.txt) ([source](https://archidekt.com/decks/26679986/top_01_percent)) | Ayara, First of Locthwain | Unreviewed |
 | Red | Tracked | [I Smell Blood](decks/red/i-smell-blood/current.txt) ([source](https://archidekt.com/decks/24922183/i_smell_blood)) | Jaws, Relentless Predator | Unreviewed |
 | Green | Not started | — | — | — |
 | Azorius | Not started | — | — | — |
-| Dimir | Not started | — | — | — |
+| Dimir | Tracked | [Milling on a Prayer](decks/dimir/milling-on-a-prayer/current.txt) ([source](https://archidekt.com/decks/26427794/milling_on_a_prayer)) | Haunted One<br>Zellix, Sanity Flayer | Unreviewed |
 | Rakdos | Not started | — | — | — |
 | Gruul | Not started | — | — | — |
-| Selesnya | Not started | — | — | — |
+| Selesnya | Tracked | [Angels Don't Scry](decks/selesnya/angels-don-t-scry/current.txt) ([source](https://archidekt.com/decks/27053327/angels_dont_scry)) | Trelasarra, Moon Dancer | Unreviewed |
 | Orzhov | Tracked | [The Circle of Life](decks/orzhov/the-circle-of-life/current.txt) ([source](https://archidekt.com/decks/25209011/the_circle_of_life)) | Kambal, Profiteering Mayor | Unreviewed |
 | Izzet | Tracked | [Sling it Like it's Hot](decks/izzet/sling-it-like-it-s-hot/current.txt) ([source](https://archidekt.com/decks/24921939/sling_it_like_its_hot)) | Ghyrson Starn, Kelermorph | Unreviewed |
 | Golgari | Tracked | [APD](decks/golgari/apd/current.txt) ([source](https://archidekt.com/decks/24922346/apd)) | Chatterfang, Squirrel General | Unreviewed |
 | Boros | Tracked | [Praise the Sun](decks/boros/praise-the-sun/current.txt) ([source](https://archidekt.com/decks/24888846/praise_the_sun)) | Otharri, Suns' Glory | Unreviewed |
 | Simic | Not started | — | — | — |
 | Esper | Not started | — | — | — |
-| Grixis | Not started | — | — | — |
+| Grixis | Tracked | [Dream of Mirrors](decks/grixis/dream-of-mirrors/current.txt) ([source](https://archidekt.com/decks/25702223/dream_of_mirrors)) | Nekusar, the Mindrazer | Unreviewed |
 | Jund | Not started | — | — | — |
 | Naya | Tracked | [Omnislash](decks/naya/omnislash/current.txt) ([source](https://archidekt.com/decks/15661283/omnislash)) | Cloud, Ex-SOLDIER | Unreviewed |
 | Bant | Tracked | [Kweh Kweh!](decks/bant/kweh-kweh/current.txt) ([source](https://archidekt.com/decks/24922076/kweh_kweh)) | Choco, Seeker of Paradise | Unreviewed |
 | Abzan | Tracked | [Saga Frontier](decks/abzan/saga-frontier/current.txt) ([source](https://archidekt.com/decks/25034017/saga_frontier)) | Narci, Fable Singer | Unreviewed |
 | Temur | Not started | — | — | — |
-| Jeskai | Tracked | [Walk this plane!](decks/jeskai/walk-this-plane/current.txt) ([source](https://archidekt.com/decks/24884017/walk_this_plane)) | Commodore Guff | Unreviewed |
+| Jeskai | Tracked | [The Will of the Gods](decks/jeskai/the-will-of-the-gods/current.txt) ([source](https://archidekt.com/decks/24888658/the_will_of_the_gods))<br>[Walk this plane!](decks/jeskai/walk-this-plane/current.txt) ([source](https://archidekt.com/decks/24884017/walk_this_plane)) | Atreus, Impulsive Son<br>Kratos, Stoic Father<br>Commodore Guff | Unreviewed<br>Unreviewed |
 | Sultai | Not started | — | — | — |
 | Mardu | Tracked | [Lightning Strikes Twice](decks/mardu/lightning-strikes-twice/current.txt) ([source](https://archidekt.com/decks/24889970/lightning_strikes_twice)) | Isshin, Two Heavens as One | Unreviewed |
-| Yore-Tiller | Not started | — | — | — |
+| Yore-Tiller | Tracked | [It's Morphing time!](decks/yore-tiller/it-s-morphing-time/current.txt) ([source](https://archidekt.com/decks/27008458/its_morphing_time)) | Jace, Multiverse Architect | Unreviewed |
 | Witch-Maw | Not started | — | — | — |
 | Ink-Treader | Tracked | [All the Aragorns](decks/ink-treader/all-the-aragorns/current.txt) ([source](https://archidekt.com/decks/24890308/all_the_aragorns)) | Aragorn, the Uniter | Unreviewed |
 | Dune-Brood | Not started | — | — | — |
