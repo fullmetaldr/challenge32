@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import csv
+import os
 import re
 import sqlite3
+import tempfile
 from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
@@ -74,7 +76,7 @@ class LocationSource:
 class CollectionPaths:
     root: Path = Path("collection")
     decks: Path = Path("decks")
-    database: Path = Path(".data/collection.sqlite")
+    database: Path = Path("data/collection.sqlite")
 
     @property
     def holdings(self) -> Path:
@@ -410,58 +412,67 @@ def build_database(paths: CollectionPaths, *, deck_rows: list[DeckRow] | None = 
     holdings = _read_rows(paths.holdings, include_category=True)
     non_deck = read_non_deck_placements(paths)
     paths.database.parent.mkdir(parents=True, exist_ok=True)
-    with sqlite3.connect(paths.database) as connection:
-        _database_schema(connection)
-        for row in holdings:
-            card_id = _card_id(connection, row.card)
-            connection.execute(
-                "INSERT INTO holdings VALUES (?, ?, ?, ?, ?, ?)",
-                (card_id, row.quantity, row.category, row.notes, str(row.source_path), row.source_line),
-            )
-        deck_ids: dict[str, int] = {}
-        for row in deck_rows:
-            deck_id = deck_ids.get(row.deck_slug)
-            if deck_id is None:
-                cursor = connection.execute(
-                    "INSERT INTO decks(slug, display_name, directory) VALUES (?, ?, ?)",
-                    (row.deck_slug, row.display_name, str(row.source_path.parent)),
-                )
-                deck_id = int(cursor.lastrowid)
-                deck_ids[row.deck_slug] = deck_id
-            card_id = _card_id(connection, row.card)
-            connection.execute(
-                "INSERT INTO deck_cards VALUES (?, ?, ?, ?, ?)",
-                (deck_id, card_id, row.quantity, str(row.source_path), row.source_line),
-            )
-        for slug, deck_id in deck_ids.items():
-            location_id = connection.execute(
-                "INSERT INTO locations(name, kind, source_path) VALUES (?, 'deck', NULL)",
-                (f"deck:{slug}",),
-            ).lastrowid
-            for row in [entry for entry in deck_rows if entry.deck_slug == slug]:
+    file_descriptor, temporary_name = tempfile.mkstemp(
+        prefix=".collection-", suffix=".sqlite", dir=paths.database.parent
+    )
+    os.close(file_descriptor)
+    temporary_path = Path(temporary_name)
+    try:
+        with sqlite3.connect(temporary_path) as connection:
+            _database_schema(connection)
+            for row in holdings:
                 card_id = _card_id(connection, row.card)
                 connection.execute(
-                    "INSERT INTO placements VALUES (?, ?, ?, '', ?, ?)",
-                    (card_id, location_id, row.quantity, str(row.source_path), row.source_line),
+                    "INSERT INTO holdings VALUES (?, ?, ?, ?, ?, ?)",
+                    (card_id, row.quantity, row.category, row.notes, str(row.source_path), row.source_line),
                 )
-        for source, row in non_deck:
-            location_id = connection.execute(
-                "INSERT OR IGNORE INTO locations(name, kind, source_path) VALUES (?, ?, ?)",
-                (source.name, source.kind, str(source.path)),
-            ).lastrowid
-            if location_id is None:
+            deck_ids: dict[str, int] = {}
+            for row in deck_rows:
+                deck_id = deck_ids.get(row.deck_slug)
+                if deck_id is None:
+                    cursor = connection.execute(
+                        "INSERT INTO decks(slug, display_name, directory) VALUES (?, ?, ?)",
+                        (row.deck_slug, row.display_name, str(row.source_path.parent)),
+                    )
+                    deck_id = int(cursor.lastrowid)
+                    deck_ids[row.deck_slug] = deck_id
+                card_id = _card_id(connection, row.card)
+                connection.execute(
+                    "INSERT INTO deck_cards VALUES (?, ?, ?, ?, ?)",
+                    (deck_id, card_id, row.quantity, str(row.source_path), row.source_line),
+                )
+            for slug, deck_id in deck_ids.items():
                 location_id = connection.execute(
-                    "SELECT id FROM locations WHERE name = ?", (source.name,)
-                ).fetchone()[0]
-            card_id = _card_id(connection, row.card)
+                    "INSERT INTO locations(name, kind, source_path) VALUES (?, 'deck', NULL)",
+                    (f"deck:{slug}",),
+                ).lastrowid
+                for row in [entry for entry in deck_rows if entry.deck_slug == slug]:
+                    card_id = _card_id(connection, row.card)
+                    connection.execute(
+                        "INSERT INTO placements VALUES (?, ?, ?, '', ?, ?)",
+                        (card_id, location_id, row.quantity, str(row.source_path), row.source_line),
+                    )
+            for source, row in non_deck:
+                location_id = connection.execute(
+                    "INSERT OR IGNORE INTO locations(name, kind, source_path) VALUES (?, ?, ?)",
+                    (source.name, source.kind, str(source.path)),
+                ).lastrowid
+                if location_id is None:
+                    location_id = connection.execute(
+                        "SELECT id FROM locations WHERE name = ?", (source.name,)
+                    ).fetchone()[0]
+                card_id = _card_id(connection, row.card)
+                connection.execute(
+                    "INSERT INTO placements VALUES (?, ?, ?, ?, ?, ?)",
+                    (card_id, location_id, row.quantity, row.notes, str(row.source_path), row.source_line),
+                )
             connection.execute(
-                "INSERT INTO placements VALUES (?, ?, ?, ?, ?, ?)",
-                (card_id, location_id, row.quantity, row.notes, str(row.source_path), row.source_line),
+                "CREATE INDEX idx_cards_name ON cards(name COLLATE NOCASE)"
             )
-        connection.execute(
-            "CREATE INDEX idx_cards_name ON cards(name COLLATE NOCASE)"
-        )
-        connection.commit()
+            connection.commit()
+        os.replace(temporary_path, paths.database)
+    finally:
+        temporary_path.unlink(missing_ok=True)
 
 
 def collection_status(paths: CollectionPaths) -> dict[str, int]:

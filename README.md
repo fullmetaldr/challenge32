@@ -149,12 +149,24 @@ challenge32 collection --init
 ```
 
 Initialization requires two confirmations and refuses to overwrite an existing
-collection. The derived database is stored in `.data/collection.sqlite` and is
+collection. The derived database is stored in `data/collection.sqlite` and is
 ignored by Git. Once initialized, inspect the current model with:
 
 ```bash
 challenge32 collection --status
 ```
+
+Build the local, read-only collection dashboard. It rebuilds the generated
+SQLite database from the source-controlled collection files before writing the
+dashboard:
+
+```bash
+challenge32 collection dashboard
+python -m http.server 8001 --directory data/collection-dashboard
+```
+
+Then open `http://localhost:8001`. The dashboard is local-only and is not part
+of the GitHub Pages deployment.
 
 Collection identities include the card name, a `printing` value such as
 `cmm:396`, and `foil` (`yes`, `no`, or `unknown`). Categories such as `proxy`

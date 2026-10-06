@@ -6,4 +6,4 @@ __pycache__/
 .env
 *.egg-info/
 site/
-.data/
+data/

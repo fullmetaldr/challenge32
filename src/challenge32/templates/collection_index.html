@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Challenge32 Collection</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <main class="wrap">
+    <header class="page-header">
+      <div>
+        <p class="eyebrow">Challenge32</p>
+        <h1>Collection dashboard</h1>
+        <p class="muted">Generated from source-controlled collection files and decklists.</p>
+      </div>
+      <p id="generated-at" class="muted"></p>
+    </header>
+
+    <section id="summary" class="summary-grid" aria-label="Collection summary"></section>
+
+    <section id="warnings" class="panel hidden" aria-labelledby="warnings-title">
+      <h2 id="warnings-title">Needs attention</h2>
+      <div id="warning-list"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="inventory-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="inventory-title">Inventory</h2>
+          <p id="inventory-count" class="muted"></p>
+        </div>
+        <div class="filters">
+          <label>Search <input id="search" type="search" placeholder="Card name or printing"></label>
+          <label>Status
+            <select id="status-filter">
+              <option value="all">All</option>
+              <option value="accounted">Accounted</option>
+              <option value="location-unknown">Location unknown</option>
+              <option value="ownership-unknown">Ownership unknown</option>
+              <option value="conflict">Conflict</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Card</th>
+              <th>Printing</th>
+              <th>Foil</th>
+              <th>Known</th>
+              <th>Decks</th>
+              <th>Other locations</th>
+              <th>Free / unresolved</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="inventory-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="columns">
+      <section class="panel" aria-labelledby="locations-title">
+        <h2 id="locations-title">Locations</h2>
+        <div id="locations"></div>
+      </section>
+      <section class="panel" aria-labelledby="decks-title">
+        <h2 id="decks-title">Deck allocation</h2>
+        <div id="decks"></div>
+      </section>
+    </div>
+  </main>
+  <script src="assets/app.js"></script>
+</body>
+</html>

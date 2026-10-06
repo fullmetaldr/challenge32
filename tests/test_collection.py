@@ -47,7 +47,7 @@ class CollectionTests(unittest.TestCase):
             paths = CollectionPaths(
                 root=root / "collection",
                 decks=root / "decks",
-                database=root / ".data" / "collection.sqlite",
+                database=root / "data" / "collection.sqlite",
             )
             result = initialize_collection(paths)
             self.assertEqual(result["decks"], 1)
