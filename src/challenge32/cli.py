@@ -10,6 +10,7 @@ from pathlib import Path
 from .archidekt import ArchidektError, ArchidektClient, fetch_cards
 from .collection import CollectionError, CollectionPaths, collection_status, initialize_collection
 from .collection_dashboard import build_collection_dashboard
+from .collection_server import serve_collection_dashboard
 from .config import discover_decks, select_deck
 from .dashboard import build_dashboard
 from .models import DeckConfig
@@ -46,11 +47,12 @@ def build_parser() -> argparse.ArgumentParser:
     )
     collection_parser.add_argument("--init", action="store_true", help="Safely initialize collection source files from decklists")
     collection_parser.add_argument("--status", action="store_true", help="Show the current derived collection status")
-    collection_parser.add_argument("action", nargs="?", choices=("dashboard",), help="Build the local collection dashboard")
+    collection_parser.add_argument("action", nargs="?", choices=("dashboard", "serve"), help="Build or serve the local collection dashboard")
     collection_parser.add_argument("--decks", type=Path, default=Path("decks"), help="Deck root (default: decks)")
     collection_parser.add_argument("--root", type=Path, default=Path("collection"), help="Collection source root (default: collection)")
     collection_parser.add_argument("--database", type=Path, default=Path("data/collection.sqlite"), help="Derived SQLite path (default: data/collection.sqlite)")
     collection_parser.add_argument("--output", type=Path, default=Path("data/collection-dashboard"), help="Local dashboard output (default: data/collection-dashboard)")
+    collection_parser.add_argument("--port", type=int, default=8001, help="Local dashboard port (default: 8001)")
     return parser
 
 
@@ -117,9 +119,9 @@ def add_deck(args: argparse.Namespace) -> int:
 
 
 def collection_command(args: argparse.Namespace) -> int:
-    selected = sum((args.init, args.status, args.action == "dashboard"))
+    selected = sum((args.init, args.status, args.action in {"dashboard", "serve"}))
     if selected != 1:
-        raise CollectionError("choose exactly one of --init, --status, or dashboard")
+        raise CollectionError("choose exactly one of --init, --status, dashboard, or serve")
     paths = CollectionPaths(root=args.root, decks=args.decks, database=args.database)
     if args.init:
         result = initialize_collection(paths, confirm=input)
@@ -128,13 +130,16 @@ def collection_command(args: argparse.Namespace) -> int:
             f"{result['card_versions']} card version(s), {result['cards']} card(s)"
         )
         return 0
-    if args.action == "dashboard":
+    if args.action in {"dashboard", "serve"}:
         payload = build_collection_dashboard(paths, args.output)
         print(
             f"Built collection dashboard in {args.output} "
             f"({payload['summary']['known_card_versions']} card version(s))"
         )
-        print(f"Serve it with: python -m http.server 8001 --directory {args.output}")
+        if args.action == "serve":
+            serve_collection_dashboard(args.output, paths.database.parent, port=args.port)
+        else:
+            print("Serve it with: challenge32 collection serve")
         return 0
     result = collection_status(paths)
     print(f"Decks: {result['decks']}")

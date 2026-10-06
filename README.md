@@ -161,12 +161,17 @@ SQLite database from the source-controlled collection files before writing the
 dashboard:
 
 ```bash
-challenge32 collection dashboard
-python -m http.server 8001 --directory data/collection-dashboard
+challenge32 collection serve
 ```
 
-Then open `http://localhost:8001`. The dashboard is local-only and is not part
-of the GitHub Pages deployment.
+Then open `http://localhost:8001`. This command builds the local dashboard and
+serves it on your laptop. Hovering over the preview icon loads a missing card
+image from Scryfall and saves it in `data/card-details/<set>/images/` for reuse.
+The corresponding card JSON is saved beside it for future detail views. Set
+names are cached in `data/set-names.json`; the set code is shown if lookup is
+temporarily unavailable. `challenge32 collection dashboard` still builds the
+files without starting the server. The collection dashboard is local-only and
+is not part of the GitHub Pages deployment.
 
 Collection identities include the card name, a `printing` value such as
 `cmm:396`, and `foil` (`yes`, `no`, or `unknown`). Categories such as `proxy`

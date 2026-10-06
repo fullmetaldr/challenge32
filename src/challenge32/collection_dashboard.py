@@ -7,6 +7,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from .card_catalog import load_set_names, printing_parts
 from .collection import CollectionPaths, build_database
 
 
@@ -25,7 +26,8 @@ def _status(known_owned: int | None, allocated: int, placed: int) -> tuple[str, 
     return "accounted", 0
 
 
-def _collection_payload(database: Path) -> dict[str, Any]:
+def _collection_payload(database: Path, set_names: dict[str, str] | None = None) -> dict[str, Any]:
+    set_names = set_names or {}
     with sqlite3.connect(database) as connection:
         connection.row_factory = sqlite3.Row
         card_rows = connection.execute(
@@ -111,6 +113,7 @@ def _collection_payload(database: Path) -> dict[str, Any]:
 
     inventory: list[dict[str, Any]] = []
     for row in card_rows:
+        set_code, card_number = printing_parts(row["printing"])
         known_owned = int(row["known_owned"]) if row["known_owned"] is not None else None
         allocated = int(row["deck_allocated"])
         placed = int(row["non_deck_placed"])
@@ -120,6 +123,9 @@ def _collection_payload(database: Path) -> dict[str, Any]:
                 "id": int(row["id"]),
                 "name": row["name"],
                 "printing": row["printing"],
+                "set_code": set_code,
+                "set_name": set_names.get(set_code, set_code.upper() if set_code else ""),
+                "card_number": card_number,
                 "foil": row["foil"],
                 "known_owned": known_owned,
                 "deck_allocated": allocated,
@@ -163,8 +169,9 @@ def _copy_assets(output_dir: Path) -> None:
 
 def build_collection_dashboard(paths: CollectionPaths, output_dir: Path) -> dict[str, Any]:
     """Rebuild the derived database and write a local static dashboard."""
-    build_database(paths)
-    payload = _collection_payload(paths.database)
+    set_names = load_set_names(paths.database.parent)
+    build_database(paths, set_names=set_names)
+    payload = _collection_payload(paths.database, set_names)
     output_dir = output_dir.resolve()
     if any(output_dir.iterdir()) if output_dir.exists() else False:
         if not (output_dir / GENERATED_MARKER).exists():

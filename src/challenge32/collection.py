@@ -348,6 +348,10 @@ def _database_schema(connection: sqlite3.Connection) -> None:
             foil TEXT NOT NULL CHECK (foil IN ('yes', 'no', 'unknown')),
             UNIQUE (name COLLATE NOCASE, printing, foil)
         );
+        CREATE TABLE set_names (
+            code TEXT PRIMARY KEY,
+            name TEXT NOT NULL
+        );
         CREATE TABLE holdings (
             card_id INTEGER NOT NULL REFERENCES cards(id),
             quantity INTEGER NOT NULL CHECK (quantity > 0),
@@ -407,7 +411,12 @@ def _card_id(connection: sqlite3.Connection, card: CardKey) -> int:
     return int(row[0])
 
 
-def build_database(paths: CollectionPaths, *, deck_rows: list[DeckRow] | None = None) -> None:
+def build_database(
+    paths: CollectionPaths,
+    *,
+    deck_rows: list[DeckRow] | None = None,
+    set_names: dict[str, str] | None = None,
+) -> None:
     deck_rows = deck_rows if deck_rows is not None else discover_deck_rows(paths.decks)
     holdings = _read_rows(paths.holdings, include_category=True)
     non_deck = read_non_deck_placements(paths)
@@ -420,6 +429,11 @@ def build_database(paths: CollectionPaths, *, deck_rows: list[DeckRow] | None = 
     try:
         with sqlite3.connect(temporary_path) as connection:
             _database_schema(connection)
+            if set_names:
+                connection.executemany(
+                    "INSERT INTO set_names(code, name) VALUES (?, ?)",
+                    sorted(set_names.items()),
+                )
             for row in holdings:
                 card_id = _card_id(connection, row.card)
                 connection.execute(

@@ -31,7 +31,7 @@
           <p id="inventory-count" class="muted"></p>
         </div>
         <div class="filters">
-          <label>Search <input id="search" type="search" placeholder="Card name or printing"></label>
+          <label>Search <input id="search" type="search" placeholder="Card, set or number"></label>
           <label>Status
             <select id="status-filter">
               <option value="all">All</option>
@@ -48,7 +48,9 @@
           <thead>
             <tr>
               <th>Card</th>
-              <th>Printing</th>
+              <th>Preview</th>
+              <th>Set</th>
+              <th>Card No.</th>
               <th>Foil</th>
               <th>Known</th>
               <th>Decks</th>
@@ -61,6 +63,8 @@
         </table>
       </div>
     </section>
+
+    <div id="card-preview" class="card-preview hidden" role="tooltip" aria-live="polite"></div>
 
     <div class="columns">
       <section class="panel" aria-labelledby="locations-title">

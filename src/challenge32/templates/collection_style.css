@@ -46,4 +46,9 @@ th { color: var(--muted); font-size: 12px; position: sticky; top: 0; background:
 .badge.location-unknown, .badge.ownership-unknown { background: #fff4d6; color: var(--warning); }
 .badge.conflict { background: #ffe8e6; color: var(--danger); }
 .subline { color: var(--muted); display: block; font-size: 12px; }
+.preview-button { background: transparent; border: 1px solid var(--line); border-radius: 7px; color: var(--accent); cursor: pointer; font-size: 17px; height: 32px; line-height: 1; width: 36px; }
+.preview-button:hover, .preview-button:focus-visible { background: #eef1ff; outline: 2px solid var(--accent); outline-offset: 1px; }
+.card-preview { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 12px 32px rgb(15 23 42 / 20%); max-width: 286px; min-width: 230px; padding: 10px; pointer-events: none; position: fixed; z-index: 20; }
+.card-preview img { border-radius: 8px; display: block; max-height: min(68vh, 380px); max-width: 100%; width: auto; }
+.card-preview .muted { display: block; padding: 8px; }
 @media (max-width: 800px) { .columns { grid-template-columns: 1fr; } .page-header, .section-heading { align-items: start; flex-direction: column; } }
