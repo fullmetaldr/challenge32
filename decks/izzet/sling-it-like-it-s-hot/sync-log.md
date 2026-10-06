@@ -15,3 +15,8 @@
 - Source: https://archidekt.com/decks/24921939/sling_it_like_its_hot
 - Hash: `sha256:35ed4683c8ab7a98ede726c2966051aa3d9117c870e2e59c683ad6011e401ed0`
 - Cards: 104
+## 20261006T121818Z--72d38f4
+
+- Source: https://archidekt.com/decks/24921939/sling_it_like_its_hot
+- Hash: `sha256:72d38f4ec1cf71687a54603fecb93ca5f44d340cae0af4c432833f91ae57d506`
+- Cards: 104

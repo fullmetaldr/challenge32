@@ -20,3 +20,8 @@
 - Source: https://archidekt.com/decks/15661283/omnislash
 - Hash: `sha256:e8d1975545a3d5fba404cf5c66d6b269cda011c041c5b0d59771b8749bdc9c5e`
 - Cards: 100
+## 20261006T121821Z--8ef68c0
+
+- Source: https://archidekt.com/decks/15661283/omnislash
+- Hash: `sha256:8ef68c0dc7ddb44c4f653a97269effcef554e8fe19b1c9514d674fccdab440ef`
+- Cards: 100

@@ -1,11 +1,11 @@
 {
   "card_count": 100,
   "color_identity": "orzhov",
-  "current_hash": "sha256:22583d970e36450154b07d978b8c1bc2795d3885a2d6144424b980b5d2b47f98",
-  "current_version": "20260810T224742Z--22583d9",
+  "current_hash": "sha256:2292f87e243372bee0aabb2c3e867210e4f45ce4c2af0f49f3fe49b34b989226",
+  "current_version": "20261006T121821Z--2292f87",
   "deck": "the-circle-of-life",
   "display_name": "The Circle of Life",
-  "retrieved_at": "2026-08-10T22:47:42.481942+00:00",
+  "retrieved_at": "2026-10-06T12:18:21.950243+00:00",
   "source": "archidekt",
   "source_metadata": {
     "card_count": 100,

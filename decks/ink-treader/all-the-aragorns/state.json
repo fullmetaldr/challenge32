@@ -1,11 +1,11 @@
 {
   "card_count": 98,
   "color_identity": "ink-treader",
-  "current_hash": "sha256:9fd8f8daa54b9abc913f30bf5972b866cb5dcc503bd079e94099c5d2f8a87572",
-  "current_version": "20260827T092624Z--9fd8f8d",
+  "current_hash": "sha256:b9fd26643f35294ddf7bc0962f853641da3ff3dad775a5db5deecf33f8cf8c00",
+  "current_version": "20261006T121817Z--b9fd266",
   "deck": "all-the-aragorns",
   "display_name": "All the Aragorns",
-  "retrieved_at": "2026-08-27T09:26:24.066577+00:00",
+  "retrieved_at": "2026-10-06T12:18:17.952053+00:00",
   "source": "archidekt",
   "source_metadata": {
     "card_count": 98,

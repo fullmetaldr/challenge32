@@ -1,11 +1,11 @@
 {
   "card_count": 100,
   "color_identity": "golgari",
-  "current_hash": "sha256:a96b226d023f015bd98c7ddfce695891da405948ed1d477e3c08d059eb65b161",
-  "current_version": "20260804T225410Z--a96b226",
+  "current_hash": "sha256:f916463c57cab11d95de61f5fa4f7794ffdebde835e5291affe656ac81f4cf06",
+  "current_version": "20261006T121816Z--f916463",
   "deck": "apd",
   "display_name": "APD",
-  "retrieved_at": "2026-08-04T22:54:10.697622+00:00",
+  "retrieved_at": "2026-10-06T12:18:16.867310+00:00",
   "source": "archidekt",
   "source_metadata": {
     "card_count": 100,

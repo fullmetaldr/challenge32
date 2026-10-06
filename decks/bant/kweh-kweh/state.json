@@ -1,11 +1,11 @@
 {
   "card_count": 100,
   "color_identity": "bant",
-  "current_hash": "sha256:fdf99f9261bff1f87473796d29bfd5e39c82756083fed1384f70b4b116b6dbd3",
-  "current_version": "20260910T165511Z--fdf99f9",
+  "current_hash": "sha256:3980eb3dabd737fc4264c6a880cb46d93acd3bda7b12d94f3280946099338fd2",
+  "current_version": "20261006T121813Z--3980eb3",
   "deck": "kweh-kweh",
   "display_name": "Kweh Kweh!",
-  "retrieved_at": "2026-09-10T16:55:11.227064+00:00",
+  "retrieved_at": "2026-10-06T12:18:13.596497+00:00",
   "source": "archidekt",
   "source_metadata": {
     "card_count": 100,

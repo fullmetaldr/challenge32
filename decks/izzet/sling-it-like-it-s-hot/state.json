@@ -1,11 +1,11 @@
 {
   "card_count": 104,
   "color_identity": "izzet",
-  "current_hash": "sha256:35ed4683c8ab7a98ede726c2966051aa3d9117c870e2e59c683ad6011e401ed0",
-  "current_version": "20260827T145715Z--35ed468",
+  "current_hash": "sha256:72d38f4ec1cf71687a54603fecb93ca5f44d340cae0af4c432833f91ae57d506",
+  "current_version": "20261006T121818Z--72d38f4",
   "deck": "sling-it-like-it-s-hot",
   "display_name": "Sling it Like it's Hot",
-  "retrieved_at": "2026-08-27T14:57:15.138770+00:00",
+  "retrieved_at": "2026-10-06T12:18:18.608610+00:00",
   "source": "archidekt",
   "source_metadata": {
     "card_count": 104,

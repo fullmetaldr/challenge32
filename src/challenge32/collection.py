@@ -147,13 +147,17 @@ def _read_rows(path: Path, *, include_category: bool = False) -> list[Collection
 
 _DECK_LINE = re.compile(r"^\s*(?P<quantity>\d+)\s+(?P<card>.+?)\s*$")
 _PRINTING_SUFFIX = re.compile(r"^(?P<name>.+?)\s+\((?P<set>[^)]*)\)(?:\s+(?P<number>\S+))?$")
+_FOIL_SUFFIX = re.compile(r"\s+\*[FE]\*$")
+_DECK_FORMAT_2 = "# Format: 2"
 
 
 def parse_decklist(path: Path) -> list[DeckRow]:
     if not path.exists():
         raise CollectionError(f"Missing generated decklist: {path}")
+    lines = path.read_text(encoding="utf-8").splitlines()
+    format_2 = _DECK_FORMAT_2 in (line.strip() for line in lines)
     result: list[DeckRow] = []
-    for line_number, raw_line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
+    for line_number, raw_line in enumerate(lines, start=1):
         line = raw_line.split("#", 1)[0].strip()
         if not line or line.startswith("//"):
             continue
@@ -161,6 +165,9 @@ def parse_decklist(path: Path) -> list[DeckRow]:
         if not match:
             raise CollectionError(f"{path}:{line_number}: could not parse decklist line")
         card_text = match.group("card")
+        is_foil = bool(_FOIL_SUFFIX.search(card_text))
+        if is_foil:
+            card_text = _FOIL_SUFFIX.sub("", card_text)
         printed = _PRINTING_SUFFIX.match(card_text)
         if printed:
             printing = printed.group("set")
@@ -173,7 +180,7 @@ def parse_decklist(path: Path) -> list[DeckRow]:
             DeckRow(
                 deck_slug="",
                 display_name="",
-                card=_card_key(card_text, printing, "unknown"),
+                card=_card_key(card_text, printing, "yes" if is_foil else "no" if format_2 else "unknown"),
                 quantity=int(match.group("quantity")),
                 source_path=path,
                 source_line=line_number,

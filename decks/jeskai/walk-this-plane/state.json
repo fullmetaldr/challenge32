@@ -1,11 +1,11 @@
 {
   "card_count": 100,
   "color_identity": "jeskai",
-  "current_hash": "sha256:ffcff48bdc45187ebdba28e9874b8b7a5c2109f5442851ee3a63f1c53ec12bb2",
-  "current_version": "20260804T222432Z--ffcff48",
+  "current_hash": "sha256:10d41d841ccccbd71e3c291e3cbaf48fa44982c2a9d9501bcd303c97fa1a1013",
+  "current_version": "20261006T121819Z--10d41d8",
   "deck": "walk-this-plane",
   "display_name": "Walk this plane!",
-  "retrieved_at": "2026-08-04T22:24:32.292277+00:00",
+  "retrieved_at": "2026-10-06T12:18:19.917225+00:00",
   "source": "archidekt",
   "source_metadata": {
     "card_count": 100,

@@ -87,6 +87,22 @@ Synchronize all configured decks:
 challenge32 sync --all
 ```
 
+Generated decklists are grouped by card type, with separate Commander,
+Companion, and Sideboard sections where applicable. A foil card ends in `*F*`,
+and an etched-foil card ends in `*E*`. Both count as foil in the current
+collection schema; an unmarked card in a `# Format: 2` decklist is nonfoil.
+Older decklists have no
+format marker, so their unmarked cards retain an unknown foil state in the
+collection. Archidekt's custom categories are used to determine deck membership
+and the Commander, but are not copied into the decklist as card tags.
+
+The first sync after upgrading to this format will create new deck versions
+because deck hashes include the rendered text. Existing version files and
+analysis notes are preserved, but notes tied to old hashes will not
+automatically cover the new versions. If you plan to reinitialise the
+collection from the new decklists, sync every deck before doing so and back up
+the existing `collection/` directory and `data/collection.sqlite` first.
+
 Add a new public Archidekt deck directly from its URL. The command fetches the
 deck before writing anything, infers the deck name and Commander colour
 identity, creates the correct directory and `deck.toml`, and performs the

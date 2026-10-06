@@ -1,11 +1,11 @@
 {
   "card_count": 100,
   "color_identity": "yore-tiller",
-  "current_hash": "sha256:6e613f8502cf69e411d1e78c78ab5d9a1c34c85dd6b5209a1c939c4eece40a0f",
-  "current_version": "20261003T110154Z--6e613f8",
+  "current_hash": "sha256:8408236e16fb7e4e2f682047d9971de283f94fd35d6c4413776261f1f00e9e70",
+  "current_version": "20261006T121823Z--8408236",
   "deck": "it-s-morphing-time",
   "display_name": "It's Morphing time!",
-  "retrieved_at": "2026-10-03T11:01:54.859927+00:00",
+  "retrieved_at": "2026-10-06T12:18:23.636263+00:00",
   "source": "archidekt",
   "source_metadata": {
     "card_count": 100,

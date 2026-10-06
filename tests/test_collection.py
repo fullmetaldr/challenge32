@@ -78,6 +78,25 @@ class CollectionTests(unittest.TestCase):
                 initialize_collection(paths, confirm=lambda _prompt: next(answers))
             self.assertFalse(paths.root.exists())
 
+    def test_new_deck_format_imports_foil_and_normal_without_changing_legacy_unknown(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            write_deck(
+                root, "omnislash", "Omnislash",
+                "# Format: 2\n// Commander\n1 Cloud, Ex-SOLDIER (fic) 202\n\n"
+                "// Creature\n1 Calix, Guided by Fate (mat) 126 *E*\n\n"
+                "// Artifact\n1 Sol Ring (cmm) 396 *F*\n",
+            )
+            paths = CollectionPaths(root=root / "collection", decks=root / "decks", database=root / "db.sqlite")
+            initialize_collection(paths)
+            with paths.holdings.open(newline="", encoding="utf-8") as handle:
+                rows = {row["card"]: row for row in csv.DictReader(handle)}
+            self.assertEqual(rows["Cloud, Ex-SOLDIER"]["foil"], "no")
+            self.assertEqual(rows["Sol Ring"]["foil"], "yes")
+            self.assertEqual(rows["Calix, Guided by Fate"]["foil"], "yes")
+            self.assertEqual(rows["Sol Ring"]["printing"], "cmm:396")
+            self.assertEqual(collection_status(paths)["conflicts"], 0)
+
     def test_status_counts_deck_allocation_and_reports_known_conflict(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

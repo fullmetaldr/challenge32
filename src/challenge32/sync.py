@@ -17,13 +17,15 @@ SECTION_ORDER = (
     "commander",
     "companion",
     "sideboard",
-    "maybeboard",
     "creature",
     "artifact",
     "enchantment",
+    "planeswalker",
+    "battle",
     "instant",
     "sorcery",
     "land",
+    "other",
 )
 
 
@@ -35,13 +37,14 @@ def timestamp(value: datetime) -> str:
     return value.astimezone(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
 
 
-def _safe_tag(tag: str) -> str:
-    value = re.sub(r"[^a-zA-Z0-9_-]+", "-", tag.strip().lower()).strip("-")
-    return value or "tag"
-
-
 def _section(card: Card) -> str:
     tags = {str(tag).lower() for tag in card.tags}
+    for candidate in ("commander", "companion", "sideboard"):
+        if candidate in tags:
+            return candidate
+    card_type = str(getattr(card, "type_category", "") or "").strip().lower()
+    if card_type:
+        return card_type
     for candidate in SECTION_ORDER:
         if candidate in tags:
             return candidate
@@ -66,7 +69,7 @@ def render_body(cards: Iterable[Card]) -> str:
                 item.name.lower(),
                 item.extension or "",
                 item.number or "",
-                sorted(item.tags),
+                getattr(item, "finish", "normal"),
             ),
         ):
             line = f"{card.quantity} {card.name}"
@@ -74,7 +77,11 @@ def render_body(cards: Iterable[Card]) -> str:
                 line += f" ({card.extension})"
             if card.number:
                 line += f" {card.number}"
-            line += "".join(f" #{_safe_tag(tag)}" for tag in sorted(card.tags))
+            finish = getattr(card, "finish", "normal")
+            if finish == "foil":
+                line += " *F*"
+            elif finish == "etched":
+                line += " *E*"
             lines.append(line)
 
     return "\n".join(lines) + "\n"
@@ -99,6 +106,7 @@ def _header(
     return "\n".join(
         [
             "# Challenge32 synchronized decklist",
+            "# Format: 2",
             f"# Deck: {source_name}",
             f"# Source: {config.source}",
             f"# URL: {config.url}",

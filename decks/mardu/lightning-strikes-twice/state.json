@@ -1,11 +1,11 @@
 {
   "card_count": 100,
   "color_identity": "mardu",
-  "current_hash": "sha256:9fe33183c2c2bdf4196de1f022736df759be7e5f080c47fc9ef8cc5a17b0f59f",
-  "current_version": "20260815T092109Z--9fe3318",
+  "current_hash": "sha256:c0e04758fcbdc31ef9c7365fdc355c17016b04a5dd2115a5a6866dc27d6aa71e",
+  "current_version": "20261006T121820Z--c0e0475",
   "deck": "lightning-strikes-twice",
   "display_name": "Lightning Strikes Twice",
-  "retrieved_at": "2026-08-15T09:21:09.167952+00:00",
+  "retrieved_at": "2026-10-06T12:18:20.655588+00:00",
   "source": "archidekt",
   "source_metadata": {
     "card_count": 100,

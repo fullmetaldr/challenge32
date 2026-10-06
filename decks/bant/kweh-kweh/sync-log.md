@@ -20,3 +20,8 @@
 - Source: https://archidekt.com/decks/24922076/kweh_kweh
 - Hash: `sha256:fdf99f9261bff1f87473796d29bfd5e39c82756083fed1384f70b4b116b6dbd3`
 - Cards: 100
+## 20261006T121813Z--3980eb3
+
+- Source: https://archidekt.com/decks/24922076/kweh_kweh
+- Hash: `sha256:3980eb3dabd737fc4264c6a880cb46d93acd3bda7b12d94f3280946099338fd2`
+- Cards: 100

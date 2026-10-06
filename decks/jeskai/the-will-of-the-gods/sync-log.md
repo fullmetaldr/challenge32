@@ -15,3 +15,8 @@
 - Source: https://archidekt.com/decks/24888658/the_will_of_the_gods
 - Hash: `sha256:ce9cc2206d42b131066ab7a399dd22bf2872dd320365737a21b6c15de10ad98c`
 - Cards: 100
+## 20261006T121819Z--ab83a11
+
+- Source: https://archidekt.com/decks/24888658/the_will_of_the_gods
+- Hash: `sha256:ab83a11002c8592d8873f42c3bf512b0291aab1d5d37b296fbf7db58d7b494bf`
+- Cards: 100

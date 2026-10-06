@@ -1,11 +1,11 @@
 {
   "card_count": 100,
   "color_identity": "boros",
-  "current_hash": "sha256:95307fab03ba06dce1121d73e1422a2706e3dd9b414273156dd7e3fb1c441a76",
-  "current_version": "20260914T143547Z--95307fa",
+  "current_hash": "sha256:9cd2c2ece4e8dbbba9a65c0d73138b0b7046295c236ef938fca37899e90015eb",
+  "current_version": "20261006T121814Z--9cd2c2e",
   "deck": "praise-the-sun",
   "display_name": "Praise the Sun",
-  "retrieved_at": "2026-09-14T14:35:47.748180+00:00",
+  "retrieved_at": "2026-10-06T12:18:14.643083+00:00",
   "source": "archidekt",
   "source_metadata": {
     "card_count": 100,

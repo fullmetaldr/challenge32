@@ -1,11 +1,11 @@
 {
   "card_count": 100,
   "color_identity": "red",
-  "current_hash": "sha256:41f26a26c60283260b7ed5b3778c74dc1cabac944abb5925ab7a7e8f2c2fbaa7",
-  "current_version": "20260924T225651Z--41f26a2",
+  "current_hash": "sha256:cc0f261bb5f97f0675952dad6d12cc3a848495f2596f49257b9093ec5dc35b9f",
+  "current_version": "20261006T121822Z--cc0f261",
   "deck": "i-smell-blood",
   "display_name": "I Smell Blood",
-  "retrieved_at": "2026-09-24T22:56:51.216866+00:00",
+  "retrieved_at": "2026-10-06T12:18:22.496219+00:00",
   "source": "archidekt",
   "source_metadata": {
     "card_count": 100,

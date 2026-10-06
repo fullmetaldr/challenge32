@@ -1,11 +1,11 @@
 {
   "card_count": 100,
   "color_identity": "naya",
-  "current_hash": "sha256:e8d1975545a3d5fba404cf5c66d6b269cda011c041c5b0d59771b8749bdc9c5e",
-  "current_version": "20260910T165517Z--e8d1975",
+  "current_hash": "sha256:8ef68c0dc7ddb44c4f653a97269effcef554e8fe19b1c9514d674fccdab440ef",
+  "current_version": "20261006T121821Z--8ef68c0",
   "deck": "omnislash",
   "display_name": "Omnislash",
-  "retrieved_at": "2026-09-10T16:55:17.731144+00:00",
+  "retrieved_at": "2026-10-06T12:18:21.414414+00:00",
   "source": "archidekt",
   "source_metadata": {
     "card_count": 100,

@@ -9,6 +9,7 @@ from urllib.parse import urlparse
 
 import httpx
 import mtg_parser
+from mtg_parser.card import Card
 
 from .models import DeckMetadata
 from .colors import identity_name
@@ -16,6 +17,15 @@ from .colors import identity_name
 
 class ArchidektError(RuntimeError):
     """Raised when a public Archidekt deck cannot be downloaded or decoded."""
+
+
+class SourcedCard(Card):
+    """A parsed card with Archidekt's physical finish and primary card type."""
+
+    def __init__(self, card: Card, *, type_category: str, finish: str) -> None:
+        super().__init__(card.name, card.quantity, card.extension, card.number, card.tags)
+        self.type_category = type_category
+        self.finish = finish
 
 
 @dataclass
@@ -52,6 +62,7 @@ class ArchidektClient:
             },
         )
         self.last_metadata: DeckMetadata | None = None
+        self.last_parser_payload: dict[str, Any] | None = None
 
     def __enter__(self) -> "ArchidektClient":
         return self
@@ -101,7 +112,8 @@ class ArchidektClient:
             card_count=sum(int(card.get("qty", 0)) for card in deck["cardMap"].values()),
             color_identity=self._deck_color_identity(deck),
         )
-        return JsonResponse(self._as_mtg_parser_payload(deck))
+        self.last_parser_payload = self._as_mtg_parser_payload(deck)
+        return JsonResponse(self.last_parser_payload)
 
     @staticmethod
     def _deck_color_identity(deck: dict[str, Any]) -> str | None:
@@ -135,13 +147,16 @@ class ArchidektClient:
                     },
                     "quantity": card.get("qty", 1),
                     "categories": card.get("categories", []),
+                    "typeCategory": card.get("typeCategory") or next(iter(card.get("types") or []), "Other"),
+                    "modifier": card.get("modifier"),
                 }
             )
 
         return {"categories": categories, "cards": cards}
 
 
-def fetch_cards(url: str, client: ArchidektClient) -> tuple[list[Any], DeckMetadata | None]:
+def fetch_cards(url: str, client: ArchidektClient) -> tuple[list[Card], DeckMetadata | None]:
+    client.last_parser_payload = None
     try:
         parsed = mtg_parser.parse_deck(url, client)
     except Exception as exc:
@@ -150,4 +165,32 @@ def fetch_cards(url: str, client: ArchidektClient) -> tuple[list[Any], DeckMetad
     cards = list(parsed or [])
     if not cards:
         raise ArchidektError(f"mtg_parser returned no cards for {url}")
-    return cards, client.last_metadata
+    payload = client.last_parser_payload
+    if payload is None:
+        raise ArchidektError("Archidekt did not provide card finish and type data")
+    included_categories = {
+        category["name"]
+        for category in payload["categories"]
+        if category.get("includedInDeck", False)
+    }
+    entries = [
+        entry for entry in payload["cards"]
+        if not entry["categories"] or included_categories.intersection(entry["categories"])
+    ]
+    if len(cards) != len(entries):
+        raise ArchidektError("Archidekt card details did not match the parsed deck")
+    sourced: list[Card] = []
+    for card, entry in zip(cards, entries, strict=True):
+        if card.name != entry["card"]["oracleCard"]["name"]:
+            raise ArchidektError("Archidekt card order did not match the parsed deck")
+        modifier = str(entry.get("modifier") or "").casefold()
+        if modifier not in {"normal", "foil", "etched"}:
+            raise ArchidektError(f"Unsupported finish {entry.get('modifier')!r} for {card.name}")
+        sourced.append(
+            SourcedCard(
+                card,
+                type_category=str(entry["typeCategory"]),
+                finish=modifier,
+            )
+        )
+    return sourced, client.last_metadata

@@ -1,11 +1,11 @@
 {
   "card_count": 105,
   "color_identity": "dimir",
-  "current_hash": "sha256:c10dd315fcdcab49215f3cc56bb9152edb1027b1a28616f40f92a1f5bffe8b8a",
-  "current_version": "20261003T110147Z--c10dd31",
+  "current_hash": "sha256:1fdd08fa7a2d03191fe7e3aebf66d4d569043e0023281732d75311c36f243f05",
+  "current_version": "20261006T121815Z--1fdd08f",
   "deck": "milling-on-a-prayer",
   "display_name": "Milling on a Prayer",
-  "retrieved_at": "2026-10-03T11:01:47.708425+00:00",
+  "retrieved_at": "2026-10-06T12:18:15.236710+00:00",
   "source": "archidekt",
   "source_metadata": {
     "card_count": 105,
