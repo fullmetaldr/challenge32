@@ -192,3 +192,46 @@ is not part of the GitHub Pages deployment.
 Collection identities include the card name, a `printing` value such as
 `cmm:396`, and `foil` (`yes`, `no`, or `unknown`). Categories such as `proxy`
 are descriptive metadata and do not bypass quantity or allocation accounting.
+
+### Importing a scanned batch
+
+Export the ManaBox scanner's pending cards as CSV and put the file directly in
+`data/imports/` (create that ignored directory if needed). Then run:
+
+```bash
+challenge32 collection ingest
+```
+
+The command selects the sole pending CSV automatically, proposes a batch name
+from its filename, checks every card, and shows the holdings increases and
+Intake destination before asking for confirmation. If several CSVs are pending,
+choose one at the prompt or pass `--file data/imports/<filename>.csv`. Use
+`--batch <name>` to set the batch name without a prompt, or `--preview` for a
+read-only, non-interactive preview.
+
+The CSV must contain a card name, set code, collector/card number, foil value,
+and quantity. Headers such as `Name`, `Set code`, `Card number`, `Foil`, and
+`Quantity` are supported; `Card Name`, `Collector Number`, and `Foil?` also
+work. Foil values include `No`, `Yes`, `Normal`, `Foil`, and `Etched`. Every card
+in the batch is added to known holdings and placed in its own temporary
+`collection/locations/intake/<batch>.csv` file. The generated, minimal batch
+receipt and log are source-controlled under `collection/imports/`; the original
+export is moved to ignored `data/imports/processed/`, so purchase prices and
+other extra columns are not committed. The tool rejects a repeat batch name or
+the same printing/finish quantities under another batch name.
+
+Before any of those cards leave Intake, a mistaken import can be reversed:
+
+```bash
+challenge32 collection undo <batch>
+```
+
+Undo previews and asks for confirmation. It refuses if the batch's Intake file
+or receipt changed, and keeps an `undone` log entry for audit. `--preview` works
+for undo too. Once cards have moved out of Intake, reconcile them manually
+instead of using automatic undo. The current collection schema counts etched
+foil as `foil=yes`; the batch receipt preserves its etched finish separately.
+If a process is interrupted during a multi-file update, the tool leaves a
+recovery snapshot under `data/collection-import-transaction/` and blocks further
+collection commands rather than risking a duplicate import; inspect or restore
+that snapshot before continuing.

@@ -10,6 +10,7 @@ from pathlib import Path
 from .archidekt import ArchidektError, ArchidektClient, fetch_cards
 from .collection import CollectionError, CollectionPaths, collection_status, initialize_collection
 from .collection_dashboard import build_collection_dashboard
+from .collection_import import check_import_transaction, ingest_batch, undo_batch
 from .collection_server import serve_collection_dashboard
 from .config import discover_decks, select_deck
 from .dashboard import build_dashboard
@@ -47,12 +48,17 @@ def build_parser() -> argparse.ArgumentParser:
     )
     collection_parser.add_argument("--init", action="store_true", help="Safely initialize collection source files from decklists")
     collection_parser.add_argument("--status", action="store_true", help="Show the current derived collection status")
-    collection_parser.add_argument("action", nargs="?", choices=("dashboard", "serve"), help="Build or serve the local collection dashboard")
+    collection_parser.add_argument("action", nargs="?", choices=("dashboard", "serve", "ingest", "undo"), help="Build, serve, import, or undo a batch")
+    collection_parser.add_argument("batch_name", nargs="?", help="Batch name for collection undo")
     collection_parser.add_argument("--decks", type=Path, default=Path("decks"), help="Deck root (default: decks)")
     collection_parser.add_argument("--root", type=Path, default=Path("collection"), help="Collection source root (default: collection)")
     collection_parser.add_argument("--database", type=Path, default=Path("data/collection.sqlite"), help="Derived SQLite path (default: data/collection.sqlite)")
     collection_parser.add_argument("--output", type=Path, default=Path("data/collection-dashboard"), help="Local dashboard output (default: data/collection-dashboard)")
     collection_parser.add_argument("--port", type=int, default=8001, help="Local dashboard port (default: 8001)")
+    collection_parser.add_argument("--imports", type=Path, default=Path("data/imports"), help="Pending scanner CSV folder (default: data/imports)")
+    collection_parser.add_argument("--file", type=Path, help="Choose one pending CSV when several are present")
+    collection_parser.add_argument("--batch", help="Override the import batch name (default: CSV filename)")
+    collection_parser.add_argument("--preview", action="store_true", help="Show import or undo plan without prompting or writing")
     return parser
 
 
@@ -119,10 +125,22 @@ def add_deck(args: argparse.Namespace) -> int:
 
 
 def collection_command(args: argparse.Namespace) -> int:
-    selected = sum((args.init, args.status, args.action in {"dashboard", "serve"}))
+    selected = sum((args.init, args.status, args.action in {"dashboard", "serve", "ingest", "undo"}))
     if selected != 1:
-        raise CollectionError("choose exactly one of --init, --status, dashboard, or serve")
+        raise CollectionError("choose exactly one of --init, --status, dashboard, serve, ingest, or undo")
     paths = CollectionPaths(root=args.root, decks=args.decks, database=args.database)
+    if not args.init:
+        check_import_transaction(paths)
+    if args.action == "ingest":
+        if args.batch_name:
+            raise CollectionError("Use --batch to name an import batch")
+        ingest_batch(paths, args.imports, selected=args.file, batch=args.batch, preview=args.preview)
+        return 0
+    if args.action == "undo":
+        if not args.batch_name:
+            raise CollectionError("Specify the batch to undo: challenge32 collection undo <batch>")
+        undo_batch(paths, args.imports, args.batch_name, preview=args.preview)
+        return 0
     if args.init:
         result = initialize_collection(paths, confirm=input)
         print(

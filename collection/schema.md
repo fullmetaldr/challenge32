@@ -28,5 +28,8 @@ Sol Ring,cmm:396,no,1,
 Deck allocation is derived from the tracked decklists and is never duplicated
 in a manually maintained location file. The initial layout contains Reserve,
 Unknown, colour-based Staging sections, and one Maybe Box file per deck.
+Batch imports create `locations/intake/<batch>.csv` until those cards are sorted.
+`imports/batches/<batch>.csv` and `imports/log.csv` record applied imports and
+allow guarded undo. The raw scanner export stays under ignored `data/imports/`.
 
 The SQLite database is generated state. It is not a hand-edited source file.

@@ -86,6 +86,10 @@ class CollectionPaths:
     def locations(self) -> Path:
         return self.root / "locations"
 
+    @property
+    def imports(self) -> Path:
+        return self.root / "imports"
+
 
 def _csv_header(path: Path, columns: Iterable[str]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -232,6 +236,10 @@ def location_sources(paths: CollectionPaths) -> list[LocationSource]:
         for path in (paths.locations / "staging").glob("*.csv")
     )
     sources.extend(
+        LocationSource(name=f"intake:{path.stem}", kind="intake", path=path)
+        for path in (paths.locations / "intake").glob("*.csv")
+    )
+    sources.extend(
         LocationSource(name=f"maybe:{path.stem}", kind="maybe", path=path)
         for path in (paths.locations / "maybe").glob("*.csv")
     )
@@ -277,6 +285,9 @@ Sol Ring,cmm:396,no,1,
 Deck allocation is derived from the tracked decklists and is never duplicated
 in a manually maintained location file. The initial layout contains Reserve,
 Unknown, colour-based Staging sections, and one Maybe Box file per deck.
+Batch imports create `locations/intake/<batch>.csv` until those cards are sorted.
+`imports/batches/<batch>.csv` and `imports/log.csv` record applied imports and
+allow guarded undo. The raw scanner export stays under ignored `data/imports/`.
 
 The SQLite database is generated state. It is not a hand-edited source file.
 """
@@ -435,6 +446,7 @@ def build_database(
     temporary_path = Path(temporary_name)
     try:
         with sqlite3.connect(temporary_path) as connection:
+            connection.execute("PRAGMA foreign_keys = ON")
             _database_schema(connection)
             if set_names:
                 connection.executemany(
@@ -473,15 +485,20 @@ def build_database(
                         "INSERT INTO placements VALUES (?, ?, ?, '', ?, ?)",
                         (card_id, location_id, row.quantity, str(row.source_path), row.source_line),
                     )
+            location_ids: dict[str, int] = {}
             for source, row in non_deck:
-                location_id = connection.execute(
-                    "INSERT OR IGNORE INTO locations(name, kind, source_path) VALUES (?, ?, ?)",
-                    (source.name, source.kind, str(source.path)),
-                ).lastrowid
+                location_id = location_ids.get(source.name)
                 if location_id is None:
-                    location_id = connection.execute(
+                    connection.execute(
+                        "INSERT OR IGNORE INTO locations(name, kind, source_path) VALUES (?, ?, ?)",
+                        (source.name, source.kind, str(source.path)),
+                    )
+                    location = connection.execute(
                         "SELECT id FROM locations WHERE name = ?", (source.name,)
-                    ).fetchone()[0]
+                    ).fetchone()
+                    assert location is not None
+                    location_id = int(location[0])
+                    location_ids[source.name] = location_id
                 card_id = _card_id(connection, row.card)
                 connection.execute(
                     "INSERT INTO placements VALUES (?, ?, ?, ?, ?, ?)",
