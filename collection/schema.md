@@ -27,8 +27,11 @@ Sol Ring,cmm:396,no,1,
 
 Deck allocation is derived from the tracked decklists and is never duplicated
 in a manually maintained location file. The initial layout contains Reserve,
-Unknown, colour-based Staging sections, and one Maybe Box file per deck.
-Batch imports create `locations/intake/<batch>.csv` until those cards are sorted.
+Unknown, colour-based Staging files, and one Maybe Box file per deck. Every CSV
+under `locations/staging/`, including nested batch files, contributes to the
+single Staging location in the database. Filenames and subdirectories organise
+source data; they do not define additional locations. Batch imports create
+`locations/staging/imported/<batch>.csv` for guarded undo.
 `imports/batches/<batch>.csv` and `imports/log.csv` record applied imports and
 allow guarded undo. The raw scanner export stays under ignored `data/imports/`.
 

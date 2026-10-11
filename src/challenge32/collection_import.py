@@ -32,7 +32,7 @@ from .collection import (
 
 LOG_COLUMNS = (
     "batch", "content_hash", "source_file", "imported_at", "card_versions",
-    "copies", "intake_hash", "status", "undone_at",
+    "copies", "placement_hash", "status", "undone_at",
 )
 BATCH_COLUMNS = ("card", "printing", "foil", "finish", "quantity")
 _SLUG = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*\Z")
@@ -197,9 +197,13 @@ def _read_log(paths: CollectionPaths) -> list[dict[str, str]]:
         return []
     with path.open(newline="", encoding="utf-8") as handle:
         reader = csv.DictReader(handle)
-        if tuple(reader.fieldnames or ()) != LOG_COLUMNS:
+        if tuple(reader.fieldnames or ()) not in (LOG_COLUMNS, (*LOG_COLUMNS[:6], "intake_hash", *LOG_COLUMNS[7:])):
             raise CollectionError(f"{path}: unsupported import log columns")
-        return list(reader)
+        rows = list(reader)
+        for row in rows:
+            if "intake_hash" in row:
+                row["placement_hash"] = row.pop("intake_hash")
+        return rows
 
 
 def _check_duplicate(batch: str, digest: str, log: list[dict[str, str]]) -> None:
@@ -246,8 +250,8 @@ def plan_import(paths: CollectionPaths, source: Path, batch: str) -> ImportPlan:
                 f"known card {existing_name!r}; review the printing before import"
             )
         names_by_printing[printing_key] = item.card.name
-    if (paths.locations / "intake" / f"{batch}.csv").exists():
-        raise CollectionError(f"Intake location already exists for batch {batch!r}")
+    if (paths.locations / "staging" / "imported" / f"{batch}.csv").exists():
+        raise CollectionError(f"Staging import already exists for batch {batch!r}")
     if (paths.imports / "batches" / f"{batch}.csv").exists():
         raise CollectionError(f"Import receipt already exists for batch {batch!r}")
     identities = {item.card.normalized for item in cards}
@@ -396,7 +400,7 @@ def _print_plan(plan: ImportPlan) -> None:
     print(f"Card versions: {plan.new_versions + plan.existing_versions} "
           f"({plan.new_versions} new, {plan.existing_versions} already known)")
     print(f"Copies to add: {plan.copies}")
-    print(f"Destination: Intake/{plan.batch}")
+    print("Destination: Staging")
     if any(item.finish == "etched" for item in plan.cards):
         print("Note: etched cards remain labelled etched in the receipt but count as foil in holdings.")
     for item in plan.cards:
@@ -437,12 +441,12 @@ def ingest_batch(
                 replace(previous, quantity=previous.quantity + item.quantity)
                 if previous else CollectionRow(item.card, item.quantity, category="regular")
             )
-        intake_path = paths.locations / "intake" / f"{current.batch}.csv"
+        staging_path = paths.locations / "staging" / "imported" / f"{current.batch}.csv"
         receipt_path = paths.imports / "batches" / f"{current.batch}.csv"
         raw_destination = import_dir / "processed" / f"{current.batch}.csv"
         if raw_destination.exists():
             raise CollectionError(f"Processed scanner export already exists: {raw_destination}")
-        intake_content = _location_bytes(current.cards)
+        staging_content = _location_bytes(current.cards)
         log = _read_log(paths)
         log.append({
             "batch": current.batch,
@@ -451,19 +455,19 @@ def ingest_batch(
             "imported_at": datetime.now(timezone.utc).isoformat(),
             "card_versions": str(len(current.cards)),
             "copies": str(current.copies),
-            "intake_hash": hashlib.sha256(intake_content).hexdigest(),
+            "placement_hash": hashlib.sha256(staging_content).hexdigest(),
             "status": "active",
             "undone_at": "",
         })
         _commit_files(paths, {
             paths.holdings: _holding_bytes(holdings),
-            intake_path: intake_content,
+            staging_path: staging_content,
             receipt_path: _batch_bytes(current.cards),
             paths.imports / "log.csv": _log_bytes(log),
             raw_destination: source.read_bytes(),
             source: None,
         }, maximum_conflicts=collection_status(paths)["conflicts"])
-    print(f"Imported {current.copies} card(s) into Intake/{current.batch}.")
+    print(f"Imported {current.copies} card(s) into Staging.")
     return True
 
 
@@ -488,14 +492,14 @@ def _undo_plan(paths: CollectionPaths, batch: str) -> tuple[dict[str, str], tupl
         raise CollectionError(f"No active import named {batch!r}")
     entry = entries[0]
     receipt = paths.imports / "batches" / f"{batch}.csv"
-    intake = paths.locations / "intake" / f"{batch}.csv"
-    if not receipt.is_file() or not intake.is_file():
-        raise CollectionError("Batch receipt or Intake location is missing; cannot undo automatically")
+    staging = paths.locations / "staging" / "imported" / f"{batch}.csv"
+    if not receipt.is_file() or not staging.is_file():
+        raise CollectionError("Batch receipt or Staging import file is missing; cannot undo automatically")
     cards = _read_receipt(receipt)
     if _fingerprint(cards) != entry["content_hash"]:
         raise CollectionError("Batch receipt changed; cannot undo automatically")
-    if hashlib.sha256(intake.read_bytes()).hexdigest() != entry["intake_hash"]:
-        raise CollectionError("Intake placement changed; cards may have moved, so undo is unsafe")
+    if hashlib.sha256(staging.read_bytes()).hexdigest() != entry["placement_hash"]:
+        raise CollectionError("Staging import file changed; cards may have moved, so undo is unsafe")
     holdings = _holdings_map(paths)
     amounts: dict[tuple[str, str, str], int] = defaultdict(int)
     for item in cards:
@@ -518,8 +522,8 @@ def undo_batch(
     batch = _slug(batch)
     entry, cards = _undo_plan(paths, batch)
     print(f"Undo batch: {batch}")
-    print(f"Copies to remove from holdings and Intake: {sum(item.quantity for item in cards)}")
-    print("Recorded Intake placement has not changed since import.")
+    print(f"Copies to remove from holdings and Staging: {sum(item.quantity for item in cards)}")
+    print("Recorded Staging import file has not changed since import.")
     if preview:
         return False
     if confirm is None or confirm("Undo this batch? [y/N] ").strip().casefold() not in {"y", "yes"}:
@@ -547,7 +551,7 @@ def undo_batch(
                 row["undone_at"] = datetime.now(timezone.utc).isoformat()
         _commit_files(paths, {
             paths.holdings: _holding_bytes(holdings),
-            paths.locations / "intake" / f"{batch}.csv": None,
+            paths.locations / "staging" / "imported" / f"{batch}.csv": None,
             paths.imports / "log.csv": _log_bytes(log),
         }, maximum_conflicts=collection_status(paths)["conflicts"])
     print(f"Undid batch {batch}; receipt and processed export were retained.")

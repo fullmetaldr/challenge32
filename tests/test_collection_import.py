@@ -68,17 +68,18 @@ class CollectionImportTests(unittest.TestCase):
             self.assertEqual(collection_status(paths)["non_deck_placed"], 6)
             with sqlite3.connect(paths.database) as connection:
                 self.assertEqual(
-                    connection.execute("SELECT kind FROM locations WHERE name = 'intake:reality-fracture'").fetchone()[0],
-                    "intake",
+                    connection.execute("SELECT kind FROM locations WHERE name = 'staging'").fetchone()[0],
+                    "staging",
                 )
                 self.assertEqual(
                     connection.execute(
                         "SELECT SUM(p.quantity) FROM placements AS p "
                         "JOIN locations AS l ON l.id = p.location_id "
-                        "WHERE l.name = 'intake:reality-fracture'"
+                        "WHERE l.name = 'staging'"
                     ).fetchone()[0],
                     6,
                 )
+                self.assertEqual(connection.execute("SELECT COUNT(*) FROM locations WHERE kind = 'intake'").fetchone()[0], 0)
                 self.assertEqual(connection.execute("PRAGMA foreign_key_check").fetchall(), [])
             duplicate = import_dir / "same-cards-renamed.csv"
             duplicate.write_text(
@@ -93,11 +94,11 @@ class CollectionImportTests(unittest.TestCase):
             duplicate.unlink()
             self.assertTrue(undo_batch(paths, import_dir, "reality-fracture", confirm=lambda _prompt: "yes"))
             self.assertEqual(paths.holdings.read_bytes(), old_holdings.replace(b"\r\n", b"\n"))
-            self.assertFalse((paths.locations / "intake" / "reality-fracture.csv").exists())
+            self.assertFalse((paths.locations / "staging" / "imported" / "reality-fracture.csv").exists())
             self.assertEqual(rows(paths.imports / "log.csv")[0]["status"], "undone")
             self.assertEqual(collection_status(paths)["conflicts"], 0)
 
-    def test_undo_refuses_changed_intake_file(self) -> None:
+    def test_undo_refuses_changed_staging_import_file(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             paths, import_dir = setup_collection(Path(temporary))
             (import_dir / "new.csv").write_text(
@@ -105,12 +106,29 @@ class CollectionImportTests(unittest.TestCase):
                 encoding="utf-8",
             )
             ingest_batch(paths, import_dir, batch="new", confirm=lambda _prompt: "yes")
-            intake = paths.locations / "intake" / "new.csv"
-            intake.write_text(intake.read_text(encoding="utf-8") + "\n", encoding="utf-8")
+            staging = paths.locations / "staging" / "imported" / "new.csv"
+            staging.write_text(staging.read_text(encoding="utf-8") + "\n", encoding="utf-8")
             holdings = paths.holdings.read_bytes()
-            with self.assertRaisesRegex(CollectionError, "Intake placement changed"):
+            with self.assertRaisesRegex(CollectionError, "Staging import file changed"):
                 undo_batch(paths, import_dir, "new", preview=True)
             self.assertEqual(paths.holdings.read_bytes(), holdings)
+
+    def test_multiple_imports_share_one_staging_location_and_undo_independently(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            paths, import_dir = setup_collection(Path(temporary))
+            for name, card, number in (("first", "First Card", 1), ("second", "Second Card", 2)):
+                (import_dir / f"{name}.csv").write_text(
+                    f"Name,Set code,Card number,Foil,Quantity\n{card},TST,{number},No,1\n",
+                    encoding="utf-8",
+                )
+                self.assertTrue(ingest_batch(paths, import_dir, batch=name, confirm=lambda _prompt: "yes"))
+            with sqlite3.connect(paths.database) as connection:
+                self.assertEqual(connection.execute("SELECT COUNT(*) FROM locations WHERE name = 'staging'").fetchone()[0], 1)
+                self.assertEqual(connection.execute("SELECT COUNT(*) FROM locations WHERE kind = 'intake'").fetchone()[0], 0)
+                self.assertEqual(connection.execute("SELECT SUM(p.quantity) FROM placements p JOIN locations l ON l.id = p.location_id WHERE l.name = 'staging'").fetchone()[0], 2)
+            self.assertTrue(undo_batch(paths, import_dir, "first", confirm=lambda _prompt: "yes"))
+            self.assertTrue((paths.locations / "staging" / "imported" / "second.csv").exists())
+            self.assertEqual(collection_status(paths)["non_deck_placed"], 1)
 
     def test_invalid_row_and_multiple_files_do_not_apply(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
@@ -178,7 +196,7 @@ class CollectionImportTests(unittest.TestCase):
                     ingest_batch(paths, import_dir, batch="failure", confirm=lambda _prompt: "yes")
             self.assertTrue(source.exists())
             self.assertEqual(paths.holdings.read_bytes(), previous_holdings)
-            self.assertFalse((paths.locations / "intake" / "failure.csv").exists())
+            self.assertFalse((paths.locations / "staging" / "imported" / "failure.csv").exists())
             self.assertFalse((paths.imports / "log.csv").exists())
             self.assertFalse((import_dir / "processed" / "failure.csv").exists())
             self.assertFalse((paths.database.parent / "collection-import-transaction").exists())

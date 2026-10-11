@@ -232,12 +232,8 @@ def location_sources(paths: CollectionPaths) -> list[LocationSource]:
         for filename, kind in LOCATION_FILES
     ]
     sources.extend(
-        LocationSource(name=f"staging:{path.stem}", kind="staging", path=path)
-        for path in (paths.locations / "staging").glob("*.csv")
-    )
-    sources.extend(
-        LocationSource(name=f"intake:{path.stem}", kind="intake", path=path)
-        for path in (paths.locations / "intake").glob("*.csv")
+        LocationSource(name="staging", kind="staging", path=path)
+        for path in (paths.locations / "staging").rglob("*.csv")
     )
     sources.extend(
         LocationSource(name=f"maybe:{path.stem}", kind="maybe", path=path)
@@ -284,8 +280,11 @@ Sol Ring,cmm:396,no,1,
 
 Deck allocation is derived from the tracked decklists and is never duplicated
 in a manually maintained location file. The initial layout contains Reserve,
-Unknown, colour-based Staging sections, and one Maybe Box file per deck.
-Batch imports create `locations/intake/<batch>.csv` until those cards are sorted.
+Unknown, colour-based Staging files, and one Maybe Box file per deck. Every CSV
+under `locations/staging/`, including nested batch files, contributes to the
+single Staging location in the database. Filenames and subdirectories organise
+source data; they do not define additional locations. Batch imports create
+`locations/staging/imported/<batch>.csv` for guarded undo.
 `imports/batches/<batch>.csv` and `imports/log.csv` record applied imports and
 allow guarded undo. The raw scanner export stays under ignored `data/imports/`.
 

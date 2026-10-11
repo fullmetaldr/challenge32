@@ -154,7 +154,9 @@ GitHub Pages whenever the repository's `main` branch changes.
 The collection model records only cards that have been explicitly encountered
 or entered. It does not assume that an absent card is unowned. Deck allocation
 is derived from the tracked decklists; non-deck locations will be represented
-by source-controlled files under `collection/locations/`.
+by source-controlled files under `collection/locations/`. All CSV files beneath
+`collection/locations/staging/` contribute to one Staging location in the
+database; their filenames and subdirectories do not create extra locations.
 
 The first initialization is deliberately guarded and will create the schema,
 empty location lists, initial holdings, and a derived SQLite database from the
@@ -204,7 +206,7 @@ challenge32 collection ingest
 
 The command selects the sole pending CSV automatically, proposes a batch name
 from its filename, checks every card, and shows the holdings increases and
-Intake destination before asking for confirmation. If several CSVs are pending,
+Staging destination before asking for confirmation. If several CSVs are pending,
 choose one at the prompt or pass `--file data/imports/<filename>.csv`. Use
 `--batch <name>` to set the batch name without a prompt, or `--preview` for a
 read-only, non-interactive preview.
@@ -213,22 +215,23 @@ The CSV must contain a card name, set code, collector/card number, foil value,
 and quantity. Headers such as `Name`, `Set code`, `Card number`, `Foil`, and
 `Quantity` are supported; `Card Name`, `Collector Number`, and `Foil?` also
 work. Foil values include `No`, `Yes`, `Normal`, `Foil`, and `Etched`. Every card
-in the batch is added to known holdings and placed in its own temporary
-`collection/locations/intake/<batch>.csv` file. The generated, minimal batch
+in the batch is added to known holdings and placed in Staging. A per-batch file
+under `collection/locations/staging/imported/` tracks those placements for undo;
+it does not represent another physical location. The generated, minimal batch
 receipt and log are source-controlled under `collection/imports/`; the original
 export is moved to ignored `data/imports/processed/`, so purchase prices and
 other extra columns are not committed. The tool rejects a repeat batch name or
 the same printing/finish quantities under another batch name.
 
-Before any of those cards leave Intake, a mistaken import can be reversed:
+Before any of those cards leave Staging, a mistaken import can be reversed:
 
 ```bash
 challenge32 collection undo <batch>
 ```
 
-Undo previews and asks for confirmation. It refuses if the batch's Intake file
+Undo previews and asks for confirmation. It refuses if the batch's Staging import file
 or receipt changed, and keeps an `undone` log entry for audit. `--preview` works
-for undo too. Once cards have moved out of Intake, reconcile them manually
+for undo too. Once cards have moved out of Staging, reconcile them manually
 instead of using automatic undo. The current collection schema counts etched
 foil as `foil=yes`; the batch receipt preserves its etched finish separately.
 If a process is interrupted during a multi-file update, the tool leaves a

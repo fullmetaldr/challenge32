@@ -31,6 +31,50 @@ def write_deck(root: Path, slug: str, display_name: str, body: str) -> None:
 
 
 class CollectionDashboardTests(unittest.TestCase):
+    def test_staging_files_are_one_location_in_database_and_dashboard(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            write_deck(root, "omnislash", "Omnislash", "// Artifact\n1 Sol Ring (cmm) 396 #artifact\n")
+            paths = CollectionPaths(
+                root=root / "collection",
+                decks=root / "decks",
+                database=root / "data" / "collection.sqlite",
+            )
+            initialize_collection(paths)
+            paths.holdings.write_text(
+                "card,printing,foil,quantity,category,notes\nSol Ring,cmm:396,unknown,4,regular,\n",
+                encoding="utf-8",
+            )
+            for relative in ("white.csv", "blue.csv", "imported/batch.csv"):
+                source = paths.locations / "staging" / relative
+                source.parent.mkdir(parents=True, exist_ok=True)
+                source.write_text(
+                    "card,printing,foil,quantity,notes\nSol Ring,cmm:396,unknown,1,\n",
+                    encoding="utf-8",
+                )
+            with patch("challenge32.collection_dashboard.load_set_names", return_value={}):
+                payload = build_collection_dashboard(paths, root / "data" / "collection-dashboard")
+            self.assertEqual(payload["summary"]["non_deck_placed"], 3)
+            self.assertEqual(payload["summary"]["conflicts"], 0)
+            self.assertEqual(payload["locations"], [
+                {"name": "staging", "kind": "staging", "quantity": 3, "card_versions": 1},
+            ])
+            self.assertEqual(payload["inventory"][0]["locations"], [
+                {"name": "staging", "quantity": 3},
+            ])
+            with sqlite3.connect(paths.database) as connection:
+                self.assertEqual(
+                    connection.execute("SELECT COUNT(*) FROM locations WHERE kind = 'staging'").fetchone()[0],
+                    1,
+                )
+                self.assertEqual(
+                    connection.execute(
+                        "SELECT COUNT(DISTINCT p.source_path) FROM placements AS p "
+                        "JOIN locations AS l ON l.id = p.location_id WHERE l.name = 'staging'"
+                    ).fetchone()[0],
+                    3,
+                )
+
     def test_dashboard_rebuilds_database_and_writes_searchable_data(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

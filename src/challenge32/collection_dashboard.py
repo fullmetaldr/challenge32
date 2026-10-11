@@ -92,10 +92,11 @@ def _collection_payload(database: Path, set_names: dict[str, str] | None = None)
         ).fetchall()
         location_card_rows = connection.execute(
             """
-            SELECT p.card_id, l.name, p.quantity
+            SELECT p.card_id, l.name, SUM(p.quantity) AS quantity
             FROM placements AS p
             JOIN locations AS l ON l.id = p.location_id
             WHERE l.kind <> 'deck'
+            GROUP BY p.card_id, l.id
             ORDER BY l.name COLLATE NOCASE
             """
         ).fetchall()
