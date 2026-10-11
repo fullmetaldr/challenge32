@@ -139,15 +139,24 @@ def _collection_payload(database: Path, set_names: dict[str, str] | None = None)
         )
 
     known_owned_total = sum(row["known_owned"] or 0 for row in inventory)
+    different_cards = len({
+        " ".join(row["name"].casefold().split())
+        for row in inventory if row["known_owned"] is not None
+    })
     deck_allocated_total = sum(row["deck_allocated"] for row in inventory)
     non_deck_total = sum(row["non_deck_placed"] for row in inventory)
+    in_staging = sum(row["quantity"] for row in location_rows if row["kind"] == "staging")
+    in_reserve = sum(row["quantity"] for row in location_rows if row["kind"] == "reserve")
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "summary": {
             "known_card_versions": len(inventory),
             "known_owned": known_owned_total,
+            "different_cards": different_cards,
             "deck_allocated": deck_allocated_total,
             "non_deck_placed": non_deck_total,
+            "in_staging": in_staging,
+            "in_reserve": in_reserve,
             "location_unknown": sum(row["free_known"] for row in inventory if row["status"] == "location-unknown"),
             "ownership_unknown": sum(1 for row in inventory if row["status"] == "ownership-unknown"),
             "conflicts": sum(1 for row in inventory if row["status"] == "conflict"),

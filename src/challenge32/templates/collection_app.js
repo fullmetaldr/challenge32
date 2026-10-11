@@ -5,18 +5,37 @@ const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (character) => (
 const quantityList = (items) => items.length ? items.map((item) => `${item.quantity} × ${escapeHtml(item.name)}`).join(", ") : "—";
 
 let payload;
+const INVENTORY_PAGE_SIZE = 50;
+let inventoryPage = 1;
+
+function setupPanelToggles() {
+  document.querySelectorAll(".panel-toggle").forEach((button) => {
+    button.addEventListener("click", () => {
+      const content = document.getElementById(button.getAttribute("aria-controls"));
+      const collapsing = button.getAttribute("aria-expanded") === "true";
+      button.setAttribute("aria-expanded", String(!collapsing));
+      content.hidden = collapsing;
+      button.closest(".panel").classList.toggle("collapsed", collapsing);
+      if (collapsing) hidePreview();
+    });
+  });
+}
 
 function renderSummary() {
   const summary = payload.summary;
   const metrics = [
-    ["Known card versions", summary.known_card_versions, ""],
-    ["Known owned cards", summary.known_owned, ""],
     ["Deck-allocated cards", summary.deck_allocated, ""],
-    ["Non-deck placements", summary.non_deck_placed, ""],
+    ["In Staging", summary.in_staging, ""],
+    ["In Reserve", summary.in_reserve, ""],
     ["Location unknown", summary.location_unknown, summary.location_unknown ? "warning" : ""],
     ["Conflicts", summary.conflicts, summary.conflicts ? "danger" : ""],
   ];
-  document.querySelector("#summary").innerHTML = metrics.map(([label, value, klass]) =>
+  const inventory = `<div class="metric metric-inventory"><span class="muted">Inventory</span>
+    <dl class="metric-lines">
+      <div><dt>No. different cards</dt><dd>${number(summary.different_cards)}</dd></div>
+      <div><dt>No. total cards</dt><dd>${number(summary.known_owned)}</dd></div>
+    </dl></div>`;
+  document.querySelector("#summary").innerHTML = inventory + metrics.map(([label, value, klass]) =>
     `<div class="metric ${klass}"><span class="muted">${label}</span><strong>${number(value)}</strong></div>`
   ).join("");
 }
@@ -54,9 +73,25 @@ function renderInventory() {
     const haystack = `${item.name} ${item.printing} ${item.set_name} ${item.card_number} ${item.foil}`.toLocaleLowerCase();
     return (!query || haystack.includes(query)) && (status === "all" || item.status === status);
   });
-  document.querySelector("#inventory-count").textContent = `${number(rows.length)} of ${number(payload.inventory.length)} card versions`;
+  const pageCount = Math.max(1, Math.ceil(rows.length / INVENTORY_PAGE_SIZE));
+  inventoryPage = Math.max(1, Math.min(inventoryPage, pageCount));
+  const first = (inventoryPage - 1) * INVENTORY_PAGE_SIZE;
+  const visibleRows = rows.slice(first, first + INVENTORY_PAGE_SIZE);
+  const range = rows.length ? `${number(first + 1)}–${number(first + visibleRows.length)}` : "0";
+  const overall = rows.length === payload.inventory.length ? "" : ` (${number(payload.inventory.length)} total)`;
+  document.querySelector("#inventory-count").textContent = `Showing ${range} of ${number(rows.length)} card versions${overall}`;
+  const pagination = document.querySelector("#inventory-pagination");
+  pagination.hidden = pageCount === 1;
+  const selector = document.querySelector("#inventory-page");
+  selector.innerHTML = Array.from({ length: pageCount }, (_, index) =>
+    `<option value="${index + 1}">${index + 1}</option>`
+  ).join("");
+  selector.value = String(inventoryPage);
+  document.querySelector("#page-count").textContent = `of ${number(pageCount)}`;
+  document.querySelector("#previous-page").disabled = inventoryPage === 1;
+  document.querySelector("#next-page").disabled = inventoryPage === pageCount;
   hidePreview();
-  document.querySelector("#inventory-body").innerHTML = rows.map((item) => `
+  document.querySelector("#inventory-body").innerHTML = visibleRows.map((item) => `
     <tr>
       <td><strong>${escapeHtml(item.name)}</strong></td>
       <td>${item.card_number ? `<button class="preview-button" type="button" data-set="${escapeHtml(item.set_code)}" data-number="${escapeHtml(item.card_number)}" aria-label="Preview ${escapeHtml(item.name)}" aria-describedby="card-preview">▧</button>` : "—"}</td>
@@ -69,6 +104,11 @@ function renderInventory() {
       <td>${number(item.free_known)}</td>
       <td><span class="badge ${item.status}">${item.status.replaceAll("-", " ")}</span></td>
     </tr>`).join("") || `<tr><td colspan="10" class="muted">No matching card versions.</td></tr>`;
+}
+
+function resetInventoryPage() {
+  inventoryPage = 1;
+  renderInventory();
 }
 
 let previewTimer;
@@ -125,8 +165,21 @@ fetch("data.json")
     renderLocations();
     renderDecks();
     renderInventory();
-    document.querySelector("#search").addEventListener("input", renderInventory);
-    document.querySelector("#status-filter").addEventListener("change", renderInventory);
+    setupPanelToggles();
+    document.querySelector("#search").addEventListener("input", resetInventoryPage);
+    document.querySelector("#status-filter").addEventListener("change", resetInventoryPage);
+    document.querySelector("#inventory-page").addEventListener("change", (event) => {
+      inventoryPage = Number(event.target.value);
+      renderInventory();
+    });
+    document.querySelector("#previous-page").addEventListener("click", () => {
+      inventoryPage -= 1;
+      renderInventory();
+    });
+    document.querySelector("#next-page").addEventListener("click", () => {
+      inventoryPage += 1;
+      renderInventory();
+    });
   })
   .catch((error) => {
     document.querySelector("main").insertAdjacentHTML("afterbegin", `<div class="panel warning">Could not load dashboard data: ${error}</div>`);

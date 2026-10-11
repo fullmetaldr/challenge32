@@ -55,6 +55,10 @@ class CollectionDashboardTests(unittest.TestCase):
             with patch("challenge32.collection_dashboard.load_set_names", return_value={}):
                 payload = build_collection_dashboard(paths, root / "data" / "collection-dashboard")
             self.assertEqual(payload["summary"]["non_deck_placed"], 3)
+            self.assertEqual(payload["summary"]["different_cards"], 1)
+            self.assertEqual(payload["summary"]["known_owned"], 4)
+            self.assertEqual(payload["summary"]["in_staging"], 3)
+            self.assertEqual(payload["summary"]["in_reserve"], 0)
             self.assertEqual(payload["summary"]["conflicts"], 0)
             self.assertEqual(payload["locations"], [
                 {"name": "staging", "kind": "staging", "quantity": 3, "card_versions": 1},
@@ -74,6 +78,40 @@ class CollectionDashboardTests(unittest.TestCase):
                     ).fetchone()[0],
                     3,
                 )
+
+    def test_inventory_counts_names_once_across_printings_and_counts_reserve_copies(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            write_deck(root, "omnislash", "Omnislash", "// Artifact\n1 Sol Ring (cmm) 396 #artifact\n")
+            paths = CollectionPaths(
+                root=root / "collection",
+                decks=root / "decks",
+                database=root / "data" / "collection.sqlite",
+            )
+            initialize_collection(paths)
+            paths.holdings.write_text(
+                "card,printing,foil,quantity,category,notes\n"
+                "Sol Ring,cmm:396,unknown,1,regular,\n"
+                "Sol Ring,2xm:340,no,2,regular,\n",
+                encoding="utf-8",
+            )
+            (paths.locations / "reserve.csv").write_text(
+                "card,printing,foil,quantity,notes\nSol Ring,2xm:340,no,2,\n",
+                encoding="utf-8",
+            )
+            output = root / "data" / "collection-dashboard"
+            with patch("challenge32.collection_dashboard.load_set_names", return_value={}):
+                payload = build_collection_dashboard(paths, output)
+            self.assertEqual(payload["summary"]["known_card_versions"], 2)
+            self.assertEqual(payload["summary"]["different_cards"], 1)
+            self.assertEqual(payload["summary"]["known_owned"], 3)
+            self.assertEqual(payload["summary"]["in_staging"], 0)
+            self.assertEqual(payload["summary"]["in_reserve"], 2)
+            self.assertEqual(payload["summary"]["conflicts"], 0)
+            app = (output / "assets" / "app.js").read_text(encoding="utf-8")
+            for label in ("Inventory", "No. different cards", "No. total cards", "In Staging", "In Reserve"):
+                self.assertIn(label, app)
+            self.assertNotIn("Non-deck placements", app)
 
     def test_dashboard_rebuilds_database_and_writes_searchable_data(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
@@ -105,6 +143,13 @@ class CollectionDashboardTests(unittest.TestCase):
             self.assertTrue((output / "assets" / "app.js").exists())
             self.assertTrue((output / "assets" / "style.css").exists())
             self.assertTrue((output / "data.json").exists())
+            html = (output / "index.html").read_text(encoding="utf-8")
+            app = (output / "assets" / "app.js").read_text(encoding="utf-8")
+            self.assertEqual(html.count('class="panel-toggle"'), 4)
+            for element in ("inventory-pagination", "previous-page", "inventory-page", "next-page"):
+                self.assertIn(f'id="{element}"', html)
+            self.assertIn("INVENTORY_PAGE_SIZE = 50", app)
+            self.assertIn("rows.slice(first, first + INVENTORY_PAGE_SIZE)", app)
             saved = json.loads((output / "data.json").read_text(encoding="utf-8"))
             self.assertEqual(saved["inventory"][0]["status"], "conflict")
             self.assertEqual(saved["inventory"][0]["set_name"], "Commander Masters")
