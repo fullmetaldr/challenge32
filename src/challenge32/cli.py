@@ -11,6 +11,7 @@ from .archidekt import ArchidektError, ArchidektClient, fetch_cards
 from .collection import CollectionError, CollectionPaths, collection_status, initialize_collection
 from .collection_dashboard import build_collection_dashboard
 from .collection_import import check_import_transaction, ingest_batch, undo_batch
+from .collection_rarity import update_rarities
 from .collection_server import serve_collection_dashboard
 from .config import discover_decks, select_deck
 from .dashboard import build_dashboard
@@ -48,7 +49,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     collection_parser.add_argument("--init", action="store_true", help="Safely initialize collection source files from decklists")
     collection_parser.add_argument("--status", action="store_true", help="Show the current derived collection status")
-    collection_parser.add_argument("action", nargs="?", choices=("dashboard", "serve", "ingest", "undo"), help="Build, serve, import, or undo a batch")
+    collection_parser.add_argument("action", nargs="?", choices=("dashboard", "serve", "ingest", "undo", "rarity"), help="Build, serve, import, undo, or enrich rarity")
     collection_parser.add_argument("batch_name", nargs="?", help="Batch name for collection undo")
     collection_parser.add_argument("--decks", type=Path, default=Path("decks"), help="Deck root (default: decks)")
     collection_parser.add_argument("--root", type=Path, default=Path("collection"), help="Collection source root (default: collection)")
@@ -125,9 +126,9 @@ def add_deck(args: argparse.Namespace) -> int:
 
 
 def collection_command(args: argparse.Namespace) -> int:
-    selected = sum((args.init, args.status, args.action in {"dashboard", "serve", "ingest", "undo"}))
+    selected = sum((args.init, args.status, args.action in {"dashboard", "serve", "ingest", "undo", "rarity"}))
     if selected != 1:
-        raise CollectionError("choose exactly one of --init, --status, dashboard, serve, ingest, or undo")
+        raise CollectionError("choose exactly one of --init, --status, dashboard, serve, ingest, undo, or rarity")
     paths = CollectionPaths(root=args.root, decks=args.decks, database=args.database)
     if not args.init:
         check_import_transaction(paths)
@@ -141,6 +142,12 @@ def collection_command(args: argparse.Namespace) -> int:
             raise CollectionError("Specify the batch to undo: challenge32 collection undo <batch>")
         undo_batch(paths, args.imports, args.batch_name, preview=args.preview)
         return 0
+    if args.action == "rarity":
+        if args.batch_name:
+            raise CollectionError("rarity takes no batch name")
+        result = update_rarities(paths)
+        print(f"Rarity index: {result['added']} added; {result['unresolved']} unresolved; {result['known']} printings known")
+        return 1 if result["unresolved"] or result["unavailable"] else 0
     if args.init:
         result = initialize_collection(paths, confirm=input)
         print(

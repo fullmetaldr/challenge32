@@ -2,7 +2,27 @@ const number = (value) => value === null || value === undefined ? "—" : value.
 const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (character) => ({
   "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
 }[character]));
-const quantityList = (items) => items.length ? items.map((item) => `${item.quantity} × ${escapeHtml(item.name)}`).join(", ") : "—";
+const rarityLabels = { common: "C", uncommon: "U", rare: "R", mythic: "M" };
+
+function locationBreakdown(item) {
+  const rows = [
+    ...item.decks.map((deck) => ({ name: deck.name, quantity: deck.quantity })),
+    ...item.locations.map((location) => ({ name: location.label || location.name, quantity: location.quantity })),
+  ];
+  const warning = item.status === "location-unknown"
+    ? `${item.free_known} owned copy/copies have no recorded location.`
+    : item.status === "conflict"
+      ? `Recorded allocations exceed owned copies by ${Math.abs(item.free_known)}.`
+      : item.status === "ownership-unknown"
+        ? "This card has a recorded allocation but no ownership entry."
+        : "";
+  return `<div class="location-breakdown">
+    ${rows.length ? `<table><thead><tr><th>Location</th><th>Count</th></tr></thead><tbody>${rows.map((row) =>
+      `<tr><td>${escapeHtml(row.name)}</td><td>${number(row.quantity)}</td></tr>`
+    ).join("")}</tbody></table>` : `<p class="muted">No placements recorded.</p>`}
+    ${warning ? `<p class="placement-warning">${escapeHtml(warning)}</p>` : ""}
+  </div>`;
+}
 
 let payload;
 const INVENTORY_PAGE_SIZE = 50;
@@ -56,7 +76,7 @@ function renderWarnings() {
 
 function renderLocations() {
   document.querySelector("#locations").innerHTML = `<div class="compact-list">${payload.locations.map((item) =>
-    `<div class="compact-row"><span>${escapeHtml(item.name)}</span><strong>${number(item.quantity)} <span class="subline">${number(item.card_versions)} versions</span></strong></div>`
+    `<div class="compact-row"><span>${escapeHtml(item.label || item.name)}</span><strong>${number(item.quantity)} <span class="subline">${number(item.card_versions)} versions</span></strong></div>`
   ).join("") || `<p class="muted">No non-deck placements recorded.</p>`}</div>`;
 }
 
@@ -70,7 +90,7 @@ function renderInventory() {
   const query = document.querySelector("#search").value.trim().toLocaleLowerCase();
   const status = document.querySelector("#status-filter").value;
   const rows = payload.inventory.filter((item) => {
-    const haystack = `${item.name} ${item.printing} ${item.set_name} ${item.card_number} ${item.foil}`.toLocaleLowerCase();
+    const haystack = `${item.name} ${item.printing} ${item.set_name} ${item.card_number} ${item.rarity || ""} ${item.foil}`.toLocaleLowerCase();
     return (!query || haystack.includes(query)) && (status === "all" || item.status === status);
   });
   const pageCount = Math.max(1, Math.ceil(rows.length / INVENTORY_PAGE_SIZE));
@@ -92,18 +112,17 @@ function renderInventory() {
   document.querySelector("#next-page").disabled = inventoryPage === pageCount;
   hidePreview();
   document.querySelector("#inventory-body").innerHTML = visibleRows.map((item) => `
-    <tr>
-      <td><strong>${escapeHtml(item.name)}</strong></td>
+    <tr class="inventory-row ${item.status}" data-card-id="${item.id}">
+      <td><button class="inventory-expand" type="button" aria-expanded="false" aria-controls="inventory-details-${item.id}" aria-label="Show locations for ${escapeHtml(item.name)}"><span class="chevron" aria-hidden="true">▸</span><strong>${escapeHtml(item.name)}</strong></button>${item.status === "accounted" ? "" : ` <span class="badge ${item.status}">${escapeHtml(item.status.replaceAll("-", " "))}</span>`}</td>
       <td>${item.card_number ? `<button class="preview-button" type="button" data-set="${escapeHtml(item.set_code)}" data-number="${escapeHtml(item.card_number)}" aria-label="Preview ${escapeHtml(item.name)}" aria-describedby="card-preview">▧</button>` : "—"}</td>
       <td>${escapeHtml(item.set_name) || "—"}</td>
       <td>${escapeHtml(item.card_number) || "—"}</td>
+      <td title="${escapeHtml(item.rarity || "Rarity unknown")}">${escapeHtml(rarityLabels[item.rarity] || item.rarity || "—")}</td>
       <td>${escapeHtml(item.foil)}</td>
       <td>${number(item.known_owned)}</td>
-      <td>${number(item.deck_allocated)}<span class="subline">${quantityList(item.decks)}</span></td>
-      <td>${number(item.non_deck_placed)}<span class="subline">${quantityList(item.locations)}</span></td>
-      <td>${number(item.free_known)}</td>
-      <td><span class="badge ${item.status}">${item.status.replaceAll("-", " ")}</span></td>
-    </tr>`).join("") || `<tr><td colspan="10" class="muted">No matching card versions.</td></tr>`;
+      <td>${number(item.deck_allocated)}</td>
+    </tr>
+    <tr class="inventory-details" id="inventory-details-${item.id}" hidden><td colspan="8">${locationBreakdown(item)}</td></tr>`).join("") || `<tr><td colspan="8" class="muted">No matching card versions.</td></tr>`;
 }
 
 function resetInventoryPage() {
@@ -153,6 +172,16 @@ document.querySelector("#inventory-body").addEventListener("focusin", (event) =>
   if (event.target.matches(".preview-button")) showPreview(event.target);
 });
 document.querySelector("#inventory-body").addEventListener("focusout", hidePreview);
+document.querySelector("#inventory-body").addEventListener("click", (event) => {
+  const row = event.target.closest(".inventory-row");
+  if (!row || event.target.closest(".preview-button")) return;
+  const button = row.querySelector(".inventory-expand");
+  const details = document.getElementById(button.getAttribute("aria-controls"));
+  const expanded = button.getAttribute("aria-expanded") === "true";
+  button.setAttribute("aria-expanded", String(!expanded));
+  button.setAttribute("aria-label", `${expanded ? "Show" : "Hide"} locations for ${button.querySelector("strong").textContent}`);
+  details.hidden = expanded;
+});
 document.addEventListener("keydown", (event) => { if (event.key === "Escape") hidePreview(); });
 
 fetch("data.json")

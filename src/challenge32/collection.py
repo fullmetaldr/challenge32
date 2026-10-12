@@ -14,6 +14,7 @@ from .config import discover_decks
 
 
 FOIL_VALUES = {"yes", "no", "unknown"}
+RARITY_VALUES = {"common", "uncommon", "rare", "mythic", "special", "bonus", "basic"}
 LOCATION_FILES = (
     ("reserve.csv", "reserve"),
     ("unknown.csv", "unknown"),
@@ -27,6 +28,9 @@ STAGING_FILES = (
     "multicolour.csv",
     "colourless.csv",
     "lands.csv",
+)
+BINDER_NAMES = (
+    "white", "red", "blue", "black", "green", "multicolour", "colorless", "lands", "trade", "sell",
 )
 
 
@@ -81,6 +85,10 @@ class CollectionPaths:
     @property
     def holdings(self) -> Path:
         return self.root / "holdings.csv"
+
+    @property
+    def rarities(self) -> Path:
+        return self.root / "rarities.csv"
 
     @property
     def locations(self) -> Path:
@@ -226,6 +234,28 @@ def _write_holdings(path: Path, rows: Iterable[CollectionRow]) -> None:
             writer.writerow((row.card.name, row.card.printing, row.card.foil, row.quantity, row.category, row.notes))
 
 
+def read_rarities(path: Path) -> dict[tuple[str, str], str]:
+    """Read printing-level rarity without treating it as another ownership list."""
+    if not path.exists():
+        return {}
+    rarities: dict[tuple[str, str], str] = {}
+    with path.open(newline="", encoding="utf-8") as handle:
+        reader = csv.DictReader(handle)
+        if not {"card", "printing", "rarity"}.issubset(reader.fieldnames or ()):
+            raise CollectionError(f"{path}: expected card,printing,rarity columns")
+        for line, row in enumerate(reader, start=2):
+            card = (row.get("card") or "").strip()
+            printing = (row.get("printing") or "").strip().lower()
+            rarity = (row.get("rarity") or "").strip().lower()
+            if not card or not printing or rarity not in RARITY_VALUES:
+                raise CollectionError(f"{path}:{line}: invalid card, printing, or rarity")
+            key = (" ".join(card.casefold().split()), printing)
+            if key in rarities:
+                raise CollectionError(f"{path}:{line}: duplicate rarity for {card} ({printing})")
+            rarities[key] = rarity
+    return rarities
+
+
 def location_sources(paths: CollectionPaths) -> list[LocationSource]:
     sources = [
         LocationSource(name=kind, kind=kind, path=paths.locations / filename)
@@ -234,6 +264,10 @@ def location_sources(paths: CollectionPaths) -> list[LocationSource]:
     sources.extend(
         LocationSource(name="staging", kind="staging", path=path)
         for path in (paths.locations / "staging").rglob("*.csv")
+    )
+    sources.extend(
+        LocationSource(name=f"binder:{name}", kind="binder", path=paths.locations / "binders" / f"{name}.csv")
+        for name in BINDER_NAMES
     )
     sources.extend(
         LocationSource(name=f"maybe:{path.stem}", kind="maybe", path=path)
@@ -278,10 +312,26 @@ card,printing,foil,quantity,notes
 Sol Ring,cmm:396,no,1,
 ```
 
+## rarities.csv
+
+This source-controlled lookup stores Scryfall rarity for an exact printing,
+independent of foil status or owned quantity. It is populated explicitly with
+`challenge32 collection rarity`; an absent row means rarity is unknown, not
+that the card is common. Nonstandard rarities such as `special` and `bonus`
+must not be treated as rare or mythic automatically.
+
+```csv
+card,printing,rarity
+Sol Ring,cmm:396,uncommon
+```
+
 Deck allocation is derived from the tracked decklists and is never duplicated
 in a manually maintained location file. The initial layout contains Reserve,
-Unknown, colour-based Staging files, and one Maybe Box file per deck. Every CSV
-under `locations/staging/`, including nested batch files, contributes to the
+Unknown, ten named binders, colour-based Staging files, and one Maybe Box file
+per deck. Each binder has its own file under `locations/binders/` and its own
+digital location (for example `binder:white`). Empty binder files record no
+cards; they do not imply that any cards have been physically filed there.
+Every CSV under `locations/staging/`, including nested batch files, contributes to the
 single Staging location in the database. Filenames and subdirectories organise
 source data; they do not define additional locations. Batch imports create
 `locations/staging/imported/<batch>.csv` for guarded undo.
@@ -303,8 +353,10 @@ def _initialization_plan(paths: CollectionPaths, deck_rows: list[DeckRow]) -> st
             f"Files to create under {paths.root}:",
             "  schema.md",
             "  holdings.csv",
+            "  rarities.csv",
             "  locations/reserve.csv",
             "  locations/unknown.csv",
+            *(f"  locations/binders/{name}.csv" for name in BINDER_NAMES),
             *(f"  locations/staging/{filename}" for filename in STAGING_FILES),
             *(f"  locations/maybe/{deck_slug}.csv" for deck_slug in sorted({row.deck_slug for row in deck_rows})),
             f"  {paths.database}",
@@ -345,8 +397,11 @@ def initialize_collection(
     (paths.root / "schema.md").write_text(_schema_text(), encoding="utf-8")
     holdings = [CollectionRow(card=card, quantity=quantity) for card, quantity in _aggregate(deck_rows).items()]
     _write_holdings(paths.holdings, holdings)
+    _csv_header(paths.rarities, ("card", "printing", "rarity"))
     for filename, _kind in LOCATION_FILES:
         _csv_header(paths.locations / filename, ("card", "printing", "foil", "quantity", "notes"))
+    for name in BINDER_NAMES:
+        _csv_header(paths.locations / "binders" / f"{name}.csv", ("card", "printing", "foil", "quantity", "notes"))
     for filename in STAGING_FILES:
         _csv_header(paths.locations / "staging" / filename, ("card", "printing", "foil", "quantity", "notes"))
     for deck_slug in sorted({row.deck_slug for row in deck_rows}):
@@ -363,6 +418,7 @@ def _database_schema(connection: sqlite3.Connection) -> None:
             name TEXT NOT NULL,
             printing TEXT NOT NULL,
             foil TEXT NOT NULL CHECK (foil IN ('yes', 'no', 'unknown')),
+            rarity TEXT CHECK (rarity IN ('common', 'uncommon', 'rare', 'mythic', 'special', 'bonus', 'basic')),
             UNIQUE (name COLLATE NOCASE, printing, foil)
         );
         CREATE TABLE set_names (
@@ -436,6 +492,7 @@ def build_database(
 ) -> None:
     deck_rows = deck_rows if deck_rows is not None else discover_deck_rows(paths.decks)
     holdings = _read_rows(paths.holdings, include_category=True)
+    rarities = read_rarities(paths.rarities)
     non_deck = read_non_deck_placements(paths)
     paths.database.parent.mkdir(parents=True, exist_ok=True)
     file_descriptor, temporary_name = tempfile.mkstemp(
@@ -485,24 +542,26 @@ def build_database(
                         (card_id, location_id, row.quantity, str(row.source_path), row.source_line),
                     )
             location_ids: dict[str, int] = {}
+            for source in location_sources(paths):
+                if source.name in location_ids:
+                    continue
+                cursor = connection.execute(
+                    "INSERT INTO locations(name, kind, source_path) VALUES (?, ?, ?)",
+                    (source.name, source.kind, None if source.kind == "staging" else str(source.path)),
+                )
+                location_ids[source.name] = int(cursor.lastrowid)
             for source, row in non_deck:
-                location_id = location_ids.get(source.name)
-                if location_id is None:
-                    connection.execute(
-                        "INSERT OR IGNORE INTO locations(name, kind, source_path) VALUES (?, ?, ?)",
-                        (source.name, source.kind, str(source.path)),
-                    )
-                    location = connection.execute(
-                        "SELECT id FROM locations WHERE name = ?", (source.name,)
-                    ).fetchone()
-                    assert location is not None
-                    location_id = int(location[0])
-                    location_ids[source.name] = location_id
+                location_id = location_ids[source.name]
                 card_id = _card_id(connection, row.card)
                 connection.execute(
                     "INSERT INTO placements VALUES (?, ?, ?, ?, ?, ?)",
                     (card_id, location_id, row.quantity, row.notes, str(row.source_path), row.source_line),
                 )
+            for card_id, name, printing in connection.execute("SELECT id, name, printing FROM cards"):
+                key = (" ".join(name.casefold().split()), printing.casefold())
+                rarity = rarities.get(key)
+                if rarity is not None:
+                    connection.execute("UPDATE cards SET rarity = ? WHERE id = ?", (rarity, card_id))
             connection.execute(
                 "CREATE INDEX idx_cards_name ON cards(name COLLATE NOCASE)"
             )

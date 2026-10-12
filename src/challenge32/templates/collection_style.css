@@ -56,9 +56,24 @@ input, select { border: 1px solid var(--line); border-radius: 7px; color: var(--
 .pagination button:disabled { color: var(--muted); cursor: default; opacity: .55; }
 .pagination button:focus-visible, .pagination select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .table-wrap { overflow: auto; margin-top: 16px; }
-table { border-collapse: collapse; min-width: 1050px; width: 100%; }
+table { border-collapse: collapse; min-width: 850px; width: 100%; }
 th, td { border-bottom: 1px solid var(--line); padding: 10px 8px; text-align: left; vertical-align: top; }
 th { color: var(--muted); font-size: 12px; position: sticky; top: 0; background: var(--panel); }
+.inventory-row { cursor: pointer; }
+.inventory-row:hover { background: #f6f8ff; }
+.inventory-expand { align-items: center; background: none; border: 0; color: inherit; cursor: pointer; display: inline-flex; gap: 8px; padding: 0; text-align: left; font: inherit; }
+.inventory-expand:focus-visible { border-radius: 3px; outline: 2px solid var(--accent); outline-offset: 3px; }
+.chevron { color: var(--accent); display: inline-block; transition: transform .15s; }
+.inventory-expand[aria-expanded="true"] .chevron { transform: rotate(90deg); }
+.inventory-details[hidden] { display: none; }
+.inventory-details > td { background: #f8faff; padding: 10px 16px 16px 38px; }
+.location-breakdown { max-width: 620px; }
+.location-breakdown table { min-width: 0; width: 100%; }
+.location-breakdown th, .location-breakdown td { padding: 6px 8px; }
+.location-breakdown th { position: static; }
+.location-breakdown th:last-child, .location-breakdown td:last-child { text-align: right; width: 100px; }
+.location-breakdown p { margin: 8px 0 0; }
+.placement-warning { color: var(--warning); }
 .badge { border-radius: 999px; display: inline-block; font-size: 12px; padding: 3px 8px; white-space: nowrap; }
 .badge.accounted { background: #e9f7ef; color: var(--ok); }
 .badge.location-unknown, .badge.ownership-unknown { background: #fff4d6; color: var(--warning); }

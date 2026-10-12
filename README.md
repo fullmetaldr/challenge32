@@ -157,6 +157,16 @@ is derived from the tracked decklists; non-deck locations will be represented
 by source-controlled files under `collection/locations/`. All CSV files beneath
 `collection/locations/staging/` contribute to one Staging location in the
 database; their filenames and subdirectories do not create extra locations.
+The ten physical binders each have an empty, source-controlled file under
+`collection/locations/binders/` until cards are actually recorded there:
+White, Red, Blue, Black, Green, Multicolour, Colorless, Lands, Trade, and Sell.
+Creating these files does not move any cards out of Staging or another location.
+
+`collection/rarities.csv` is a separate, source-controlled lookup by exact card
+printing. Run `challenge32 collection rarity` to fill missing rarities from
+Scryfall without changing ownership or placements. The command reuses cached
+card details and reports unresolved printings rather than guessing. Rebuilding
+the dashboard reads this lookup; it does not fetch missing rarities itself.
 
 The first initialization is deliberately guarded and will create the schema,
 empty location lists, initial holdings, and a derived SQLite database from the
@@ -190,6 +200,9 @@ names are cached in `data/set-names.json`; the set code is shown if lookup is
 temporarily unavailable. `challenge32 collection dashboard` still builds the
 files without starting the server. The collection dashboard is local-only and
 is not part of the GitHub Pages deployment.
+Each inventory row shows Owned (known copies of that printing and finish) and
+Used (copies allocated to decks). Click the row to see counts by deck and by
+recorded non-deck location. Unaccounted copies remain warnings, not locations.
 
 Collection identities include the card name, a `printing` value such as
 `cmm:396`, and `foil` (`yes`, `no`, or `unknown`). Categories such as `proxy`

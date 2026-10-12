@@ -60,11 +60,24 @@ class CollectionDashboardTests(unittest.TestCase):
             self.assertEqual(payload["summary"]["in_staging"], 3)
             self.assertEqual(payload["summary"]["in_reserve"], 0)
             self.assertEqual(payload["summary"]["conflicts"], 0)
-            self.assertEqual(payload["locations"], [
-                {"name": "staging", "kind": "staging", "quantity": 3, "card_versions": 1},
-            ])
+            self.assertIn(
+                {"name": "staging", "kind": "staging", "quantity": 3, "card_versions": 1, "label": "Staging"},
+                payload["locations"],
+            )
+            self.assertIn(
+                {"name": "binder:white", "kind": "binder", "quantity": 0, "card_versions": 0, "label": "Binder (White)"},
+                payload["locations"],
+            )
+            self.assertIn(
+                {"name": "binder:trade", "kind": "binder", "quantity": 0, "card_versions": 0, "label": "Binder (Trade)"},
+                payload["locations"],
+            )
+            self.assertIn(
+                {"name": "binder:sell", "kind": "binder", "quantity": 0, "card_versions": 0, "label": "Binder (Sell)"},
+                payload["locations"],
+            )
             self.assertEqual(payload["inventory"][0]["locations"], [
-                {"name": "staging", "quantity": 3},
+                {"name": "staging", "label": "Staging", "quantity": 3},
             ])
             with sqlite3.connect(paths.database) as connection:
                 self.assertEqual(
@@ -128,6 +141,9 @@ class CollectionDashboardTests(unittest.TestCase):
                 database=root / "data" / "collection.sqlite",
             )
             initialize_collection(paths)
+            paths.rarities.write_text(
+                "card,printing,rarity\nSol Ring,cmm:396,uncommon\n", encoding="utf-8"
+            )
             (paths.root / "locations" / "reserve.csv").write_text(
                 "card,printing,foil,quantity,notes\nSol Ring,cmm:396,unknown,1,\n",
                 encoding="utf-8",
@@ -150,15 +166,61 @@ class CollectionDashboardTests(unittest.TestCase):
                 self.assertIn(f'id="{element}"', html)
             self.assertIn("INVENTORY_PAGE_SIZE = 50", app)
             self.assertIn("rows.slice(first, first + INVENTORY_PAGE_SIZE)", app)
+            self.assertIn('common: "C", uncommon: "U", rare: "R", mythic: "M"', app)
+            self.assertIn('colspan="8"', app)
+            self.assertIn('class="inventory-details"', app)
+            self.assertIn('aria-expanded="false"', app)
+            self.assertIn("locationBreakdown(item)", app)
             saved = json.loads((output / "data.json").read_text(encoding="utf-8"))
             self.assertEqual(saved["inventory"][0]["status"], "conflict")
             self.assertEqual(saved["inventory"][0]["set_name"], "Commander Masters")
             self.assertEqual(saved["inventory"][0]["card_number"], "396")
+            self.assertEqual(saved["inventory"][0]["rarity"], "uncommon")
+            self.assertIn("<th>Rarity</th>", html)
+            self.assertIn("<th>Owned</th>", html)
+            self.assertIn("<th>Used</th>", html)
+            for old_header in ("<th>Known</th>", "<th>Decks</th>", "<th>Other locations</th>", "<th>Free / unresolved</th>"):
+                self.assertNotIn(old_header, html)
             with sqlite3.connect(paths.database) as connection:
                 self.assertEqual(
                     connection.execute("SELECT name FROM set_names WHERE code = 'cmm'").fetchone()[0],
                     "Commander Masters",
                 )
+
+    def test_expanded_inventory_data_lists_each_deck_and_filed_location(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            write_deck(root, "deck-x", "Deck X", "# Format: 2\n1 Sol Ring (cmm) 396\n")
+            write_deck(root, "deck-y", "Deck Y", "# Format: 2\n1 Sol Ring (cmm) 396\n")
+            paths = CollectionPaths(root / "collection", root / "decks", root / "data" / "collection.sqlite")
+            initialize_collection(paths)
+            paths.holdings.write_text(
+                "card,printing,foil,quantity,category,notes\nSol Ring,cmm:396,no,5,regular,\n",
+                encoding="utf-8",
+            )
+            (paths.locations / "staging" / "white.csv").write_text(
+                "card,printing,foil,quantity,notes\nSol Ring,cmm:396,no,1,\n",
+                encoding="utf-8",
+            )
+            (paths.locations / "binders" / "white.csv").write_text(
+                "card,printing,foil,quantity,notes\nSol Ring,cmm:396,no,2,\n",
+                encoding="utf-8",
+            )
+            with patch("challenge32.collection_dashboard.load_set_names", return_value={}):
+                payload = build_collection_dashboard(paths, root / "data" / "collection-dashboard")
+            item = payload["inventory"][0]
+            self.assertEqual(item["known_owned"], 5)
+            self.assertEqual(item["deck_allocated"], 2)
+            self.assertEqual(item["status"], "accounted")
+            self.assertEqual(item["decks"], [
+                {"name": "Deck X", "quantity": 1}, {"name": "Deck Y", "quantity": 1},
+            ])
+            self.assertEqual(item["locations"], [
+                {"name": "binder:white", "label": "Binder (White)", "quantity": 2},
+                {"name": "staging", "label": "Staging", "quantity": 1},
+            ])
+            self.assertEqual(payload["summary"]["known_owned"], 5)
+            self.assertEqual(payload["summary"]["non_deck_placed"], 3)
 
 
 if __name__ == "__main__":

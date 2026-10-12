@@ -15,6 +15,15 @@ ASSET_DIR = Path(__file__).parent / "templates"
 GENERATED_MARKER = ".challenge32-collection-dashboard"
 
 
+def _location_label(name: str, deck_names: dict[str, str]) -> str:
+    if name.startswith("binder:"):
+        return f"Binder ({name.partition(':')[2].title()})"
+    if name.startswith("maybe:"):
+        slug = name.partition(":")[2]
+        return f"Maybe Box ({deck_names.get(slug, slug)})"
+    return {"staging": "Staging", "reserve": "Reserve", "unknown": "Unknown"}.get(name, name)
+
+
 def _status(known_owned: int | None, allocated: int, placed: int) -> tuple[str, int | None]:
     if known_owned is None:
         return "ownership-unknown", None
@@ -37,6 +46,7 @@ def _collection_payload(database: Path, set_names: dict[str, str] | None = None)
                 c.name,
                 c.printing,
                 c.foil,
+                c.rarity,
                 h.quantity AS known_owned,
                 COALESCE(d.quantity, 0) AS deck_allocated,
                 COALESCE(p.quantity, 0) AS non_deck_placed
@@ -73,20 +83,22 @@ def _collection_payload(database: Path, set_names: dict[str, str] | None = None)
         ).fetchall()
         location_rows = connection.execute(
             """
-            SELECT l.name, l.kind, SUM(p.quantity) AS quantity,
+            SELECT l.name, l.kind, COALESCE(SUM(p.quantity), 0) AS quantity,
                    COUNT(DISTINCT p.card_id) AS card_versions
             FROM locations AS l
-            JOIN placements AS p ON p.location_id = l.id
+            LEFT JOIN placements AS p ON p.location_id = l.id
             WHERE l.kind <> 'deck'
             GROUP BY l.id
+            HAVING COALESCE(SUM(p.quantity), 0) > 0 OR l.kind = 'binder'
             ORDER BY l.name COLLATE NOCASE
             """
         ).fetchall()
         deck_card_rows = connection.execute(
             """
-            SELECT dc.card_id, d.display_name, dc.quantity
+            SELECT dc.card_id, d.display_name, SUM(dc.quantity) AS quantity
             FROM deck_cards AS dc
             JOIN decks AS d ON d.id = dc.deck_id
+            GROUP BY dc.card_id, d.id
             ORDER BY d.display_name COLLATE NOCASE
             """
         ).fetchall()
@@ -101,6 +113,7 @@ def _collection_payload(database: Path, set_names: dict[str, str] | None = None)
             """
         ).fetchall()
 
+    deck_names = {row["slug"]: row["display_name"] for row in deck_rows}
     decks_by_card: dict[int, list[dict[str, Any]]] = {}
     for row in deck_card_rows:
         decks_by_card.setdefault(int(row["card_id"]), []).append(
@@ -109,7 +122,11 @@ def _collection_payload(database: Path, set_names: dict[str, str] | None = None)
     locations_by_card: dict[int, list[dict[str, Any]]] = {}
     for row in location_card_rows:
         locations_by_card.setdefault(int(row["card_id"]), []).append(
-            {"name": row["name"], "quantity": int(row["quantity"])}
+            {
+                "name": row["name"],
+                "label": _location_label(row["name"], deck_names),
+                "quantity": int(row["quantity"]),
+            }
         )
 
     inventory: list[dict[str, Any]] = []
@@ -128,6 +145,7 @@ def _collection_payload(database: Path, set_names: dict[str, str] | None = None)
                 "set_name": set_names.get(set_code, set_code.upper() if set_code else ""),
                 "card_number": card_number,
                 "foil": row["foil"],
+                "rarity": row["rarity"],
                 "known_owned": known_owned,
                 "deck_allocated": allocated,
                 "non_deck_placed": placed,
@@ -162,7 +180,10 @@ def _collection_payload(database: Path, set_names: dict[str, str] | None = None)
             "conflicts": sum(1 for row in inventory if row["status"] == "conflict"),
         },
         "decks": [dict(row) for row in deck_rows],
-        "locations": [dict(row) for row in location_rows],
+        "locations": [
+            {**dict(row), "label": _location_label(row["name"], deck_names)}
+            for row in location_rows
+        ],
         "inventory": inventory,
     }
 

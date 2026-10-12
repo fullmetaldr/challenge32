@@ -7,6 +7,7 @@ import unittest
 from pathlib import Path
 
 from challenge32.collection import (
+    BINDER_NAMES,
     CollectionPaths,
     CollectionError,
     collection_status,
@@ -55,6 +56,11 @@ class CollectionTests(unittest.TestCase):
             self.assertEqual(result["cards"], 3)
             self.assertTrue((paths.root / "schema.md").exists())
             self.assertTrue((paths.root / "locations" / "maybe" / "omnislash.csv").exists())
+            for name in BINDER_NAMES:
+                self.assertEqual(
+                    (paths.locations / "binders" / f"{name}.csv").read_text(encoding="utf-8").strip(),
+                    "card,printing,foil,quantity,notes",
+                )
 
             with (paths.root / "holdings.csv").open(newline="", encoding="utf-8") as handle:
                 rows = list(csv.DictReader(handle))
@@ -67,6 +73,7 @@ class CollectionTests(unittest.TestCase):
                 self.assertEqual(connection.execute("SELECT COUNT(*) FROM cards").fetchone()[0], 2)
                 self.assertEqual(connection.execute("SELECT COUNT(*) FROM deck_cards").fetchone()[0], 2)
                 self.assertEqual(connection.execute("SELECT COUNT(*) FROM placements").fetchone()[0], 2)
+                self.assertEqual(connection.execute("SELECT COUNT(*) FROM locations WHERE kind = 'binder'").fetchone()[0], 10)
 
     def test_init_requires_both_confirmations_when_confirmation_is_supplied(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:

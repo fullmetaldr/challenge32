@@ -113,6 +113,40 @@ def _image_url(card: dict) -> str:
     return url
 
 
+def ensure_cached_card_details(
+    cache_root: Path,
+    set_code: str,
+    collector_number: str,
+    *,
+    client: httpx.Client | None = None,
+) -> dict:
+    """Load one exact printing, caching JSON without downloading its image."""
+    set_code, collector_number = _validate_printing(set_code, collector_number)
+    details_path, _ = _cache_paths(cache_root, set_code, collector_number)
+    if details_path.exists():
+        try:
+            card = json.loads(details_path.read_text(encoding="utf-8"))
+            if card.get("set", "").lower() == set_code and str(card.get("collector_number")) == collector_number:
+                return card
+        except (OSError, ValueError, AttributeError):
+            pass
+
+    owns_client = client is None
+    if client is None:
+        client = httpx.Client(timeout=20, headers=HEADERS, follow_redirects=True)
+    try:
+        response = client.get(f"{SCRYFALL_API}/cards/{quote(set_code, safe='')}/{quote(collector_number, safe='')}")
+        response.raise_for_status()
+        card = response.json()
+        if card.get("set", "").lower() != set_code or str(card.get("collector_number")) != collector_number:
+            raise CardCatalogError("Scryfall returned a different printing")
+        _write_atomic(details_path, (json.dumps(card, ensure_ascii=False, indent=2) + "\n").encode("utf-8"))
+        return card
+    finally:
+        if owns_client:
+            client.close()
+
+
 def ensure_cached_image(
     cache_root: Path,
     set_code: str,
@@ -122,7 +156,7 @@ def ensure_cached_image(
 ) -> Path:
     """Fetch a printing and its image on first request, then reuse both files."""
     set_code, collector_number = _validate_printing(set_code, collector_number)
-    details_path, image_path = _cache_paths(cache_root, set_code, collector_number)
+    _, image_path = _cache_paths(cache_root, set_code, collector_number)
     if image_path.exists() and image_path.stat().st_size:
         return image_path
 
@@ -130,21 +164,7 @@ def ensure_cached_image(
     if client is None:
         client = httpx.Client(timeout=20, headers=HEADERS, follow_redirects=True)
     try:
-        card = None
-        if details_path.exists():
-            try:
-                card = json.loads(details_path.read_text(encoding="utf-8"))
-            except (OSError, ValueError):
-                pass
-        if card is None:
-            response = client.get(
-                f"{SCRYFALL_API}/cards/{quote(set_code, safe='')}/{quote(collector_number, safe='')}"
-            )
-            response.raise_for_status()
-            card = response.json()
-            if card.get("set", "").lower() != set_code or str(card.get("collector_number")) != collector_number:
-                raise CardCatalogError("Scryfall returned a different printing")
-            _write_atomic(details_path, (json.dumps(card, ensure_ascii=False, indent=2) + "\n").encode("utf-8"))
+        card = ensure_cached_card_details(cache_root, set_code, collector_number, client=client)
 
         image_response = client.get(_image_url(card))
         image_response.raise_for_status()
