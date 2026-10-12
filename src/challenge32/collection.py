@@ -15,6 +15,8 @@ from .config import discover_decks
 
 FOIL_VALUES = {"yes", "no", "unknown"}
 RARITY_VALUES = {"common", "uncommon", "rare", "mythic", "special", "bonus", "basic"}
+COLOURS = "WUBRG"
+HOLDING_COLUMNS = ("card", "printing", "foil", "quantity", "category", "rarity", "colour_identity", "type_line", "notes")
 LOCATION_FILES = (
     ("reserve.csv", "reserve"),
     ("unknown.csv", "unknown"),
@@ -54,6 +56,9 @@ class CollectionRow:
     card: CardKey
     quantity: int
     category: str = ""
+    rarity: str = ""
+    colour_identity: str = ""
+    type_line: str = ""
     notes: str = ""
     source_path: Path | None = None
     source_line: int | None = None
@@ -85,10 +90,6 @@ class CollectionPaths:
     @property
     def holdings(self) -> Path:
         return self.root / "holdings.csv"
-
-    @property
-    def rarities(self) -> Path:
-        return self.root / "rarities.csv"
 
     @property
     def locations(self) -> Path:
@@ -124,7 +125,7 @@ def _read_rows(path: Path, *, include_category: bool = False) -> list[Collection
         return []
     required = {"card", "printing", "foil", "quantity"}
     if include_category:
-        required.add("category")
+        required.update(HOLDING_COLUMNS)
     try:
         with path.open(newline="", encoding="utf-8") as handle:
             reader = csv.DictReader(handle)
@@ -142,11 +143,21 @@ def _read_rows(path: Path, *, include_category: bool = False) -> list[Collection
                     raise CollectionError(
                         f"{path}:{row_number}: foil must be one of {', '.join(sorted(FOIL_VALUES))}"
                     )
+                rarity = (row.get("rarity") or "").strip().lower() if include_category else ""
+                identity = (row.get("colour_identity") or "").strip().upper() if include_category else ""
+                type_line = (row.get("type_line") or "").strip() if include_category else ""
+                if rarity and rarity not in RARITY_VALUES:
+                    raise CollectionError(f"{path}:{row_number}: invalid rarity {rarity!r}")
+                if identity and identity != "C" and identity != "".join(c for c in COLOURS if c in identity):
+                    raise CollectionError(f"{path}:{row_number}: invalid colour identity {identity!r}")
                 rows.append(
                     CollectionRow(
                         card=_card_key(name, row.get("printing", ""), foil),
                         quantity=_quantity(row.get("quantity", ""), path, row_number),
                         category=(row.get("category") or "").strip() if include_category else "",
+                        rarity=rarity,
+                        colour_identity=identity,
+                        type_line=type_line,
                         notes=(row.get("notes") or "").strip(),
                         source_path=path,
                         source_line=row_number,
@@ -229,31 +240,9 @@ def _write_holdings(path: Path, rows: Iterable[CollectionRow]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.writer(handle)
-        writer.writerow(("card", "printing", "foil", "quantity", "category", "notes"))
+        writer.writerow(HOLDING_COLUMNS)
         for row in sorted(rows, key=lambda item: item.card.normalized):
-            writer.writerow((row.card.name, row.card.printing, row.card.foil, row.quantity, row.category, row.notes))
-
-
-def read_rarities(path: Path) -> dict[tuple[str, str], str]:
-    """Read printing-level rarity without treating it as another ownership list."""
-    if not path.exists():
-        return {}
-    rarities: dict[tuple[str, str], str] = {}
-    with path.open(newline="", encoding="utf-8") as handle:
-        reader = csv.DictReader(handle)
-        if not {"card", "printing", "rarity"}.issubset(reader.fieldnames or ()):
-            raise CollectionError(f"{path}: expected card,printing,rarity columns")
-        for line, row in enumerate(reader, start=2):
-            card = (row.get("card") or "").strip()
-            printing = (row.get("printing") or "").strip().lower()
-            rarity = (row.get("rarity") or "").strip().lower()
-            if not card or not printing or rarity not in RARITY_VALUES:
-                raise CollectionError(f"{path}:{line}: invalid card, printing, or rarity")
-            key = (" ".join(card.casefold().split()), printing)
-            if key in rarities:
-                raise CollectionError(f"{path}:{line}: duplicate rarity for {card} ({printing})")
-            rarities[key] = rarity
-    return rarities
+            writer.writerow((row.card.name, row.card.printing, row.card.foil, row.quantity, row.category, row.rarity, row.colour_identity, row.type_line, row.notes))
 
 
 def location_sources(paths: CollectionPaths) -> list[LocationSource]:
@@ -296,11 +285,14 @@ not evidence that it is unowned.
 `holdings.csv` records known owned quantities. `card` and `printing` identify a
 card version; printing is stored as `set-code:collector-number` when available.
 `foil` is `yes`, `no`, or `unknown`. `category` is descriptive metadata such as
-`regular` or `proxy` and does not change quantity accounting.
+`regular` or `proxy` and does not change quantity accounting. Rarity, colour
+identity, and the complete card type line are card metadata, not locations.
+Colour identity uses WUBRG letters or `C` for colourless; an empty cell means
+unknown. Missing metadata must never be guessed.
 
 ```csv
-card,printing,foil,quantity,category,notes
-Sol Ring,cmm:396,no,1,regular,
+card,printing,foil,quantity,category,rarity,colour_identity,type_line,notes
+Sol Ring,cmm:396,no,1,regular,uncommon,C,Artifact,
 ```
 
 ## locations/
@@ -312,18 +304,10 @@ card,printing,foil,quantity,notes
 Sol Ring,cmm:396,no,1,
 ```
 
-## rarities.csv
-
-This source-controlled lookup stores Scryfall rarity for an exact printing,
-independent of foil status or owned quantity. It is populated explicitly with
-`challenge32 collection rarity`; an absent row means rarity is unknown, not
-that the card is common. Nonstandard rarities such as `special` and `bonus`
-must not be treated as rare or mythic automatically.
-
-```csv
-card,printing,rarity
-Sol Ring,cmm:396,uncommon
-```
+The importer obtains missing metadata for exact printings from Scryfall before
+committing a batch. Filing derives the Lands section from `type_line`, then
+uses colour identity for the other seven sections. Rare and mythic printings
+go to the matching binder; other rarities go to Reserve.
 
 Deck allocation is derived from the tracked decklists and is never duplicated
 in a manually maintained location file. The initial layout contains Reserve,
@@ -353,7 +337,6 @@ def _initialization_plan(paths: CollectionPaths, deck_rows: list[DeckRow]) -> st
             f"Files to create under {paths.root}:",
             "  schema.md",
             "  holdings.csv",
-            "  rarities.csv",
             "  locations/reserve.csv",
             "  locations/unknown.csv",
             *(f"  locations/binders/{name}.csv" for name in BINDER_NAMES),
@@ -397,7 +380,6 @@ def initialize_collection(
     (paths.root / "schema.md").write_text(_schema_text(), encoding="utf-8")
     holdings = [CollectionRow(card=card, quantity=quantity) for card, quantity in _aggregate(deck_rows).items()]
     _write_holdings(paths.holdings, holdings)
-    _csv_header(paths.rarities, ("card", "printing", "rarity"))
     for filename, _kind in LOCATION_FILES:
         _csv_header(paths.locations / filename, ("card", "printing", "foil", "quantity", "notes"))
     for name in BINDER_NAMES:
@@ -419,6 +401,8 @@ def _database_schema(connection: sqlite3.Connection) -> None:
             printing TEXT NOT NULL,
             foil TEXT NOT NULL CHECK (foil IN ('yes', 'no', 'unknown')),
             rarity TEXT CHECK (rarity IN ('common', 'uncommon', 'rare', 'mythic', 'special', 'bonus', 'basic')),
+            colour_identity TEXT,
+            type_line TEXT,
             UNIQUE (name COLLATE NOCASE, printing, foil)
         );
         CREATE TABLE set_names (
@@ -492,7 +476,6 @@ def build_database(
 ) -> None:
     deck_rows = deck_rows if deck_rows is not None else discover_deck_rows(paths.decks)
     holdings = _read_rows(paths.holdings, include_category=True)
-    rarities = read_rarities(paths.rarities)
     non_deck = read_non_deck_placements(paths)
     paths.database.parent.mkdir(parents=True, exist_ok=True)
     file_descriptor, temporary_name = tempfile.mkstemp(
@@ -511,6 +494,10 @@ def build_database(
                 )
             for row in holdings:
                 card_id = _card_id(connection, row.card)
+                connection.execute(
+                    "UPDATE cards SET rarity = ?, colour_identity = ?, type_line = ? WHERE id = ?",
+                    (row.rarity or None, row.colour_identity or None, row.type_line or None, card_id),
+                )
                 connection.execute(
                     "INSERT INTO holdings VALUES (?, ?, ?, ?, ?, ?)",
                     (card_id, row.quantity, row.category, row.notes, str(row.source_path), row.source_line),
@@ -557,11 +544,6 @@ def build_database(
                     "INSERT INTO placements VALUES (?, ?, ?, ?, ?, ?)",
                     (card_id, location_id, row.quantity, row.notes, str(row.source_path), row.source_line),
                 )
-            for card_id, name, printing in connection.execute("SELECT id, name, printing FROM cards"):
-                key = (" ".join(name.casefold().split()), printing.casefold())
-                rarity = rarities.get(key)
-                if rarity is not None:
-                    connection.execute("UPDATE cards SET rarity = ? WHERE id = ?", (rarity, card_id))
             connection.execute(
                 "CREATE INDEX idx_cards_name ON cards(name COLLATE NOCASE)"
             )

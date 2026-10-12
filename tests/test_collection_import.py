@@ -1,13 +1,16 @@
 from __future__ import annotations
 
 import csv
+import json
 import sqlite3
 import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from challenge32.collection import CollectionError, CollectionPaths, collection_status, initialize_collection
+import httpx
+
+from challenge32.collection import CollectionError, CollectionPaths, build_database, collection_status, initialize_collection
 from challenge32.cli import main
 import challenge32.collection_import as importer
 from challenge32.collection_import import ingest_batch, select_import_file, undo_batch
@@ -26,6 +29,26 @@ def setup_collection(root: Path) -> tuple[CollectionPaths, Path]:
     )
     paths = CollectionPaths(root=root / "collection", decks=root / "decks", database=root / "data" / "collection.sqlite")
     initialize_collection(paths)
+    details = {
+        ("cmm", "396"): ("Sol Ring", "uncommon", [], "Artifact"),
+        ("tst", "1"): ("Other Card", "rare", ["W"], "Creature"),
+        ("tst", "12"): ("Test Card", "rare", ["U"], "Creature"),
+        ("tst", "13"): ("Etched Card", "rare", ["B"], "Creature"),
+        ("tst", "2"): ("Second Card", "uncommon", ["R"], "Creature"),
+        ("tst", "3"): ("First Card", "common", ["G"], "Creature"),
+    }
+    for (set_code, number), (name, rarity, identity, type_line) in details.items():
+        cache = root / "data" / "card-details" / set_code / f"{number}.json"
+        cache.parent.mkdir(parents=True, exist_ok=True)
+        cache.write_text(json.dumps({
+            "name": name, "set": set_code, "collector_number": number,
+            "rarity": rarity, "color_identity": identity, "type_line": type_line,
+        }), encoding="utf-8")
+    paths.holdings.write_text(
+        "card,printing,foil,quantity,category,rarity,colour_identity,type_line,notes\n"
+        "Sol Ring,cmm:396,no,1,,uncommon,C,Artifact,\n", encoding="utf-8",
+    )
+    build_database(paths)
     import_dir = root / "data" / "imports"
     import_dir.mkdir()
     return paths, import_dir
@@ -65,6 +88,9 @@ class CollectionImportTests(unittest.TestCase):
             self.assertEqual(holdings["Sol Ring"]["quantity"], "3")
             self.assertEqual(holdings["Test Card"]["quantity"], "3")
             self.assertEqual(holdings["Etched Card"]["foil"], "yes")
+            self.assertEqual(holdings["Test Card"]["rarity"], "rare")
+            self.assertEqual(holdings["Test Card"]["colour_identity"], "U")
+            self.assertEqual(holdings["Test Card"]["type_line"], "Creature")
             self.assertEqual(collection_status(paths)["non_deck_placed"], 6)
             with sqlite3.connect(paths.database) as connection:
                 self.assertEqual(
@@ -113,10 +139,53 @@ class CollectionImportTests(unittest.TestCase):
                 undo_batch(paths, import_dir, "new", preview=True)
             self.assertEqual(paths.holdings.read_bytes(), holdings)
 
+    def test_import_fetches_uncached_metadata_before_committing(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            paths, import_dir = setup_collection(Path(temporary))
+            source = import_dir / "new.csv"
+            source.write_text(
+                "Name,Set code,Card number,Foil,Quantity\nNew Land,TST,99,No,2\n",
+                encoding="utf-8",
+            )
+            requests = []
+            def respond(request: httpx.Request) -> httpx.Response:
+                requests.append(request.url.path)
+                return httpx.Response(200, json={
+                    "name": "New Land", "set": "tst", "collector_number": "99",
+                    "rarity": "rare", "color_identity": ["U", "W"], "type_line": "Land — Plains Island",
+                })
+            with httpx.Client(transport=httpx.MockTransport(respond)) as client:
+                self.assertTrue(ingest_batch(paths, import_dir, confirm=lambda _: "yes", client=client))
+            self.assertEqual(requests, ["/cards/tst/99"])
+            new = next(row for row in rows(paths.holdings) if row["card"] == "New Land")
+            self.assertEqual((new["quantity"], new["rarity"], new["colour_identity"], new["type_line"]),
+                             ("2", "rare", "WU", "Land — Plains Island"))
+
+    def test_bad_scryfall_response_leaves_import_untouched(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            paths, import_dir = setup_collection(Path(temporary))
+            source = import_dir / "new.csv"
+            source.write_text(
+                "Name,Set code,Card number,Foil,Quantity\nNew Land,TST,99,No,2\n",
+                encoding="utf-8",
+            )
+            before = paths.holdings.read_bytes()
+            def respond(_request: httpx.Request) -> httpx.Response:
+                return httpx.Response(200, json={
+                    "name": "Different Card", "set": "tst", "collector_number": "99",
+                    "rarity": "rare", "color_identity": ["W"], "type_line": "Land",
+                })
+            with httpx.Client(transport=httpx.MockTransport(respond)) as client:
+                with self.assertRaisesRegex(CollectionError, "import cancelled"):
+                    ingest_batch(paths, import_dir, confirm=lambda _: "yes", client=client)
+            self.assertEqual(paths.holdings.read_bytes(), before)
+            self.assertTrue(source.exists())
+            self.assertFalse((paths.locations / "staging" / "imported" / "new.csv").exists())
+
     def test_multiple_imports_share_one_staging_location_and_undo_independently(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             paths, import_dir = setup_collection(Path(temporary))
-            for name, card, number in (("first", "First Card", 1), ("second", "Second Card", 2)):
+            for name, card, number in (("first", "First Card", 3), ("second", "Second Card", 2)):
                 (import_dir / f"{name}.csv").write_text(
                     f"Name,Set code,Card number,Foil,Quantity\n{card},TST,{number},No,1\n",
                     encoding="utf-8",

@@ -9,11 +9,13 @@ not evidence that it is unowned.
 `holdings.csv` records known owned quantities. `card` and `printing` identify a
 card version; printing is stored as `set-code:collector-number` when available.
 `foil` is `yes`, `no`, or `unknown`. `category` is descriptive metadata such as
-`regular` or `proxy` and does not change quantity accounting.
+`regular` or `proxy` and does not change quantity accounting. `rarity`,
+`colour_identity`, and `type_line` describe the exact printing. Colour identity
+uses WUBRG letters or `C` for colourless; an empty cell means unknown.
 
 ```csv
-card,printing,foil,quantity,category,notes
-Sol Ring,cmm:396,no,1,regular,
+card,printing,foil,quantity,category,rarity,colour_identity,type_line,notes
+Sol Ring,cmm:396,no,1,regular,uncommon,C,Artifact,
 ```
 
 ## locations/
@@ -25,17 +27,15 @@ card,printing,foil,quantity,notes
 Sol Ring,cmm:396,no,1,
 ```
 
-## rarities.csv
-
-This source-controlled lookup stores rarity for an exact printing, independent
-of foil status or owned quantity. Populate missing entries explicitly with
-`challenge32 collection rarity`. An absent entry means unknown rarity; `special`
-and `bonus` are not automatically treated as rare or mythic.
-
-```csv
-card,printing,rarity
-Sol Ring,cmm:396,uncommon
-```
+The importer verifies new printings against Scryfall and fills their metadata
+before committing a batch. Staging filing uses eight sections: the five
+colours, Multicolour, Colourless, and Lands. The Land card type takes precedence
+over colour identity. Preview with
+`challenge32 collection file <section> --preview`, then, after physically filing
+the entire section, run `challenge32 collection file <section>` to confirm its digital move. Rare and
+mythic printings go to that section's binder; all other rarities go to Reserve.
+Filing leaves holdings unchanged. If a source row came from an imported batch,
+whole-batch undo becomes unavailable once that row is moved.
 
 Deck allocation is derived from the tracked decklists and is never duplicated
 in a manually maintained location file. The initial layout contains Reserve,

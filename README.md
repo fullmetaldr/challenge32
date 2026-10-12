@@ -162,11 +162,23 @@ The ten physical binders each have an empty, source-controlled file under
 White, Red, Blue, Black, Green, Multicolour, Colorless, Lands, Trade, and Sell.
 Creating these files does not move any cards out of Staging or another location.
 
-`collection/rarities.csv` is a separate, source-controlled lookup by exact card
-printing. Run `challenge32 collection rarity` to fill missing rarities from
-Scryfall without changing ownership or placements. The command reuses cached
-card details and reports unresolved printings rather than guessing. Rebuilding
-the dashboard reads this lookup; it does not fetch missing rarities itself.
+`collection/holdings.csv` records rarity, colour identity, and card type beside
+each known card version. New scanner imports verify exact printings with
+Scryfall and fill these columns automatically; no metadata command is needed.
+Staging has eight filing sections: white, blue, black, red, green, multicolour,
+colourless, and lands. The Land card type takes precedence over colour identity. Preview a
+section first; after you have physically filed **all** its cards, run the
+command again and confirm the matching digital move:
+
+```bash
+challenge32 collection file white --preview
+challenge32 collection file white
+```
+
+Rares and mythics go to that section's binder; all other rarities go to
+Reserve. The command refuses to file if colour or rarity is missing, and
+changes no holdings quantities. Once an imported Staging batch is partly
+filed, its whole-batch undo is no longer available.
 
 The first initialization is deliberately guarded and will create the schema,
 empty location lists, initial holdings, and a derived SQLite database from the

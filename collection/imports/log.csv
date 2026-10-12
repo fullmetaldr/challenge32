@@ -1,2 +1,4 @@
 batch,content_hash,source_file,imported_at,card_versions,copies,placement_hash,status,undone_at
 reality-fracture-pre-release,605c7c9760c93f5a8a49e23bdf3baca17bc511f62e6f728b79cb23b10d7da331,reality_fracture_pre-release.csv,2026-10-06T21:21:35.962318+00:00,50,58,2678a027124cedafd6a061a91d81fea9ee7770fdd8f762a40f285b8b401a44fa,active,
+reality-fracture-first-batch,0dc7141a7a022ba920503c713a2fbfbed29511eeeb1b7890205c80f67b30ded8,reality-fracture-first_batch.csv,2026-10-12T20:50:48.881154+00:00,45,46,f1e4c3aa32009566ac7c147de84a572c6a625b217334c42a2fcdc7eb819d3866,active,
+reality-fracture-second-batch,4e3e5539cbd16a5efc37fc8fe2847b3fee5d3948b8368d17a72d2aa805f2c25b,reality-fracture-second_batch.csv,2026-10-12T20:51:06.713765+00:00,95,101,1bda6901da42a35b4adb933d2a283baee4a3c758f7a50dfbe23e9937bcbf6a23,active,

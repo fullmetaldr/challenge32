@@ -11,7 +11,7 @@ from .archidekt import ArchidektError, ArchidektClient, fetch_cards
 from .collection import CollectionError, CollectionPaths, collection_status, initialize_collection
 from .collection_dashboard import build_collection_dashboard
 from .collection_import import check_import_transaction, ingest_batch, undo_batch
-from .collection_rarity import update_rarities
+from .collection_filing import SECTIONS, file_section
 from .collection_server import serve_collection_dashboard
 from .config import discover_decks, select_deck
 from .dashboard import build_dashboard
@@ -49,8 +49,8 @@ def build_parser() -> argparse.ArgumentParser:
     )
     collection_parser.add_argument("--init", action="store_true", help="Safely initialize collection source files from decklists")
     collection_parser.add_argument("--status", action="store_true", help="Show the current derived collection status")
-    collection_parser.add_argument("action", nargs="?", choices=("dashboard", "serve", "ingest", "undo", "rarity"), help="Build, serve, import, undo, or enrich rarity")
-    collection_parser.add_argument("batch_name", nargs="?", help="Batch name for collection undo")
+    collection_parser.add_argument("action", nargs="?", choices=("dashboard", "serve", "ingest", "undo", "file"), help="Build, serve, import, undo, or file Staging")
+    collection_parser.add_argument("batch_name", nargs="?", help="Batch name for undo, or Staging section for file")
     collection_parser.add_argument("--decks", type=Path, default=Path("decks"), help="Deck root (default: decks)")
     collection_parser.add_argument("--root", type=Path, default=Path("collection"), help="Collection source root (default: collection)")
     collection_parser.add_argument("--database", type=Path, default=Path("data/collection.sqlite"), help="Derived SQLite path (default: data/collection.sqlite)")
@@ -59,7 +59,7 @@ def build_parser() -> argparse.ArgumentParser:
     collection_parser.add_argument("--imports", type=Path, default=Path("data/imports"), help="Pending scanner CSV folder (default: data/imports)")
     collection_parser.add_argument("--file", type=Path, help="Choose one pending CSV when several are present")
     collection_parser.add_argument("--batch", help="Override the import batch name (default: CSV filename)")
-    collection_parser.add_argument("--preview", action="store_true", help="Show import or undo plan without prompting or writing")
+    collection_parser.add_argument("--preview", action="store_true", help="Show import, undo, or filing plan without prompting or writing")
     return parser
 
 
@@ -126,9 +126,9 @@ def add_deck(args: argparse.Namespace) -> int:
 
 
 def collection_command(args: argparse.Namespace) -> int:
-    selected = sum((args.init, args.status, args.action in {"dashboard", "serve", "ingest", "undo", "rarity"}))
+    selected = sum((args.init, args.status, args.action in {"dashboard", "serve", "ingest", "undo", "file"}))
     if selected != 1:
-        raise CollectionError("choose exactly one of --init, --status, dashboard, serve, ingest, undo, or rarity")
+        raise CollectionError("choose exactly one of --init, --status, dashboard, serve, ingest, undo, or file")
     paths = CollectionPaths(root=args.root, decks=args.decks, database=args.database)
     if not args.init:
         check_import_transaction(paths)
@@ -142,12 +142,11 @@ def collection_command(args: argparse.Namespace) -> int:
             raise CollectionError("Specify the batch to undo: challenge32 collection undo <batch>")
         undo_batch(paths, args.imports, args.batch_name, preview=args.preview)
         return 0
-    if args.action == "rarity":
-        if args.batch_name:
-            raise CollectionError("rarity takes no batch name")
-        result = update_rarities(paths)
-        print(f"Rarity index: {result['added']} added; {result['unresolved']} unresolved; {result['known']} printings known")
-        return 1 if result["unresolved"] or result["unavailable"] else 0
+    if args.action == "file":
+        if args.batch_name not in SECTIONS:
+            raise CollectionError(f"Specify a Staging section: {', '.join(SECTIONS)}")
+        file_section(paths, args.batch_name, preview=args.preview)
+        return 0
     if args.init:
         result = initialize_collection(paths, confirm=input)
         print(

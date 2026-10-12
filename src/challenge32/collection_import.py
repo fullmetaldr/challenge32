@@ -12,6 +12,7 @@ import re
 import shutil
 import sqlite3
 import tempfile
+import time
 from collections import defaultdict
 from contextlib import contextmanager
 from dataclasses import dataclass, replace
@@ -19,11 +20,17 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Callable, Iterator
 
+import httpx
+
+from .card_catalog import CardCatalogError, HEADERS, _cache_paths, printing_parts
+from .collection_metadata import CardMetadata, lookup_metadata
+
 from .collection import (
     CardKey,
     CollectionError,
     CollectionPaths,
     CollectionRow,
+    HOLDING_COLUMNS,
     _read_rows,
     build_database,
     collection_status,
@@ -269,9 +276,10 @@ def _csv_bytes(columns: tuple[str, ...], rows: list[tuple[object, ...]]) -> byte
 
 def _holding_bytes(rows: dict[tuple[str, str, str], CollectionRow]) -> bytes:
     return _csv_bytes(
-        ("card", "printing", "foil", "quantity", "category", "notes"),
+        HOLDING_COLUMNS,
         [
-            (row.card.name, row.card.printing, row.card.foil, row.quantity, row.category, row.notes)
+            (row.card.name, row.card.printing, row.card.foil, row.quantity, row.category,
+             row.rarity, row.colour_identity, row.type_line, row.notes)
             for _key, row in sorted(rows.items())
         ],
     )
@@ -407,6 +415,50 @@ def _print_plan(plan: ImportPlan) -> None:
         print(f"  +{item.quantity} {item.card.name} ({item.card.printing}) [{item.finish}]")
 
 
+def _import_metadata(
+    paths: CollectionPaths,
+    cards: tuple[ImportCard, ...],
+    holdings: dict[tuple[str, str, str], CollectionRow],
+    *,
+    client: httpx.Client | None = None,
+) -> dict[tuple[str, str], CardMetadata]:
+    known: dict[tuple[str, str], CardMetadata] = {}
+    for row in holdings.values():
+        if row.rarity and row.colour_identity and row.type_line:
+            key = (row.card.normalized[0], row.card.normalized[1])
+            value = CardMetadata(row.rarity, row.colour_identity, row.type_line)
+            if key in known and known[key] != value:
+                raise CollectionError(f"Conflicting metadata for {row.card.name} ({row.card.printing})")
+            known[key] = value
+    needed = {
+        (item.card.normalized[0], item.card.normalized[1]): item.card
+        for item in cards
+    }
+    missing = [(key, card) for key, card in needed.items() if key not in known]
+    if missing:
+        print(f"Checking card metadata for {len(missing)} new printing(s)…")
+    owns_client = client is None
+    if client is None:
+        client = httpx.Client(timeout=20, headers=HEADERS, follow_redirects=True)
+    try:
+        for key, card in missing:
+            set_code, number = printing_parts(card.printing)
+            cached = bool(set_code and number and _cache_paths(paths.database.parent, set_code, number)[0].is_file())
+            try:
+                known[key] = lookup_metadata(card, paths.database.parent, client=client)
+            except (httpx.HTTPError, CardCatalogError, OSError, ValueError) as exc:
+                raise CollectionError(
+                    f"Could not verify {card.name} ({card.printing}) with Scryfall: {exc}; "
+                    "import cancelled without changing the collection"
+                ) from exc
+            if not cached:
+                time.sleep(0.12)
+    finally:
+        if owns_client:
+            client.close()
+    return {key: known[key] for key in needed}
+
+
 def ingest_batch(
     paths: CollectionPaths,
     import_dir: Path,
@@ -415,6 +467,7 @@ def ingest_batch(
     batch: str | None = None,
     preview: bool = False,
     confirm: Callable[[str], str] | None = input,
+    client: httpx.Client | None = None,
 ) -> bool:
     source = select_import_file(import_dir, selected, confirm=None if preview else confirm)
     proposed = _slug(batch or source.stem)
@@ -434,12 +487,19 @@ def ingest_batch(
         if current.content_hash != plan.content_hash:
             raise CollectionError("Import file changed after preview; run ingest again")
         holdings = _holdings_map(paths)
+        metadata = _import_metadata(paths, current.cards, holdings, client=client)
         for item in current.cards:
             key = item.card.normalized
             previous = holdings.get(key)
+            details = metadata[(key[0], key[1])]
             holdings[key] = (
-                replace(previous, quantity=previous.quantity + item.quantity)
-                if previous else CollectionRow(item.card, item.quantity, category="regular")
+                replace(previous, quantity=previous.quantity + item.quantity,
+                        rarity=details.rarity, colour_identity=details.colour_identity,
+                        type_line=details.type_line)
+                if previous else CollectionRow(
+                    item.card, item.quantity, category="regular", rarity=details.rarity,
+                    colour_identity=details.colour_identity, type_line=details.type_line,
+                )
             )
         staging_path = paths.locations / "staging" / "imported" / f"{current.batch}.csv"
         receipt_path = paths.imports / "batches" / f"{current.batch}.csv"

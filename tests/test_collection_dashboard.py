@@ -42,7 +42,8 @@ class CollectionDashboardTests(unittest.TestCase):
             )
             initialize_collection(paths)
             paths.holdings.write_text(
-                "card,printing,foil,quantity,category,notes\nSol Ring,cmm:396,unknown,4,regular,\n",
+                "card,printing,foil,quantity,category,rarity,colour_identity,type_line,notes\n"
+                "Sol Ring,cmm:396,unknown,4,regular,uncommon,C,Artifact,\n",
                 encoding="utf-8",
             )
             for relative in ("white.csv", "blue.csv", "imported/batch.csv"):
@@ -103,9 +104,9 @@ class CollectionDashboardTests(unittest.TestCase):
             )
             initialize_collection(paths)
             paths.holdings.write_text(
-                "card,printing,foil,quantity,category,notes\n"
-                "Sol Ring,cmm:396,unknown,1,regular,\n"
-                "Sol Ring,2xm:340,no,2,regular,\n",
+                "card,printing,foil,quantity,category,rarity,colour_identity,type_line,notes\n"
+                "Sol Ring,cmm:396,unknown,1,regular,uncommon,C,Artifact,\n"
+                "Sol Ring,2xm:340,no,2,regular,uncommon,C,Artifact,\n",
                 encoding="utf-8",
             )
             (paths.locations / "reserve.csv").write_text(
@@ -141,8 +142,9 @@ class CollectionDashboardTests(unittest.TestCase):
                 database=root / "data" / "collection.sqlite",
             )
             initialize_collection(paths)
-            paths.rarities.write_text(
-                "card,printing,rarity\nSol Ring,cmm:396,uncommon\n", encoding="utf-8"
+            paths.holdings.write_text(
+                "card,printing,foil,quantity,category,rarity,colour_identity,type_line,notes\n"
+                "Sol Ring,cmm:396,unknown,1,,uncommon,C,Artifact,\n", encoding="utf-8"
             )
             (paths.root / "locations" / "reserve.csv").write_text(
                 "card,printing,foil,quantity,notes\nSol Ring,cmm:396,unknown,1,\n",
@@ -195,7 +197,8 @@ class CollectionDashboardTests(unittest.TestCase):
             paths = CollectionPaths(root / "collection", root / "decks", root / "data" / "collection.sqlite")
             initialize_collection(paths)
             paths.holdings.write_text(
-                "card,printing,foil,quantity,category,notes\nSol Ring,cmm:396,no,5,regular,\n",
+                "card,printing,foil,quantity,category,rarity,colour_identity,type_line,notes\n"
+                "Sol Ring,cmm:396,no,5,regular,uncommon,C,Artifact,\n",
                 encoding="utf-8",
             )
             (paths.locations / "staging" / "white.csv").write_text(
