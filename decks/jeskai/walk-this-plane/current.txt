@@ -3,10 +3,10 @@
 # Deck: Walk this plane!
 # Source: archidekt
 # URL: https://archidekt.com/decks/24884017/walk_this_plane
-# Retrieved: 2026-10-14T11:02:58.224934+00:00
-# Version: 20261014T110258Z--197bdf4
-# Deck hash: sha256:197bdf41cbff766e98600ec465583d77f053cc756870ea47c75891b328b8365b
-# Cards: 100
+# Retrieved: 2026-10-14T13:17:13.461203+00:00
+# Version: 20261014T131713Z--0715082
+# Deck hash: sha256:0715082460a560b546d105515c54ed458551dda8132ebcea1a39b2af71a2360b
+# Cards: 101
 # Generated file; put analysis in notes/.
 // Commander
 1 Commodore Guff (cmm) 706 *F*
@@ -53,6 +53,7 @@
 1 Whirlwind of Thought (msc) 190
 
 // Planeswalker
+1 Ajani Unrelenting (fra) 308 *F*
 1 Archangel Elspeth (mom) 320
 1 Chandra, Awakened Inferno (cmm) 875
 1 Chandra, Bold Pyromancer (dom) 275 *F*
