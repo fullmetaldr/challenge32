@@ -376,7 +376,7 @@ def _commit_files(
         build_database(paths, set_names=set_names)
         if collection_status(paths)["conflicts"] > maximum_conflicts:
             raise CollectionError("Import would create allocation conflicts")
-    except Exception:
+    except BaseException:
         for path, original in originals.items():
             if original is None:
                 path.unlink(missing_ok=True)

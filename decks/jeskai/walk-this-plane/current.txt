@@ -3,9 +3,9 @@
 # Deck: Walk this plane!
 # Source: archidekt
 # URL: https://archidekt.com/decks/24884017/walk_this_plane
-# Retrieved: 2026-10-06T12:18:19.917225+00:00
-# Version: 20261006T121819Z--10d41d8
-# Deck hash: sha256:10d41d841ccccbd71e3c291e3cbaf48fa44982c2a9d9501bcd303c97fa1a1013
+# Retrieved: 2026-10-14T11:02:58.224934+00:00
+# Version: 20261014T110258Z--197bdf4
+# Deck hash: sha256:197bdf41cbff766e98600ec465583d77f053cc756870ea47c75891b328b8365b
 # Cards: 100
 # Generated file; put analysis in notes/.
 // Commander
@@ -21,6 +21,7 @@
 1 Kazuul, Tyrant of the Cliffs (scd) 148
 1 Lae'zel, Vlaakith's Champion (clb) 476 *E*
 1 Leori, Sparktouched Hunter (cmm) 709 *F*
+1 Lulu, Stern Guardian (fic) 38 *F*
 1 Mila, Crafty Companion // Lukka, Wayward Bonder (plst) STX-153
 1 Onakke Oathkeeper (cmm) 722
 1 Pramikon, Sky Rampart (c19) 47 *F*
@@ -35,7 +36,6 @@
 1 Honor-Worn Shaku (cmm) 954
 1 Ichormoon Gauntlet (one) 56
 1 Norn's Annex (cmm) 829
-1 Rings of Brighthearth (cmr) 335
 1 Sol Ring (cmm) 410
 1 Talisman of Conviction (cmm) 978
 1 Talisman of Creativity (cmm) 979
@@ -50,6 +50,7 @@
 1 Rowan's Talent (moc) 85
 1 Teferi's Talent (moc) 74
 1 Urza Assembles the Titans (dmu) 37
+1 Whirlwind of Thought (msc) 190
 
 // Planeswalker
 1 Archangel Elspeth (mom) 320
@@ -58,7 +59,6 @@
 1 Chandra, Fire Artisan (war) 119
 1 Chandra, Legacy of Fire (cmm) 735
 1 Chandra, Torch of Defiance (cmm) 876
-1 Dovin, Grand Arbiter (voc) 153
 1 Elspeth Resplendent (snc) 282 *F*
 1 Elspeth Tirel (onc) 64
 1 Elspeth, Knight-Errant (sld) 1001 *F*
@@ -69,18 +69,18 @@
 1 Narset of the Ancient Way (cmm) 930
 1 Narset Transcendent (dtk) 225
 1 Narset, Parter of Veils (cmm) 853
+1 Teferi, Temporal Archmage (cmm) 125
 1 Teyo, Geometric Tactician (cmm) 725
 1 The Wanderer (war) 37
 
 // Instant
-1 Path to Exile (cmm) 49
+1 Path to Exile (cmm) 626 *F*
 1 Ripples of Potential (eoc) 77
 1 Semester's End (stx) 27
 
 // Sorcery
 1 Blasphemous Act (cmm) 872
 1 Promise of Loyalty (cmm) 833
-1 The Battle of Bywater (ltr) 2
 1 Urza's Ruinous Blast (cmm) 842
 1 Wrath of God (dmr) 416 *F*
 

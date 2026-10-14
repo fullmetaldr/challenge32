@@ -63,6 +63,7 @@ class ArchidektClient:
         )
         self.last_metadata: DeckMetadata | None = None
         self.last_parser_payload: dict[str, Any] | None = None
+        self.last_maybe_cards: list[Card] = []
 
     def __enter__(self) -> "ArchidektClient":
         return self
@@ -157,6 +158,7 @@ class ArchidektClient:
 
 def fetch_cards(url: str, client: ArchidektClient) -> tuple[list[Card], DeckMetadata | None]:
     client.last_parser_payload = None
+    client.last_maybe_cards = []
     try:
         parsed = mtg_parser.parse_deck(url, client)
     except Exception as exc:
@@ -172,6 +174,11 @@ def fetch_cards(url: str, client: ArchidektClient) -> tuple[list[Card], DeckMeta
         category["name"]
         for category in payload["categories"]
         if category.get("includedInDeck", False)
+    }
+    maybe_categories = {
+        category["name"]
+        for category in payload["categories"]
+        if not category.get("includedInDeck", False) and "maybe" in str(category.get("name", "")).casefold()
     }
     entries = [
         entry for entry in payload["cards"]
@@ -189,6 +196,28 @@ def fetch_cards(url: str, client: ArchidektClient) -> tuple[list[Card], DeckMeta
         sourced.append(
             SourcedCard(
                 card,
+                type_category=str(entry["typeCategory"]),
+                finish=modifier,
+            )
+        )
+    for entry in payload["cards"]:
+        if not maybe_categories.intersection(entry["categories"]):
+            continue
+        if included_categories.intersection(entry["categories"]):
+            continue
+        data = entry["card"]
+        modifier = str(entry.get("modifier") or "normal").casefold()
+        if modifier not in {"normal", "foil", "etched"}:
+            raise ArchidektError(f"Unsupported Maybe-board finish {modifier!r}")
+        client.last_maybe_cards.append(
+            SourcedCard(
+                Card(
+                    data["oracleCard"]["name"],
+                    int(entry["quantity"]),
+                    data["edition"].get("editioncode"),
+                    data.get("collectorNumber"),
+                    entry["categories"],
+                ),
                 type_category=str(entry["typeCategory"]),
                 finish=modifier,
             )

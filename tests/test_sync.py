@@ -10,8 +10,8 @@ from unittest.mock import patch
 import mtg_parser
 from mtg_parser.card import Card
 
-from challenge32.archidekt import ArchidektClient, JsonResponse, fetch_cards
-from challenge32.cli import slugify
+from challenge32.archidekt import ArchidektClient, ArchidektError, JsonResponse, fetch_cards
+from challenge32.cli import build_parser, main, slugify
 from challenge32.colors import identity_name
 from challenge32.dashboard import build_dashboard
 from challenge32.models import DeckConfig
@@ -20,6 +20,28 @@ from challenge32.sync import deck_hash, render_body, synchronize
 
 
 class SyncTests(unittest.TestCase):
+    def test_sync_requires_all_and_rejects_single_deck(self) -> None:
+        parser = build_parser()
+        with self.assertRaises(SystemExit):
+            parser.parse_args(["sync", "--deck", "decks/naya/omnislash"])
+        with self.assertRaises(SystemExit):
+            parser.parse_args(["sync"])
+        self.assertTrue(parser.parse_args(["sync", "--all"]).all)
+
+    def test_all_decks_are_fetched_before_any_snapshot_is_written(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary) / "decks"
+            configs = [
+                DeckConfig(root / "naya" / "first", "first", "First", "archidekt", "https://archidekt.com/decks/1", "naya"),
+                DeckConfig(root / "jeskai" / "second", "second", "Second", "archidekt", "https://archidekt.com/decks/2", "jeskai"),
+            ]
+            first_cards = [Card("Sol Ring", 1, "cmm", "396", ["Artifact"])]
+            with patch("challenge32.cli.discover_decks", return_value=configs), patch(
+                "challenge32.cli.fetch_cards", side_effect=[(first_cards, None), ArchidektError("fetch failed")]
+            ):
+                self.assertEqual(main(["sync", "--all", "--root", str(root)]), 1)
+            self.assertFalse((configs[0].directory / "current.txt").exists())
+
     def test_identity_and_slug_helpers(self) -> None:
         self.assertEqual(identity_name(["White", "Red", "Green"]), "naya")
         self.assertEqual(identity_name(["White", "Red"]), "boros")
@@ -99,6 +121,8 @@ class SyncTests(unittest.TestCase):
         self.assertEqual(len(cards), 3)
         self.assertEqual(cards[1].type_category, "Artifact")
         self.assertEqual(cards[1].finish, "foil")
+        self.assertEqual([entry.name for entry in client.last_maybe_cards], ["Sol Ring"])
+        self.assertEqual(client.last_maybe_cards[0].extension, "cmm")
         body = render_body(cards)
         self.assertIn("// Commander\n1 Trelasarra, Moon Dancer (afr) 236", body)
         self.assertIn("// Artifact\n1 Alhammarret's Archive (slc) 27 *F*", body)

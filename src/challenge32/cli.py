@@ -12,8 +12,9 @@ from .collection import CollectionError, CollectionPaths, collection_status, ini
 from .collection_dashboard import build_collection_dashboard
 from .collection_import import check_import_transaction, ingest_batch, undo_batch
 from .collection_filing import SECTIONS, file_section
+from .collection_sync import FetchedDeck, sync_all
 from .collection_server import serve_collection_dashboard
-from .config import discover_decks, select_deck
+from .config import discover_decks
 from .dashboard import build_dashboard
 from .models import DeckConfig
 from .progress import update_progress_table
@@ -25,9 +26,7 @@ def build_parser() -> argparse.ArgumentParser:
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     sync_parser = subparsers.add_parser("sync", help="Synchronize decklists from their configured sources")
-    target = sync_parser.add_mutually_exclusive_group(required=True)
-    target.add_argument("--deck", help="Path to a deck directory or deck.toml")
-    target.add_argument("--all", action="store_true", help="Synchronize every deck under decks/")
+    sync_parser.add_argument("--all", action="store_true", required=True, help="Synchronize every deck under decks/")
     sync_parser.add_argument("--dry-run", action="store_true", help="Fetch and compare without writing files")
     sync_parser.add_argument("--root", type=Path, default=Path("decks"), help="Deck root (default: decks)")
 
@@ -213,17 +212,17 @@ def main(argv: list[str] | None = None) -> int:
         return 2
 
     try:
-        configs = discover_decks(args.root) if args.all else [select_deck(args.root, args.deck)]
+        configs = discover_decks(args.root)
         if not configs:
             raise ValueError(f"No deck.toml files found under {args.root}")
+        fetched: list[FetchedDeck] = []
         for config in configs:
-            print(f"Syncing {config.display_name} from {config.url}")
+            print(f"Fetching {config.display_name} from {config.url}")
             with ArchidektClient() as client:
                 cards, metadata = fetch_cards(config.url, client)
-                result = synchronize(config, cards, metadata, dry_run=args.dry_run)
-            state = "changed" if result["changed"] else "unchanged"
-            print(f"  {state}: {result['version']} ({sum(card.quantity for card in cards)} cards)")
+                fetched.append(FetchedDeck(config, tuple(cards), tuple(client.last_maybe_cards), metadata))
+        sync_all(CollectionPaths(decks=args.root), fetched, preview=args.dry_run)
         return 0
-    except (ArchidektError, FileNotFoundError, OSError, ValueError, tomllib.TOMLDecodeError) as exc:
+    except (ArchidektError, CollectionError, EOFError, FileNotFoundError, OSError, ValueError, tomllib.TOMLDecodeError) as exc:
         print(f"error: {exc}")
         return 1

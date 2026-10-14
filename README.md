@@ -75,17 +75,23 @@ decks/
         └── sync-log.md
 ```
 
-Synchronize one deck:
-
-```bash
-challenge32 sync --deck decks/naya/omnislash
-```
-
-Synchronize all configured decks:
+Synchronize all configured decks and reconcile the collection (all sources are
+fetched and reviewed before any source file is updated):
 
 ```bash
 challenge32 sync --all
 ```
+
+The sync compares deck and Maybe-board cards across every deck before deciding
+what moved. Exact inter-deck transfers need no new holding. For a changed
+printing or foil status of the same card, it asks whether this is a correction
+or a physical replacement. Incoming copies are drawn from an unallocated
+holding or a recorded location; if several sources are possible, you choose.
+If no owned copy is available, it asks whether this is a new card. Unmatched
+outgoing cards move to Staging. Nothing is written until the final confirmation;
+deck snapshots, collection CSVs, and the derived SQLite database are committed
+together, with rollback if that commit fails. An interrupted transaction blocks
+further collection changes until its backups are inspected.
 
 Generated decklists are grouped by card type, with separate Commander,
 Companion, and Sideboard sections where applicable. A foil card ends in `*F*`,
@@ -118,10 +124,10 @@ Preview the inferred destination without writing files:
 challenge32 add https://archidekt.com/decks/<deck-id>/<deck-name> --dry-run
 ```
 
-Preview a synchronization without writing files:
+Preview all changes without writing files or answering reconciliation prompts:
 
 ```bash
-challenge32 sync --deck decks/naya/omnislash --dry-run
+challenge32 sync --all --dry-run
 ```
 
 A new immutable version is created only when the normalized card list changes.
