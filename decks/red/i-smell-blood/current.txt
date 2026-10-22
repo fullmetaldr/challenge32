@@ -3,10 +3,10 @@
 # Deck: I Smell Blood
 # Source: archidekt
 # URL: https://archidekt.com/decks/24922183/i_smell_blood
-# Retrieved: 2026-10-06T12:18:22.496219+00:00
-# Version: 20261006T121822Z--cc0f261
-# Deck hash: sha256:cc0f261bb5f97f0675952dad6d12cc3a848495f2596f49257b9093ec5dc35b9f
-# Cards: 100
+# Retrieved: 2026-10-14T23:04:35.120424+00:00
+# Version: 20261014T230435Z--4c9d662
+# Deck hash: sha256:4c9d6625747f613c98b67e1f9ffced0b853f82f81349cb948e1e015f476b050e
+# Cards: 119
 # Generated file; put analysis in notes/.
 // Commander
 1 Jaws, Relentless Predator (sld) 2175
@@ -14,9 +14,14 @@
 // Creature
 1 Academy Manufactor (mh2) 219
 1 Ancient Copper Dragon (fca) 12
+1 Atog (5ed) 209
+1 Captain Lannery Storm (fca) 38 *F*
 1 Crime Novelist (mkm) 121
 1 Duchess, Wayward Tavernkeep (pip) 57
 1 Fathom Fleet Swordjack (cmr) 177
+1 Generous Plunderer (big) 11
+1 Gimli of the Glittering Caves (ltc) 32
+1 Glóin, Dwarf Emissary (ltr) 132
 1 Goldlust Triad (tdc) 34
 1 Goldspan Dragon (m3c) 212
 1 Ingenious Artillerist (clb) 182
@@ -28,6 +33,8 @@
 1 Prosperous Bandit (blc) 25
 1 Reckless Fireweaver (drc) 106
 1 Rose, Cutthroat Raider (pip) 66
+1 Solemn Simulacrum (fic) 360
+1 Soul of New Phyrexia (moc) 382
 1 Tempestra, Dame of Games (tmc) 27
 1 Torbran, Thane of Red Fell (plst) ELD-147
 1 Twinflame Tyrant (pfdn) 97p
@@ -40,6 +47,9 @@
 1 Arcane Signet (msc) 191
 1 Coldsteel Heart (j22) 94
 1 Collector's Vault (woe) 244
+1 Currency Converter (soc) 345
+1 Dragonspark Reactor (neo) 137 *F*
+1 Endless Atlas (2xm) 251
 1 Inspiring Statuary (fic) 347 *F*
 1 Krark-Clan Ironworks (slc) 11 *F*
 1 Liquimetal Torque (brc) 145
@@ -49,21 +59,27 @@
 1 Ruby Medallion (mh3) 295
 1 Scrapheap (ulg) 132
 1 Sol Ring (m3c) 305
+1 Tempting Contract (c21) 78
 1 The One Ring (ltr) 246
 1 The Reaver Cleaver (sld) 2095 *F*
 1 The Regalia (fin) 267
+1 Thran Dynamo (msc) 290
+1 Transmutation Font (big) 28
 
 // Enchantment
 1 Advanced Reconstruction (soc) 30
+1 Aggravated Assault (wot) 76
 1 Alchemist's Talent (blc) 22
 1 Artist's Talent (blb) 124
 1 Cool but Rude (tmt) 89
 1 Descent into Avernus (sld) 2176
 1 Mechanized Warfare (bro) 139
+1 Spiteful Banditry (ltr) 149
 1 The Rollercrusher Ride (dsk) 155
 1 Underworld Breach (mb2) 200
 
 // Instant
+1 Abrade (sld) 2179
 1 Big Score (fic) 290
 1 Chaos Warp (msc) 164
 1 Pyretic Ritual (m11) 153
@@ -77,13 +93,16 @@
 
 // Sorcery
 1 Blasphemous Act (soc) 238
+1 Brotherhood's End (soa) 39
 1 Hell to Pay (otj) 126
 1 Hex Magic (msh) 133
 1 Indomitable Creativity (aer) 85
 1 Meltdown (mh3) 282
 1 Reckless Endeavor (sld) 2177
 1 Romantic Rendezvous (spm) 86 *F*
+1 Shatterstorm (5ed) 266
 1 Vandalblast (fic) 298 *F*
+1 Winds of Change (mar) 30
 
 // Land
 1 Adventurer's Inn (fin) 271

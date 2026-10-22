@@ -1,0 +1,119 @@
+# Challenge32 synchronized decklist
+# Format: 2
+# Deck: It's Morphing time!
+# Source: archidekt
+# URL: https://archidekt.com/decks/27008458/its_morphing_time
+# Retrieved: 2026-10-22T07:48:37.737144+00:00
+# Version: 20261022T074837Z--82cef7d
+# Deck hash: sha256:82cef7de5c46689c7c430dd3bdea94f6317526eb92d5f0be1a4c11355542674c
+# Cards: 100
+# Generated file; put analysis in notes/.
+// Commander
+1 Jace, Multiverse Architect (frc) 1 *F*
+
+// Creature
+1 Archfiend of Despair (frc) 46
+1 Ardyn, the Usurper (fin) 315
+1 Avacyn, Angel of Hope (inr) 482
+1 Avacyn, Angel of Horror (frc) 7
+1 Blightsteel Colossus (sld) 2223
+1 Curious Colossus (ecl) 12 *F*
+1 Elesh Norn, Grand Cenobite (mul) 3 *F*
+1 Jin-Gitaxias, Core Augur (mul) 11
+1 Memnarch, the Warden (frc) 15
+1 Nissa, Leyline Tamer (frc) 2
+1 Overlord of the Mistmoors (frc) 29
+1 Summon: Knights of Round (fin) 36
+1 Toxrill, the Corrosive (vow) 132
+
+// Artifact
+1 Arcane Signet (frc) 20
+1 Azorius Signet (frc) 53
+1 Chromatic Lantern (frc) 54
+1 Cursed Mirror (frc) 49
+1 Dimir Signet (frc) 56
+1 Fellwar Stone (frc) 57
+1 Izzet Signet (frc) 58
+1 Proteus Staff (frc) 59
+1 Rakdos Signet (frc) 60
+1 Sol Ring (frc) 21
+1 Talisman of Creativity (frc) 61
+1 Talisman of Dominance (frc) 62
+1 Talisman of Indulgence (frc) 63
+1 Talisman of Progress (frc) 64
+
+// Enchantment
+1 Bitterblossom (spg) 133
+1 Dreadhorde Invasion (frc) 48
+1 Identity Echo (fra) 87
+1 Oath of Jace (cmm) 854
+1 Plan for All Outcomes (fra) 35
+1 Shark Typhoon (frc) 44
+1 Skrelv's Hive (frc) 33
+1 Way of the Pyromancer (fra) 254
+1 Whirlwind of Thought (frc) 51
+1 Windcrag Siege (frc) 52
+
+// Planeswalker
+1 Ajani Unrelenting (fra) 308 *F*
+1 Aminatou, the Fateshifter (2x2) 169
+1 Elspeth, Storm Slayer (tdm) 401 *F*
+1 Elspeth, Sun's Champion (frc) 24
+1 Jace, Reality Sculptor (fra) 300 *F*
+1 The Theorist, Jace Beleren (fra) 43 *F*
+
+// Instant
+1 An Offer You Can't Refuse (fdn) 160 *F*
+1 Brainstorm (frc) 39
+1 Brainsurge (frc) 40
+1 Counterspell (tmp) 57
+1 Despark (frc) 50
+1 Grand Crescendo (frc) 26
+1 Jace's Machinations (fra) 337 *F*
+1 Mana Drain (otp) 11
+1 Path to Exile (frc) 30
+1 Secure the Wastes (frc) 31
+1 Stroke of Midnight (frc) 35
+1 Swords to Plowshares (frc) 37
+1 Synthetic Destiny (frc) 45
+
+// Sorcery
+1 Martial Coup (frc) 28
+1 Mass Polymorph (frc) 42
+1 Sunfall (frc) 36
+1 White Sun's Twilight (frc) 38
+
+// Land
+1 Battlefield Forge (frc) 65
+1 Caves of Koilos (frc) 66
+1 Clifftop Retreat (frc) 67
+1 Command Tower (frc) 22
+1 Drowned Catacomb (frc) 69
+1 Exotic Orchard (frc) 70
+1 Fabled Passage (frc) 71
+1 Fetid Heath (frc) 72
+1 Glacial Fortress (frc) 73
+1 Hallowed Fountain (clu) 277 *F*
+3 Island (fra) 283
+1 Isolated Chapel (frc) 74
+1 Kher Keep (frc) 75
+2 Mountain (fra) 288
+1 Mystic Gate (frc) 76
+3 Plains (fra) 281
+1 Prairie Stream (frc) 79
+1 Radiant Summit (frc) 80
+1 Raffine's Tower (snc) 254
+1 Raugrin Triome (iko) 251
+1 Reflecting Pool (frc) 23
+1 Shivan Reef (frc) 83
+1 Steam Vents (rvr) 298
+1 Sulfur Falls (frc) 84
+1 Sulfurous Springs (frc) 85
+2 Swamp (fra) 286
+1 Turbulent Crater (frc) 16
+1 Turbulent Shore (frc) 17
+1 Turbulent Springs (soc) 105
+1 Turbulent Wetlands (frc) 18
+1 Underground River (frc) 87
+1 Watery Grave (gtc) 249
+1 Xander's Lounge (snc) 260

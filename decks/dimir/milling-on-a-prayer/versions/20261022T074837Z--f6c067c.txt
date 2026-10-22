@@ -1,0 +1,114 @@
+# Challenge32 synchronized decklist
+# Format: 2
+# Deck: Milling on a Prayer
+# Source: archidekt
+# URL: https://archidekt.com/decks/26427794/milling_on_a_prayer
+# Retrieved: 2026-10-22T07:48:37.724100+00:00
+# Version: 20261022T074837Z--f6c067c
+# Deck hash: sha256:f6c067c8e1f626ca969dae7f8002410a552a3659578c8f90a3deb63212ba0018
+# Cards: 104
+# Generated file; put analysis in notes/.
+// Commander
+1 Haunted One (sld) 2200 *F*
+1 Zellix, Sanity Flayer (clb) 652 *F*
+
+// Creature
+1 Ayara, First of Locthwain (mul) 13
+1 Bruvac the Grandiloquent (sld) 2181 *F*
+1 Captain N'ghathrod (sld) 2183 *F*
+1 Consuming Aberration (tdc) 283
+1 Dreamborn Muse (cm2) 41
+1 Gollum the Abandoned (hob) 72
+1 Gollum, Scheming Guide (ltr) 292
+1 Grazilaxx, Illithid Scholar (afr) 60 *F*
+1 Grim Hireling (clb) 755
+1 Guiltfeeder (clb) 756
+1 Nemesis of Reason (clb) 850
+1 Phyrexian Obliterator (one) 105
+1 Roaming Throne (lci) 344
+1 Ruin Crab (znr) 75
+1 Sewer Nemesis (cmd) 98
+1 Shadow Kin (mic) 16
+1 Silent Hallcreeper (pdsk) 72p
+1 Sludge Monster (mid) 340 *F*
+1 Syr Konrad, the Grim (fca) 10 *F*
+1 The Master of Lake-town (hob) 77
+1 The Mindskinner (dsk) 66
+1 Thing in the Ice // Awoken Horror (inr) 460
+1 Undead Alchemist (mic) 105
+
+// Artifact
+1 Altar of the Brood (slc) 1
+1 Arcane Signet (fic) 335 *F*
+1 Fellwar Stone (soc) 347
+1 Illusionist's Bracers (rvr) 260
+1 Insight Engine (eoc) 6
+1 Mesmeric Orb (2xm) 272
+1 Mind Stone (dmr) 232
+1 Mindcrank (sld) 2186 *F*
+1 Phyrexian Altar (2x2) 311
+1 Riverchurn Monument (dft) 381 *F*
+1 Sapphire Medallion (mh3) 349
+1 Sol Ring (fic) 359 *F*
+1 Talisman of Dominance (scd) 280
+1 The Eternity Elevator (peoe) 241p
+1 Throne of Eldraine (woc) 28
+1 Urza's Incubator (dmr) 453 *F*
+1 Wizard's Staff (hob) 59
+
+// Enchantment
+1 Court of Cunning (cmr) 63
+1 Cover of Darkness (acr) 89
+1 Fraying Sanity (wot) 19
+1 Intruder Alarm (tle) 15
+1 Memory Erosion (cm2) 45
+1 Ninja Teen (tmt) 67
+1 Psychic Corrosion (m19) 68
+1 Reconnaissance Mission (msc) 153
+1 Unstoppable Plan (pdft) 72p
+
+// Instant
+1 An Offer You Can't Refuse (fdn) 160
+1 Arcane Denial (msc) 147
+1 Brain Freeze (slc) 2
+1 Counterspell (fca) 4
+1 Cyclonic Rift (rvr) 313
+1 Deadly Rollick (tle) 309
+1 Drown in Dreams (m3c) 181
+1 Fierce Guardianship (cmm) 94
+1 Flusterstorm (plst) CMD-46
+1 Harmonized Crescendo (ecl) 408 *F*
+1 Lazotep Plating (war) 59
+1 Mana Drain (otp) 11
+1 March of Swirling Mist (pneo) 61s *F*
+1 Visions of Beyond (tle) 21
+
+// Sorcery
+1 Decorum Dissertation (sos) 78
+1 Maddening Cacophony (znr) 67
+
+// Land
+1 Agna Qel'a (tla) 264
+1 Cavern of Souls (lci) 269
+1 City of Brass (tmc) 62
+1 Clearwater Pathway // Murkwater Pathway (znr) 260
+1 Command Tower (msc) 233
+1 Darkslick Shores (otc) 281
+1 Darkwater Catacombs (tdc) 355
+1 Drowned Catacomb (m10) 224
+1 Exotic Orchard (fic) 390
+1 Gloomlake Verge (dsk) 260
+9 Island (eoe) 263 *F*
+1 Jidoor, Aristocratic Capital // Overture (fin) 284
+1 Minamo, School at Water's Edge (plst) CHK-279 *F*
+1 Morphic Pool (clb) 357
+1 Path of Ancestry (fic) 411
+1 Polluted Delta (mh3) 356
+1 Scavenger Grounds (fic) 419
+1 Shizo, Death's Storehouse (dmc) 233
+1 Sunken Hollow (tmc) 76
+6 Swamp (fic) 480 *F*
+1 The Grey Havens (ltr) 443
+1 Three Tree City (blb) 339
+1 Underground River (dsc) 321
+1 Watery Grave (eoe) 261

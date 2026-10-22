@@ -15,3 +15,8 @@
 - Source: https://archidekt.com/decks/27008458/its_morphing_time
 - Hash: `sha256:8408236e16fb7e4e2f682047d9971de283f94fd35d6c4413776261f1f00e9e70`
 - Cards: 100
+## 20261022T074837Z--82cef7d
+
+- Source: https://archidekt.com/decks/27008458/its_morphing_time
+- Hash: `sha256:82cef7de5c46689c7c430dd3bdea94f6317526eb92d5f0be1a4c11355542674c`
+- Cards: 100

@@ -1,21 +1,21 @@
 {
-  "card_count": 100,
+  "card_count": 119,
   "color_identity": "red",
-  "current_hash": "sha256:cc0f261bb5f97f0675952dad6d12cc3a848495f2596f49257b9093ec5dc35b9f",
-  "current_version": "20261006T121822Z--cc0f261",
+  "current_hash": "sha256:4c9d6625747f613c98b67e1f9ffced0b853f82f81349cb948e1e015f476b050e",
+  "current_version": "20261014T230435Z--4c9d662",
   "deck": "i-smell-blood",
   "display_name": "I Smell Blood",
-  "retrieved_at": "2026-10-06T12:18:22.496219+00:00",
+  "retrieved_at": "2026-10-14T23:04:35.120424+00:00",
   "source": "archidekt",
   "source_metadata": {
-    "card_count": 100,
+    "card_count": 119,
     "color_identity": "red",
     "deck_id": 24922183,
     "name": "I Smell Blood",
     "owner": "DrDaddy83",
     "private": false,
     "unlisted": false,
-    "updated_at": "2026-09-24T22:52:54.553388Z"
+    "updated_at": "2026-10-14T23:02:02.542891Z"
   },
   "url": "https://archidekt.com/decks/24922183/i_smell_blood"
 }

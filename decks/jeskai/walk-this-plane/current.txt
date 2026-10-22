@@ -3,10 +3,10 @@
 # Deck: Walk this plane!
 # Source: archidekt
 # URL: https://archidekt.com/decks/24884017/walk_this_plane
-# Retrieved: 2026-10-14T13:17:13.461203+00:00
-# Version: 20261014T131713Z--0715082
-# Deck hash: sha256:0715082460a560b546d105515c54ed458551dda8132ebcea1a39b2af71a2360b
-# Cards: 101
+# Retrieved: 2026-10-22T07:48:37.731555+00:00
+# Version: 20261022T074837Z--0fd2d88
+# Deck hash: sha256:0fd2d88af63166980411cf621776930c4564d0f6430e5dcc9904981e64b3cf6c
+# Cards: 98
 # Generated file; put analysis in notes/.
 // Commander
 1 Commodore Guff (cmm) 706 *F*
@@ -45,7 +45,6 @@
 // Enchantment
 1 All Will Be One (pza) 8
 1 Elspeth's Talent (moc) 80
-1 Oath of Jace (cmm) 854
 1 Oath of Teferi (cmm) 934
 1 Rowan's Talent (moc) 85
 1 Teferi's Talent (moc) 74
@@ -53,7 +52,6 @@
 1 Whirlwind of Thought (msc) 190
 
 // Planeswalker
-1 Ajani Unrelenting (fra) 308 *F*
 1 Archangel Elspeth (mom) 320
 1 Chandra, Awakened Inferno (cmm) 875
 1 Chandra, Bold Pyromancer (dom) 275 *F*
@@ -63,7 +61,6 @@
 1 Elspeth Resplendent (snc) 282 *F*
 1 Elspeth Tirel (onc) 64
 1 Elspeth, Knight-Errant (sld) 1001 *F*
-1 Elspeth, Storm Slayer (tdm) 401 *F*
 1 Elspeth, Sun's Champion (cmm) 820
 1 Jace Beleren (cmm) 850
 1 Jace, Unraveler of Secrets (inr) 70 *F*
