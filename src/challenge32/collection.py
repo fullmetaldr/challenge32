@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+import math
 import os
 import re
 import sqlite3
@@ -16,7 +17,7 @@ from .config import discover_decks
 FOIL_VALUES = {"yes", "no", "unknown"}
 RARITY_VALUES = {"common", "uncommon", "rare", "mythic", "special", "bonus", "basic"}
 COLOURS = "WUBRG"
-HOLDING_COLUMNS = ("card", "printing", "foil", "quantity", "category", "rarity", "colour_identity", "type_line", "notes")
+HOLDING_COLUMNS = ("card", "printing", "foil", "quantity", "category", "rarity", "colour_identity", "type_line", "mana_cost", "mana_value", "notes")
 LOCATION_FILES = (
     ("reserve.csv", "reserve"),
     ("unknown.csv", "unknown"),
@@ -59,6 +60,8 @@ class CollectionRow:
     rarity: str = ""
     colour_identity: str = ""
     type_line: str = ""
+    mana_cost: str = ""
+    mana_value: float | None = None
     notes: str = ""
     source_path: Path | None = None
     source_line: int | None = None
@@ -125,7 +128,8 @@ def _read_rows(path: Path, *, include_category: bool = False) -> list[Collection
         return []
     required = {"card", "printing", "foil", "quantity"}
     if include_category:
-        required.update(HOLDING_COLUMNS)
+        # Existing collection files remain readable until their mana fields are backfilled.
+        required.update((*HOLDING_COLUMNS[:8], "notes"))
     try:
         with path.open(newline="", encoding="utf-8") as handle:
             reader = csv.DictReader(handle)
@@ -146,6 +150,16 @@ def _read_rows(path: Path, *, include_category: bool = False) -> list[Collection
                 rarity = (row.get("rarity") or "").strip().lower() if include_category else ""
                 identity = (row.get("colour_identity") or "").strip().upper() if include_category else ""
                 type_line = (row.get("type_line") or "").strip() if include_category else ""
+                mana_cost = (row.get("mana_cost") or "") if include_category else ""
+                mana_value_text = (row.get("mana_value") or "").strip() if include_category else ""
+                mana_value = None
+                if mana_value_text:
+                    try:
+                        mana_value = float(mana_value_text)
+                    except ValueError as exc:
+                        raise CollectionError(f"{path}:{row_number}: invalid mana value {mana_value_text!r}") from exc
+                    if not math.isfinite(mana_value) or mana_value < 0:
+                        raise CollectionError(f"{path}:{row_number}: invalid mana value {mana_value_text!r}")
                 if rarity and rarity not in RARITY_VALUES:
                     raise CollectionError(f"{path}:{row_number}: invalid rarity {rarity!r}")
                 if identity and identity != "C" and identity != "".join(c for c in COLOURS if c in identity):
@@ -158,6 +172,8 @@ def _read_rows(path: Path, *, include_category: bool = False) -> list[Collection
                         rarity=rarity,
                         colour_identity=identity,
                         type_line=type_line,
+                        mana_cost=mana_cost,
+                        mana_value=mana_value,
                         notes=(row.get("notes") or "").strip(),
                         source_path=path,
                         source_line=row_number,
@@ -242,7 +258,7 @@ def _write_holdings(path: Path, rows: Iterable[CollectionRow]) -> None:
         writer = csv.writer(handle)
         writer.writerow(HOLDING_COLUMNS)
         for row in sorted(rows, key=lambda item: item.card.normalized):
-            writer.writerow((row.card.name, row.card.printing, row.card.foil, row.quantity, row.category, row.rarity, row.colour_identity, row.type_line, row.notes))
+            writer.writerow((row.card.name, row.card.printing, row.card.foil, row.quantity, row.category, row.rarity, row.colour_identity, row.type_line, row.mana_cost, "" if row.mana_value is None else f"{row.mana_value:g}", row.notes))
 
 
 def location_sources(paths: CollectionPaths) -> list[LocationSource]:
@@ -286,13 +302,16 @@ not evidence that it is unowned.
 card version; printing is stored as `set-code:collector-number` when available.
 `foil` is `yes`, `no`, or `unknown`. `category` is descriptive metadata such as
 `regular` or `proxy` and does not change quantity accounting. Rarity, colour
-identity, and the complete card type line are card metadata, not locations.
+identity, the complete card type line, mana cost, and mana value are card metadata,
+not locations. `mana_cost` retains Scryfall's symbols, including coloured pips
+and generic costs; `mana_value` is numeric. An empty `mana_cost` with a zero
+`mana_value` is valid for a land.
 Colour identity uses WUBRG letters or `C` for colourless; an empty cell means
 unknown. Missing metadata must never be guessed.
 
 ```csv
-card,printing,foil,quantity,category,rarity,colour_identity,type_line,notes
-Sol Ring,cmm:396,no,1,regular,uncommon,C,Artifact,
+card,printing,foil,quantity,category,rarity,colour_identity,type_line,mana_cost,mana_value,notes
+Sol Ring,cmm:396,no,1,regular,uncommon,C,Artifact,{1},1,
 ```
 
 ## locations/
@@ -403,6 +422,8 @@ def _database_schema(connection: sqlite3.Connection) -> None:
             rarity TEXT CHECK (rarity IN ('common', 'uncommon', 'rare', 'mythic', 'special', 'bonus', 'basic')),
             colour_identity TEXT,
             type_line TEXT,
+            mana_cost TEXT,
+            mana_value REAL CHECK (mana_value IS NULL OR mana_value >= 0),
             UNIQUE (name COLLATE NOCASE, printing, foil)
         );
         CREATE TABLE set_names (
@@ -495,8 +516,9 @@ def build_database(
             for row in holdings:
                 card_id = _card_id(connection, row.card)
                 connection.execute(
-                    "UPDATE cards SET rarity = ?, colour_identity = ?, type_line = ? WHERE id = ?",
-                    (row.rarity or None, row.colour_identity or None, row.type_line or None, card_id),
+                    "UPDATE cards SET rarity = ?, colour_identity = ?, type_line = ?, mana_cost = ?, mana_value = ? WHERE id = ?",
+                    (row.rarity or None, row.colour_identity or None, row.type_line or None,
+                     row.mana_cost if row.mana_value is not None else None, row.mana_value, card_id),
                 )
                 connection.execute(
                     "INSERT INTO holdings VALUES (?, ?, ?, ?, ?, ?)",

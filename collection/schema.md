@@ -10,12 +10,15 @@ not evidence that it is unowned.
 card version; printing is stored as `set-code:collector-number` when available.
 `foil` is `yes`, `no`, or `unknown`. `category` is descriptive metadata such as
 `regular` or `proxy` and does not change quantity accounting. `rarity`,
-`colour_identity`, and `type_line` describe the exact printing. Colour identity
+`colour_identity`, `type_line`, `mana_cost`, and `mana_value` describe the exact printing.
+`mana_cost` uses Scryfall symbols such as `{2}{W}`, retaining the generic cost and
+coloured pips; multi-faced costs use ` // ` between faces. `mana_value` is
+numeric. An empty mana cost with mana value `0` is valid for a land. Colour identity
 uses WUBRG letters or `C` for colourless; an empty cell means unknown.
 
 ```csv
-card,printing,foil,quantity,category,rarity,colour_identity,type_line,notes
-Sol Ring,cmm:396,no,1,regular,uncommon,C,Artifact,
+card,printing,foil,quantity,category,rarity,colour_identity,type_line,mana_cost,mana_value,notes
+Sol Ring,cmm:396,no,1,regular,uncommon,C,Artifact,{1},1,
 ```
 
 ## locations/

@@ -279,7 +279,8 @@ def _holding_bytes(rows: dict[tuple[str, str, str], CollectionRow]) -> bytes:
         HOLDING_COLUMNS,
         [
             (row.card.name, row.card.printing, row.card.foil, row.quantity, row.category,
-             row.rarity, row.colour_identity, row.type_line, row.notes)
+             row.rarity, row.colour_identity, row.type_line, row.mana_cost,
+             "" if row.mana_value is None else f"{row.mana_value:g}", row.notes)
             for _key, row in sorted(rows.items())
         ],
     )
@@ -424,9 +425,10 @@ def _import_metadata(
 ) -> dict[tuple[str, str], CardMetadata]:
     known: dict[tuple[str, str], CardMetadata] = {}
     for row in holdings.values():
-        if row.rarity and row.colour_identity and row.type_line:
+        if row.rarity and row.colour_identity and row.type_line and row.mana_value is not None:
             key = (row.card.normalized[0], row.card.normalized[1])
-            value = CardMetadata(row.rarity, row.colour_identity, row.type_line)
+            value = CardMetadata(row.rarity, row.colour_identity, row.type_line,
+                                 row.mana_cost, row.mana_value)
             if key in known and known[key] != value:
                 raise CollectionError(f"Conflicting metadata for {row.card.name} ({row.card.printing})")
             known[key] = value
@@ -495,10 +497,12 @@ def ingest_batch(
             holdings[key] = (
                 replace(previous, quantity=previous.quantity + item.quantity,
                         rarity=details.rarity, colour_identity=details.colour_identity,
-                        type_line=details.type_line)
+                        type_line=details.type_line, mana_cost=details.mana_cost,
+                        mana_value=details.mana_value)
                 if previous else CollectionRow(
                     item.card, item.quantity, category="regular", rarity=details.rarity,
                     colour_identity=details.colour_identity, type_line=details.type_line,
+                    mana_cost=details.mana_cost, mana_value=details.mana_value,
                 )
             )
         staging_path = paths.locations / "staging" / "imported" / f"{current.batch}.csv"

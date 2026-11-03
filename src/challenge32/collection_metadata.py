@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from math import isfinite
 from pathlib import Path
 
 import httpx
@@ -16,6 +17,8 @@ class CardMetadata:
     rarity: str
     colour_identity: str
     type_line: str
+    mana_cost: str
+    mana_value: float
 
 
 def _matches_card_name(local_name: str, source_name: str) -> bool:
@@ -46,7 +49,24 @@ def metadata_from_details(card: CardKey, details: dict) -> CardMetadata:
         ):
             raise CardCatalogError(f"{card.printing}: missing card type line")
         type_line = " // ".join(face["type_line"].strip() for face in faces)
-    return CardMetadata(rarity, identity, type_line.strip())
+    faces = details.get("card_faces")
+    mana_cost = details.get("mana_cost")
+    if mana_cost is None and isinstance(faces, list) and faces:
+        costs = [face.get("mana_cost") for face in faces if isinstance(face, dict)]
+        if len(costs) == len(faces) and all(isinstance(cost, str) for cost in costs):
+            mana_cost = " // ".join(costs)
+    if not isinstance(mana_cost, str):
+        raise CardCatalogError(f"{card.printing}: missing or invalid mana cost")
+
+    mana_value = details.get("cmc")
+    if mana_value is None and isinstance(faces, list) and faces:
+        values = [face.get("cmc") for face in faces if isinstance(face, dict)]
+        if len(values) == len(faces) and values and all(value == values[0] for value in values):
+            mana_value = values[0]
+    if (isinstance(mana_value, bool) or not isinstance(mana_value, (int, float))
+            or not isfinite(mana_value) or mana_value < 0):
+        raise CardCatalogError(f"{card.printing}: missing or invalid mana value")
+    return CardMetadata(rarity, identity, type_line.strip(), mana_cost, float(mana_value))
 
 
 def lookup_metadata(card: CardKey, cache_root: Path, *, client: httpx.Client | None = None) -> CardMetadata:

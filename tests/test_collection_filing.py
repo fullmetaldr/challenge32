@@ -96,12 +96,13 @@ class CollectionFilingTests(unittest.TestCase):
         card = CardKey("Dual Land", "tst:4", "no")
         metadata = metadata_from_details(card, {
             "name": "Dual Land", "rarity": "rare", "color_identity": ["U", "W"],
-            "type_line": "Land — Plains Island",
+            "type_line": "Land — Plains Island", "mana_cost": "", "cmc": 0.0,
         })
         self.assertEqual(metadata.colour_identity, "WU")
         self.assertEqual(metadata.type_line, "Land — Plains Island")
         colourless = metadata_from_details(CardKey("Sol Ring", "cmm:396"), {
             "name": "Sol Ring", "rarity": "uncommon", "color_identity": [], "type_line": "Artifact",
+            "mana_cost": "{1}", "cmc": 1.0,
         })
         self.assertEqual(colourless.colour_identity, "C")
 

@@ -17,17 +17,28 @@ class CollectionMetadataTests(unittest.TestCase):
         self.assertFalse(_matches_card_name("Blood Crypt", "Blood Crypt // Other Card"))
         details = {
             "name": "Blood Crypt // Blood Crypt", "rarity": "rare", "color_identity": ["R", "B"],
-            "card_faces": [{"type_line": "Land — Swamp Mountain"}, {"type_line": "Land — Swamp Mountain"}],
+            "card_faces": [
+                {"type_line": "Land — Swamp Mountain", "mana_cost": "", "cmc": 0.0},
+                {"type_line": "Land — Swamp Mountain", "mana_cost": "", "cmc": 0.0},
+            ],
         }
         metadata = metadata_from_details(CardKey("Blood Crypt", "ecl:349"), details)
         self.assertEqual(metadata.type_line, "Land — Swamp Mountain // Land — Swamp Mountain")
         self.assertEqual(metadata.colour_identity, "BR")
+        self.assertEqual((metadata.mana_cost, metadata.mana_value), (" // ", 0.0))
 
     def test_mismatched_name_is_not_accepted(self) -> None:
         with self.assertRaises(CardCatalogError):
             metadata_from_details(CardKey("Sol Ring", "cmm:396"), {
                 "name": "Another Card", "rarity": "rare", "color_identity": [], "type_line": "Artifact",
             })
+
+    def test_mana_cost_and_value_are_kept_separate(self) -> None:
+        metadata = metadata_from_details(CardKey("Test Card", "tst:1"), {
+            "name": "Test Card", "rarity": "rare", "color_identity": ["W"],
+            "type_line": "Creature", "mana_cost": "{2}{W}{W}", "cmc": 4.0,
+        })
+        self.assertEqual((metadata.mana_cost, metadata.mana_value), ("{2}{W}{W}", 4.0))
 
     def test_holdings_metadata_is_derived_into_database(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
@@ -42,14 +53,14 @@ class CollectionMetadataTests(unittest.TestCase):
             paths = CollectionPaths(root / "collection", root / "decks", root / "data" / "collection.sqlite")
             initialize_collection(paths)
             paths.holdings.write_text(
-                "card,printing,foil,quantity,category,rarity,colour_identity,type_line,notes\n"
-                "Sol Ring,cmm:396,unknown,1,,uncommon,C,Artifact,\n", encoding="utf-8",
+                "card,printing,foil,quantity,category,rarity,colour_identity,type_line,mana_cost,mana_value,notes\n"
+                "Sol Ring,cmm:396,unknown,1,,uncommon,C,Artifact,{1},1,\n", encoding="utf-8",
             )
             build_database(paths)
             with sqlite3.connect(paths.database) as connection:
                 self.assertEqual(
-                    connection.execute("SELECT rarity, colour_identity, type_line FROM cards").fetchone(),
-                    ("uncommon", "C", "Artifact"),
+                    connection.execute("SELECT rarity, colour_identity, type_line, mana_cost, mana_value FROM cards").fetchone(),
+                    ("uncommon", "C", "Artifact", "{1}", 1.0),
                 )
             paths.holdings.write_text(
                 "card,printing,foil,quantity,category,rarity,colour_identity,type_line,notes\n"

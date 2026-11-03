@@ -80,7 +80,8 @@ def _location_bytes(rows: list[CollectionRow]) -> bytes:
 def _holdings_bytes(rows: dict[Key, CollectionRow]) -> bytes:
     return _csv_bytes(HOLDING_COLUMNS, [
         (row.card.name, row.card.printing, row.card.foil, row.quantity,
-         row.category, row.rarity, row.colour_identity, row.type_line, row.notes)
+         row.category, row.rarity, row.colour_identity, row.type_line, row.mana_cost,
+         "" if row.mana_value is None else f"{row.mana_value:g}", row.notes)
         for _key, row in sorted(rows.items())
     ])
 
@@ -138,6 +139,7 @@ def _add_holding(
     holdings[key] = CollectionRow(
         card, quantity, category=category, rarity=details.rarity,
         colour_identity=details.colour_identity, type_line=details.type_line,
+        mana_cost=details.mana_cost, mana_value=details.mana_value,
     )
 
 
@@ -330,10 +332,11 @@ def sync_all(
             if key not in holdings or holdings[key].quantity < quantity:
                 raise CollectionError(f"Outgoing copy is not in known holdings: {_describe(card)}")
             row = holdings[key]
-            if not row.rarity or not row.colour_identity or not row.type_line:
+            if not row.rarity or not row.colour_identity or not row.type_line or row.mana_value is None:
                 details = _metadata(card, paths, metadata_lookup)
                 holdings[key] = replace(row, rarity=details.rarity,
-                                        colour_identity=details.colour_identity, type_line=details.type_line)
+                                        colour_identity=details.colour_identity, type_line=details.type_line,
+                                        mana_cost=details.mana_cost, mana_value=details.mana_value)
                 holdings_changed = True
             staging_rows = physical_rows.setdefault(staging_path, _read_rows(staging_path))
             staging_rows.append(CollectionRow(card, quantity))

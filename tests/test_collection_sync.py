@@ -25,7 +25,7 @@ def card(name: str, printing: str, *, foil: str = "normal") -> Card:
 
 
 def metadata(_card, _root) -> CardMetadata:
-    return CardMetadata("rare", "W", "Instant")
+    return CardMetadata("rare", "W", "Instant", "{W}", 1.0)
 
 
 class CollectionSyncTests(unittest.TestCase):
@@ -88,6 +88,7 @@ class CollectionSyncTests(unittest.TestCase):
         self.apply(self.fetched({"first": [new]}), ["c", "y"])
         rows = _read_rows(self.paths.holdings, include_category=True)
         self.assertEqual([(row.card.printing, row.card.foil) for row in rows], [("2xm:25", "yes")])
+        self.assertEqual([(row.mana_cost, row.mana_value) for row in rows], [("{W}", 1.0)])
         self.assertFalse((self.paths.locations / "staging" / "deck-sync.csv").exists())
 
     def test_physical_replacement_stages_old_and_confirms_new_copy(self) -> None:

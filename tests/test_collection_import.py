@@ -43,10 +43,11 @@ def setup_collection(root: Path) -> tuple[CollectionPaths, Path]:
         cache.write_text(json.dumps({
             "name": name, "set": set_code, "collector_number": number,
             "rarity": rarity, "color_identity": identity, "type_line": type_line,
+            "mana_cost": "{1}", "cmc": 1.0,
         }), encoding="utf-8")
     paths.holdings.write_text(
-        "card,printing,foil,quantity,category,rarity,colour_identity,type_line,notes\n"
-        "Sol Ring,cmm:396,no,1,,uncommon,C,Artifact,\n", encoding="utf-8",
+        "card,printing,foil,quantity,category,rarity,colour_identity,type_line,mana_cost,mana_value,notes\n"
+        "Sol Ring,cmm:396,no,1,,uncommon,C,Artifact,{1},1,\n", encoding="utf-8",
     )
     build_database(paths)
     import_dir = root / "data" / "imports"
@@ -153,6 +154,7 @@ class CollectionImportTests(unittest.TestCase):
                 return httpx.Response(200, json={
                     "name": "New Land", "set": "tst", "collector_number": "99",
                     "rarity": "rare", "color_identity": ["U", "W"], "type_line": "Land — Plains Island",
+                    "mana_cost": "", "cmc": 0.0,
                 })
             with httpx.Client(transport=httpx.MockTransport(respond)) as client:
                 self.assertTrue(ingest_batch(paths, import_dir, confirm=lambda _: "yes", client=client))
@@ -160,6 +162,7 @@ class CollectionImportTests(unittest.TestCase):
             new = next(row for row in rows(paths.holdings) if row["card"] == "New Land")
             self.assertEqual((new["quantity"], new["rarity"], new["colour_identity"], new["type_line"]),
                              ("2", "rare", "WU", "Land — Plains Island"))
+            self.assertEqual((new["mana_cost"], new["mana_value"]), ("", "0"))
 
     def test_bad_scryfall_response_leaves_import_untouched(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
