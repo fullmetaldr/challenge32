@@ -202,6 +202,15 @@ ignored by Git. Once initialized, inspect the current model with:
 challenge32 collection --status
 ```
 
+Compare the total CMC (mana value) of every current deck, including commanders
+but excluding Maybe boards. Front-face lands count as zero. This reads the
+source-controlled deck lists and holdings directly, so it does not need a
+database rebuild:
+
+```bash
+challenge32 cmc
+```
+
 Build the local, read-only collection dashboard. It rebuilds the generated
 SQLite database from the source-controlled collection files before writing the
 dashboard:

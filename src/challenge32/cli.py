@@ -16,6 +16,7 @@ from .collection_sync import FetchedDeck, sync_all
 from .collection_server import serve_collection_dashboard
 from .config import discover_decks
 from .dashboard import build_dashboard
+from .deck_cmc import deck_cmc_totals
 from .models import DeckConfig
 from .progress import update_progress_table
 from .sync import synchronize
@@ -42,6 +43,10 @@ def build_parser() -> argparse.ArgumentParser:
     dashboard_parser = subparsers.add_parser("dashboard", help="Build the static dashboard")
     dashboard_parser.add_argument("--root", type=Path, default=Path("decks"), help="Deck root (default: decks)")
     dashboard_parser.add_argument("--output", type=Path, default=Path("site"), help="Output directory (default: site)")
+
+    cmc_parser = subparsers.add_parser("cmc", help="Print total CMC for each current deck")
+    cmc_parser.add_argument("--decks", type=Path, default=Path("decks"), help="Deck root (default: decks)")
+    cmc_parser.add_argument("--collection", type=Path, default=Path("collection"), help="Collection root (default: collection)")
 
     collection_parser = subparsers.add_parser(
         "collection", help="Manage the known physical card collection"
@@ -198,6 +203,18 @@ def main(argv: list[str] | None = None) -> int:
             print(f"Built dashboard for {count} tracked deck configuration(s) in {args.output}")
             return 0
         except (FileNotFoundError, OSError, ValueError) as exc:
+            print(f"error: {exc}")
+            return 1
+
+    if args.command == "cmc":
+        try:
+            totals = deck_cmc_totals(args.decks, args.collection / "holdings.csv")
+            width = max(len("Total CMC"), *(len(f"{total:g}") for _name, total in totals))
+            print(f"{'Total CMC':>{width}}  Deck")
+            for name, total in totals:
+                print(f"{total:>{width}g}  {name}")
+            return 0
+        except (CollectionError, FileNotFoundError, OSError, ValueError, tomllib.TOMLDecodeError) as exc:
             print(f"error: {exc}")
             return 1
 
