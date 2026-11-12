@@ -3,9 +3,9 @@
 # Deck: Praise the Sun
 # Source: archidekt
 # URL: https://archidekt.com/decks/24888846/praise_the_sun
-# Retrieved: 2026-10-06T12:18:14.643083+00:00
-# Version: 20261006T121814Z--9cd2c2e
-# Deck hash: sha256:9cd2c2ece4e8dbbba9a65c0d73138b0b7046295c236ef938fca37899e90015eb
+# Retrieved: 2026-11-12T14:12:29.485788+00:00
+# Version: 20261112T141229Z--2dda089
+# Deck hash: sha256:2dda089d3d25db989cb460b04a100c6498da4cb974da6fe90b85b2b2d6d9fce3
 # Cards: 100
 # Generated file; put analysis in notes/.
 // Commander
@@ -14,16 +14,12 @@
 // Creature
 1 Adept Watershaper (ecl) 3 *F*
 1 Agate Instigator (blc) 21
-1 Anim Pakal, Thousandth Moon (lci) 223
 1 Boromir, Warden of the Tower (ltr) 407
-1 Daxos, Blessed by the Sun (mul) 2
 1 Delney, Streetwise Lookout (pmkm) 12p *F*
 1 Elesh Norn, Mother of Machines (one) 10
 1 Enduring Innocence (dsk) 6
-1 Goldspan Dragon (soc) 245
-1 Guide of Souls (mh3) 29
+1 General Kreat, the Boltbringer (j25) 48
 1 Haliya, Guided by Light (eoe) 19 *F*
-1 Iroas, God of Victory (c16) 205
 1 Karlach, Fury of Avernus (clb) 507 *E*
 1 Kirol, Attentive First-Year (ecl) 231
 1 Lae'zel, Vlaakith's Champion (clb) 476 *E*
@@ -36,7 +32,6 @@
 1 Raph & Leo, Sibling Rivals (tmt) 166 *F*
 1 Rose Room Treasurer (blc) 201
 1 Rumor Gatherer (plst) SNC-29
-1 Soul Warden (hop) 7
 1 Voice of Victory (tdm) 331
 1 Weftstalker Ardent (eoe) 169
 1 Welcoming Vampire (lcc) 140
@@ -62,9 +57,11 @@
 1 Darksteel Mutation (cmm) 623
 1 Descent into Avernus (clb) 169
 1 Firebender Ascension (tla) 312
+1 Goblin Bombardment (mh2) 279
 1 Grasp of Fate (wot) 3
 1 Impact Tremors (wot) 44
 1 Monologue Tax (soc) 157
+1 Outpost Siege (fdc) 169
 1 Prosperous Partnership (ncc) 78
 1 Reconnaissance (acr) 82 *F*
 1 Tocasia's Welcome (pbro) 30p
@@ -74,12 +71,17 @@
 1 Chaos Warp (fic) 291 *F*
 1 Clever Concealment (fic) 236 *F*
 1 Flare of Fortitude (mh3) 26
+1 Galadriel's Dismissal (ltc) 500 *F*
 1 Grand Crescendo (tdc) 118
-1 Judgment of Alexander (fic) 455 *F*
 1 Path to Exile (sld) 2227 *F*
 1 Redirect Lightning (tla) 151
 1 Stroke of Midnight (tdc) 132
 1 Teferi's Protection (sta) 11 *F*
+1 Untimely Malfunction (dsk) 161
+
+// Sorcery
+1 Avatar's Wrath (tla) 12
+1 Hour of Reckoning (tdc) 120
 
 // Land
 1 Ancient Tomb (ltc) 357
@@ -90,7 +92,7 @@
 1 Command Tower (voc) 172
 1 Exotic Orchard (fic) 390
 1 Fire Nation Palace (tla) 268
-1 Inventors' Fair (eos) 21
+1 Inventors' Fair (plst) KLD-247
 1 Kor Haven (ltc) 368
 1 Mana Confluence (eos) 25
 1 Minas Tirith (ltr) 341

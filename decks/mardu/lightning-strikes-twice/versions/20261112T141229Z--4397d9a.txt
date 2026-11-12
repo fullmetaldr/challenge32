@@ -1,0 +1,118 @@
+# Challenge32 synchronized decklist
+# Format: 2
+# Deck: Lightning Strikes Twice
+# Source: archidekt
+# URL: https://archidekt.com/decks/24889970/lightning_strikes_twice
+# Retrieved: 2026-11-12T14:12:29.494583+00:00
+# Version: 20261112T141229Z--4397d9a
+# Deck hash: sha256:4397d9a5ad946f23423d6a597f401b7e147930cc6c01362d6b41ff391c6e6ccf
+# Cards: 100
+# Generated file; put analysis in notes/.
+// Commander
+1 Isshin, Two Heavens as One (fca) 54
+
+// Creature
+1 Anim Pakal, Thousandth Moon (lci) 223
+1 Arabella, Abandoned Doll (dsk) 208
+1 Aurelia, the Law Above (mkm) 317 *F*
+1 Battle Angels of Tyr (clb) 370
+1 Brutal Hordechief (c16) 108
+1 Caesar, Legion's Emperor (pip) 1 *F*
+1 Calculating Lich (clb) 742
+1 Captain Lannery Storm (fca) 38 *F*
+1 Carmen, Cruel Skymarcher (lcc) 26
+1 Caustic Bronco (otj) 82
+1 Commissar Severina Raine (40k) 112
+1 Duke Ulder Ravengard (clb) 272
+1 Goldlust Triad (tdc) 34
+1 Hammers of Moradin (clb) 25
+1 Hellrider (dka) 93
+1 Iroas, God of Victory (plst) C16-205
+1 Kellogg, Dangerous Mind (pip) 106
+1 Kinscaer Sentry (ecl) 300
+1 Krenko, Tin Street Kingpin (pwar) 137p
+1 Mardu Siegebreaker (tdm) 206
+1 Myrel, Shield of Argive (pbro) 18p *F*
+1 Ox Drover (woc) 6
+1 Paladin Elizabeth Taggerdy (pip) 114
+1 Raph & Leo, Sibling Rivals (tmt) 249
+1 Redemption Choir (lcc) 74
+1 Redoubled Stormsinger (soc) 251
+1 Solemn Simulacrum (soc) 355
+1 Squall, Gunblade Duelist (fic) 453 *F*
+1 Squall, SeeD Mercenary (fin) 402
+1 Sun Titan (tdc) 133
+1 Tectonic Giant (scd) 161
+1 The Master, Multiplied (who) 146
+1 Zurgo Stormrender (tdc) 10 *F*
+1 Zurgo, Thunder's Decree (tdm) 237
+
+// Artifact
+1 Andúril, Flame of the West (ltr) 236 *F*
+1 Arcane Signet (pip) 224
+1 Bitterthorn, Nissa's Animus (moc) 132
+1 Blade of Selves (sld) 1864 *F*
+1 Chrome Mox (2xm) 240
+1 Cosmic Cube (msh) 245
+1 Fellwar Stone (msc) 285
+1 Infantry Shield (tdc) 35
+1 Pip-Boy 3000 (pip) 140
+1 Sol Ring (pip) 239
+1 Sword of the Animist (ltc) 355 *F*
+1 Talisman of Conviction (pip) 243
+1 Talisman of Hierarchy (pip) 247
+1 Talisman of Indulgence (pip) 248
+1 The Regalia (fin) 267
+
+// Enchantment
+1 Chivalric Alliance (moc) 11
+1 Endless Foot Assault (tmc) 8
+
+// Instant
+1 Akroma's Will (lcc) 125
+1 Anguished Unmaking (pip) 209
+1 Clever Concealment (msc) 125
+1 Deflecting Swat (cmm) 214
+1 Flawless Maneuver (cmm) 692
+1 Gallifrey Falls // No More (who) 131
+1 Redirect Lightning (tla) 151 *F*
+1 Settle the Wreckage (xln) 34
+1 Swords to Plowshares (msc) 143
+1 Wear // Tear (pip) 222
+
+// Sorcery
+1 Avatar's Wrath (tla) 365 *F*
+
+// Land
+1 Arid Mesa (mh2) 244
+1 Blood Crypt (rtr) 238
+1 Bloodstained Mire (ktk) 230
+1 Clifftop Retreat (pip) 258
+1 Command Tower (pip) 259
+1 Diamond City (pip) 147
+1 Eclipsed Steppe (soc) 53
+1 Fabled Passage (soc) 130
+1 Flooded Strand (mh3) 220
+1 Godless Shrine (peoe) 254p
+1 Isolated Chapel (pip) 269
+1 Lotus Field (soc) 385
+1 Marsh Flats (mm3) 239
+2 Mountain (pip) 323
+2 Mountain (pip) 324
+2 Plains (pip) 317
+2 Plains (pip) 318
+1 Polluted Delta (mh3) 224
+1 Sacred Foundry (eoe) 256
+1 Savai Triome (iko) 312
+1 Shadowblood Ridge (pip) 288
+1 Shizo, Death's Storehouse (dmc) 233
+1 Smoldering Marsh (pip) 292
+2 Swamp (pip) 321
+1 Swamp (pip) 322
+1 Tainted Field (pip) 298
+1 Tainted Peak (pip) 300
+1 Turbulent Moor (soc) 56
+1 Turbulent Steppe (soc) 58
+1 Verdant Catacombs (mm3) 249
+1 Windswept Heath (mh3) 235
+1 Wooded Foothills (mh3) 236

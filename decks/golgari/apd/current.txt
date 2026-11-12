@@ -3,9 +3,9 @@
 # Deck: APD
 # Source: archidekt
 # URL: https://archidekt.com/decks/24922346/apd
-# Retrieved: 2026-10-06T12:18:16.867310+00:00
-# Version: 20261006T121816Z--f916463
-# Deck hash: sha256:f916463c57cab11d95de61f5fa4f7794ffdebde835e5291affe656ac81f4cf06
+# Retrieved: 2026-11-12T14:12:29.489776+00:00
+# Version: 20261112T141229Z--dc47340
+# Deck hash: sha256:dc4734035db50461fd49eac1cb2f4793780fbcb943ef725b2358f8c61d5c9f1a
 # Cards: 100
 # Generated file; put analysis in notes/.
 // Commander
@@ -15,37 +15,36 @@
 1 Academy Manufactor (blc) 264
 1 Blood Artist (jmp) 206
 1 Braids, Arisen Nightmare (pdmu) 84p
-1 Circle of Dreams Druid (afr) 176 *F*
-1 Deep Forest Hermit (blc) 213
+1 Camellia, the Seedmiser (blb) 328 *F*
+1 Dina, Essence Brewer (soc) 1
 1 Experimental Confectioner (woe) 314
 1 Gilded Goose (soc) 269
 1 Jaheira, Friend of the Forest (clb) 237 *F*
-1 Joo Dee, One of Many (tla) 105 *F*
 1 Marionette Apprentice (mh3) 100
 1 Mirkwood Bats (ltr) 421
 1 Morbid Opportunist (j25) 464
 1 Nadier's Nightblade (blc) 184
-1 Ogre Slumlord (blc) 186
 1 Peregrin Took (ltr) 181 *F*
 1 Pippin, Warden of Isengard (ltc) 65
 1 Pitiless Plunderer (lcc) 208
 1 Ruthless Knave (xln) 119
 1 Scurry of Squirrels (blc) 33
 1 Sephiroth, Fabled SOLDIER // Sephiroth, One-Winged Angel (fin) 115
+1 Simulacrum Shaper (fra) 332
 1 Species Specialist (c20) 47
 1 The Cabbage Merchant (tle) 134 *F*
+1 The Sackville-Bagginses (hob) 83
 1 The Unbeatable Squirrel Girl (msh) 193 *F*
+1 Thornvault Forager (blb) 364 *F*
+1 Tireless Provisioner (sld) 2661 *F*
 1 Wight of the Reliquary (mh3) 207
 1 Zulaport Cutthroat (blc) 190
 
 // Artifact
 1 Arcane Signet (blc) 127
-1 Ashnod's Altar (cmm) 368 *F*
-1 Bootleggers' Stash (drc) 110
 1 Cauldron of Essence (sos) 179
 1 Golgari Signet (ddj) 66
 1 Nuka-Cola Vending Machine (sld) 2462 *F*
-1 Phyrexian Altar (slc) 16
 1 Skullclamp (blc) 283
 1 Sol Ring (blc) 129
 1 Talisman of Resilience (dsc) 255
@@ -60,9 +59,10 @@
 1 Growing Rites of Itlimoc // Itlimoc, Cradle of the Sun (xln) 191
 1 Moldervine Reclamation (m20) 214
 1 Ninja Pizza (tmc) 32
-1 Parallel Lives (mar) 36
+1 Scavenger's Talent (blb) 111 *F*
 1 Springleaf Parade (ecc) 19
-1 The Meathook Massacre (inr) 122
+1 The Meathook Massacre (inr) 387 *F*
+1 Wild Growth (pip) 208
 
 // Planeswalker
 1 Liliana, Dreadhorde General (fdn) 176
@@ -71,19 +71,19 @@
 1 Assassin's Trophy (tmc) 55
 1 Fresh Meat (c14) 197
 1 Golgari Charm (plst) GK1-62
+1 Second Harvest (blc) 123
 
 // Sorcery
 1 Awaken the Woods (bro) 170
 1 Blasphemous Edict (fdn) 57
 1 Chatterstorm (blc) 210
-1 Culling Ritual (soa) 62 *F*
+1 Farseek (fic) 302 *F*
 1 Immoral Bargain (soc) 47
 1 Pest Infestation (eoc) 103
-1 Plague of Vermin (pza) 7
 1 Reprocess (sld) 2107 *F*
 1 Swarmyard Massacre (blc) 20
+1 Three Visits (fic) 315 *F*
 1 Victimize (c15) 139
-1 Withering Curse (sos) 105
 
 // Land
 1 Barad-dûr (ltr) 253

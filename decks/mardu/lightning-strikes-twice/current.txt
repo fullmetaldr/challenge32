@@ -3,9 +3,9 @@
 # Deck: Lightning Strikes Twice
 # Source: archidekt
 # URL: https://archidekt.com/decks/24889970/lightning_strikes_twice
-# Retrieved: 2026-10-06T12:18:20.655588+00:00
-# Version: 20261006T121820Z--c0e0475
-# Deck hash: sha256:c0e04758fcbdc31ef9c7365fdc355c17016b04a5dd2115a5a6866dc27d6aa71e
+# Retrieved: 2026-11-12T14:12:29.494583+00:00
+# Version: 20261112T141229Z--4397d9a
+# Deck hash: sha256:4397d9a5ad946f23423d6a597f401b7e147930cc6c01362d6b41ff391c6e6ccf
 # Cards: 100
 # Generated file; put analysis in notes/.
 // Commander
@@ -43,7 +43,7 @@
 1 Squall, SeeD Mercenary (fin) 402
 1 Sun Titan (tdc) 133
 1 Tectonic Giant (scd) 161
-1 The Master, Multiplied (who) 545
+1 The Master, Multiplied (who) 146
 1 Zurgo Stormrender (tdc) 10 *F*
 1 Zurgo, Thunder's Decree (tdm) 237
 

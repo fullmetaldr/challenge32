@@ -3,10 +3,10 @@
 # Deck: Kweh Kweh!
 # Source: archidekt
 # URL: https://archidekt.com/decks/24922076/kweh_kweh
-# Retrieved: 2026-10-06T12:18:13.596497+00:00
-# Version: 20261006T121813Z--3980eb3
-# Deck hash: sha256:3980eb3dabd737fc4264c6a880cb46d93acd3bda7b12d94f3280946099338fd2
-# Cards: 100
+# Retrieved: 2026-11-12T14:12:29.483512+00:00
+# Version: 20261112T141229Z--d260eff
+# Deck hash: sha256:d260eff3059c292dab00b5c5c9b8a6e1001a720c7271eab4415346ffbcdfe85a
+# Cards: 99
 # Generated file; put analysis in notes/.
 // Commander
 1 Choco, Seeker of Paradise (fin) 569 *F*
@@ -68,7 +68,6 @@
 1 Endless Detour (fic) 324
 1 Entish Restoration (ltr) 163
 1 Flusterstorm (soa) 18
-1 Galadriel's Dismissal (ltc) 500 *F*
 1 Growth Spiral (sld) 7054
 1 Heroic Intervention (who) 233
 1 Judgment of Alexander (fic) 455 *F*

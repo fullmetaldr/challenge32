@@ -1,0 +1,116 @@
+# Challenge32 synchronized decklist
+# Format: 2
+# Deck: APD
+# Source: archidekt
+# URL: https://archidekt.com/decks/24922346/apd
+# Retrieved: 2026-11-12T14:12:29.489776+00:00
+# Version: 20261112T141229Z--dc47340
+# Deck hash: sha256:dc4734035db50461fd49eac1cb2f4793780fbcb943ef725b2358f8c61d5c9f1a
+# Cards: 100
+# Generated file; put analysis in notes/.
+// Commander
+1 Chatterfang, Squirrel General (blc) 82
+
+// Creature
+1 Academy Manufactor (blc) 264
+1 Blood Artist (jmp) 206
+1 Braids, Arisen Nightmare (pdmu) 84p
+1 Camellia, the Seedmiser (blb) 328 *F*
+1 Dina, Essence Brewer (soc) 1
+1 Experimental Confectioner (woe) 314
+1 Gilded Goose (soc) 269
+1 Jaheira, Friend of the Forest (clb) 237 *F*
+1 Marionette Apprentice (mh3) 100
+1 Mirkwood Bats (ltr) 421
+1 Morbid Opportunist (j25) 464
+1 Nadier's Nightblade (blc) 184
+1 Peregrin Took (ltr) 181 *F*
+1 Pippin, Warden of Isengard (ltc) 65
+1 Pitiless Plunderer (lcc) 208
+1 Ruthless Knave (xln) 119
+1 Scurry of Squirrels (blc) 33
+1 Sephiroth, Fabled SOLDIER // Sephiroth, One-Winged Angel (fin) 115
+1 Simulacrum Shaper (fra) 332
+1 Species Specialist (c20) 47
+1 The Cabbage Merchant (tle) 134 *F*
+1 The Sackville-Bagginses (hob) 83
+1 The Unbeatable Squirrel Girl (msh) 193 *F*
+1 Thornvault Forager (blb) 364 *F*
+1 Tireless Provisioner (sld) 2661 *F*
+1 Wight of the Reliquary (mh3) 207
+1 Zulaport Cutthroat (blc) 190
+
+// Artifact
+1 Arcane Signet (blc) 127
+1 Cauldron of Essence (sos) 179
+1 Golgari Signet (ddj) 66
+1 Nuka-Cola Vending Machine (sld) 2462 *F*
+1 Skullclamp (blc) 283
+1 Sol Ring (blc) 129
+1 Talisman of Resilience (dsc) 255
+1 The Soul Stone (spm) 66
+1 Witch's Oven (eld) 237
+
+// Enchantment
+1 Agent of the Iron Throne (clb) 107
+1 Bastion of Remembrance (j25) 403
+1 Dictate of Erebos (sld) 2204 *F*
+1 Funeral Room // Awakening Hall (pdsk) 100p
+1 Growing Rites of Itlimoc // Itlimoc, Cradle of the Sun (xln) 191
+1 Moldervine Reclamation (m20) 214
+1 Ninja Pizza (tmc) 32
+1 Scavenger's Talent (blb) 111 *F*
+1 Springleaf Parade (ecc) 19
+1 The Meathook Massacre (inr) 387 *F*
+1 Wild Growth (pip) 208
+
+// Planeswalker
+1 Liliana, Dreadhorde General (fdn) 176
+
+// Instant
+1 Assassin's Trophy (tmc) 55
+1 Fresh Meat (c14) 197
+1 Golgari Charm (plst) GK1-62
+1 Second Harvest (blc) 123
+
+// Sorcery
+1 Awaken the Woods (bro) 170
+1 Blasphemous Edict (fdn) 57
+1 Chatterstorm (blc) 210
+1 Farseek (fic) 302 *F*
+1 Immoral Bargain (soc) 47
+1 Pest Infestation (eoc) 103
+1 Reprocess (sld) 2107 *F*
+1 Swarmyard Massacre (blc) 20
+1 Three Visits (fic) 315 *F*
+1 Victimize (c15) 139
+
+// Land
+1 Barad-dûr (ltr) 253
+1 Blooming Marsh (otj) 266
+1 Command Tower (blc) 130
+1 Deathcap Glade (sos) 253
+1 Evendo, Waking Haven (peoe) 253p
+1 Exotic Orchard (blc) 131
+4 Forest (blb) 377
+1 Grim Backwoods (dsc) 281
+1 High Market (fic) 402 *F*
+1 Ifnir Deadlands (ecc) 153
+1 Llanowar Wastes (eoc) 165
+1 Midgar, City of Mako // Reactor Raid (fin) 313 *F*
+1 Oran-Rief, the Vastwood (blc) 320
+1 Overgrown Tomb (ecl) 266
+1 Path of Ancestry (ecc) 158
+1 Phyrexian Tower (mh3) 303
+7 Swamp (blb) 373
+1 Swarmyard (eos) 42
+1 Tainted Wood (dsc) 305
+1 The Shire (ltr) 260
+1 Turbulent Fen (soc) 55
+1 Twilight Mire (eoc) 189
+1 Undergrowth Stadium (tmc) 80
+1 Verdant Catacombs (spg) 118 *F*
+1 Vernal Fen (ecc) 63
+1 Viridescent Bog (eoc) 190
+1 Wastewood Verge (pdft) 268p
+1 Woodland Cemetery (tdc) 412

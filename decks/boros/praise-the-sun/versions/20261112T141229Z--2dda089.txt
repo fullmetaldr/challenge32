@@ -1,0 +1,115 @@
+# Challenge32 synchronized decklist
+# Format: 2
+# Deck: Praise the Sun
+# Source: archidekt
+# URL: https://archidekt.com/decks/24888846/praise_the_sun
+# Retrieved: 2026-11-12T14:12:29.485788+00:00
+# Version: 20261112T141229Z--2dda089
+# Deck hash: sha256:2dda089d3d25db989cb460b04a100c6498da4cb974da6fe90b85b2b2d6d9fce3
+# Cards: 100
+# Generated file; put analysis in notes/.
+// Commander
+1 Otharri, Suns' Glory (onc) 39 *F*
+
+// Creature
+1 Adept Watershaper (ecl) 3 *F*
+1 Agate Instigator (blc) 21
+1 Boromir, Warden of the Tower (ltr) 407
+1 Delney, Streetwise Lookout (pmkm) 12p *F*
+1 Elesh Norn, Mother of Machines (one) 10
+1 Enduring Innocence (dsk) 6
+1 General Kreat, the Boltbringer (j25) 48
+1 Haliya, Guided by Light (eoe) 19 *F*
+1 Karlach, Fury of Avernus (clb) 507 *E*
+1 Kirol, Attentive First-Year (ecl) 231
+1 Lae'zel, Vlaakith's Champion (clb) 476 *E*
+1 Mentor of the Meek (fdn) 578
+1 Molten Gatekeeper (mh3) 128
+1 Mondrak, Glory Dominus (one) 23
+1 Ocelot Pride (pmh3) 38p
+1 Professional Face-Breaker (fic) 296 *F*
+1 Purphoros, God of the Forge (fca) 14 *F*
+1 Raph & Leo, Sibling Rivals (tmt) 166 *F*
+1 Rose Room Treasurer (blc) 201
+1 Rumor Gatherer (plst) SNC-29
+1 Voice of Victory (tdm) 331
+1 Weftstalker Ardent (eoe) 169
+1 Welcoming Vampire (lcc) 140
+1 Witty Roastmaster (snc) 131
+
+// Artifact
+1 Arcane Signet (tle) 315
+1 Boros Signet (tdc) 314
+1 Fellwar Stone (dmc) 182
+1 Firdoch Core (ecl) 255
+1 Mind Stone (fic) 353 *F*
+1 Panharmonicon (pip) 237
+1 Ruby Medallion (mh3) 295
+1 Sol Ring (slc) 19 *F*
+1 Talisman of Conviction (fic) 363 *F*
+1 Thought Vessel (msc) 222
+
+// Enchantment
+1 Anointed Procession (akh) 2
+1 Caretaker's Talent (blb) 6
+1 Case of the Uneaten Feast (mkm) 10
+1 Champions from Beyond (fic) 11
+1 Darksteel Mutation (cmm) 623
+1 Descent into Avernus (clb) 169
+1 Firebender Ascension (tla) 312
+1 Goblin Bombardment (mh2) 279
+1 Grasp of Fate (wot) 3
+1 Impact Tremors (wot) 44
+1 Monologue Tax (soc) 157
+1 Outpost Siege (fdc) 169
+1 Prosperous Partnership (ncc) 78
+1 Reconnaissance (acr) 82 *F*
+1 Tocasia's Welcome (pbro) 30p
+1 Windcrag Siege (ptdm) 235p
+
+// Instant
+1 Chaos Warp (fic) 291 *F*
+1 Clever Concealment (fic) 236 *F*
+1 Flare of Fortitude (mh3) 26
+1 Galadriel's Dismissal (ltc) 500 *F*
+1 Grand Crescendo (tdc) 118
+1 Path to Exile (sld) 2227 *F*
+1 Redirect Lightning (tla) 151
+1 Stroke of Midnight (tdc) 132
+1 Teferi's Protection (sta) 11 *F*
+1 Untimely Malfunction (dsk) 161
+
+// Sorcery
+1 Avatar's Wrath (tla) 12
+1 Hour of Reckoning (tdc) 120
+
+// Land
+1 Ancient Tomb (ltc) 357
+1 Battlefield Forge (fic) 375
+1 City of Brass (tmc) 62
+1 Clifftop Retreat (fic) 381
+1 Clive's Hideaway (fin) 275
+1 Command Tower (voc) 172
+1 Exotic Orchard (fic) 390
+1 Fire Nation Palace (tla) 268
+1 Inventors' Fair (plst) KLD-247
+1 Kor Haven (ltc) 368
+1 Mana Confluence (eos) 25
+1 Minas Tirith (ltr) 341
+1 Mines of Moria (ltr) 257
+1 Monumental Henge (mh3) 354
+6 Mountain (fic) 481 *F*
+1 Mutavault (clb) 903
+1 Plains (dsk) 272 *F*
+1 Plains (eoe) 267
+1 Plains (eoe) 268
+1 Plains (fdn) 282
+1 Plains (fin) 294
+4 Plains (fin) 295
+1 Plains (mh3) 310
+1 Rugged Prairie (fic) 417
+1 Sacred Foundry (eoe) 256
+1 Spectator Seating (cmm) 664
+1 Sunbillow Verge (pdft) 264p *F*
+1 Sundown Pass (who) 310
+1 Sunscorched Divide (fic) 433
