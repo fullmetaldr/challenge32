@@ -1,0 +1,110 @@
+# Challenge32 synchronized decklist
+# Format: 2
+# Deck: The Circle of Life
+# Source: archidekt
+# URL: https://archidekt.com/decks/25209011/the_circle_of_life
+# Retrieved: 2026-11-17T15:56:50.456402+00:00
+# Version: 20261117T155650Z--ff89915
+# Deck hash: sha256:ff8991501157c5203ac869f6bba37d2bf46f96db0287768227a3ba1730907c66
+# Cards: 100
+# Generated file; put analysis in notes/.
+// Commander
+1 Kambal, Profiteering Mayor (otj) 353 *F*
+
+// Creature
+1 Akroan Horse (c16) 241
+1 Auriok Champion (plst) IMA-9
+1 Belladonna Took (hob) 4
+1 Bennie Bracks, Zoologist (mkc) 57
+1 Bloodletter of Aclazotz (sld) 2502 *F*
+1 Boromir, Warden of the Tower (ltr) 4 *F*
+1 Clackbridge Troll (eld) 84
+1 Cliffhaven Vampire (ogw) 153
+1 Defiling Daemogoth (soc) 25
+1 Delney, Streetwise Lookout (pmkm) 12p
+1 Enduring Innocence (dsk) 6
+1 Enduring Tenacity (pdsk) 95p
+1 Epicure of Blood (m19) 95
+1 Haliya, Guided by Light (peoe) 19p
+1 Hunted Bonebrute (mkm) 87
+1 Hunted Horror (clb) 758
+1 Lucy MacLean, Positively Armed (sld) 2447
+1 Marauding Blight-Priest (j22) 439
+1 Marching Duodrone (clb) 321
+1 Ox Drover (woc) 42
+1 Rumor Gatherer (clb) 705
+1 Scheming Silvertongue // Sign in Blood (psos) 99p
+1 Selfless Spirit (soc) 167
+1 Slaughter Specialist (mid) 122
+1 Soul Warden (plst) MM3-24
+1 Soul's Attendant (plst) ROE-44
+1 South Wind Avatar (tmt) 78
+1 Starscape Cleric (blb) 116
+1 Stensian Sanguinist // Exsanguinate (soc) 29
+1 Suture Priest (plst) NPH-25
+1 The Sentry, Golden Guardian (msh) 35
+1 Twilight Prophet (rix) 88
+1 Vito, Thorn of the Dusk Rose (j25) 71
+1 Welcoming Vampire (pvow) 46★ *F*
+
+// Artifact
+1 Arcane Signet (woc) 145
+1 Bolas's Citadel (war) 79 *F*
+1 Bucknard's Everfull Purse (afc) 57
+1 Fellwar Stone (soc) 347
+1 Mithril Coat (ltr) 245
+1 Orzhov Signet (lcc) 310
+1 Sol Ring (lcc) 313
+1 Talisman of Hierarchy (soc) 431 *F*
+1 Thran Dynamo (cmm) 658
+
+// Enchantment
+1 Anointed Procession (plst) AKH-2
+1 Authority of the Consuls (fic) 232 *F*
+1 Dawn of Hope (wot) 2
+1 Sanguine Bond (wot) 35 *F*
+1 The War Games (who) 30
+1 Tocasia's Welcome (soc) 181
+1 Tombstone Stairwell (mir) 149
+1 Tribute to Horobi // Echo of Death's Wail (neo) 124
+
+// Instant
+1 Benevolent Offering (c14) 3
+1 Bilbo's Gambit (hob) 5
+1 Contraband Livestock (clb) 12
+1 Flawless Maneuver (cmm) 692
+1 Generous Gift (cmm) 624
+1 Stroke of Midnight (fca) 26
+1 Swords to Plowshares (lcc) 137
+
+// Sorcery
+1 Alliance of Arms (plst) CMD-4
+1 Awaken the Erstwhile (rna) 61
+1 March of Souls (pls) 10
+1 Tempt with Bunnies (blc) 13
+
+// Land
+1 Bleachbone Verge (dft) 371
+1 Cabal Coffers (ltc) 360
+1 City of Brass (2x2) 403
+1 Command Tower (tdc) 107
+1 Desolate Mire (fic) 386
+1 Evolving Wilds (ddh) 32
+1 Fetid Heath (soc) 372
+1 Forbidden Orchard (2x2) 323
+1 Godless Shrine (eoe) 280
+1 Grand Coliseum (tmc) 68
+1 Isolated Chapel (fic) 405 *F*
+1 Mana Confluence (jou) 163
+1 Marsh Flats (spg) 110
+8 Plains (sos) 267 *F*
+1 Shattered Sanctum (sos) 303 *F*
+1 Starting Town (fin) 289 *F*
+1 Susur Secundi, Void Altar (eoe) 259
+7 Swamp (sos) 269 *F*
+1 Temple of Silence (fdn) 704
+1 Turbulent Moor (soc) 104
+1 Umbral Expanse (soc) 108
+1 Urborg, Tomb of Yawgmoth (ltc) 375
+1 Vault of Champions (cmm) 667 *F*
+1 Vault of the Archangel (tdc) 410

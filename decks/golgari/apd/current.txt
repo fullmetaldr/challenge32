@@ -3,9 +3,9 @@
 # Deck: APD
 # Source: archidekt
 # URL: https://archidekt.com/decks/24922346/apd
-# Retrieved: 2026-11-12T14:12:29.489776+00:00
-# Version: 20261112T141229Z--dc47340
-# Deck hash: sha256:dc4734035db50461fd49eac1cb2f4793780fbcb943ef725b2358f8c61d5c9f1a
+# Retrieved: 2026-11-17T15:56:50.448924+00:00
+# Version: 20261117T155650Z--3dda9f7
+# Deck hash: sha256:3dda9f7e799e9accc95406a77ad68bec13241613227b7e426568eaa7d65d3dbd
 # Cards: 100
 # Generated file; put analysis in notes/.
 // Commander
@@ -44,6 +44,7 @@
 1 Arcane Signet (blc) 127
 1 Cauldron of Essence (sos) 179
 1 Golgari Signet (ddj) 66
+1 Inspiring Statuary (fic) 347 *F*
 1 Nuka-Cola Vending Machine (sld) 2462 *F*
 1 Skullclamp (blc) 283
 1 Sol Ring (blc) 129
@@ -53,7 +54,9 @@
 
 // Enchantment
 1 Agent of the Iron Throne (clb) 107
+1 Awakening Zone (soc) 262
 1 Bastion of Remembrance (j25) 403
+1 Black Market Connections (clb) 669
 1 Dictate of Erebos (sld) 2204 *F*
 1 Funeral Room // Awakening Hall (pdsk) 100p
 1 Growing Rites of Itlimoc // Itlimoc, Cradle of the Sun (xln) 191
@@ -69,7 +72,6 @@
 
 // Instant
 1 Assassin's Trophy (tmc) 55
-1 Fresh Meat (c14) 197
 1 Golgari Charm (plst) GK1-62
 1 Second Harvest (blc) 123
 
@@ -78,9 +80,7 @@
 1 Blasphemous Edict (fdn) 57
 1 Chatterstorm (blc) 210
 1 Farseek (fic) 302 *F*
-1 Immoral Bargain (soc) 47
 1 Pest Infestation (eoc) 103
-1 Reprocess (sld) 2107 *F*
 1 Swarmyard Massacre (blc) 20
 1 Three Visits (fic) 315 *F*
 1 Victimize (c15) 139
